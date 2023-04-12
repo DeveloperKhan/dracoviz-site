@@ -1,52 +1,62 @@
 {
-  "name": "gatsby-starter-wordpress-blog",
-  "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com> and Tyler Barnes <tylerdbarnes@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
-  },
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "dependencies": {
-    "gatsby": "~5.3.2",
-    "gatsby-plugin-image": "^3.3.2",
-    "gatsby-plugin-manifest": "^5.3.1",
-    "gatsby-plugin-offline": "^6.3.1",
-    "gatsby-plugin-react-helmet": "^6.3.0",
-    "gatsby-plugin-sharp": "^5.3.2",
-    "gatsby-source-filesystem": "^5.3.1",
-    "gatsby-source-wordpress": "^7.3.2",
-    "gatsby-transformer-sharp": "^5.3.1",
-    "html-react-parser": "^3.0.4",
-    "lodash": "^4.17.20",
-    "postcss": "^8.2.10",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
-    "typeface-merriweather": "1.1.13",
-    "typeface-montserrat": "1.1.13"
-  },
-  "devDependencies": {
-    "dumper.js": "^1.3.1",
-    "prettier": "2.8.1"
-  }
+    "name": "dracoviz-site",
+    "private": true,
+    "description": "Website for dracoviz.com",
+    "version": "1.0.0",
+    "author": "Adib Khan",
+    "bugs": {
+        "url": "https://github.com/DeveloperKhan/dracoviz-site/issues"
+    },
+    "homepage": "https://dracoviz.com",
+    "keywords": [
+        "gatsby"
+    ],
+    "license": "0BSD",
+    "main": "n/a",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DeveloperKhan/dracoviz-site.git"
+    },
+    "scripts": {
+        "build": "gatsby build",
+        "develop": "gatsby develop",
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+        "start": "npm run develop",
+        "serve": "gatsby serve",
+        "clean": "gatsby clean",
+        "lint": "eslint .",
+        "lint:fix": "eslint --fix",
+        "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    },
+    "dependencies": {
+        "gatsby": "~5.3.2",
+        "gatsby-plugin-image": "^3.3.2",
+        "gatsby-plugin-manifest": "^5.3.1",
+        "gatsby-plugin-offline": "^6.3.1",
+        "gatsby-plugin-react-helmet": "^6.3.0",
+        "gatsby-plugin-sharp": "^5.3.2",
+        "gatsby-source-filesystem": "^5.3.1",
+        "gatsby-source-wordpress": "^7.3.2",
+        "gatsby-transformer-sharp": "^5.3.1",
+        "html-react-parser": "^3.0.4",
+        "lodash": "^4.17.20",
+        "postcss": "^8.2.10",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-helmet": "^6.1.0",
+        "typeface-merriweather": "1.1.13",
+        "typeface-montserrat": "1.1.13"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.58.0",
+        "@typescript-eslint/parser": "^5.58.0",
+        "dumper.js": "^1.3.1",
+        "eslint": "^7.32.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-jsx-a11y": "^6.7.1",
+        "eslint-plugin-react": "^7.32.2",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "prettier": "2.8.1"
+    }
 }

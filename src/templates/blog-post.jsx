@@ -1,25 +1,25 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
-import parse from "html-react-parser"
+import React from 'react';
+import { Link, graphql } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import parse from 'html-react-parser';
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
 // version used by the Gatsby and @wordpress packages that causes build
 // failures.
 // @todo update this once @wordpress upgrades their postcss version
-import "../css/@wordpress/block-library/build-style/style.css"
-import "../css/@wordpress/block-library/build-style/theme.css"
+import '../css/@wordpress/block-library/build-style/style.css';
+import '../css/@wordpress/block-library/build-style/theme.css';
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Bio from '../components/bio';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
 
-const BlogPostTemplate = ({ data: { previous, next, post } }) => {
+function BlogPostTemplate({ data: { previous, next, post } }) {
   const featuredImage = {
     data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: post.featuredImage?.node?.alt || ``,
-  }
+    alt: post.featuredImage?.node?.alt || '',
+  };
 
   return (
     <Layout>
@@ -59,17 +59,19 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
       <nav className="blog-post-nav">
         <ul
           style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            listStyle: 'none',
             padding: 0,
           }}
         >
           <li>
             {previous && (
               <Link to={previous.uri} rel="prev">
-                ← {parse(previous.title)}
+                ←
+                {' '}
+                {parse(previous.title)}
               </Link>
             )}
           </li>
@@ -77,17 +79,19 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
           <li>
             {next && (
               <Link to={next.uri} rel="next">
-                {parse(next.title)} →
+                {parse(next.title)}
+                {' '}
+                →
               </Link>
             )}
           </li>
         </ul>
       </nav>
     </Layout>
-  )
+  );
 }
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostById(
@@ -125,4 +129,4 @@ export const pageQuery = graphql`
       title
     }
   }
-`
+`;

@@ -1,16 +1,17 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import parse from "html-react-parser"
+import React from 'react';
+import { Link, graphql } from 'gatsby';
+import parse from 'html-react-parser';
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Bio from '../components/bio';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
 
-const BlogIndex = ({
+function BlogIndex({
   data,
   pageContext: { nextPagePath, previousPagePath },
-}) => {
-  const posts = data.allWpPost.nodes
+}) {
+  const posts = data.allWpPost.nodes;
+  const missingPostText = "No blog posts found. Add posts to your WordPress site and they'll appear here!";
 
   if (!posts.length) {
     return (
@@ -18,11 +19,10 @@ const BlogIndex = ({
         <Seo title="All posts" />
         <Bio />
         <p>
-          No blog posts found. Add posts to your WordPress site and they'll
-          appear here!
+          {missingPostText}
         </p>
       </Layout>
-    )
+    );
   }
 
   return (
@@ -31,9 +31,9 @@ const BlogIndex = ({
 
       <Bio />
 
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.title
+      <ol style={{ listStyle: 'none' }}>
+        {posts.map((post) => {
+          const { title } = post;
 
           return (
             <li key={post.uri}>
@@ -53,7 +53,7 @@ const BlogIndex = ({
                 <section itemProp="description">{parse(post.excerpt)}</section>
               </article>
             </li>
-          )
+          );
         })}
       </ol>
 
@@ -65,10 +65,10 @@ const BlogIndex = ({
       )}
       {nextPagePath && <Link to={nextPagePath}>Next page</Link>}
     </Layout>
-  )
+  );
 }
 
-export default BlogIndex
+export default BlogIndex;
 
 export const pageQuery = graphql`
   query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
@@ -86,4 +86,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
