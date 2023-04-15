@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import parse from 'html-react-parser';
@@ -37,6 +37,12 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
     alt: post.featuredImage?.node?.alt || '',
   };
 
+  const [content, setContent] = useState();
+
+  useEffect(() => {
+    setContent(parse(post.content, options));
+  }, []);
+
   return (
     <Layout>
       <Seo title={post.title} description={post.excerpt} />
@@ -61,11 +67,9 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
           )}
         </header>
 
-        {!!post.content && (
-          <section itemProp="articleBody">
-            {parse(post.content, options)}
-          </section>
-        )}
+        <section itemProp="articleBody">
+          {content}
+        </section>
 
         <hr />
 
