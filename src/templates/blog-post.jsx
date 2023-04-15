@@ -11,9 +11,25 @@ import parse from 'html-react-parser';
 import '../css/@wordpress/block-library/build-style/style.css';
 import '../css/@wordpress/block-library/build-style/theme.css';
 
+import { Helmet } from 'react-helmet';
 import Bio from '../components/bio';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
+
+const options = {
+  replace: ({ attribs, children }) => {
+    if (!attribs) {
+      return undefined;
+    }
+
+    // Tableau dashboards
+    if (attribs.type === 'text/javascript') {
+      return <Helmet><script>{children[0].data}</script></Helmet>;
+    }
+
+    return undefined;
+  },
+};
 
 function BlogPostTemplate({ data: { previous, next, post } }) {
   const featuredImage = {
@@ -46,7 +62,9 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
         </header>
 
         {!!post.content && (
-          <section itemProp="articleBody">{parse(post.content)}</section>
+          <section itemProp="articleBody">
+            {parse(post.content, options)}
+          </section>
         )}
 
         <hr />
