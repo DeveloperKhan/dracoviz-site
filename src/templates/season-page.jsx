@@ -39,7 +39,7 @@ function SeasonPage({ data: { allWpPost, page } }) {
     <div className="global-wrapper" data-is-root-path>
       <Seo title={page.title} description={page.excerpt} />
       <header id="season-head">
-        <Logo />
+        <Logo style={{ marginBottom: 10 }} />
         <div className="headline-container">
           <h1 className="headline" itemProp="headline">
             <b>PLAY!</b>

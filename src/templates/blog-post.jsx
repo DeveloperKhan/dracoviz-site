@@ -74,15 +74,8 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
       </article>
 
       <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
-          }}
-        >
+        <h3>Related Events</h3>
+        <ul>
           <li>
             {previous && (
               <Link to={previous.uri} rel="prev">

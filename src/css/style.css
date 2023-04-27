@@ -249,9 +249,14 @@ a:focus {
 
 /* Custom classes */
 
+.global-wrapper {
+  margin-bottom: var(--spacing-20);
+}
+
 .logo-wrapper {
   max-width: var(--maxWidth-4xl);
-  margin: var(--spacing-0) auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .logo {
@@ -259,7 +264,6 @@ a:focus {
   position: relative;
   padding: var(--spacing-2) var(--spacing-5);
   background-color: white;
-  margin-bottom: var(--spacing-5);
 }
 
 #season-head {
@@ -336,13 +340,6 @@ a:focus {
   margin-bottom: var(--spacing-4);
 }
 
-.header-link-home {
-  font-weight: var(--fontWeight-bold);
-  font-family: var(--font-heading);
-  text-decoration: none;
-  font-size: var(--fontSize-2);
-}
-
 .blog-post header h1 {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
 }
@@ -352,8 +349,15 @@ a:focus {
   font-family: var(--font-heading);
 }
 
+.blog-post-nav {
+  width: var(--maxWidth-wrapper);
+  margin: 0 auto;
+}
+
 .blog-post-nav ul {
-  margin: var(--spacing-0);
+  margin: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .gatsby-highlight {

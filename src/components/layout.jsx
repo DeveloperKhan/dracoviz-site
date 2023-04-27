@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
+import Logo from './logo';
 
 function Layout({ children }) {
   const {
@@ -21,7 +22,7 @@ function Layout({ children }) {
     <div className="global-wrapper">
       <header className="global-header">
         <Link className="header-link-home" to="/">
-          {title}
+          <Logo style={{ marginTop: 10, marginBottom: 10 }} />
         </Link>
       </header>
 

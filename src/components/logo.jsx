@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Logo() {
+function Logo({ style }) {
   return (
-    <div className="logo-wrapper">
+    <div className="logo-wrapper" style={style}>
       <div className="logo">Dracoviz</div>
     </div>
   );
