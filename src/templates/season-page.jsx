@@ -1,8 +1,66 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
+import parse from 'html-react-parser';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
-function SeasonPage() {
-  return (<div>Meowdy</div>);
+import Layout from '../components/layout';
+import Seo from '../components/seo';
+
+const options = {
+  replace: ({ attribs, children }) => {
+    if (!attribs) {
+      return undefined;
+    }
+
+    // Tableau dashboards
+    if (attribs.type === 'text/javascript') {
+      return <Helmet><script>{children[0].data}</script></Helmet>;
+    }
+
+    return undefined;
+  },
+};
+
+function SeasonPage({ data: { allWpPost, page } }) {
+  const posts = allWpPost.nodes;
+  const featuredImage = {
+    data: page.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
+    alt: page.featuredImage?.node?.alt || '',
+  };
+
+  const [content, setContent] = useState();
+
+  useEffect(() => {
+    setContent(parse(page.content, options));
+  }, []);
+
+  return (
+    <Layout>
+      <Seo title={page.title} description={page.excerpt} />
+      <article
+        id="season-page"
+        itemScope
+        itemType="http://schema.org/Article"
+      >
+        <header>
+          <h1 itemProp="headline">{parse(page.title)}</h1>
+          {/* if we have a featured image for this post let's display it */}
+          {featuredImage?.data && (
+            <GatsbyImage
+              image={featuredImage.data}
+              alt={featuredImage.alt}
+              style={{ marginBottom: 50 }}
+            />
+          )}
+        </header>
+
+        <section className="article-body" itemProp="articleBody">
+          {content}
+        </section>
+      </article>
+    </Layout>
+  );
 }
 
 export default SeasonPage;
