@@ -370,6 +370,9 @@ a:focus {
   .headline {
     padding: var(--spacing-5);
   }
+  .tableauPlaceholder {
+    max-width: var(--maxWidth-full);
+  }
   ul,
   ol {
     list-style-position: inside;
