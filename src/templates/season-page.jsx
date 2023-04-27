@@ -4,8 +4,8 @@ import { Helmet } from 'react-helmet';
 import parse from 'html-react-parser';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
-import Layout from '../components/layout';
 import Seo from '../components/seo';
+import Logo from '../components/logo';
 
 const options = {
   replace: ({ attribs, children }) => {
@@ -36,30 +36,39 @@ function SeasonPage({ data: { allWpPost, page } }) {
   }, []);
 
   return (
-    <Layout>
+    <div className="global-wrapper" data-is-root-path>
       <Seo title={page.title} description={page.excerpt} />
+      <header id="season-head">
+        <Logo />
+        <div className="headline-container">
+          <h1 className="headline" itemProp="headline">
+            <b>PLAY!</b>
+            {' '}
+            POKEMON GO
+            <div className="headline-sub">
+              CHAMPIONSHIP SERIES 2023
+            </div>
+          </h1>
+          {/* if we have a featured image for this post let's display it */}
+          {featuredImage?.data && (
+          <GatsbyImage
+            className="headline-image"
+            image={featuredImage.data}
+            alt={featuredImage.alt}
+          />
+          )}
+        </div>
+      </header>
       <article
         id="season-page"
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h1 itemProp="headline">{parse(page.title)}</h1>
-          {/* if we have a featured image for this post let's display it */}
-          {featuredImage?.data && (
-            <GatsbyImage
-              image={featuredImage.data}
-              alt={featuredImage.alt}
-              style={{ marginBottom: 50 }}
-            />
-          )}
-        </header>
-
         <section className="article-body" itemProp="articleBody">
           {content}
         </section>
       </article>
-    </Layout>
+    </div>
   );
 }
 

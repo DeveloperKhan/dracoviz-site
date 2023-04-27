@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
-import parse from 'html-react-parser';
 
-function Layout({ isHomePage, children }) {
+function Layout({ children }) {
   const {
     wp: {
       generalSettings: { title },
@@ -19,17 +18,11 @@ function Layout({ isHomePage, children }) {
   `);
 
   return (
-    <div className="global-wrapper" data-is-root-path={isHomePage}>
+    <div className="global-wrapper">
       <header className="global-header">
-        {isHomePage ? (
-          <h1 className="main-heading">
-            <Link to="/">{parse(title)}</Link>
-          </h1>
-        ) : (
-          <Link className="header-link-home" to="/">
-            {title}
-          </Link>
-        )}
+        <Link className="header-link-home" to="/">
+          {title}
+        </Link>
       </header>
 
       <main>{children}</main>

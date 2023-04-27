@@ -51,19 +51,21 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
+        {/* if we have a featured image for this post let's display it */}
+        {featuredImage?.data && (
+        <GatsbyImage
+          image={featuredImage.data}
+          alt={featuredImage.alt}
+          style={{ marginBottom: 50, maxHeight: 700 }}
+        />
+        )}
+        <header className="is-layout-constrained" style={{ marginBottom: 50 }}>
           <h1 itemProp="headline">{parse(post.title)}</h1>
-
-          <p>{post.date}</p>
-
-          {/* if we have a featured image for this post let's display it */}
-          {featuredImage?.data && (
-            <GatsbyImage
-              image={featuredImage.data}
-              alt={featuredImage.alt}
-              style={{ marginBottom: 50 }}
-            />
-          )}
+          <small>
+            Last Updated:
+            {' '}
+            {post.date}
+          </small>
         </header>
 
         <section itemProp="articleBody">
