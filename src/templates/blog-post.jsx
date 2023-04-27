@@ -12,7 +12,6 @@ import '../css/@wordpress/block-library/build-style/style.css';
 import '../css/@wordpress/block-library/build-style/theme.css';
 
 import { Helmet } from 'react-helmet';
-import Bio from '../components/bio';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 
@@ -70,12 +69,6 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
         <section itemProp="articleBody">
           {content}
         </section>
-
-        <hr />
-
-        <footer>
-          <Bio />
-        </footer>
       </article>
 
       <nav className="blog-post-nav">
