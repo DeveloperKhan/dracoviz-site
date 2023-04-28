@@ -15,7 +15,7 @@ function SeasonPage({ data: { allWpPost, page } }) {
     alt: page.featuredImage?.node?.alt || '',
   };
 
-  const options = useCallback(() => ({
+  const options = {
     // eslint-disable-next-line react/no-unstable-nested-components
     replace: ({ attribs, children }) => {
       if (!attribs) {
@@ -34,7 +34,7 @@ function SeasonPage({ data: { allWpPost, page } }) {
 
       return undefined;
     },
-  }), []);
+  };
 
   const [content, setContent] = useState();
 
