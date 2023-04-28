@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import parse from 'html-react-parser';
