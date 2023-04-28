@@ -49,7 +49,7 @@
   /* 1.200 Minor Third Type Scale */
   --fontSize-0: 0.833rem;
   --fontSize-1: 1rem;
-  --fontSize-2: 1.25rem;
+  --fontSize-2: 1.2rem;
   --fontSize-3: 2rem;
   --fontSize-4: 2.1rem;
   --fontSize-5: 2.3rem;
@@ -308,6 +308,107 @@ a:focus {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
 
+.article-item-categories {
+  margin-bottom: var(--spacing-2);
+}
+
+.article-item-categories .pill + .pill {
+  margin-left: var(--spacing-4);
+}
+
+.article-item-content h3 {
+  margin-top: 0;
+  color: var(--color-text);
+}
+
+.article-item-content p {
+  color: var(--color-text-light);
+}
+
+#event-schedule {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.event-tab-list {
+  display: inline-block;
+  margin-right: var(--spacing-4);
+  border-right: 1px solid var(--color-light);
+}
+
+.event-tab {
+  font-family: var(--fontFamily-sans);
+  font-weight: var(--fontWeight-medium);
+  list-style: none;
+  padding: var(--spacing-2) var(--spacing-5);
+  color: var(--color-text-light);
+  margin: 0 0 var(--spacing-1) 0;
+  cursor: pointer;
+  text-align: center;
+}
+
+.event-tab[aria-selected="true"] {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+.pill {
+  font-family: var(--fontFamily-sans);
+  border-radius: 16px;
+  padding: 2px var(--spacing-2);
+}
+
+.pill-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.pill-accent {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+.pill-red {
+  background-color: #FE2F22;
+  color: white;
+} 
+
+.pill-green {
+  background-color: #42EBB1;
+  color: var(--color-text);
+}
+
+.pill-purple {
+  background-color: #ABA4FF;
+  color: var(--color-text);
+}
+
+.pill-blue {
+  background-color: #FF76D5;
+  color: var(--color-text);
+}
+
+.pill-pink {
+  background-color: #4460FF;
+  color: white;
+}
+
+.pill-black {
+  background-color: black;
+  color: white;
+}
+
+.pill-grey {
+  background-color: var(--color-light);
+  color: var(--color-text);
+}
+
+.pill-white {
+  background-color: white;
+  color: var(--color-text);
+}
+
 .article-body {
   margin: 0 var(--spacing-5);
 }
@@ -364,6 +465,10 @@ a:focus {
 
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
+}
+
+.tableauPlaceholder {
+  max-width: var(--maxWidth-3xl);
 }
 
 /* Media queries */

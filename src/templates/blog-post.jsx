@@ -14,6 +14,7 @@ import '../css/@wordpress/block-library/build-style/theme.css';
 import { Helmet } from 'react-helmet';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
+import Pills from '../components/pills';
 
 const options = {
   replace: ({ attribs, children }) => {
@@ -61,6 +62,7 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
         )}
         <header className="is-layout-constrained" style={{ marginBottom: 50 }}>
           <h1 itemProp="headline">{parse(post.title)}</h1>
+          <Pills categories={post.categories.nodes} />
           <small>
             Last Updated:
             {' '}
@@ -114,6 +116,12 @@ export const pageQuery = graphql`
       excerpt
       content
       title
+      categories {
+        nodes {
+          name
+          slug
+        }
+      }
       date(formatString: "MMMM DD, YYYY")
       featuredImage {
         node {

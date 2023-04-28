@@ -109,6 +109,7 @@ export const pageQuery = graphql`
       filter: {categories: {nodes: {elemMatch: {slug: {eq: "2023-series"}}}}}
     ) {
       nodes {
+        id
         uri
         date(formatString: "MMMM DD, YYYY")
         title
@@ -116,6 +117,7 @@ export const pageQuery = graphql`
         categories {
           nodes {
             name
+            slug
           }
         }
         tags {
