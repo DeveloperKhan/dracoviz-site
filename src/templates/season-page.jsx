@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import parse from 'html-react-parser';
@@ -6,21 +6,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 
 import Seo from '../components/seo';
 import Logo from '../components/logo';
-
-const options = {
-  replace: ({ attribs, children }) => {
-    if (!attribs) {
-      return undefined;
-    }
-
-    // Tableau dashboards
-    if (attribs.type === 'text/javascript') {
-      return <Helmet><script>{children[0].data}</script></Helmet>;
-    }
-
-    return undefined;
-  },
-};
+import Schedule from '../components/schedule';
 
 function SeasonPage({ data: { allWpPost, page } }) {
   const posts = allWpPost.nodes;
@@ -28,6 +14,27 @@ function SeasonPage({ data: { allWpPost, page } }) {
     data: page.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
     alt: page.featuredImage?.node?.alt || '',
   };
+
+  const options = useCallback(() => ({
+    // eslint-disable-next-line react/no-unstable-nested-components
+    replace: ({ attribs, children }) => {
+      if (!attribs) {
+        return undefined;
+      }
+
+      // Event schedule
+      if (attribs.id === 'event-schedule') {
+        return <Schedule data={posts} />;
+      }
+
+      // Tableau dashboards
+      if (attribs.type === 'text/javascript') {
+        return <Helmet><script>{children[0].data}</script></Helmet>;
+      }
+
+      return undefined;
+    },
+  }), []);
 
   const [content, setContent] = useState();
 

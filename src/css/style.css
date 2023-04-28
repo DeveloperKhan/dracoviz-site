@@ -41,6 +41,7 @@
   --fontWeight-extrabold: 800;
   --fontWeight-black: 900;
   --fontSize-root: 16px;
+  --fontSize-root-small: 14px;
   --lineHeight-none: 1;
   --lineHeight-tight: 1.1;
   --lineHeight-normal: 1.5;
@@ -264,11 +265,11 @@ a:focus {
   position: relative;
   padding: var(--spacing-2) var(--spacing-5);
   background-color: white;
-  height: 55px;
+  height: 3.125rem;
 }
 
 #season-head {
-  padding: var(--spacing-10) 0 var(--spacing-20) 0;
+  padding: var(--spacing-3) 0 var(--spacing-20) 0;
   margin-bottom: var(--spacing-32);
   background: white;
   background-image: radial-gradient(#D4E5F9 1.25px, transparent 0);
@@ -302,8 +303,8 @@ a:focus {
   position: absolute;
   top: 0;
   right: 0;
-  width: 750px;
-  height: 375px;
+  width: 46rem;
+  height: 23.5rem;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
 
@@ -372,11 +373,17 @@ a:focus {
     padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
     margin-left: var(--spacing-0);
   }
+  html {
+    font-size: var(--fontSize-root-small);
+  }
   .headline {
     padding: var(--spacing-5);
   }
   .tableauPlaceholder {
     max-width: var(--maxWidth-full);
+  }
+  .blog-post-nav {
+    padding: 0 var(--spacing-5);
   }
   ul,
   ol {

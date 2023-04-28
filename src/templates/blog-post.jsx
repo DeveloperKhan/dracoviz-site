@@ -56,7 +56,7 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
         <GatsbyImage
           image={featuredImage.data}
           alt={featuredImage.alt}
-          style={{ marginBottom: 50, maxHeight: 700 }}
+          style={{ marginBottom: 50, maxHeight: '30em' }}
         />
         )}
         <header className="is-layout-constrained" style={{ marginBottom: 50 }}>
@@ -68,7 +68,7 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
           </small>
         </header>
 
-        <section itemProp="articleBody">
+        <section className="article-body" itemProp="articleBody">
           {content}
         </section>
       </article>
