@@ -25,6 +25,7 @@
         // note you must disable the base rule as it can report incorrect errors
         "no-use-before-define": "off",
         "react/prop-types": "off",
+        "react/jsx-props-no-spreading": "off",
         "@typescript-eslint/no-use-before-define": ["error"]
     }
 }
