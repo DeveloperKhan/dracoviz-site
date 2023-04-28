@@ -12,9 +12,9 @@ import '../css/@wordpress/block-library/build-style/style.css';
 import '../css/@wordpress/block-library/build-style/theme.css';
 
 import { Helmet } from 'react-helmet';
-import Bio from '../components/bio';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
+import Pills from '../components/pills';
 
 const options = {
   replace: ({ attribs, children }) => {
@@ -52,42 +52,32 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
+        {/* if we have a featured image for this post let's display it */}
+        {featuredImage?.data && (
+        <GatsbyImage
+          image={featuredImage.data}
+          alt={featuredImage.alt}
+          style={{ marginBottom: 50, maxHeight: '30em' }}
+        />
+        )}
+        <header className="is-layout-constrained" style={{ marginBottom: 50 }}>
           <h1 itemProp="headline">{parse(post.title)}</h1>
-
-          <p>{post.date}</p>
-
-          {/* if we have a featured image for this post let's display it */}
-          {featuredImage?.data && (
-            <GatsbyImage
-              image={featuredImage.data}
-              alt={featuredImage.alt}
-              style={{ marginBottom: 50 }}
-            />
-          )}
+          <Pills categories={post.categories.nodes} />
+          <small>
+            Last Updated:
+            {' '}
+            {post.date}
+          </small>
         </header>
 
-        <section itemProp="articleBody">
+        <section className="article-body" itemProp="articleBody">
           {content}
         </section>
-
-        <hr />
-
-        <footer>
-          <Bio />
-        </footer>
       </article>
 
       <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
-          }}
-        >
+        <h3>Related Events</h3>
+        <ul>
           <li>
             {previous && (
               <Link to={previous.uri} rel="prev">
@@ -126,6 +116,12 @@ export const pageQuery = graphql`
       excerpt
       content
       title
+      categories {
+        nodes {
+          name
+          slug
+        }
+      }
       date(formatString: "MMMM DD, YYYY")
       featuredImage {
         node {
