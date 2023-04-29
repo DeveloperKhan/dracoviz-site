@@ -3,10 +3,27 @@ import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import parse from 'html-react-parser';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { Element } from 'react-scroll';
 
 import Seo from '../components/seo';
 import Logo from '../components/logo';
 import Schedule from '../components/schedule';
+import TableOfContents from '../components/table-of-contents';
+
+const tableOfContentsItems = [
+  {
+    location: 'event-schedule',
+    title: 'Schedule',
+  },
+  {
+    location: 'usage',
+    title: 'Usage',
+  },
+  {
+    location: 'teams',
+    title: 'Teams',
+  },
+];
 
 function SeasonPage({ data: { allWpPost, page } }) {
   const posts = allWpPost.nodes;
@@ -15,30 +32,34 @@ function SeasonPage({ data: { allWpPost, page } }) {
     alt: page.featuredImage?.node?.alt || '',
   };
 
-  const options = {
-    // eslint-disable-next-line react/no-unstable-nested-components
-    replace: ({ attribs, children }) => {
-      if (!attribs) {
-        return undefined;
-      }
-
-      // Event schedule
-      if (attribs.id === 'event-schedule') {
-        return <Schedule data={posts} />;
-      }
-
-      // Tableau dashboards
-      if (attribs.type === 'text/javascript') {
-        return <Helmet><script>{children[0].data}</script></Helmet>;
-      }
-
-      return undefined;
-    },
-  };
-
   const [content, setContent] = useState();
 
   useEffect(() => {
+    const options = {
+      // eslint-disable-next-line react/no-unstable-nested-components
+      replace: ({ attribs, children }) => {
+        if (!attribs) {
+          return undefined;
+        }
+
+        if (attribs.type === 'div' && attribs.id != null) {
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          return <Element><div {...attribs}>{children[0].data}</div></Element>;
+        }
+
+        // Event schedule
+        if (attribs.id === 'event-schedule') {
+          return <Schedule data={posts} />;
+        }
+
+        // Tableau dashboards
+        if (attribs.type === 'text/javascript') {
+          return <Helmet><script>{children[0].data}</script></Helmet>;
+        }
+
+        return undefined;
+      },
+    };
     setContent(parse(page.content, options));
   }, []);
 
@@ -48,14 +69,16 @@ function SeasonPage({ data: { allWpPost, page } }) {
       <header id="season-head">
         <Logo style={{ marginBottom: 10 }} />
         <div className="headline-container">
-          <h1 className="headline" itemProp="headline">
-            <b>PLAY!</b>
-            {' '}
-            POKEMON GO
-            <div className="headline-sub">
-              CHAMPIONSHIP SERIES 2023
-            </div>
-          </h1>
+          <div>
+            <h1 className="headline" itemProp="headline">
+              <b>PLAY!</b>
+              {' '}
+              POKEMON GO
+              <div className="headline-sub">
+                CHAMPIONSHIP SERIES 2023
+              </div>
+            </h1>
+          </div>
           {/* if we have a featured image for this post let's display it */}
           {featuredImage?.data && (
           <GatsbyImage
@@ -66,6 +89,7 @@ function SeasonPage({ data: { allWpPost, page } }) {
           )}
         </div>
       </header>
+      <TableOfContents items={tableOfContentsItems} />
       <article
         id="season-page"
         itemScope
