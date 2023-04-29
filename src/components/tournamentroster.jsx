@@ -189,7 +189,7 @@ function TournamentRoster() {
 
             players.data.forEach((player) => {
               playerDict[player.name] = player;
-              const rosterHtml = parse(getRosterHTML(player));
+              const rosterHtml = getRosterHTML(player);
               newProducts.push({
                 placement: (
                   <div>

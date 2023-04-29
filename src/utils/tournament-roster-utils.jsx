@@ -1,3 +1,8 @@
+import React from 'react';
+import BestBuddy from '../../content/assets/best_buddy_small.png';
+import Purified from '../../content/assets/purified_small.png';
+import Shadow from '../../content/assets/shadow_small.png';
+
 function compare(a, b) {
   if (a.name < b.name) {
     return -1;
@@ -26,12 +31,11 @@ function capitalize(s) {
 }
 
 export function getRosterHTML(player) {
-  let rosterString = '';
   if (player === undefined) {
-    return rosterString;
+    return null;
   }
   player.roster.sort(compare);
-  player.roster.forEach((pokemon) => {
+  return player.roster.map((pokemon) => {
     let pokemonName = pokemon.name.toLowerCase().replace('_', '-')
       .replace(' ', '-')
       .replace('.', '')
@@ -74,24 +78,49 @@ export function getRosterHTML(player) {
       }
     }
 
-    rosterString = `${rosterString}<div data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="top" title="${
+    const title = `${
       capitalize(formString.replace('-', '') + (formString ? ' ' : '') + capitalize(pokemonName))} ${
       pokemon.cp} CP${
       pokemon.shadow ? ' Shadow' : ''
     }${pokemon.purified ? ' Purified' : ''
     }${pokemon.best_buddy ? ' Best Buddy' : ''
-    }" width="69px" height="69px" class="parent">`;
-    if (pokemon.best_buddy) {
-      rosterString += '<img class="image2" width="69px" src="/content/assets/best_buddy_small.png"></img>';
-    }
-    if (pokemon.shadow) {
-      rosterString += '<img class="image2" width="69px" height="69px" src="/content/assets/shadow_small.png"></img>';
-    }
-    if (pokemon.purified) {
-      rosterString += '<img class="image2" width="69px" height="69px" src="/content/assets/purified_small.png"></img>';
-    }
-    rosterString += (`<img width="69px" height="69px" class="image1" src="https://img.pokemondb.net/sprites/go/normal/${
-      pokemonName}${formString}.png"></img></div>`);
+    }`;
+
+    const getBestBuddy = () => {
+      if (pokemon.best_buddy) {
+        return (<img className="image2" width="69px" alt="Best Buddy" src={BestBuddy} />);
+      }
+      return null;
+    };
+
+    const getShadow = () => {
+      if (pokemon.shadow) {
+        return (<img className="image2" width="69px" alt="Shadow" height="69px" src={Shadow} />);
+      }
+      return null;
+    };
+
+    const getPurified = () => {
+      if (pokemon.purified) {
+        return (<img className="image2" width="69px" alt="Purified" height="69px" src={Purified} />);
+      }
+      return null;
+    };
+
+    return (
+      <div data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="top" title={title} width="69px" height="69px" className="parent">
+        {getBestBuddy()}
+        {getShadow()}
+        {getPurified()}
+        <img
+          width="69px"
+          height="69px"
+          className="image1"
+          alt={pokemonName}
+          src={`https://img.pokemondb.net/sprites/go/normal/${
+            pokemonName}${formString}.png`}
+        />
+      </div>
+    );
   });
-  return rosterString;
 }
