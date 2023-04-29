@@ -1,13 +1,11 @@
 // File: index.js
 // Author: Andrew Taphorn
 // Date: April 19th, 2018
-import { getTournament, getMatches } from './controllers/tournament';
 
-export default function handler(req, res) {
-  console.log(req);
-  return res.json({
-    message: `Hello World!`,
+function handler(req, res) {
+  res.status(200).json({
+    message: `Welcome to dracoviz serverless!`,
   });
 }
-// app.use('api/tournament/get', getTournament);
-// app.use('api/tournament/matches/get', getMatches);
+
+export default handler;

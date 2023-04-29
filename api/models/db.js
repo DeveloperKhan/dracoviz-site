@@ -1,11 +1,6 @@
 // File: db.js
 import mongoose, { connect } from 'mongoose';
 
-const mongo = "secret"
-connect(
-    mongo,
-    { useNewUrlParser: true, useUnifiedTopology: true },
-    () => console.log(" Mongoose is connected")
-  );
-
+const mongo = process.env.GATSBY_MONGODB_URL
+connect(mongo, { useNewUrlParser: true, useUnifiedTopology: true });
 export default mongoose;
