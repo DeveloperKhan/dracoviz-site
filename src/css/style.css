@@ -298,6 +298,7 @@ a:focus {
   justify-content: space-between;
   align-items: center;
   max-width: var(--maxWidth-3xl);
+  border-bottom: solid 1px var(--color-light);
   margin: 0 auto;
 }
 
@@ -313,6 +314,7 @@ a:focus {
 .table-of-contents-item.active {
   color: var(--color-text);
   border-bottom: solid 3px var(--color-primary);
+  margin-bottom: -3px;
 }
 
 .headline-container {
@@ -347,12 +349,25 @@ a:focus {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
 
+.article-item {
+  margin-bottom: var(--spacing-8);
+}
+
+.article-large {
+  border: solid 1px var(--color-light);
+  border-radius: 5px;
+}
+
 .article-item-categories {
   margin-bottom: var(--spacing-2);
 }
 
 .article-item-categories .pill + .pill {
   margin-left: var(--spacing-4);
+}
+
+.article-item-content-large {
+  padding: 0 var(--spacing-4) var(--spacing-3) var(--spacing-4);
 }
 
 .article-item-content h3 {
@@ -362,6 +377,7 @@ a:focus {
 
 .article-item-content p {
   color: var(--color-text-light);
+  margin-bottom: 0;
 }
 
 #event-schedule {
