@@ -276,11 +276,51 @@ a:focus {
   background-size: 12px 12px;
 }
 
-.headline-container {
+#season-page {
+  width: var(--maxWidth-full);
+  overflow-x: hidden;
+}
+
+#table-of-contents {
+  width: var(--maxWidth-full);
+  background-color: white;
+  position: -webkit-sticky;
+  position: sticky;
   display: block;
+  top: 0;
+  padding-top: var(--spacing-2);
+  z-index: 999999;
+}
+
+.table-of-contents-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--maxWidth-3xl);
+  margin: 0 auto;
+}
+
+.table-of-contents-item {
+  color: var(--color-text-light);
+  font-weight: var(--fontWeight-semibold);
+  font-family: var(--fontFamily-sans);
+  font-size: var(--fontSize-2);
+  cursor: pointer;
+  padding: var(--spacing-1) var(--spacing-2);
+}
+
+.table-of-contents-item.active {
+  color: var(--color-text);
+  border-bottom: solid 3px var(--color-primary);
+}
+
+.headline-container {
+  display: flex;
+  justify-content: space-between;
   position: relative;
   max-width: var(--maxWidth-4xl);
-  margin: var(--spacing-0) auto;
+  margin: 0 auto -10rem auto;
 }
 
 .headline {
@@ -296,13 +336,12 @@ a:focus {
   font-size: var(--fontSize-3);
   color: var(--color-text-light);
   margin-top: var(--spacing-2);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.05rem;
 }
 
 .headline-image {
-  position: absolute;
-  top: 0;
-  right: 0;
+  position: relative;
+  margin-left: -10rem;
   width: 46rem;
   height: 23.5rem;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
@@ -453,7 +492,7 @@ a:focus {
 }
 
 .blog-post-nav {
-  width: var(--maxWidth-wrapper);
+  max-width: var(--maxWidth-wrapper);
   margin: 0 auto;
 }
 
@@ -482,13 +521,14 @@ a:focus {
     font-size: var(--fontSize-root-small);
   }
   .headline {
-    padding: var(--spacing-5);
+    padding: var(--spacing-4);
   }
+
   .tableauPlaceholder {
     max-width: var(--maxWidth-full);
   }
-  .blog-post-nav {
-    padding: 0 var(--spacing-5);
+  .blog-post-nav, .article-head {
+    padding: 0 var(--spacing-4);
   }
   ul,
   ol {

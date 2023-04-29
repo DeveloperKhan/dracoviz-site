@@ -60,7 +60,7 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
           style={{ marginBottom: 50, maxHeight: '30em' }}
         />
         )}
-        <header className="is-layout-constrained" style={{ marginBottom: 50 }}>
+        <header className="article-head is-layout-constrained" style={{ marginBottom: 50 }}>
           <h1 itemProp="headline">{parse(post.title)}</h1>
           <Pills categories={post.categories.nodes} />
           <small>
