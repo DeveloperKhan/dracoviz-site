@@ -1,3 +1,63 @@
+.react-bootstrap-table table {
+  table-layout: fixed;
+}
+
+.table {
+  --bs-table-color: var(--color-text);
+  --bs-table-bg: transparent;
+  --bs-table-border-color: var(--color-text);
+  --bs-table-accent-bg: transparent;
+  --bs-table-striped-color: var(--color-text);
+  --bs-table-striped-bg: var(--color-light);
+  --bs-table-active-color: var(--color-text);
+  --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+  --bs-table-hover-color: var(--color-text);
+  --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+  width: 100%;
+  margin-bottom: 1rem;
+  color: var(--bs-table-color);
+  vertical-align: top;
+  border-color: var(--bs-table-border-color);
+}
+
+table-striped>tbody>tr:nth-of-type(odd)>* {
+  --bs-table-accent-bg: var(--bs-table-striped-bg);
+  color: var(--bs-table-striped-color);
+}
+
+.table-bordered>:not(caption)>*>* {
+  border-width: 0 1px;
+}
+
+.table-sm>:not(caption)>*>* {
+  padding: 0.25rem 0.25rem;
+}
+
+.table>thead {
+  vertical-align: bottom;
+}
+
+.table>:not(caption)>*>* {
+  padding: 0.5rem 0.5rem;
+  background-color: var(--bs-table-bg);
+  border-bottom-width: 1px;
+  box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+}
+
+.flex-row {
+  flex-direction: row!important;
+}
+
+.d-flex {
+  display: flex!important;
+}
+
+table {
+  caption-side: bottom;
+  border-collapse: collapse;
+  border-spacing: 0.25rem;
+}
+
 .parent {
   position: relative;
   top: 0;

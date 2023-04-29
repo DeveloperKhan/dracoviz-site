@@ -11,9 +11,7 @@ import axios from 'axios';
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider from 'react-bootstrap-table2-toolkit';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import parse from 'html-react-parser';
 import Modal from 'react-modal';
 import { getRosterHTML, getRosterSearchHTML } from '../utils/tournament-roster-utils';
 
@@ -150,7 +148,7 @@ function TournamentRoster() {
       const player2 = match.player2 === player.name ? match.player1 : match.player2;
       // const player1score = match.player1 === player.name ? match.player1score : match.player2score;
       // const player2score = match.player2 === player.name ? match.player1score : match.player2score;
-      const rosterHtml = parse(getRosterHTML(playerDict[player2]));
+      const rosterHtml = getRosterHTML(playerDict[player2]);
 
       productsMatches.push({
         placement: 1,
