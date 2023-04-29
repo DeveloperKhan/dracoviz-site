@@ -19,7 +19,7 @@ function Article({ post, variant = 'medium' }) {
         <GatsbyImage
           image={featuredImage.data}
           alt={featuredImage.alt}
-          style={{ width: '100%', height: '25rem', marginBottom: '1rem' }}
+          style={{ width: '100%', height: '25rem' }}
         />
         )}
         <div className={classnames({"article-item-content-large": isLarge})}>

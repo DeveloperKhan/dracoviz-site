@@ -367,7 +367,7 @@ a:focus {
 }
 
 .article-item-content-large {
-  padding: 0 var(--spacing-4) var(--spacing-3) var(--spacing-4);
+  padding: var(--spacing-4);
 }
 
 .article-item-content h3 {
