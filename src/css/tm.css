@@ -2,16 +2,16 @@
   position: relative;
   top: 0;
   left: 0;
-  width: 69px;
-  max-width: 69px;
+  width: 100px;
+  max-width: 100px;
 }
 
 .image1{
   position: relative;
   top: 0;
   left: 0;
-  -webkit-filter: drop-shadow(1px 1px 0 black)
-                  drop-shadow(-1px -1px 0 black);
+  -webkit-filter: drop-shadow(2px 2px 0 black)
+                  drop-shadow(-2px -2px 0 black);
   filter: drop-shadow(1px 1px 0 black)
           drop-shadow(-1px -1px 0 black);
 }
