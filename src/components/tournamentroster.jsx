@@ -22,10 +22,23 @@ const columns = [{
   text: 'Placement',
   sort: true,
   headerStyle: () => ({ width: '100px', textAlign: 'center' }),
+  sortFunc: (a, b, order) => {
+    if (order === 'desc') {
+      return b.props.children[0] - a.props.children[0];
+    }
+    return a.props.children[0] - b.props.children[0];
+  },
 }, {
   dataField: 'name',
   text: 'Player Name',
+  sort: true,
   headerStyle: () => ({ width: '500px', textAlign: 'center' }),
+  sortFunc: (a, b, order) => {
+    if (order === 'desc') {
+      return (`${b.props.children[0]}`).localeCompare(a.props.children[0]);
+    }
+    return (`${a.props.children[0]}`).localeCompare(b.props.children[0]);
+  },
 }, {
   dataField: 'mw',
   text: 'MW',
@@ -138,13 +151,15 @@ function TournamentRoster() {
       // const player1score = match.player1 === player.name ? match.player1score : match.player2score;
       // const player2score = match.player2 === player.name ? match.player1score : match.player2score;
       const rosterHtml = parse(getRosterHTML(playerDict[player2]));
+
       productsMatches.push({
         placement: 1,
         name: (
           <div>
             <a href="/"><b>{player2}</b></a>
             <div className="d-flex flex-row">{rosterHtml}</div>
-          </div>),
+          </div>
+        ),
       });
       // formatString.push('<div style="width: 40%; float: left; height: 100px; text-align: left;"><b>Match ' +
       //  i + ' </b>  ' + '  <button class="btn p-0 btn-' + (player1score >= player2score ? 'success' : 'danger') + ' active" disabled><b>' +
@@ -181,13 +196,15 @@ function TournamentRoster() {
                     {player.final_rank}
                     <br />
                     <button onClick={() => handleClick(player, playerMatches[player])} type="button">See Games</button>
-                  </div>),
+                  </div>
+                ),
                 name: (
                   <div>
                     {player.name}
                     <br />
                     <div data-search={getRosterSearchHTML(player)} className="d-flex flex-row">{rosterHtml}</div>
-                  </div>),
+                  </div>
+                ),
                 mw: player.match_wins,
                 gw: player.game_wins,
                 gl: player.game_losses,
@@ -202,6 +219,7 @@ function TournamentRoster() {
   }, [tm]);
 
   return (
+
     <div className="roster-container">
       <Modal
         isOpen={modalIsOpen}
@@ -211,13 +229,14 @@ function TournamentRoster() {
         <div className="matches-container">
           <ToolkitProvider
             bootstrap4
-            keyField="name"
             data={productsMatches}
             columns={columnsMatches}
+            keyField="ignore"
             search
           >
             {(props) => (
               <div>
+
                 <BootstrapTable
                   {...props.baseProps}
                   noDataIndication="Nothing found :("
@@ -233,7 +252,7 @@ function TournamentRoster() {
       </Modal>
       <ToolkitProvider
         bootstrap4
-        keyField="name"
+        keyField="ignore"
         data={products}
         columns={columns}
         search
