@@ -49,6 +49,18 @@ const options = [
     label: 'Jun',
   },
 ];
+const orderOfMonths = {
+  9: 0,
+  10: 1,
+  11: 2,
+  12: 3,
+  1: 4,
+  2: 5,
+  3: 6,
+  4: 7,
+  5: 8,
+  6: 9,
+};
 
 function getPostStartDate(post) {
   const { tags } = post;
@@ -88,14 +100,21 @@ function orderPostsByStartMonth(posts) {
   });
   Object.keys(orderedPosts).forEach((key) => {
     orderedPosts[key].sort((a, b) => {
-      // If currentMonth, prioritize element within 3 days of current day
-      if (key === currentMonth && a.day + 3 <= currentDay && a.day >= currentDay) {
-        return -1;
+      // If currentMonth, and an event is upcoming...
+      if (key === currentMonth && (a.day >= currentDay || b.day >= currentDay)) {
+        // If only one event is upcoming, show that one
+        if (a.day >= currentDay && b.day < currentDay) {
+          return -1;
+        }
+        if (b.day >= currentDay && a.day < currentDay) {
+          return 1;
+        }
       }
-      if (key === currentMonth && b.day + 3 < currentDay && b.day >= currentDay) {
-        return 1;
+      if (orderOfMonths[key] > orderOfMonths[currentMonth]) {
+        // If upcoming month, show earliest event
+        return a.day - b.day;
       }
-      // If not currentMonth
+      // If past month, show latest event
       return b.day - a.day;
     });
   });
