@@ -82,13 +82,13 @@ export function getRosterHTML(player) {
     }${pokemon.best_buddy ? ' Best Buddy' : ''
     }" width="69px" height="69px" class="parent">`;
     if (pokemon.best_buddy) {
-      rosterString += '<img class="image2" width="69px" src="/images/best_buddy_small.png"></img>';
+      rosterString += '<img class="image2" width="69px" src="/content/assets/best_buddy_small.png"></img>';
     }
     if (pokemon.shadow) {
-      rosterString += '<img class="image2" width="69px" height="69px" src="/images/shadow_small.png"></img>';
+      rosterString += '<img class="image2" width="69px" height="69px" src="/content/assets/shadow_small.png"></img>';
     }
     if (pokemon.purified) {
-      rosterString += '<img class="image2" width="69px" height="69px" src="/images/purified_small.png"></img>';
+      rosterString += '<img class="image2" width="69px" height="69px" src="/content/assets/purified_small.png"></img>';
     }
     rosterString += (`<img width="69px" height="69px" class="image1" src="https://img.pokemondb.net/sprites/go/normal/${
       pokemonName}${formString}.png"></img></div>`);

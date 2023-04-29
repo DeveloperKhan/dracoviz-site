@@ -175,9 +175,9 @@ function TournamentRoster() {
   };
 
   useEffect(() => {
-    axios.get(`http://24.241.43.229:3001/api/tournament/get?tm=${tmName}`)
+    axios.get(`http://localhost:3000/api/tournament?tm=${tmName}`)
       .then((players) => {
-        axios.get(`http://24.241.43.229:3001/api/tournament/matches/get?tm=${tmName}`)
+        axios.get(`http://localhost:3000/api/matches?tm=${tmName}`)
           .then((matches) => {
             const newProducts = [];
             matches.data.forEach((match) => {
