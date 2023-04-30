@@ -138,22 +138,49 @@ function TournamentRoster({ tmName }) {
   const handleClick = (player) => {
     const matches = playerMatches[player.name];
     const newProductsMatches = [];
+    var player1RosterHtml = getRosterHTML(player);
+    var matchesData = player.match_wins + " W - " + player.match_losses + " L (" + (player.match_wins + player.match_losses > 0 ? (100 * player.match_wins / (player.match_wins + player.match_losses)) : 0).toFixed(2) + "%)"
+    var gamesData = player.game_wins + " W - " + player.game_losses + " L (" + (player.game_wins + player.game_losses > 0 ? (100 * player.game_wins / (player.game_wins + player.game_losses)) : 0).toFixed(2) + "%)"
+    newProductsMatches.push({
+      placement: (
+        <label align="center">#{player.final_rank}</label>
+      ),
+      name: (
+        <section>
+          <label align="left">{player.name}</label>
+          <br/>
+          <div className="player-item-row">{player1RosterHtml}</div>
+          <br/>
+          <label align="left">Matches: {matchesData}</label>
+          <label align="left">Games: {gamesData}</label>
+        </section>
+      )
+    })
+    var count = 1;
     matches.forEach((match) => {
-      // const player1 = match.player1 === player.name ? match.player1 : match.player2;
+      const player1 = match.player1 === player.name ? match.player1 : match.player2;
       const player2 = match.player2 === player.name ? match.player1 : match.player2;
-      // const player1score = match.player1 === player.name ? match.player1score : match.player2score;
-      // const player2score = match.player2 === player.name ? match.player1score : match.player2score;
+      const player1score = match.player1 === player.name ? match.player1score : match.player2score;
+      const player2score = match.player2 === player.name ? match.player1score : match.player2score;
       const rosterHtml = getRosterHTML(playerDict[player2]);
+      var style = {'background-color':player1score > player2score ? 'green' : 'red',}
 
-      newProductsMatches.push({
-        placement: 1,
-        name: (
-          <div>
-            <b>{player2}</b>
-            <div className="player-item-row">{rosterHtml}</div>
-          </div>
-        ),
-      });
+           newProductsMatches.push({
+            placement: (
+              <div>
+                <label align="left">Match {count}</label>
+                <br/>
+                <div className="pill" style={style}>{player1score} - {player2score}</div>
+              </div>
+            ),
+            name: (
+              <div>
+                <label align="left">{player2}</label>
+                <div className="player-item-row">{rosterHtml}</div>
+              </div>
+              )
+          })
+          count++;
       // formatString.push('<div style="width: 40%; float: left; height: 100px; text-align: left;"><b>Match ' +
       //  i + ' </b>  ' + '  <button class="btn p-0 btn-' + (player1score >= player2score ? 'success' : 'danger') + ' active" disabled><b>' +
       //   player1score + ' - ' + player2score + '</b></button> </div>' +
