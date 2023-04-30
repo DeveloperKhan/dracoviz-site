@@ -44,7 +44,7 @@ function SeasonPage({ data: { allWpPost, page } }) {
         }
 
         if (attribs.id === "player-list") {
-          return <TournamentRoster />;
+          return <TournamentRoster tmName="2023_GO_Orlando"/>;
         }
 
         if (attribs.type === 'div' && attribs.id != null) {

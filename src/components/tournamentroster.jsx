@@ -16,6 +16,8 @@ import Modal from 'react-modal';
 import { getRosterHTML, getRosterSearchHTML } from '../utils/tournament-roster-utils';
 import debounce from "lodash/debounce";
 
+const host = `${window.location.protocol}//${window.location.host}`;
+
 const columnsMatches = [{
   dataField: 'placement',
   text: '',
@@ -124,8 +126,7 @@ function getColumns(width) {
   return newColumns;
 }
 
-function TournamentRoster() {
-  const tmName = '2023_GO_Orlando';
+function TournamentRoster({ tmName }) {
   const [tm, setTm] = useState('e');
   const [products, setProducts] = useState([
     {
@@ -187,9 +188,14 @@ function TournamentRoster() {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get(`http://localhost:3000/api/tournament?tm=${tmName}`)
+    axios.get(`${host}/api/tournament?tm=${tmName}`)
       .then((players) => {
-        axios.get(`http://localhost:3000/api/matches?tm=${tmName}`)
+        if (players == null || players.data.length <= 0) {
+          setIsLoading(false);
+          setProducts([]);
+          return;
+        }
+        axios.get(`${host}/api/matches?tm=${tmName}`)
           .then((matches) => {
             const newProducts = [];
             matches.data.forEach((match) => {
@@ -229,7 +235,10 @@ function TournamentRoster() {
           .then(() => {
             setIsLoading(false);
           });
-      });
+      }).catch(() => {
+        setIsLoading(false);
+        setProducts([]);
+      })
   }, [tm]);
 
   return (
