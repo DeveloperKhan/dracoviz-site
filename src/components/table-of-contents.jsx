@@ -4,7 +4,7 @@ import React from 'react';
 function TableOfContentsHeader({ item }) {
   const { location, title } = item;
   return (
-    <Link activeClass="active" className="table-of-contents-item" to={location} spy smooth offset={2} duration={300}>
+    <Link activeClass="active" className="table-of-contents-item" to={location} spy smooth duration={300}>
       {title}
     </Link>
   );

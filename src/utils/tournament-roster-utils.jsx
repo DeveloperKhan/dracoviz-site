@@ -108,14 +108,14 @@ export function getRosterHTML(player) {
     };
 
     return (
-      <div data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="top" title={title} width="69px" height="69px" className="parent">
+      <div data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="top" title={title} width="69px" height="69px" className="pokemon-image-wrapper">
         {getBestBuddy()}
         {getShadow()}
         {getPurified()}
         <img
           width="69px"
           height="69px"
-          className="image1"
+          className="pokemon-image"
           alt={pokemonName}
           src={`https://img.pokemondb.net/sprites/go/normal/${
             pokemonName}${formString}.png`}

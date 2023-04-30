@@ -7,4 +7,4 @@ import './src/css/normalize.css';
 
 // custom CSS styles
 import './src/css/style.css';
-import './src/css/tm.css';
+import './src/css/bootstrap.scss';

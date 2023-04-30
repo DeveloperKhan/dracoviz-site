@@ -9,6 +9,7 @@ import Seo from '../components/seo';
 import Logo from '../components/logo';
 import Schedule from '../components/schedule';
 import TableOfContents from '../components/table-of-contents';
+import TournamentRoster from "../components/tournamentroster";
 
 const tableOfContentsItems = [
   {
@@ -40,6 +41,10 @@ function SeasonPage({ data: { allWpPost, page } }) {
       replace: ({ attribs, children }) => {
         if (!attribs) {
           return undefined;
+        }
+
+        if (attribs.id === "player-list") {
+          return <TournamentRoster />;
         }
 
         if (attribs.type === 'div' && attribs.id != null) {

@@ -14,66 +14,21 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import Modal from 'react-modal';
 import { getRosterHTML, getRosterSearchHTML } from '../utils/tournament-roster-utils';
-
-const columns = [{
-  dataField: 'placement',
-  text: 'Placement',
-  sort: true,
-  headerStyle: () => ({ width: '100px', textAlign: 'center' }),
-  sortFunc: (a, b, order) => {
-    if (order === 'desc') {
-      return b.props.children[0] - a.props.children[0];
-    }
-    return a.props.children[0] - b.props.children[0];
-  },
-}, {
-  dataField: 'name',
-  text: 'Player Name',
-  sort: true,
-  headerStyle: () => ({ width: '500px', textAlign: 'center' }),
-  sortFunc: (a, b, order) => {
-    if (order === 'desc') {
-      return (`${b.props.children[0]}`).localeCompare(a.props.children[0]);
-    }
-    return (`${a.props.children[0]}`).localeCompare(b.props.children[0]);
-  },
-}, {
-  dataField: 'mw',
-  text: 'MW',
-  sort: true,
-  headerStyle: () => ({ width: '50px', textAlign: 'center' }),
-}, {
-  dataField: 'gw',
-  text: 'GW',
-  sort: true,
-  headerStyle: () => ({ width: '50px', textAlign: 'center' }),
-}, {
-  dataField: 'gl',
-  text: 'GL',
-  sort: true,
-  headerStyle: () => ({ width: '50px', textAlign: 'center' }),
-}, {
-  dataField: 'gwr',
-  text: 'GWR',
-  sort: true,
-  headerStyle: () => ({ width: '50px', textAlign: 'center' }),
-}];
-
-let productsMatches = [];
+import debounce from "lodash/debounce";
 
 const columnsMatches = [{
   dataField: 'placement',
   text: '',
   sort: true,
-  headerStyle: () => ({ width: '100px', textAlign: 'center' }),
+  headerStyle: () => ({ width: '120px', textAlign: 'center' }),
 }, {
   dataField: 'name',
   text: '',
-  headerStyle: () => ({ width: '500px', textAlign: 'center' }),
+  headerStyle: () => ({ textAlign: 'center' }),
 }];
 
 const customTotal = (from, to, size) => (
-  <span className="react-bootstrap-table-pagination-total">
+  <span className="react-bootstrap-table-pagination-total" style={{ marginLeft: 20 }}>
     Showing
     {' '}
     { from }
@@ -131,6 +86,44 @@ const options = {
 const playerMatches = {};
 const playerDict = {};
 
+function getColumns(width) {
+  const isMobile = width < 1200;
+  const newColumns = [{
+    dataField: 'placement',
+    text: 'Placement',
+    sort: true,
+    headerStyle: () => ({ width: '120px' }),
+    sortFunc: (a, b, order) => {
+      if (order === 'desc') {
+        return b.props.value - a.props.value;
+      }
+      return a.props.value - b.props.value;
+    },
+  }, {
+    dataField: 'name',
+    text: 'Player Teams',
+  }, {
+    dataField: 'mw',
+    text: 'MW',
+    sort: true,
+    hidden: isMobile,
+    headerStyle: () => ({ width: '4.1rem' }),
+  }, {
+    dataField: 'gw',
+    text: 'GW',
+    sort: true,
+    hidden: isMobile,
+    headerStyle: () => ({ width: '3.8rem'  }),
+  }, {
+    dataField: 'gl',
+    text: 'GL',
+    sort: true,
+    hidden: isMobile,
+    headerStyle: () => ({ width: '4rem'  }),
+  }];
+  return newColumns;
+}
+
 function TournamentRoster() {
   const tmName = '2023_GO_Orlando';
   const [tm, setTm] = useState('e');
@@ -138,11 +131,14 @@ function TournamentRoster() {
     {
       name: '',
     }]);
+  const [productMatches, setProductMatches] = useState([]);
   const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [columns, setColumns] = useState(getColumns(window.innerWidth));
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = (player) => {
     const matches = playerMatches[player.name];
-    productsMatches = [];
+    const newProductsMatches = [];
     matches.forEach((match) => {
       // const player1 = match.player1 === player.name ? match.player1 : match.player2;
       const player2 = match.player2 === player.name ? match.player1 : match.player2;
@@ -150,12 +146,12 @@ function TournamentRoster() {
       // const player2score = match.player2 === player.name ? match.player1score : match.player2score;
       const rosterHtml = getRosterHTML(playerDict[player2]);
 
-      productsMatches.push({
+      newProductsMatches.push({
         placement: 1,
         name: (
           <div>
-            <a href="/"><b>{player2}</b></a>
-            <div className="d-flex flex-row">{rosterHtml}</div>
+            <b>{player2}</b>
+            <div className="player-item-row">{rosterHtml}</div>
           </div>
         ),
       });
@@ -165,14 +161,32 @@ function TournamentRoster() {
       //     ' <div style="margin-left: 10%; width: 50%; height: 100px; text-align: left;"><a><b>' + player2 + '</b></a><div class="d-flex flex-row">' +
       //    getRosterHTML(playerDict[player2]) + "</div></div>")
     });
+    setProductMatches(newProductsMatches);
     setIsOpen(true);
   };
 
   const closeModal = () => {
+    setProductMatches([]);
     setIsOpen(false);
   };
 
   useEffect(() => {
+    const debouncedHandleResize = debounce(function handleResize() {
+      setIsLoading(true);
+      setTimeout(() => {
+        const newColumns = getColumns(window.innerWidth);
+        setColumns(newColumns);
+        setIsLoading(false);
+      }, 1);
+    }, 100);
+    window.addEventListener('resize', debouncedHandleResize)
+    return _ => {
+      window.removeEventListener('resize', debouncedHandleResize)   
+    }
+  }, [])
+
+  useEffect(() => {
+    setIsLoading(true);
     axios.get(`http://localhost:3000/api/tournament?tm=${tmName}`)
       .then((players) => {
         axios.get(`http://localhost:3000/api/matches?tm=${tmName}`)
@@ -190,51 +204,52 @@ function TournamentRoster() {
               const rosterHtml = getRosterHTML(player);
               newProducts.push({
                 placement: (
-                  <div>
-                    {player.final_rank}
+                  <div className="player-item-placement" value={player.final_rank}>
+                    <div className="pill pill-black">#{player.final_rank}</div>
                     <br />
-                    <button onClick={() => handleClick(player, playerMatches[player])} type="button">See Games</button>
+                    <button className="player-item-modal-link" onClick={() => handleClick(player, playerMatches[player])} type="button">See Games</button>
                   </div>
                 ),
                 name: (
-                  <div>
+                  <div className="player-item-team-container">
                     {player.name}
                     <br />
-                    <div data-search={getRosterSearchHTML(player)} className="d-flex flex-row">{rosterHtml}</div>
+                    <div data-search={getRosterSearchHTML(player)} className="player-item-row">{rosterHtml}</div>
                   </div>
                 ),
                 mw: player.match_wins,
                 gw: player.game_wins,
                 gl: player.game_losses,
-                gwr: (player.game_losses > 0 ? (player.game_wins / player.game_losses) : 0).toFixed(2),
               });
             });
             const playername = players.data[0].final_rank;
             setTm(playername);
             setProducts(newProducts);
+          })
+          .then(() => {
+            setIsLoading(false);
           });
       });
   }, [tm]);
 
   return (
-
-    <div className="roster-container">
+    <div className="roster-container use-bootstrap use-table">
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Matches"
+        style={{overlay: {zIndex: 1000}}}
       >
-        <div className="matches-container">
+        <div className="matches-container use-bootstrap use-table">
           <ToolkitProvider
             bootstrap4
-            data={productsMatches}
+            data={productMatches}
             columns={columnsMatches}
             keyField="ignore"
             search
           >
             {(props) => (
               <div>
-
                 <BootstrapTable
                   {...props.baseProps}
                   noDataIndication="Nothing found :("
@@ -248,7 +263,11 @@ function TournamentRoster() {
           </ToolkitProvider>
         </div>
       </Modal>
-      <ToolkitProvider
+      {
+        isLoading ? 
+        (<div className="player-table-loading">...Loading</div>)
+        : (
+          <ToolkitProvider
         bootstrap4
         keyField="ignore"
         data={products}
@@ -257,9 +276,9 @@ function TournamentRoster() {
       >
         {(props) => (
           <div>
-
             <BootstrapTable
               {...props.baseProps}
+              className="player-list-table"
               noDataIndication="Nothing found :("
               striped
               hover
@@ -270,6 +289,8 @@ function TournamentRoster() {
           </div>
         )}
       </ToolkitProvider>
+        )
+      }
     </div>
   );
 }
