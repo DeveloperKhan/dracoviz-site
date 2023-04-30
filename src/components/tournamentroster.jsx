@@ -16,8 +16,6 @@ import Modal from 'react-modal';
 import { getRosterHTML, getRosterSearchHTML } from '../utils/tournament-roster-utils';
 import debounce from "lodash/debounce";
 
-const host = `${window.location.protocol}//${window.location.host}`;
-
 const columnsMatches = [{
   dataField: 'placement',
   text: '',
@@ -187,6 +185,7 @@ function TournamentRoster({ tmName }) {
   }, [])
 
   useEffect(() => {
+    const host = `${window.location.protocol}//${window.location.host}`;
     setIsLoading(true);
     axios.get(`${host}/api/tournament?tm=${tmName}`)
       .then((players) => {
