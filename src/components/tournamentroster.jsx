@@ -30,7 +30,7 @@ const columnsMatches = [{
 }];
 
 const customTotal = (from, to, size) => (
-  <span className="react-bootstrap-table-pagination-total" style={{ marginLeft: 20 }}>
+  <div className="react-bootstrap-table-pagination-total" style={{ marginTop: 20 }}>
     Showing
     {' '}
     { from }
@@ -44,7 +44,7 @@ const customTotal = (from, to, size) => (
     { size }
     {' '}
     Results
-  </span>
+  </div>
 );
 
 const options = {
@@ -54,10 +54,10 @@ const options = {
   // withFirstAndLast: false, // Hide the going to First and Last page button
   // hideSizePerPage: true, // Hide the sizePerPage dropdown always
   // hidePageListOnlyOnePage: true, // Hide the pagination list when only one page
-  firstPageText: 'First',
-  prePageText: 'Back',
-  nextPageText: 'Next',
-  lastPageText: 'Last',
+  firstPageText: '<<',
+  prePageText: '<',
+  nextPageText: '>',
+  lastPageText: '>>',
   nextPageTitle: 'First page',
   prePageTitle: 'Pre page',
   firstPageTitle: 'Next page',
