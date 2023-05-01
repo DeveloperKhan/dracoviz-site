@@ -15,6 +15,7 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import Modal from 'react-modal';
 import { getRosterHTML, getRosterSearchHTML } from '../utils/tournament-roster-utils';
 import debounce from "lodash/debounce";
+import classNames from 'classnames';
 
 const columnsMatches = [{
   dataField: 'placement',
@@ -82,8 +83,6 @@ const options = {
                 style={{ width: "400px", height: "40px" }}
               />
               * */
-
-const playerMatches = {};
 const playerDict = {};
 
 function getColumns(width) {
@@ -135,23 +134,21 @@ function TournamentRoster({ tmName }) {
   const [columns, setColumns] = useState(getColumns(window.innerWidth));
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleClick = (player) => {
-    const matches = playerMatches[player.name];
+  const handleClick = (player, matches) => {
     const newProductsMatches = [];
     var player1RosterHtml = getRosterHTML(player);
     var matchesData = player.match_wins + " W - " + player.match_losses + " L (" + (player.match_wins + player.match_losses > 0 ? (100 * player.match_wins / (player.match_wins + player.match_losses)) : 0).toFixed(2) + "%)"
     var gamesData = player.game_wins + " W - " + player.game_losses + " L (" + (player.game_wins + player.game_losses > 0 ? (100 * player.game_wins / (player.game_wins + player.game_losses)) : 0).toFixed(2) + "%)"
     newProductsMatches.push({
       placement: (
-        <label align="center">#{player.final_rank}</label>
+        <label className="pill pill-black">#{player.final_rank}</label>
       ),
       name: (
-        <section>
-          <label align="left">{player.name}</label>
-          <br/>
+        <section className="player-item-team-container">
+          <label>{player.name}</label>
           <div className="player-item-row">{player1RosterHtml}</div>
-          <br/>
           <label align="left">Matches: {matchesData}</label>
+          <br/>
           <label align="left">Games: {gamesData}</label>
         </section>
       )
@@ -163,29 +160,23 @@ function TournamentRoster({ tmName }) {
       const player1score = match.player1 === player.name ? match.player1score : match.player2score;
       const player2score = match.player2 === player.name ? match.player1score : match.player2score;
       const rosterHtml = getRosterHTML(playerDict[player2]);
-      var style = {'background-color':player1score > player2score ? 'green' : 'red',}
 
            newProductsMatches.push({
             placement: (
               <div>
-                <label align="left">Match {count}</label>
+                <label>Match {count}</label>
                 <br/>
-                <div className="pill" style={style}>{player1score} - {player2score}</div>
+                <div className={classNames("pill", { "pill-green": player1score > player2score, "pill-red": player1score <= player2score })}>{player1score} - {player2score}</div>
               </div>
             ),
             name: (
-              <div>
-                <label align="left">{player2}</label>
+              <div className="player-item-team-container">
+                <label>{player2}</label>
                 <div className="player-item-row">{rosterHtml}</div>
               </div>
               )
           })
           count++;
-      // formatString.push('<div style="width: 40%; float: left; height: 100px; text-align: left;"><b>Match ' +
-      //  i + ' </b>  ' + '  <button class="btn p-0 btn-' + (player1score >= player2score ? 'success' : 'danger') + ' active" disabled><b>' +
-      //   player1score + ' - ' + player2score + '</b></button> </div>' +
-      //     ' <div style="margin-left: 10%; width: 50%; height: 100px; text-align: left;"><a><b>' + player2 + '</b></a><div class="d-flex flex-row">' +
-      //    getRosterHTML(playerDict[player2]) + "</div></div>")
     });
     setProductMatches(newProductsMatches);
     setIsOpen(true);
@@ -223,6 +214,7 @@ function TournamentRoster({ tmName }) {
         }
         axios.get(`${host}/api/matches?tm=${tmName}`)
           .then((matches) => {
+            const playerMatches = {}
             const newProducts = [];
             matches.data.forEach((match) => {
               playerMatches[match.player1] = playerMatches[match.player1] !== undefined ? playerMatches[match.player1] : [];
@@ -230,7 +222,6 @@ function TournamentRoster({ tmName }) {
               playerMatches[match.player1].push(match);
               playerMatches[match.player2].push(match);
             });
-
             players.data.forEach((player) => {
               playerDict[player.name] = player;
               const rosterHtml = getRosterHTML(player);
@@ -239,7 +230,7 @@ function TournamentRoster({ tmName }) {
                   <div className="player-item-placement" value={player.final_rank}>
                     <div className="pill pill-black">#{player.final_rank}</div>
                     <br />
-                    <button className="player-item-modal-link" onClick={() => handleClick(player, playerMatches[player])} type="button">See Games</button>
+                    <button className="player-item-modal-link" onClick={() => handleClick(player, playerMatches[player.name])} type="button">See Games</button>
                   </div>
                 ),
                 name: (
@@ -275,7 +266,7 @@ function TournamentRoster({ tmName }) {
         contentLabel="Matches"
         style={{overlay: {zIndex: 1000}}}
       >
-        <div className="matches-container use-bootstrap use-table">
+        <div className="matches-container use-bootstrap use-table is-layout-constrained">
           <ToolkitProvider
             bootstrap4
             data={productMatches}
