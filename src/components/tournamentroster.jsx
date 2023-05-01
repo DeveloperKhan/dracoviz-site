@@ -155,8 +155,7 @@ function TournamentRoster({ tmName }) {
         </section>
       )
     })
-    var count = 1;
-    matches.forEach((match) => {
+    matches.forEach((match, index) => {
       const player1 = match.player1 === player.name ? match.player1 : match.player2;
       const player2 = match.player2 === player.name ? match.player1 : match.player2;
       const player1score = match.player1 === player.name ? match.player1score : match.player2score;
@@ -166,7 +165,7 @@ function TournamentRoster({ tmName }) {
            newProductsMatches.push({
             placement: (
               <div>
-                <label>Match {count}</label>
+                <label>Match {index + 1}</label>
                 <br/>
                 <div className={classNames("pill", { "pill-green": player1score > player2score, "pill-red": player1score <= player2score })}>{player1score} - {player2score}</div>
               </div>
@@ -178,7 +177,6 @@ function TournamentRoster({ tmName }) {
               </div>
               )
           })
-          count++;
     });
     setProductMatches(newProductsMatches);
     setIsOpen(true);
