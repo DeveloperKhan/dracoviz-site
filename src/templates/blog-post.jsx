@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import parse from 'html-react-parser';
+import { Twitter, Facebook, Whatsapp, Telegram, Reddit } from 'react-social-sharing';
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
@@ -46,12 +47,13 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
     data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
     alt: post.featuredImage?.node?.alt || '',
   };
-
   const [content, setContent] = useState();
 
   useEffect(() => {
     setContent(parse(post.content, options));
   }, []);
+
+  const postLink = `https://www.dracoviz.com${post.uri}`;
 
   return (
     <Layout>
@@ -78,6 +80,13 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
             {' '}
             {post.date}
           </small>
+          <div>
+            <Twitter style={{ marginLeft: -8 }} link={postLink} small />
+            <Facebook link={postLink} small />
+            <Reddit link={postLink} small />
+            <Telegram link={postLink} small />
+            <Whatsapp link={postLink} small />
+          </div>
         </header>
 
         <section className="article-body" itemProp="articleBody">
@@ -126,6 +135,7 @@ export const pageQuery = graphql`
       excerpt
       content
       title
+      uri
       categories {
         nodes {
           name
