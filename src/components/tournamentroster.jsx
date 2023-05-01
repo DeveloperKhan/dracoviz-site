@@ -211,7 +211,7 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
     setIsLoading(true);
     Promise.all([
       axios.get(`${host}/api/tournament?tm=${tmName}`),
-      showWorldsQualified ? axios.get(`${host}/api/matches?tm=${tmName}`) : undefined,
+      !showWorldsQualified ? axios.get(`${host}/api/matches?tm=${tmName}`) : undefined,
     ])
     .then((response) => {
       const [players, matches] = response;
