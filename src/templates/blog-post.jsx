@@ -15,11 +15,21 @@ import { Helmet } from 'react-helmet';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import Pills from '../components/pills';
+import TournamentRoster from '../components/tournamentroster';
 
 const options = {
   replace: ({ attribs, children }) => {
     if (!attribs) {
       return undefined;
+    }
+
+    if (attribs.classname === "player-list") {
+      if (attribs["data-attribute"] == null) {
+        return undefined;
+      }
+      return (<div className="is-layout-constrained">
+          <TournamentRoster tmName={attribs["data-attribute"]}/>
+        </div>);
     }
 
     // Tableau dashboards
