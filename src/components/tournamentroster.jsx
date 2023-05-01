@@ -217,6 +217,7 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
       const [players, matches] = response;
       if (players == null || players.data.length <= 0) {
         setProducts([]);
+        setIsLoading(false);
         return;
       }
       const playerMatches = {}
