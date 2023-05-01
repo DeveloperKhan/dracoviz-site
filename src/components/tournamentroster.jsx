@@ -138,7 +138,7 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
   const [productMatches, setProductMatches] = useState([]);
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [columns, setColumns] = useState(getColumns(window.innerWidth));
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleClick = (player, matches) => {
     const newProductsMatches = [];
@@ -209,58 +209,60 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
   useEffect(() => {
     const host = `${window.location.protocol}//${window.location.host}`;
     setIsLoading(true);
-    axios.get(`${host}/api/tournament?tm=${tmName}`)
-      .then((players) => {
-        if (players == null || players.data.length <= 0) {
-          setIsLoading(false);
-          setProducts([]);
-          return;
-        }
-        axios.get(`${host}/api/matches?tm=${tmName}`)
-          .then((matches) => {
-            const playerMatches = {}
-            const newProducts = [];
-            matches.data.forEach((match) => {
-              playerMatches[match.player1] = playerMatches[match.player1] !== undefined ? playerMatches[match.player1] : [];
-              playerMatches[match.player2] = playerMatches[match.player2] !== undefined ? playerMatches[match.player2] : [];
-              playerMatches[match.player1].push(match);
-              playerMatches[match.player2].push(match);
-            });
-            players.data.forEach((player) => {
-              playerDict[player.name] = player;
-              const rosterHtml = getRosterHTML(player);
-              const eventLabel = showWorldsQualified ? ` - (${parseTm(player.tournament)})` : ""
-              newProducts.push({
-                placement: (
-                  <div className="player-item-placement" value={player.final_rank}>
-                    <div className="pill pill-black">#{player.final_rank}</div>
-                    <br />
-                    <button className="player-item-modal-link" onClick={() => handleClick(player, playerMatches[player.name])} type="button">See Games</button>
-                  </div>
-                ),
-                name: (
-                  <div className="player-item-team-container">
-                    {player.name}{eventLabel}
-                    <br />
-                    <div data-search={getRosterSearchHTML(player)} className="player-item-row">{rosterHtml}</div>
-                  </div>
-                ),
-                mw: player.match_wins,
-                gw: player.game_wins,
-                gl: player.game_losses,
-              });
-            });
-            const playername = players.data[0].final_rank;
-            setTm(playername);
-            setProducts(newProducts);
-          })
-          .then(() => {
-            setIsLoading(false);
-          });
-      }).catch(() => {
-        setIsLoading(false);
+    Promise.all([
+      axios.get(`${host}/api/tournament?tm=${tmName}`),
+      showWorldsQualified ? axios.get(`${host}/api/matches?tm=${tmName}`) : undefined,
+    ])
+    .then((response) => {
+      const [players, matches] = response;
+      if (players == null || players.data.length <= 0) {
         setProducts([]);
-      })
+        return;
+      }
+      const playerMatches = {}
+      const newProducts = [];
+      if (matches != null) {
+        matches.data.forEach((match) => {
+          playerMatches[match.player1] = playerMatches[match.player1] !== undefined ? playerMatches[match.player1] : [];
+          playerMatches[match.player2] = playerMatches[match.player2] !== undefined ? playerMatches[match.player2] : [];
+          playerMatches[match.player1].push(match);
+          playerMatches[match.player2].push(match);
+        });
+      }
+      players.data.forEach((player) => {
+        playerDict[player.name] = player;
+        const rosterHtml = getRosterHTML(player);
+        const eventLabel = showWorldsQualified ? ` - (${parseTm(player.tournament)})` : ""
+        newProducts.push({
+          placement: (
+            <div className="player-item-placement" value={player.final_rank}>
+              <div className="pill pill-black">#{player.final_rank}</div>
+              { showWorldsQualified ? null : (
+                <button className="player-item-modal-link" onClick={() => handleClick(player, playerMatches[player.name])} type="button">See Games</button>
+              )}
+            </div>
+          ),
+          name: (
+            <div className="player-item-team-container">
+              {player.name}{eventLabel}
+              <br />
+              <div data-search={getRosterSearchHTML(player)} className="player-item-row">{rosterHtml}</div>
+            </div>
+          ),
+          mw: player.match_wins,
+          gw: player.game_wins,
+          gl: player.game_losses,
+        });
+      });
+      const playername = players.data[0].final_rank;
+      setTm(playername);
+      setProducts(newProducts);
+      setIsLoading(false);
+    })
+    .catch(() => {
+      setProducts([]);
+      setIsLoading(false);
+    });
   }, [tm]);
 
   return (
