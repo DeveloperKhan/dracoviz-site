@@ -18,12 +18,12 @@ const tableOfContentsItems = [
     title: 'Schedule',
   },
   {
-    location: 'usage',
-    title: 'Usage',
-  },
-  {
     location: 'teams',
     title: 'Teams',
+  },
+  {
+    location: 'usage',
+    title: 'Usage',
   },
 ];
 
@@ -45,7 +45,7 @@ function SeasonPage({ data: { allWpPost, page } }) {
         }
 
         if (attribs.id === "player-list") {
-          return <TournamentRoster tmName="2023_GO_Orlando"/>;
+          return <TournamentRoster tmName="2023_GO_Orlando" showWorldsQualified/>;
         }
 
         if (attribs.type === 'div' && attribs.id != null) {

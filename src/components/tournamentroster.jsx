@@ -19,6 +19,10 @@ import classNames from 'classnames';
 
 const noDataIndication = "There is no data for this event. Please check back another time! :)";
 
+const parseTm = (tm) => {
+  return tm.replace("GO_", "").replace("_", " ");
+}
+
 const columnsMatches = [{
   dataField: 'placement',
   text: '',
@@ -125,7 +129,7 @@ function getColumns(width) {
   return newColumns;
 }
 
-function TournamentRoster({ tmName }) {
+function TournamentRoster({ tmName, showWorldsQualified }) {
   const [tm, setTm] = useState('e');
   const [products, setProducts] = useState([
     {
@@ -225,6 +229,7 @@ function TournamentRoster({ tmName }) {
             players.data.forEach((player) => {
               playerDict[player.name] = player;
               const rosterHtml = getRosterHTML(player);
+              const eventLabel = showWorldsQualified ? ` - (${parseTm(player.tournament)})` : ""
               newProducts.push({
                 placement: (
                   <div className="player-item-placement" value={player.final_rank}>
@@ -235,7 +240,7 @@ function TournamentRoster({ tmName }) {
                 ),
                 name: (
                   <div className="player-item-team-container">
-                    {player.name}
+                    {player.name}{eventLabel}
                     <br />
                     <div data-search={getRosterSearchHTML(player)} className="player-item-row">{rosterHtml}</div>
                   </div>
