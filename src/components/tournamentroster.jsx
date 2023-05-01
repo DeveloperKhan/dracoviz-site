@@ -17,6 +17,8 @@ import { getRosterHTML, getRosterSearchHTML } from '../utils/tournament-roster-u
 import debounce from "lodash/debounce";
 import classNames from 'classnames';
 
+const noDataIndication = "There is no data for this event. Please check back another time! :)";
+
 const columnsMatches = [{
   dataField: 'placement',
   text: '',
@@ -278,7 +280,7 @@ function TournamentRoster({ tmName }) {
               <div>
                 <BootstrapTable
                   {...props.baseProps}
-                  noDataIndication="Nothing found :("
+                  noDataIndication={noDataIndication}
                   striped
                   hover
                   condensed
@@ -305,7 +307,7 @@ function TournamentRoster({ tmName }) {
             <BootstrapTable
               {...props.baseProps}
               className="player-list-table"
-              noDataIndication="Nothing found :("
+              noDataIndication={noDataIndication}
               striped
               hover
               condensed

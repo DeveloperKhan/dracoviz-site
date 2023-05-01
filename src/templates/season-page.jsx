@@ -5,6 +5,7 @@ import parse from 'html-react-parser';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { Element } from 'react-scroll';
 
+import Layout from '../components/layout';
 import Seo from '../components/seo';
 import Logo from '../components/logo';
 import Schedule from '../components/schedule';
@@ -69,7 +70,7 @@ function SeasonPage({ data: { allWpPost, page } }) {
   }, []);
 
   return (
-    <div className="global-wrapper" data-is-root-path>
+    <Layout isHomepage data-is-root-path>
       <Seo title={page.title} description={page.excerpt} />
       <header id="season-head">
         <Logo style={{ marginBottom: 10 }} />
@@ -104,7 +105,7 @@ function SeasonPage({ data: { allWpPost, page } }) {
           {content}
         </section>
       </article>
-    </div>
+    </Layout>
   );
 }
 

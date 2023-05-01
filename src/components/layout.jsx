@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import Logo from './logo';
+import Social from './social';
 
-function Layout({ children }) {
+function Layout({ children, isHomepage, ...rest }) {
   const {
     wp: {
       generalSettings: { title },
@@ -19,14 +20,25 @@ function Layout({ children }) {
   `);
 
   return (
-    <div className="global-wrapper">
-      <header className="global-header">
-        <Link className="header-link-home" to="/">
-          <Logo style={{ marginTop: 10, marginBottom: 10 }} />
-        </Link>
-      </header>
+    <div className="global-wrapper" {...rest} >
+      {isHomepage ?? (
+        <header className="global-header">
+          <Link className="header-link-home" to="/">
+            <Logo style={{ marginTop: 10, marginBottom: 10 }} />
+          </Link>
+        </header>
+      )}
 
       <main>{children}</main>
+
+      <footer id="footer">
+        <Social
+          links={['https://twitter.com/dracoviz','https://www.instagram.com/dracoviz.co','https://youtube.com/@dracoviz']}
+          buttonStyle={{margin: '0px 10px', backgroundColor: 'transparent'}}
+          iconStyle={{color: '#000000'}}
+          openNewTab={true}
+        />
+      </footer>
     </div>
   );
 }

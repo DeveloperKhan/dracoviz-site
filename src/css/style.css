@@ -250,10 +250,6 @@ a:focus {
 
 /* Custom classes */
 
-.global-wrapper {
-  margin-bottom: var(--spacing-20);
-}
-
 .logo-wrapper {
   max-width: var(--maxWidth-4xl);
   margin-left: auto;
@@ -575,6 +571,16 @@ a:focus {
 
 .player-table-loading {
   height: 40rem;
+}
+
+#footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-2);
+  margin-top: var(--spacing-2);
+  border-top: solid 1px var(--color-light);
 }
 
 /* Media queries */
