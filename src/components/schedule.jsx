@@ -110,7 +110,7 @@ function orderPostsByStartMonth(posts) {
           return 1;
         }
       }
-      if (orderOfMonths[key] > orderOfMonths[currentMonth]) {
+      if (orderOfMonths[key] >= orderOfMonths[currentMonth]) {
         // If upcoming month, show earliest event
         return a.day - b.day;
       }
