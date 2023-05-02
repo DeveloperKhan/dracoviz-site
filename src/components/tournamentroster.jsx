@@ -14,7 +14,7 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import Modal from 'react-modal';
 import { getRosterHTML, getRosterSearchHTML } from '../utils/tournament-roster-utils';
-import debounce from "lodash/debounce";
+// import debounce from "lodash/debounce";
 import classNames from 'classnames';
 import { Tooltip } from 'react-tooltip'
 import { Link } from 'gatsby';
@@ -198,19 +198,19 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
 
   useEffect(() => {
     Modal.setAppElement('#player-list');
-    const debouncedHandleResize = debounce(function handleResize() {
-      setIsLoading(true);
-      setTimeout(() => {
-        const newColumns = getColumns(window.innerWidth);
-        setColumns(newColumns);
-        setIsLoading(false);
-      }, 1);
-    }, 100);
-    window.addEventListener('resize', debouncedHandleResize)
-    return _ => {
-      window.removeEventListener('resize', debouncedHandleResize)   
-    }
-  }, [])
+    // const debouncedHandleResize = debounce(function handleResize() {
+    //   setIsLoading(true);
+    //   setTimeout(() => {
+    //     const newColumns = getColumns(window.innerWidth);
+    //     setColumns(newColumns);
+    //     setIsLoading(false);
+    //   }, 1);
+    // }, 100);
+    // window.addEventListener('resize', debouncedHandleResize)
+    // return _ => {
+    //   window.removeEventListener('resize', debouncedHandleResize)   
+    // }
+  }, []);
 
   useEffect(() => {
     setIsLoading(true);
