@@ -12,6 +12,8 @@ import Schedule from '../components/schedule';
 import TableOfContents from '../components/table-of-contents';
 import TournamentRoster from "../components/tournamentroster";
 
+const description = "Data visualizations for Play! Pokemon GO Championship series. See tournament event schedule and details, Pokemon usage, the best Open Great League teams, and best players!"
+
 const tableOfContentsItems = [
   {
     location: 'event-schedule',
@@ -45,7 +47,7 @@ function SeasonPage({ data: { allWpPost, page } }) {
         }
 
         if (attribs.id === "player-list") {
-          return <TournamentRoster tmName="2023_GO_Orlando" showWorldsQualified/>;
+          return <TournamentRoster showWorldsQualified/>;
         }
 
         if (attribs.type === 'div' && attribs.id != null) {
@@ -71,7 +73,7 @@ function SeasonPage({ data: { allWpPost, page } }) {
 
   return (
     <Layout isHomepage data-is-root-path>
-      <Seo title={page.title} description={page.excerpt} />
+      <Seo title={page.title} description={description} />
       <header id="season-head">
         <Logo style={{ marginBottom: 10 }} />
         <div className="headline-container">

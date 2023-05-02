@@ -16,11 +16,16 @@ import Modal from 'react-modal';
 import { getRosterHTML, getRosterSearchHTML } from '../utils/tournament-roster-utils';
 import debounce from "lodash/debounce";
 import classNames from 'classnames';
+import { Tooltip } from 'react-tooltip'
+import { Link } from 'gatsby';
+import { linkifyEvent } from '../utils/url-utils';
 
 const noDataIndication = "There is no data for this event. Please check back another time! :)";
 
 const parseTm = (tm) => {
-  return tm.replace("GO_", "").replace("_", " ");
+  return tm.replaceAll("-", " ")
+    .replace(/[a-z][a-z]ic/g, match => match.toUpperCase()) // all **ic
+    .replace(/(?:^|\s|["'([{])+\S/g, match => match.toUpperCase());
 }
 
 const columnsMatches = [{
@@ -85,10 +90,10 @@ const options = {
 
 /**
 <SearchBar
-                {...props.searchProps}
-                style={{ width: "400px", height: "40px" }}
-              />
-              * */
+  {...props.searchProps}
+  style={{ width: "400px", height: "40px" }}
+/>
+* */
 const playerDict = {};
 
 function getColumns(width) {
@@ -160,7 +165,7 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
       )
     })
     matches.forEach((match, index) => {
-      const player1 = match.player1 === player.name ? match.player1 : match.player2;
+      // const player1 = match.player1 === player.name ? match.player1 : match.player2;
       const player2 = match.player2 === player.name ? match.player1 : match.player2;
       const player1score = match.player1 === player.name ? match.player1score : match.player2score;
       const player2score = match.player2 === player.name ? match.player1score : match.player2score;
@@ -171,7 +176,7 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
               <div>
                 <label>Match {index + 1}</label>
                 <br/>
-                <div className={classNames("pill", { "pill-green": player1score > player2score, "pill-red": player1score <= player2score })}>{player1score} - {player2score}</div>
+                <div className={classNames("pill", { "pill-green": player1score > player2score, "pill-red": player1score < player2score, "pill-accent": player1score === player2score})}>{player1score} - {player2score}</div>
               </div>
             ),
             name: (
@@ -208,10 +213,11 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
   }, [])
 
   useEffect(() => {
-    const host = `${window.location.protocol}//${window.location.host}`;
     setIsLoading(true);
+    const host = `${window.location.protocol}//${window.location.host}`;
+    const tmUrl = showWorldsQualified ? `${host}/api/tournament?qualified=${true}` : `${host}/api/tournament?tm=${tmName}`
     Promise.all([
-      axios.get(`${host}/api/tournament?tm=${tmName}`),
+      axios.get(tmUrl),
       !showWorldsQualified ? axios.get(`${host}/api/matches?tm=${tmName}`) : undefined,
     ])
     .then((response) => {
@@ -246,8 +252,9 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
           ),
           name: (
             <div className="player-item-team-container">
-              {player.name}{eventLabel}
-              <br />
+              <Link to={linkifyEvent(player.tournament)}>
+                {player.name}{eventLabel}
+              </Link>
               <div data-search={getRosterSearchHTML(player)} className="player-item-row">{rosterHtml}</div>
             </div>
           ),
@@ -299,34 +306,36 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
           </ToolkitProvider>
         </div>
       </Modal>
-      {
-        isLoading ? 
-        (<div className="player-table-loading">...Loading</div>)
-        : (
           <ToolkitProvider
         bootstrap4
         keyField="ignore"
         data={products}
         columns={columns}
-        search
       >
-        {(props) => (
-          <div>
-            <BootstrapTable
-              {...props.baseProps}
-              className="player-list-table"
-              noDataIndication={noDataIndication}
-              striped
-              hover
-              condensed
-              defaultSorted={[{ dataField: 'placement' }]}
-              pagination={paginationFactory(options)}
-            />
-          </div>
-        )}
+        {
+          (props) => {
+            if (isLoading) {
+              return (<div className="player-table-loading">...Loading</div>)
+            }
+            return (
+              <div>
+                <BootstrapTable
+                  {...props.baseProps}
+                  className="player-list-table"
+                  noDataIndication={noDataIndication}
+                  striped
+                  hover
+                  condensed
+                  defaultSorted={[{ dataField: 'placement' }]}
+                  pagination={paginationFactory(options)}
+                />
+              </div>
+            )
+          }
+        }
       </ToolkitProvider>
         )
-      }
+      <Tooltip id="pokemon-item" style={{ zIndex: 99999 }} />
     </div>
   );
 }

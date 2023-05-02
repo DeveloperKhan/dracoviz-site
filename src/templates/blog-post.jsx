@@ -17,30 +17,7 @@ import Layout from '../components/layout';
 import Seo from '../components/seo';
 import Pills from '../components/pills';
 import TournamentRoster from '../components/tournamentroster';
-
-const options = {
-  replace: ({ attribs, children }) => {
-    if (!attribs) {
-      return undefined;
-    }
-
-    if (attribs.classname === "player-list") {
-      if (attribs["data-attribute"] == null) {
-        return undefined;
-      }
-      return (<div className="is-layout-constrained">
-          <TournamentRoster tmName={attribs["data-attribute"]}/>
-        </div>);
-    }
-
-    // Tableau dashboards
-    if (attribs.type === 'text/javascript') {
-      return <Helmet><script>{children[0].data}</script></Helmet>;
-    }
-
-    return undefined;
-  },
-};
+import { delinkifyEvent } from '../utils/url-utils';
 
 function BlogPostTemplate({ data: { previous, next, post } }) {
   const featuredImage = {
@@ -50,6 +27,28 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
   const [content, setContent] = useState();
 
   useEffect(() => {
+    const options = {
+      replace: ({ attribs, children }) => {
+        if (!attribs) {
+          return undefined;
+        }
+    
+        if (attribs.classname === "player-list") {
+          return (
+            <div className="is-layout-constrained">
+              <TournamentRoster tmName={delinkifyEvent(post.uri)}/>
+            </div>
+          );
+        }
+    
+        // Tableau dashboards
+        if (attribs.type === 'text/javascript') {
+          return <Helmet><script>{children[0].data}</script></Helmet>;
+        }
+    
+        return undefined;
+      },
+    };
     setContent(parse(post.content, options));
   }, []);
 

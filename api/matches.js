@@ -9,7 +9,9 @@ async function handler(req, res) {
     await client.connect();
     const pokemongo = client.db('pokemongo');
     const players = pokemongo.collection('tm_matches');
-    const data = await players.find({ tournament: tm }).toArray();
+    // sort in ascending (1) order
+    const sort = { order: 1 };
+    const data = await players.find({ tournament: tm }).sort(sort).toArray();
     res.status(200).json(data);
   } catch (ex) {
     res.status(401).json({ error: `Invalid query of tm=${tm}` });
