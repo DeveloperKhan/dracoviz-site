@@ -5,10 +5,11 @@ const client = new MongoClient(uri);
 
 async function handler(req, res) {
   const { tm, qualified } = req.query;
+  console.log("Tournament Auth Header", req.headers.authorization);
   if (req.headers == null || req.headers.authorization == null) {
     res.status(401).json({
       status: 401,
-      message: 'Unauthorized'
+      message: `Unauthorized ${req.headers.authorization}`
     })
     return;
   }
