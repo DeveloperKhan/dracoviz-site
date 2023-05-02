@@ -219,12 +219,12 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
     Promise.all([
       axios.get(tmUrl, {
         headers: {
-          'Authorization': `Basic ${process.env.GATSBY_SECRET_KEY}` 
+          'Authorization': `Basic 667wsLhVIt` 
         }
       }),
       !showWorldsQualified ? axios.get(`${host}/api/matches?tm=${tmName}`, {
         headers: {
-          'Authorization': `Basic ${process.env.GATSBY_SECRET_KEY}` 
+          'Authorization': `Basic 667wsLhVIt` 
         }
       }) : undefined,
     ])
