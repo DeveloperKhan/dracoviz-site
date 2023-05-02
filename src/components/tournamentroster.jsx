@@ -219,12 +219,12 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
     Promise.all([
       axios.get(tmUrl, {
         headers: {
-          'x-vercel-id': 'Test1234' 
+          'x_authorization': `Basic ${process.env.GATSBY_SECRET_KEY}` 
         }
       }),
       !showWorldsQualified ? axios.get(`${host}/api/matches?tm=${tmName}`, {
         headers: {
-          'x-vercel-id': 'Test1234'
+          'x_authorization': `Basic ${process.env.GATSBY_SECRET_KEY}` 
         }
       }) : undefined,
     ])
@@ -248,7 +248,7 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
       players.data.forEach((player) => {
         playerDict[player.name] = player;
         const rosterHtml = getRosterHTML(player);
-        const eventLabel = showWorldsQualified ? ` - (${parseTm(player.tournament)})` : ""
+        const eventLabel = ` - (${parseTm(player.tournament)})`
         newProducts.push({
           placement: (
             <div className="player-item-placement" value={player.final_rank}>
@@ -260,9 +260,15 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
           ),
           name: (
             <div className="player-item-team-container">
-              <Link to={linkifyEvent(player.tournament)}>
-                {player.name}{eventLabel}
-              </Link>
+              {
+                showWorldsQualified ? (
+                  <Link to={linkifyEvent(player.tournament)}>
+                    {player.name}{eventLabel}
+                  </Link>
+                ) : (
+                  <div>{player.name}</div>
+                )
+              }
               <div data-search={getRosterSearchHTML(player)} className="player-item-row">{rosterHtml}</div>
             </div>
           ),
