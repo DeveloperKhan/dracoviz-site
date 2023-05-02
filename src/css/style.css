@@ -582,13 +582,16 @@ a:focus {
 }
 
 #footer {
+  padding: var(--spacing-3);
+  margin-top: var(--spacing-3);
+  border-top: solid 1px var(--color-light);
+  text-align: center;
+}
+
+.footer-social {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  text-align: center;
-  padding: var(--spacing-2);
-  margin-top: var(--spacing-2);
-  border-top: solid 1px var(--color-light);
 }
 
 /* Media queries */

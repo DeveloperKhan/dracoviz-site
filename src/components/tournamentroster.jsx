@@ -217,8 +217,16 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
     const host = `${window.location.protocol}//${window.location.host}`;
     const tmUrl = showWorldsQualified ? `${host}/api/tournament?qualified=${true}` : `${host}/api/tournament?tm=${tmName}`
     Promise.all([
-      axios.get(tmUrl),
-      !showWorldsQualified ? axios.get(`${host}/api/matches?tm=${tmName}`) : undefined,
+      axios.get(tmUrl, {
+        headers: {
+          'Authorization': `Basic ${process.env.GATSBY_SECRET_KEY}` 
+        }
+      }),
+      !showWorldsQualified ? axios.get(`${host}/api/matches?tm=${tmName}`, {
+        headers: {
+          'Authorization': `Basic ${process.env.GATSBY_SECRET_KEY}` 
+        }
+      }) : undefined,
     ])
     .then((response) => {
       const [players, matches] = response;

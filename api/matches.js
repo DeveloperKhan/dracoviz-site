@@ -5,6 +5,21 @@ const client = new MongoClient(uri);
 
 async function handler(req, res) {
   const { tm } = req.query;
+  if (req.headers == null || req.headers.authorization == null) {
+    res.status(401).json({
+      status: 401,
+      message: 'Unauthorized'
+    })
+    return;
+  }
+  const { ACTION_KEY } = req.headers.authorization.split(" ")[1];
+  if (ACTION_KEY !== process.env.SECRET_KEY) {
+    res.status(401).json({
+      status: 401,
+      message: 'Unauthorized'
+    })
+    return;
+  }
   try {
     await client.connect();
     const pokemongo = client.db('pokemongo');
