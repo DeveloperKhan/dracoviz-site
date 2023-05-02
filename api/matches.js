@@ -12,7 +12,7 @@ async function handler(req, res) {
     })
     return;
   }
-  const { ACTION_KEY } = req.headers.authorization.split(" ")[1];
+  const ACTION_KEY = req.headers.authorization.split(" ")[1];
   if (ACTION_KEY !== process.env.GATSBY_SECRET_KEY) {
     res.status(401).json({
       status: 401,
