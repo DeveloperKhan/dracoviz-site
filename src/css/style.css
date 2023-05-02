@@ -573,6 +573,14 @@ a:focus {
   height: 40rem;
 }
 
+.close-modal-btn {
+  box-shadow: none;
+  border: none;
+  background-color: var(--color-accent);
+  cursor: pointer;
+  font-family: var(--fontFamily-sans);
+}
+
 #footer {
   display: flex;
   flex-direction: row;

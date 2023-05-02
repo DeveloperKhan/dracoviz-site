@@ -192,6 +192,7 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
   };
 
   useEffect(() => {
+    Modal.setAppElement('#player-list');
     const debouncedHandleResize = debounce(function handleResize() {
       setIsLoading(true);
       setTimeout(() => {
@@ -267,13 +268,14 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
   }, [tm]);
 
   return (
-    <div className="roster-container use-bootstrap use-table">
+    <div id="player-list" className="roster-container use-bootstrap use-table">
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Matches"
         style={{overlay: {zIndex: 1000}}}
       >
+        <button onClick={closeModal} className="close-modal-btn">Close</button>
         <div className="matches-container use-bootstrap use-table is-layout-constrained">
           <ToolkitProvider
             bootstrap4
