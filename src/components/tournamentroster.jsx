@@ -219,12 +219,12 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
     Promise.all([
       axios.get(tmUrl, {
         headers: {
-          'Authorization': `Basic 667wsLhVIt` 
+          'x-vercel-id': 'Test1234' 
         }
       }),
       !showWorldsQualified ? axios.get(`${host}/api/matches?tm=${tmName}`, {
         headers: {
-          'Authorization': `Basic 667wsLhVIt` 
+          'x-vercel-id': 'Test1234'
         }
       }) : undefined,
     ])
