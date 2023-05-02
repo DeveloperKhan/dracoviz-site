@@ -18,7 +18,7 @@ const tableOfContentsItems = [
     title: 'Schedule',
   },
   {
-    location: 'teams',
+    location: 'player-list',
     title: 'Teams',
   },
   {
