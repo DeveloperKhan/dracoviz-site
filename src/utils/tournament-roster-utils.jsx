@@ -108,7 +108,13 @@ export function getRosterHTML(player) {
     };
 
     return (
-      <div data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="top" title={title} width="69px" height="69px" className="pokemon-image-wrapper">
+      <div
+        width="69px"
+        height="69px"
+        className="pokemon-image-wrapper"
+        data-tooltip-id="pokemon-item"
+        data-tooltip-content={title}
+      >
         {getBestBuddy()}
         {getShadow()}
         {getPurified()}
