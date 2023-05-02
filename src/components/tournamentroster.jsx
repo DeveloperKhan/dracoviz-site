@@ -14,11 +14,11 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import Modal from 'react-modal';
 import { getRosterHTML, getRosterSearchHTML } from '../utils/tournament-roster-utils';
-// import debounce from "lodash/debounce";
 import classNames from 'classnames';
 import { Tooltip } from 'react-tooltip'
 import { Link } from 'gatsby';
 import { linkifyEvent } from '../utils/url-utils';
+import useWindowSize from '../utils/use-window-size';
 
 const noDataIndication = "There is no data for this event. Please check back another time! :)";
 
@@ -144,6 +144,7 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [columns, setColumns] = useState(getColumns(window.innerWidth));
   const [isLoading, setIsLoading] = useState(true);
+  const { width } = useWindowSize();
 
   const handleClick = (player, matches) => {
     const newProductsMatches = [];
@@ -198,19 +199,16 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
 
   useEffect(() => {
     Modal.setAppElement('#player-list');
-    // const debouncedHandleResize = debounce(function handleResize() {
-    //   setIsLoading(true);
-    //   setTimeout(() => {
-    //     const newColumns = getColumns(window.innerWidth);
-    //     setColumns(newColumns);
-    //     setIsLoading(false);
-    //   }, 1);
-    // }, 100);
-    // window.addEventListener('resize', debouncedHandleResize)
-    // return _ => {
-    //   window.removeEventListener('resize', debouncedHandleResize)   
-    // }
   }, []);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      const newColumns = getColumns(window.innerWidth);
+      setColumns(newColumns);
+      setIsLoading(false);
+    }, 1);
+  }, [width])
 
   useEffect(() => {
     setIsLoading(true);
