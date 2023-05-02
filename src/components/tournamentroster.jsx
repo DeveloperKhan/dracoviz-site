@@ -334,7 +334,6 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
           }
         }
       </ToolkitProvider>
-        )
       <Tooltip id="pokemon-item" style={{ zIndex: 99999 }} />
     </div>
   );
