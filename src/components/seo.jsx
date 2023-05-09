@@ -9,6 +9,16 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
+const googleAnalytics = [
+  {
+    async: true,
+    src: "https://www.googletagmanager.com/gtag/js?id=G-JPQEHKLXB6",
+  },
+  {
+    innerHTML: "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-JPQEHKLXB6');"
+  }
+];
+
 function Seo({
   description, lang, meta, title,
 }) {
@@ -32,6 +42,8 @@ function Seo({
 
   const metaDescription = description || wp.generalSettings?.description;
   const defaultTitle = wp.generalSettings?.title;
+  const isDev = process.env.NODE_ENV === "development";
+
 
   return (
     <Helmet
@@ -40,6 +52,7 @@ function Seo({
       }}
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      script={isDev ? undefined : googleAnalytics}
       meta={[
         {
           name: 'description',

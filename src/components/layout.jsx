@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import Logo from './logo';
 import Social from './social';
-import { Analytics } from '@vercel/analytics/react';
 
 function Layout({ children, isHomepage, ...rest }) {
   const {
@@ -47,7 +46,6 @@ function Layout({ children, isHomepage, ...rest }) {
           </small>
         </footer>
       </div>
-      <Analytics />
     </>
   );
 }
