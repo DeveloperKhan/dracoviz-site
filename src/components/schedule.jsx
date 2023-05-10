@@ -1,54 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Tabs from './tabs';
 import Article from './article';
+import { options } from '../utils/date-utils';
 
 // Assuming format "EVENT:MM-DD-YYYY"
 const dateTagPrefix = 'EVENT:';
 const currentDate = new Date();
 const currentDay = currentDate.getDate();
 const currentMonth = currentDate.getMonth() + 1;
-const options = [
-  {
-    value: 9,
-    label: 'Sep',
-  },
-  {
-    value: 10,
-    label: 'Oct',
-  },
-  {
-    value: 11,
-    label: 'Nov',
-  },
-  {
-    value: 12,
-    label: 'Dec',
-  },
-  {
-    value: 1,
-    label: 'Jan',
-  },
-  {
-    value: 2,
-    label: 'Feb',
-  },
-  {
-    value: 3,
-    label: 'Mar',
-  },
-  {
-    value: 4,
-    label: 'Apr',
-  },
-  {
-    value: 5,
-    label: 'May',
-  },
-  {
-    value: 6,
-    label: 'Jun',
-  },
-];
 const orderOfMonths = {
   9: 0,
   10: 1,

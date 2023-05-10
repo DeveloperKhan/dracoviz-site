@@ -4,6 +4,7 @@ import parse from 'html-react-parser';
 import { Link } from 'gatsby';
 import classnames from "classnames";
 import Pills from './pills';
+import { getDateFromTag } from '../utils/date-utils';
 
 function Article({ post, variant = 'medium' }) {
   const featuredImage = {
@@ -12,6 +13,7 @@ function Article({ post, variant = 'medium' }) {
   };
   const isLarge = variant === 'large';
   const shouldDisplayImage = featuredImage?.data != null && isLarge;
+  const date = getDateFromTag(post.tags.nodes[0].name);
   return (
     <Link to={post.uri} style={{ textDecoration: 'none' }}>
       <div className={classnames("article-item", { "article-large": isLarge })}>
@@ -26,7 +28,8 @@ function Article({ post, variant = 'medium' }) {
           <Pills categories={post.categories.nodes} />
           <div className="article-item-content">
             <h3>{post.title}</h3>
-            {parse(post.excerpt)}
+            <div className="article-item-date">{date}</div>
+            <p>{parse(post.excerpt)}</p>
           </div>
         </div>
       </div>
