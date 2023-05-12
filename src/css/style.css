@@ -539,11 +539,8 @@ a:focus {
 }
 
 .player-item-row {
-  flex: 1;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
 }
 
 .pokemon-image-wrapper {
@@ -603,9 +600,17 @@ a:focus {
 
 /* Media queries */
 
+@media (max-width: 50rem) {
+  .player-item-row {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+}
+
 @media (max-width: 42rem) {
-  .pokemon-image-wrapper {
-    margin: 0 0 0 5%;
+  .player-item-row {
+    display: grid;
+    grid-template-columns: auto auto;
   }
   blockquote {
     padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
