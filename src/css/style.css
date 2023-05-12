@@ -608,6 +608,10 @@ a:focus {
 }
 
 @media (max-width: 42rem) {
+  .ReactModal__Content {
+    margin-left: -40px;
+    width: 100%;
+  }
   .player-item-row {
     display: grid;
     grid-template-columns: auto auto;

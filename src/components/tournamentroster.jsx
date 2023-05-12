@@ -32,7 +32,7 @@ const columnsMatches = [{
   dataField: 'placement',
   text: '',
   sort: true,
-  headerStyle: () => ({ width: '120px', textAlign: 'center' }),
+  headerStyle: () => ({ width: '90px', textAlign: 'center' }),
 }, {
   dataField: 'name',
   text: '',
