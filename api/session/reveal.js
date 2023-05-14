@@ -1,7 +1,7 @@
-const Player = require('../db/player');
+const Session = require('../db/session');
 
 async function handler(req, res) {
-  const { id, name, description, friendCode, discord, telegram } = req.query;
+    const { id } = req.query;
   //using 'custom' x_authorization header because the regular 'authorization' header is stripped by Vercel in PROD environments.
   const { x_authorization } = req.headers
   if (x_authorization == null) {
@@ -20,23 +20,24 @@ async function handler(req, res) {
     return;
   }
   try {
-      var player = await Player.find({'_id': id})
+    var session = await Session.find({'_id': id})
 
-      if (player === undefined) {
-        res.status(401).json({ error: `Player not found` });
-        return;
-      }
+    if (session === undefined) {
+      res.status(401).json({ error: `Session not found` });
+      return;
+    }
 
-      player.name = name;
-      player.description = description;
-      player.friendCode = friendCode;
-      player.discord = discord;
-      player.telegram = telegram;
+    if (session.state == "finished") {
+      res.status(401).json({ error: `Session ${name} has already finished` });
+      return;
+    }
 
-      await player.save();
-      res.status(200).json(player)
+    session.state = "teams-revealed";
+
+    await session.save();
+    res.status(200).json(session)
   } catch (ex) {
-    res.status(401).json({ error: `Invalid query of player=${id}` });
+    res.status(401).json({ error: `Invalid query of session=${name}` });
   }
 }
 

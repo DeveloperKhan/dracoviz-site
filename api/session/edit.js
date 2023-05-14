@@ -1,7 +1,7 @@
 const Session = require('../db/session');
 
 async function handler(req, res) {
-    const { name, description, 
+    const { id, name, description, 
         bracketLink, serverInviteLink,
          isPrivate, 
          maxTeams, matchTeamSize, metas} = req.query;
@@ -23,21 +23,24 @@ async function handler(req, res) {
     return;
   }
   try {
-      var session = new Session({
-        _id: crypto.randomUUID(),
-        name: name,
-        description: description,
-        bracketLink: bracketLink,
-        serverInviteLink: serverInviteLink,
-        isPrivate: isPrivate,
-        maxTeams: maxTeams,
-        matchTeamSize: matchTeamSize,
-        metas: metas,
-        state: "new"
-      })
+    var session = await Session.find({'_id': id})
 
-      await session.save();
-      res.status(200).json(session)
+    if (session === undefined) {
+      res.status(401).json({ error: `Session not found` });
+      return;
+    }
+
+    session.name = name;
+    session.description = description;
+    session.bracketLink = bracketLink;
+    session.serverInviteLink = serverInviteLink;
+    session.isPrivate = isPrivate;
+    session.maxTeams = maxTeams;
+    session.matchTeamSize = matchTeamSize;
+    session.metas = metas;
+
+    await session.save();
+    res.status(200).json(session)
   } catch (ex) {
     res.status(401).json({ error: `Invalid query of session=${name}` });
   }
