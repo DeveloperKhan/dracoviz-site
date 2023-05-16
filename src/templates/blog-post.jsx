@@ -20,8 +20,9 @@ import TournamentRoster from '../components/tournamentroster';
 import { delinkifyEvent } from '../utils/url-utils';
 
 function BlogPostTemplate({ data: { previous, next, post } }) {
+  const imageData = post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData;
   const featuredImage = {
-    data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
+    data: imageData,
     alt: post.featuredImage?.node?.alt || '',
   };
   const [content, setContent] = useState();
@@ -56,7 +57,7 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
 
   return (
     <Layout>
-      <Seo title={post.title} description={post.excerpt} />
+      <Seo title={post.title} description={post.excerpt} image={post.featuredImage?.node?.sourceUrl} />
 
       <article
         className="blog-post"
@@ -145,6 +146,7 @@ export const pageQuery = graphql`
       featuredImage {
         node {
           altText
+          sourceUrl
           localFile {
             childImageSharp {
               gatsbyImageData(

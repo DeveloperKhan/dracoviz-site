@@ -20,7 +20,7 @@ const googleAnalytics = [
 ];
 
 function Seo({
-  description, lang, meta, title,
+  description, lang, meta, title, image
 }) {
   const { wp, wpUser } = useStaticQuery(
     graphql`
@@ -43,6 +43,7 @@ function Seo({
   const metaDescription = description || wp.generalSettings?.description;
   const defaultTitle = wp.generalSettings?.title;
   const isDev = process.env.NODE_ENV === "development";
+  const imagePath = image ?? require("../../content/assets/featuredImage.png");
 
 
   return (
@@ -69,6 +70,14 @@ function Seo({
         {
           property: 'og:type',
           content: 'website',
+        },
+        {
+          property: `og:image`,
+          content: imagePath,
+        },
+        {
+          name: `twitter:image`,
+          content: imagePath,
         },
         {
           name: 'twitter:card',
