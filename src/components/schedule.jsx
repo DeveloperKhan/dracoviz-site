@@ -19,6 +19,7 @@ const orderOfMonths = {
   4: 7,
   5: 8,
   6: 9,
+  7: 10,
 };
 
 const getRegion = (post) => {
@@ -52,6 +53,7 @@ function orderPostsByStartMonth(posts) {
     4: [],
     5: [],
     6: [],
+    7: [],
   };
   posts.forEach((post) => {
     const startDate = getPostStartDate(post);
