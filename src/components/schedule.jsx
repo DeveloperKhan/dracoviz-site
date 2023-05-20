@@ -74,7 +74,7 @@ function orderPostsByStartMonth(posts) {
         return diff > 0 ? 1 : -1;
       }
       // If currentMonth, and an event is upcoming...
-      if (key === currentMonth && (a.day >= currentDay || b.day >= currentDay)) {
+      if (key == currentMonth) {
         // If only one event is upcoming, show that one
         if (a.day >= currentDay && b.day < currentDay) {
           return -1;
