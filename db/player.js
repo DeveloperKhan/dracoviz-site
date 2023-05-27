@@ -1,18 +1,24 @@
-import { Schema as _Schema, model } from './db';
+import { connectToDatabase } from './db';
 
-var Schema = _Schema;
+var PlayerModel = null;
+load()
 
-var PlayerSchema = new Schema({
-    session: { type: String, unique: true },
-    name: { type: String, unique: true },
-    description: { type: String },
-    friendCode: { type: String },
-    discord: { type: String },
-    telegram: { type: String },
-    google: { type: String }
-})
+async function load() {
+    var db = await connectToDatabase();
+    var Schema = db.Schema;
 
+    var PlayerSchema = new Schema({
+        session: { type: String, unique: true },
+        name: { type: String, unique: true },
+        description: { type: String },
+        friendCode: { type: String },
+        discord: { type: String },
+        telegram: { type: String },
+        google: { type: String }
+    })
+    
+    PlayerModel = db.model("player", PlayerSchema);
+}
 
-var PlayerModel = model("player", PlayerSchema);
 
 export default PlayerModel
