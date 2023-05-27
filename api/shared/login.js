@@ -1,7 +1,6 @@
 import * as Player from "../../db/player";
 
 async function handler(req, res) {
-    const { email, password } = req.query;
   //using 'custom' x_authorization header because the regular 'authorization' header is stripped by Vercel in PROD environments.
   const { x_authorization, x_session_id } = req.headers
   if (x_authorization == null) {
