@@ -1,17 +1,18 @@
-import { Schema as _Schema, model } from './db';
+import mongoose from 'mongoose';
+import connectToDatabase from './db';
 
-var Schema = _Schema;
+const getPlayerModel = async () => {
+    await connectToDatabase();
+    const PlayerSchema = new mongoose.Schema({
+      session: { type: String, unique: true },
+      name: { type: String, unique: true },
+      description: { type: String },
+      friendCode: { type: String },
+      discord: { type: String },
+      telegram: { type: String },
+      google: { type: String }
+    })
+    return mongoose.model("player", PlayerSchema);
+}
 
-var PlayerSchema = new Schema({
-    session: { type: String, unique: true },
-    name: { type: String, unique: true },
-    description: { type: String },
-    friendCode: { type: String },
-    discord: { type: String },
-    telegram: { type: String },
-    google: { type: String }
-})
-    
-var PlayerModel = model("player", PlayerSchema);
-
-export default PlayerModel;
+export default getPlayerModel;
