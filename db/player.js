@@ -21,4 +21,4 @@ async function load() {
 }
 
 
-export default PlayerModel
+export default PlayerModel;
