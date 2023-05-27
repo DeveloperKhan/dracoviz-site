@@ -1,7 +1,7 @@
 import { connectToDatabase } from './db';
 
 var PlayerModel = null;
-load()
+load();
 
 async function load() {
     var db = await connectToDatabase();

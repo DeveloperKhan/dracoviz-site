@@ -1,4 +1,5 @@
 import * as Player from "../../db/player";
+import allowCors from "../../db/allowCors";
 
 async function handler(req, res) {
   //using 'custom' x_authorization header because the regular 'authorization' header is stripped by Vercel in PROD environments.
@@ -19,13 +20,11 @@ async function handler(req, res) {
     return;
   }
   try {
-    var player = await Player.find({'session': session});
-
+    var player = await Player.find({'session': x_session_id});
     if (player === undefined) {
       player = new Player({
         session: x_session_id
-      })
-  
+      });
       await player.save();
     }
 
@@ -37,4 +36,4 @@ async function handler(req, res) {
   }
 }
 
-export default handler;
+export default allowCors(handler);
