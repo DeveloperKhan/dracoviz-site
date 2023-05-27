@@ -2,7 +2,7 @@ import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import parse from 'html-react-parser';
 import { Link } from 'gatsby';
-import classnames from "classnames";
+import classnames from 'classnames';
 import Pills from './pills';
 import { getDateFromTag } from '../utils/date-utils';
 
@@ -18,7 +18,7 @@ function Article({ post, variant = 'medium' }) {
   const date = hasTags ? getDateFromTag(post.tags.nodes[0].name) : "";
   return (
     <Link to={post.uri} style={{ textDecoration: 'none' }}>
-      <div className={classnames("article-item", { "article-large": isLarge })}>
+      <div className={classnames('article-item', { 'article-large': isLarge })}>
         {shouldDisplayImage && (
         <GatsbyImage
           image={featuredImage.data}
