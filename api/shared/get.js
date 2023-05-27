@@ -1,6 +1,7 @@
 import getPlayerModel from '../../db/player';
 import getSessionModel from '../../db/session';
 import allowCors from '../../db/allowCors';
+import avatars from "../../static/avatars.json";
 
 async function handler(req, res) {
   const { id } = req.query;
@@ -59,7 +60,7 @@ async function handler(req, res) {
     const response = {
       name: player.name,
       description: player.description,
-      avatar: player.avatar,
+      avatar: avatars[player.avatar]?.src,
       friendCode: player.friendCode,
       discord: player.discord,
       telegram: player.telegram,

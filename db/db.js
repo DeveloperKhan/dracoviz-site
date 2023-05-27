@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const mongo = "mongodb+srv://shinydialga45:HoxplXqdNY9mnKR2@shiny.s8q47hb.mongodb.net/pokemongo?retryWrites=true&w=majority"
+const mongo = 'mongodb+srv://shinydialga45:HoxplXqdNY9mnKR2@shiny.s8q47hb.mongodb.net/pokemongo?retryWrites=true&w=majority'
 let isConnected;
 
 const connectToDatabase = async () => {
