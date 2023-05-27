@@ -20,42 +20,18 @@ async function handler(req, res) {
     return;
   }
   try {
-    var player = await Player.find({'email': email});
+    var player = await Player.find({'session': session});
 
     if (player === undefined) {
-      res.status(401).json({ error: `Player not found` });
-      return;
+      player = new Player({
+        session: x_session_id
+      })
+  
+      await player.save();
     }
-
-    var passwordIsValid = bcrypt.compareSync(
-      password,
-      player.password
-    );
-    
-    if (!passwordIsValid) {
-      return res.status(401).json({
-        accessToken: null,
-        message: "Invalid Password!",
-      });
-    }
-
-    if (user.status != "Active") {
-      return res.status(401).json({
-        message: "Pending Account. Please Verify Your Email!",
-      });
-    }
-
-    var token = jwt.sign({ id: user.id }, "secret", {
-      expiresIn: 86400, // 24 hours
-    });
-
-    player.token = token;
-    await player.save();
 
     res.status(200).send({
-      id: player._id,
-      email: email,
-      accessToken: token
+      
     })
   } catch (ex) {
     res.status(401).json({ error: `Invalid query` });
