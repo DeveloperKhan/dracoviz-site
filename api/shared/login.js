@@ -2,7 +2,7 @@ import getPlayerModel from '../../db/player';
 import allowCors from '../../db/allowCors';
 
 function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
+  return Math.floor(Math.random() * max) + 1;
 }
 
 async function handler(req, res) {
@@ -31,7 +31,7 @@ async function handler(req, res) {
         // Get random name
         name: `Guest ${getRandomInt(99999999999)}`,
         // Get random avatar
-        avatar: getRandomInt(11).toString(),
+        avatar: getRandomInt(10).toString(),
         description: 'A rising legend.',
       });
       await player.save();
