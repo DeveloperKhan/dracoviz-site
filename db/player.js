@@ -1,6 +1,6 @@
-var db = require('./db')
+import { Schema as _Schema, model } from './db';
 
-var Schema = db.Schema;
+var Schema = _Schema;
 
 var PlayerSchema = new Schema({
     name: { type: String, unique: true },
@@ -23,6 +23,6 @@ var PlayerSchema = new Schema({
 })
 
 
-var PlayerModel = db.model("player", PlayerSchema);
+var PlayerModel = model("player", PlayerSchema);
 
-module.exports = PlayerModel
+export default PlayerModel

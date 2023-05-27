@@ -1,7 +1,4 @@
-var bcrypt = require("bcryptjs");
-var jwt = require("jsonwebtoken");
-
-const Player = require('../db/player');
+import * as Player from "../../db/player";
 
 async function handler(req, res) {
     const { email, password } = req.query;

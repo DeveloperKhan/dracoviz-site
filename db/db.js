@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+import mongoose, { connect } from 'mongoose';
 
 const mongo = ""
-mongoose.connect(
+connect(
   mongo,
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
-module.exports = mongoose
+export default mongoose;

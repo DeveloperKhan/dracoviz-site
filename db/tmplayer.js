@@ -1,6 +1,6 @@
-var db = require('./db')
+import { Schema as _Schema, model } from './db';
 
-var Schema = db.Schema;
+var Schema = _Schema;
 
 var TMPlayerSchema = new Schema({
     name:   { type: String, required: true },
@@ -20,6 +20,6 @@ var TMPlayerSchema = new Schema({
     }]
 })
 
-var TMPlayer = db.model("tm_player", TMPlayerSchema);
+var TMPlayer = model("tm_player", TMPlayerSchema);
 
-module.exports = TMPlayer
+export default TMPlayer;

@@ -1,6 +1,6 @@
-var db = require('./db')
+import { Schema as _Schema, model } from './db';
 
-var Schema = db.Schema;
+var Schema = _Schema;
 
 var SessionSchema = new Schema({
     name:   { type: String, required: true },
@@ -36,6 +36,6 @@ var SessionSchema = new Schema({
 })
 
 
-var SessionModel = db.model("session", SessionSchema);
+var SessionModel = model("session", SessionSchema);
 
-module.exports = SessionModel
+export default SessionModel;
