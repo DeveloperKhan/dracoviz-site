@@ -29,7 +29,7 @@ async function handler(req, res) {
       player = new Player({
         session: x_session_id,
         // Get random name
-        name: `Guest ${getRandomInt(99999999999)}`,
+        name: `Player ${getRandomInt(99999999999)}`,
         // Get random avatar
         avatar: getRandomInt(10).toString(),
         description: 'A rising legend.',
