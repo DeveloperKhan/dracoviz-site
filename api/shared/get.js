@@ -4,26 +4,25 @@ import allowCors from '../../db/allowCors';
 
 async function handler(req, res) {
   const { id } = req.query;
-  // using 'custom' x_authorization header because the regular 'authorization' header is stripped by Vercel in PROD environments.
-  const { x_authorization } = req.headers;
+  const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
     res.status(401).json({
       status: 401,
-      message: 'Missing authorization header'
-    })
+      message: 'Missing authorization header',
+    });
     return;
   }
-  const ACTION_KEY = x_authorization.split(" ")[1];
+  const ACTION_KEY = x_authorization.split(' ')[1];
   if (ACTION_KEY !== process.env.GATSBY_SECRET_KEY) {
     res.status(401).json({
       status: 401,
-      message: 'Unauthorized'
-    })
+      message: 'Unauthorized',
+    });
     return;
   }
   try {
     const Player = await getPlayerModel();
-    const player = await Player.findOne({ session: 'n1KWjK6M7LQHTREJsA1j1kcxtsT2' });
+    const player = await Player.findOne({ session: x_session_id });
     if (player == null || player.length <= 0) {
       res.status(401).json({ error: 'Player not found' });
       return;
@@ -31,29 +30,31 @@ async function handler(req, res) {
 
     const Session = await getSessionModel();
     const sessions = [];
-    for (const playerSession of player.sessions) {
+    player.sessions.forEach(async (playerSession) => {
       const session = await Session.findOne({ _id: playerSession });
       let role = 'Player';
       if (session.host === player.name) {
         role = 'Host';
       } else {
-        for (const faction of session.factions) {
+        session.factions.forEach((faction) => {
           if (faction.captain === player.name) {
             role = 'Captain';
-            break;
           }
-        }
+        });
       }
+      const {
+        _id, name, state, metaLogo,
+      } = session;
       sessions.push({
-        _id: session._id,
-        name: session.name,
+        _id,
+        name,
         playerValues: {
-          status: session.state,
+          status: state,
           role,
-          meta: session.metaLogo,
+          meta: metaLogo,
         },
       });
-    }
+    });
 
     const response = {
       name: player.name,
