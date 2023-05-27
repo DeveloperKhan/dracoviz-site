@@ -7,9 +7,11 @@ const getPlayerModel = async () => {
       session: { type: String, unique: true },
       name: { type: String, unique: true },
       description: { type: String },
+      avatar: { type: String },
       friendCode: { type: String },
       discord: { type: String },
       telegram: { type: String },
+      sessions: [{ type: String }],
       google: { type: String }
     })
     return mongoose.model("player", PlayerSchema);
