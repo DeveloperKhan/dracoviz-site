@@ -26,6 +26,9 @@ async function handler(req, res) {
   }
   try {
     const isValidUrl = (urlString) => {
+      if (urlString == null || urlString === '') {
+        return true;
+      }
       const urlPattern = new RegExp('^(https?:\\/\\/)?' // validate protocol
         + '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' // validate domain name
         + '((\\d{1,3}\\.){3}\\d{1,3}))' // validate OR ip (v4) address
@@ -33,7 +36,7 @@ async function handler(req, res) {
         + '(\\?[;&a-z\\d%_.~+=-]*)?' // validate query string
         + '(\\#[-a-z\\d_]*)?$', 'i'); // validate fragment locator
 
-      const ban = ['porn', 'tube', 'fuck', 'poop', 'videos', 'hentai', 'onlyfans'];
+      const ban = ['porn', 'tube', 'fuck', 'poop', 'videos', 'hentai', 'onlyfans', 'furry', 'deviant', 'cock.com', 'xxx'];
       return (!ban.every((bannedWord) => !urlString.includes(bannedWord)))
        && !!urlPattern.test(urlString);
     };
@@ -48,7 +51,15 @@ async function handler(req, res) {
       return;
     }
 
-    if (metas.every((meta) => rules[meta] !== undefined)) {
+    let isInvalidMeta = false;
+    metas.every((meta) => {
+      if (rules[meta] == null) {
+        isInvalidMeta = true;
+        return false;
+      }
+      return true;
+    });
+    if (isInvalidMeta) {
       res.status(401).json({ error: 'Invalid meta' });
       return;
     }
@@ -60,7 +71,6 @@ async function handler(req, res) {
 
     const Session = await getSessionModel();
     const session = new Session({
-      _id: crypto.randomUUID(),
       name,
       host: x_session_id,
       description,
@@ -79,6 +89,7 @@ async function handler(req, res) {
 
     });
   } catch (ex) {
+    console.log(ex);
     res.status(401).json({ error: `Invalid query of session=${name}` });
   }
 }
