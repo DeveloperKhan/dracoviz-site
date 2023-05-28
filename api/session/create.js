@@ -87,6 +87,7 @@ async function handler(req, res) {
       maxMatchTeamSize,
       isCPRequired,
       metas,
+      state: 'ROSTERS_HIDDEN',
     });
 
     const { _id } = session;
