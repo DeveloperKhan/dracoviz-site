@@ -7,10 +7,12 @@ const getSessionModel = async () => {
   const SessionSchema = new mongoose.Schema({
     _id: {
       type: String,
-      default: crypto.randomUUID,
+      default: () => crypto.randomUUID().slice(-8),
+      unique: true,
     },
     name: { type: String, required: true },
-    host: { type: String },
+    host: [String],
+    registrationNumber: String,
     description: { type: String },
     bracketLink: { type: String },
     serverInviteLink: { type: String },

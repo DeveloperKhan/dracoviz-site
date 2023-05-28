@@ -1,7 +1,7 @@
 import getPlayerModel from '../../db/player';
 import getSessionModel from '../../db/session';
 import allowCors from '../../db/allowCors';
-import avatars from "../../static/avatars.json";
+import avatars from '../../static/avatars.json';
 
 async function handler(req, res) {
   const { id } = req.query;

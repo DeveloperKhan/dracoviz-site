@@ -2,6 +2,10 @@ import getSessionModel from '../../db/session';
 import allowCors from '../../db/allowCors';
 import rules from '../../static/rules.json';
 
+function getRandomPin() {
+  return Math.random().toString(36).slice(-4);
+}
+
 async function handler(req, res) {
   const {
     name, description, serverInviteLink,
@@ -68,12 +72,13 @@ async function handler(req, res) {
       res.status(401).json({ error: 'Max match team size cannot be greater than Max team size' });
       return;
     }
-
+    const registrationNumber = isPrivate ? getRandomPin() : '';
     const Session = await getSessionModel();
     const session = new Session({
       name,
       host: x_session_id,
       description,
+      registrationNumber,
       bracketLink,
       serverInviteLink,
       isPrivate,
@@ -84,12 +89,15 @@ async function handler(req, res) {
       metas,
     });
 
+    const { _id } = session;
+
     await session.save();
     res.status(200).send({
-
+      id: _id,
+      registrationNumber,
+      isPrivate,
     });
   } catch (ex) {
-    console.log(ex);
     res.status(401).json({ error: `Invalid query of session=${name}` });
   }
 }
