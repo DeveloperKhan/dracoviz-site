@@ -23,7 +23,6 @@ async function handler(req, res) {
     return;
   }
   try {
-
     const Player = await getPlayerModel();
     const player = await Player.findOne({ session: x_session_id });
     if (player == null || player.length <= 0) {
@@ -38,32 +37,34 @@ async function handler(req, res) {
       return;
     }
 
-    if (session.password !== undefined &&
-       session.password !== registrationNumber) {
+    if (session.registrationNumber !== undefined
+       && session.registrationNumber !== registrationNumber) {
       res.status(401).json({ error: 'Invalid registration number' });
       return;
     }
 
-    let isTeamTournament = session.maxTeamSize > 1;
+    const isTeamTournament = session.maxTeamSize > 1;
 
     if (!isTeamTournament) {
-      if (session.players.every((player) => x_session_id !== player.playerId)) {
+      if (session.players.every((p) => x_session_id !== p.playerId)) {
         session.players.push({
-          playerId: x_session_id
-        })
+          playerId: x_session_id,
+        });
         await session.save();
       } else {
-        res.status(401).json({ error: 'Already entered' });
+        res.status(401).json({ error: 'Already entered', alreadyEntered: true });
         return;
       }
     }
 
+    const { _id } = session;
+
     res.status(200).send({
-      id: session._id,
-      isTeamTournament
+      id: _id,
+      isTeamTournament,
     });
   } catch (ex) {
-    res.status(401).json({ error: `Invalid query of session=${name}` });
+    res.status(401).json({ error: `Invalid query of session=${tournamentId}` });
   }
 }
 
