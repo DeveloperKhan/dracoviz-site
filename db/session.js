@@ -29,15 +29,35 @@ const getSessionModel = async () => {
       playerId: String,
       factionId: String,
       tournamentPostiion: Number,
-      pokemon: [{
-        name: { type: String },
-        form: { type: String },
-        cp: { type: Number },
-        best_buddy: { type: Boolean, default: false },
-        shadow: { type: Boolean, default: false },
-        purified: { type: Boolean, default: false },
-      }]
-    }]
+    }],
+    bracket: [{
+      round: {
+        type: Number,
+        unique: true,
+      },
+      matches: [
+        {
+          id: {
+            type: String,
+            unique: true,
+          },
+          score: [Number],
+          meta: String,
+          players: [{
+            id: String,
+            score: [Number],
+            pokemon: [{
+              name: { type: String },
+              form: { type: String },
+              cp: { type: Number },
+              best_buddy: { type: Boolean, default: false },
+              shadow: { type: Boolean, default: false },
+              purified: { type: Boolean, default: false },
+            }],
+          }],
+        },
+      ],
+    }],
   });
   return mongoose.model('session', SessionSchema);
 };
