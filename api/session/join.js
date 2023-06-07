@@ -50,6 +50,8 @@ async function handler(req, res) {
         session.players.push({
           playerId: x_session_id,
         });
+        player.sessions.push(tournamentId);
+        await player.save();
         await session.save();
       } else {
         res.status(401).json({ error: 'Already entered', alreadyEntered: true });

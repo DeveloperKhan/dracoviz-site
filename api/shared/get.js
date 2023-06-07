@@ -31,7 +31,7 @@ async function handler(req, res) {
 
     const Session = await getSessionModel();
     const sessions = [];
-    player.sessions.forEach(async (playerSession) => {
+    await Promise.all(player.sessions.map(async (playerSession) => {
       const session = await Session.findOne({ _id: playerSession });
       let role = 'Player';
       if (session.host === player.name) {
@@ -55,7 +55,7 @@ async function handler(req, res) {
           meta: metaLogo,
         },
       });
-    });
+    }));
 
     const response = {
       name: player.name,
