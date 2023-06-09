@@ -2,8 +2,9 @@ import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import Logo from './logo';
 import Social from './social';
+import BlogPostButton from './blog-post-button';
 
-function Layout({ children, isHomepage, ...rest }) {
+function Layout({ children, isHomepage, isBlogPostArchive, ...rest }) {
   const {
     wp: {
       generalSettings: { title },
@@ -25,8 +26,9 @@ function Layout({ children, isHomepage, ...rest }) {
         {isHomepage ?? (
           <header className="global-header">
             <Link className="header-link-home" to="/">
-              <Logo style={{ marginTop: 10, marginBottom: 10 }} />
+              <Logo />
             </Link>
+            {!isBlogPostArchive && <BlogPostButton />}
           </header>
         )}
 
