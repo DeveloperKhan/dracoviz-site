@@ -46,6 +46,10 @@ async function handler(req, res) {
     const isTeamTournament = session.maxTeamSize > 1;
 
     if (!isTeamTournament) {
+      if (session.host.includes(x_session_id)) {
+        res.status(401).json({ error: 'A host cannot join their own tournament', alreadyEntered: true });
+        return;
+      }
       if (session.players.every((p) => x_session_id !== p.playerId)) {
         session.players.push({
           playerId: x_session_id,

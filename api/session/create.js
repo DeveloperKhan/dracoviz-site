@@ -1,4 +1,5 @@
 import getSessionModel from '../../db/session';
+import getPlayerModel from '../../db/player';
 import allowCors from '../../db/allowCors';
 import rules from '../../static/rules.json';
 
@@ -72,6 +73,12 @@ async function handler(req, res) {
       res.status(401).json({ error: 'Max match team size cannot be greater than Max team size' });
       return;
     }
+    const Player = await getPlayerModel();
+    const player = await Player.findOne({ session: x_session_id });
+    if (player == null || player.length <= 0) {
+      res.status(401).json({ error: 'Player not found' });
+      return;
+    }
     const registrationNumber = isPrivate ? getRandomPin() : '';
     const Session = await getSessionModel();
     const session = new Session({
@@ -87,10 +94,13 @@ async function handler(req, res) {
       maxMatchTeamSize,
       isCPRequired,
       metas,
-      state: 'ROSTERS_HIDDEN',
+      state: 'NOT_STARTED',
+      currentRoundNumber: 1,
     });
 
     const { _id } = session;
+    player.sessions.push(_id);
+    await player.save();
 
     await session.save();
     res.status(200).send({
