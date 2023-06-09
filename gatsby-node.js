@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 const path = require('path');
+const chunk = require(`lodash/chunk`);
 
 // This is a simple debugging tool
 // dd() will prettily dump to the terminal and kill the process
@@ -26,7 +27,8 @@ exports.createPages = async (gatsbyUtilities) => {
   if (!homePage) {
     return;
   }
-
+  // And a paginated archive
+  await createBlogPostArchive({ posts, gatsbyUtilities })
   // If there are posts, create pages for them
   await createIndividualBlogPostPages({ posts, gatsbyUtilities });
   createHomePage({ homePage, gatsbyUtilities });
@@ -39,6 +41,64 @@ const getHomePage = (pages) => {
   const homeEdge = pages.find(({ page }) => page.uri === '/play-pokemon-go-championship-series-2023/');
   return homeEdge ? homeEdge.page : null;
 };
+
+/**
+ * This function creates all the individual blog pages in this site
+ */
+async function createBlogPostArchive({ posts, gatsbyUtilities }) {
+  const graphqlResult = await gatsbyUtilities.graphql(/* GraphQL */ `
+    {
+      wp {
+        readingSettings {
+          postsPerPage
+        }
+      }
+    }
+  `)
+
+  const { postsPerPage } = graphqlResult.data.wp.readingSettings
+
+  const postsChunkedIntoArchivePages = chunk(posts, postsPerPage)
+  const totalPages = postsChunkedIntoArchivePages.length
+
+  return Promise.all(
+    postsChunkedIntoArchivePages.map(async (_posts, index) => {
+      const pageNumber = index + 1
+
+      const getPagePath = page => {
+        if (page > 0 && page <= totalPages) {
+          return `/blog/${page}`;
+        }
+
+        return null;
+      }
+
+      // createPage is an action passed to createPages
+      // See https://www.gatsbyjs.com/docs/actions#createPage for more info
+      await gatsbyUtilities.actions.createPage({
+        path: getPagePath(pageNumber),
+
+        // use the blog post archive template as the page component
+        component: path.resolve(`./src/templates/blog-post-archive.jsx`),
+
+        // `context` is available in the template as a prop and
+        // as a variable in GraphQL.
+        context: {
+          // the index of our loop is the offset of which posts we want to display
+          // so for page 1, 0 * 10 = 0 offset, for page 2, 1 * 10 = 10 posts offset,
+          // etc
+          offset: index * postsPerPage,
+
+          // We need to tell the template how many posts to display too
+          postsPerPage,
+
+          nextPagePath: getPagePath(pageNumber + 1),
+          previousPagePath: getPagePath(pageNumber - 1),
+        },
+      })
+    })
+  )
+}
 
 /**
  * This function creates all the individual blog pages in this site

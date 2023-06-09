@@ -13,7 +13,9 @@ function Article({ post, variant = 'medium' }) {
   };
   const isLarge = variant === 'large';
   const shouldDisplayImage = featuredImage?.data != null && isLarge;
-  const date = getDateFromTag(post.tags.nodes[0].name);
+  const hasCategories = post.categories?.nodes != null && post.categories.nodes.length > 0;
+  const hasTags = post.tags?.nodes != null && post.tags.nodes.length > 0;
+  const date = hasTags ? getDateFromTag(post.tags.nodes[0].name) : "";
   return (
     <Link to={post.uri} style={{ textDecoration: 'none' }}>
       <div className={classnames("article-item", { "article-large": isLarge })}>
@@ -25,7 +27,7 @@ function Article({ post, variant = 'medium' }) {
         />
         )}
         <div className={classnames({"article-item-content-large": isLarge})}>
-          <Pills categories={post.categories.nodes} />
+          {hasCategories && <Pills categories={post.categories.nodes} />}
           <div className="article-item-content">
             <h3>{post.title}</h3>
             <div className="article-item-date">{date}</div>
