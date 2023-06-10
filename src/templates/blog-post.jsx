@@ -93,9 +93,10 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
         }
     
         if (attribs.classname === "player-list") {
+          const tmName = attribs.id != null ? attribs.id : delinkifyEvent(post.uri);
           return (
             <div className="is-layout-constrained">
-              <TournamentRoster tmName={delinkifyEvent(post.uri)}/>
+              <TournamentRoster tmName={tmName}/>
             </div>
           );
         }
