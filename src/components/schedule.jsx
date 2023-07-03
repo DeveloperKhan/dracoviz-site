@@ -7,7 +7,7 @@ import { options } from '../utils/date-utils';
 const dateTagPrefix = 'EVENT:';
 const currentDate = new Date();
 const currentDay = currentDate.getDate();
-const currentMonth = currentDate.getMonth() + 1;
+const currentMonth = 6;
 const orderOfMonths = {
   9: 0,
   10: 1,
@@ -19,7 +19,6 @@ const orderOfMonths = {
   4: 7,
   5: 8,
   6: 9,
-  7: 10,
 };
 
 const getRegion = (post) => {
@@ -53,7 +52,6 @@ function orderPostsByStartMonth(posts) {
     4: [],
     5: [],
     6: [],
-    7: [],
   };
   posts.forEach((post) => {
     const startDate = getPostStartDate(post);
