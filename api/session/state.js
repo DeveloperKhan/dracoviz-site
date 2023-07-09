@@ -39,7 +39,7 @@ async function handler(req, res) {
 
     const isTeamTournament = session.maxTeamSize > 1;
 
-    const validStates = isTeamTournament ? ["POKEMON_VISIBLE", "MATCHUPS_VISIBLE", "REGISTER_TEAM", "REGISTER_ROSTER"] : ["POKEMON_VISIBLE", "REGISTER_TEAM"];
+    const validStates = isTeamTournament ? ["POKEMON_VISIBLE", "ROSTERS_VISIBLE", "ROUND_NOT_STARTED"] : ["POKEMON_VISIBLE", "ROUND_NOT_STARTED"];
 
     if (!validStates.includes(newState)) {
       res.status(401).json({ error: 'Invalid state' });

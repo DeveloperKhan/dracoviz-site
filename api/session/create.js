@@ -94,7 +94,7 @@ async function handler(req, res) {
       maxMatchTeamSize,
       isCPRequired,
       metas,
-      state: 'NOT_STARTED',
+      state: 'ROUND_NOT_STARTED',
       currentRoundNumber: 1,
     });
 
