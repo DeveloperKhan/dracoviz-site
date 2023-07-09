@@ -31,7 +31,7 @@ async function handler(req, res) {
     }
 
     const Session = await getSessionModel();
-    const session = await Session.findOne({ _id: tournamentId });
+    const session = await Session.findOne({ key: tournamentId });
     if (session == null || session.length <= 0) {
       res.status(401).json({ error: 'Tournament not found' });
       return;
@@ -63,10 +63,10 @@ async function handler(req, res) {
       }
     }
 
-    const { _id } = session;
+    const { key } = session;
 
     res.status(200).send({
-      id: _id,
+      id: key,
       isTeamTournament,
     });
   } catch (ex) {

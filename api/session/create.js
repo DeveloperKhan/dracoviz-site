@@ -69,7 +69,7 @@ async function handler(req, res) {
       return;
     }
 
-    if (maxMatchTeamSize > maxTeamSize) {
+    if (Number(maxMatchTeamSize) > Number(maxTeamSize)) {
       res.status(401).json({ error: 'Max match team size cannot be greater than Max team size' });
       return;
     }
@@ -98,13 +98,13 @@ async function handler(req, res) {
       currentRoundNumber: 1,
     });
 
-    const { _id } = session;
-    player.sessions.push(_id);
+    const { key } = session;
+    player.sessions.push(key);
     await player.save();
 
     await session.save();
     res.status(200).send({
-      id: _id,
+      id: key,
       registrationNumber,
       isPrivate,
     });

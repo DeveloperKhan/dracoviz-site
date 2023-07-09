@@ -5,7 +5,7 @@ import connectToDatabase from './db';
 const getSessionModel = async () => {
   await connectToDatabase();
   const SessionSchema = new mongoose.Schema({
-    _id: {
+    key: {
       type: String,
       default: () => crypto.randomUUID().slice(-8),
       unique: true,
@@ -33,7 +33,6 @@ const getSessionModel = async () => {
     bracket: [{
       round: {
         type: Number,
-        unique: true,
       },
       matches: [
         {

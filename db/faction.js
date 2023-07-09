@@ -5,18 +5,17 @@ import connectToDatabase from './db';
 const getFactionModel = async () => {
   await connectToDatabase();
   const FactionSchema = new mongoose.Schema({
-    _id: {
+    key: {
       type: String,
       default: () => crypto.randomUUID().slice(-8),
       unique: true,
     },
-
     name: { type: String, required: true },
     admins: [String],
     description: { type: String },
     serverInviteLink: { type: String },
     password: { type: String },
-    players: [String]
+    players: [String],
   });
   return mongoose.model('faction', FactionSchema);
 };

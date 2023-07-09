@@ -33,31 +33,35 @@ async function handler(req, res) {
     const Session = await getSessionModel();
     const sessions = [];
     await Promise.all(player.sessions.map(async (playerSession) => {
-      const session = await Session.findOne({ _id: playerSession });
-      let role = 'Player';
-      if (session.host.includes(player.session)) {
-        role = 'Host';
-      } else {
-        session.factions.forEach((faction) => {
-          if (faction.captain === player.session) {
-            role = 'Captain';
-          }
+      try {
+        const session = await Session.findOne({ key: playerSession });
+        let role = 'Player';
+        if (session.host.includes(player.session)) {
+          role = 'Host';
+        } else {
+          session.factions.forEach((faction) => {
+            if (faction.captain === player.session) {
+              role = 'Captain';
+            }
+          });
+        }
+        const {
+          key, name, state, metas, currentRoundNumber,
+        } = session;
+        const rule = rules[metas[0]];
+        sessions.push({
+          _id: key,
+          name,
+          currentRoundNumber,
+          playerValues: {
+            status: state,
+            role,
+            meta: rule.metaLogo,
+          },
         });
+      } catch (error) {
+        // Error finding session
       }
-      const {
-        _id, name, state, metas, currentRoundNumber,
-      } = session;
-      const rule = rules[metas[0]];
-      sessions.push({
-        _id,
-        name,
-        currentRoundNumber,
-        playerValues: {
-          status: state,
-          role,
-          meta: rule.metaLogo,
-        },
-      });
     }));
 
     const response = {
