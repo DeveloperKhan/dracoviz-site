@@ -8,7 +8,7 @@ async function handler(req, res) {
   if (x_authorization == null) {
     res.status(401).json({
       status: 401,
-      message: 'Missing authorization header',
+      message: 'api_authorization_missing',
     });
     return;
   }
@@ -16,7 +16,7 @@ async function handler(req, res) {
   if (ACTION_KEY !== process.env.GATSBY_SECRET_KEY) {
     res.status(401).json({
       status: 401,
-      message: 'Unauthorized',
+      message: 'api_unauthorized',
     });
     return;
   }
@@ -25,18 +25,18 @@ async function handler(req, res) {
     const player = await Player.find({ _id: id });
 
     if (player === undefined) {
-      res.status(401).json({ error: 'Player not found' });
+      res.status(401).json({ error: 'api_player_not_found' });
       return;
     }
 
     if (!(/\d{12}/g).match(friendCode)) {
-      res.status(401).json({ error: 'Invalid friend code' });
+      res.status(401).json({ error: 'api_invalid_friend_code' });
       return;
     }
 
     const otherPlayer = await Player.find({ name });
     if (otherPlayer != null) {
-      res.status(401).json({ error: 'Someone else already has that name' });
+      res.status(401).json({ error: 'api_name_already_exists_error' });
       return;
     }
 

@@ -10,7 +10,7 @@ async function handler(req, res) {
   if (x_authorization == null) {
     res.status(401).json({
       status: 401,
-      message: 'Missing authorization header',
+      message: 'api_authorization_missing',
     });
     return;
   }
@@ -18,7 +18,7 @@ async function handler(req, res) {
   if (ACTION_KEY !== process.env.GATSBY_SECRET_KEY) {
     res.status(401).json({
       status: 401,
-      message: 'Unauthorized',
+      message: 'api_unauthorized',
     });
     return;
   }
@@ -26,20 +26,20 @@ async function handler(req, res) {
     const Player = await getPlayerModel();
     const player = await Player.findOne({ session: x_session_id });
     if (player == null || player.length <= 0) {
-      res.status(401).json({ error: 'Cannot log in' });
+      res.status(401).json({ error: 'api_cannot_log_in' });
       return;
     }
 
     const Session = await getSessionModel();
     const session = await Session.findOne({ key: tournamentId });
     if (session == null || session.length <= 0) {
-      res.status(401).json({ error: 'Tournament not found' });
+      res.status(401).json({ error: 'api_session_not_found' });
       return;
     }
 
     if (session.registrationNumber !== undefined
        && session.registrationNumber !== registrationNumber) {
-      res.status(401).json({ error: 'Invalid registration number' });
+      res.status(401).json({ error: 'api_invalid_registration_number' });
       return;
     }
 
@@ -47,7 +47,7 @@ async function handler(req, res) {
 
     if (!isTeamTournament) {
       if (session.host.includes(x_session_id)) {
-        res.status(401).json({ error: 'A host cannot join their own tournament', alreadyEntered: true });
+        res.status(401).json({ error: 'api_host_join_error', alreadyEntered: true });
         return;
       }
       if (session.players.every((p) => x_session_id !== p.playerId)) {
@@ -58,7 +58,7 @@ async function handler(req, res) {
         await player.save();
         await session.save();
       } else {
-        res.status(401).json({ error: 'Already entered', alreadyEntered: true });
+        res.status(401).json({ error: 'api_already_entered_error', alreadyEntered: true });
         return;
       }
     }

@@ -10,7 +10,7 @@ async function handler(req, res) {
   if (x_authorization == null) {
     res.status(401).json({
       status: 401,
-      message: 'Missing authorization header',
+      message: 'api_authorization_missing',
     });
     return;
   }
@@ -18,7 +18,7 @@ async function handler(req, res) {
   if (ACTION_KEY !== process.env.GATSBY_SECRET_KEY) {
     res.status(401).json({
       status: 401,
-      message: 'Unauthorized',
+      message: 'api_unauthorized',
     });
     return;
   }
@@ -26,7 +26,7 @@ async function handler(req, res) {
     const Player = await getPlayerModel();
     const player = await Player.findOne({ session: id ?? x_session_id });
     if (player == null || player.length <= 0) {
-      res.status(401).json({ error: 'Player not found' });
+      res.status(401).json({ error: 'api_player_not_found' });
       return;
     }
 

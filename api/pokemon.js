@@ -7,7 +7,7 @@ function handler(req, res) {
   if (x_authorization == null) {
     res.status(401).json({
       status: 401,
-      message: 'Missing authorization header',
+      message: 'api_authorization_missing',
     });
     return;
   }

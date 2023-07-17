@@ -18,7 +18,7 @@ async function handler(req, res) {
   if (x_authorization == null) {
     res.status(401).json({
       status: 401,
-      message: 'Missing authorization header',
+      message: 'api_authorization_missing',
     });
     return;
   }
@@ -26,18 +26,18 @@ async function handler(req, res) {
   if (ACTION_KEY !== process.env.GATSBY_SECRET_KEY) {
     res.status(401).json({
       status: 401,
-      message: 'Unauthorized',
+      message: 'api_unauthorized',
     });
     return;
   }
   try {
     if (!isValidUrl(bracketLink)) {
-      res.status(401).json({ error: 'Bracket link is not a valid website' });
+      res.status(401).json({ error: 'api_bracket_link_invalid' });
       return;
     }
 
     if (!isValidUrl(serverInviteLink)) {
-      res.status(401).json({ error: 'Server invite link is not a valid website' });
+      res.status(401).json({ error: 'api_server_link_invalid' });
       return;
     }
 
@@ -50,18 +50,18 @@ async function handler(req, res) {
       return true;
     });
     if (isInvalidMeta) {
-      res.status(401).json({ error: 'Invalid meta' });
+      res.status(401).json({ error: 'api_invalid_meta' });
       return;
     }
 
     if (Number(maxMatchTeamSize) > Number(maxTeamSize)) {
-      res.status(401).json({ error: 'Max match team size cannot be greater than Max team size' });
+      res.status(401).json({ error: 'api_match_size_error' });
       return;
     }
     const Player = await getPlayerModel();
     const player = await Player.findOne({ session: x_session_id });
     if (player == null || player.length <= 0) {
-      res.status(401).json({ error: 'Player not found' });
+      res.status(401).json({ error: 'api_player_not_found' });
       return;
     }
     const registrationNumber = isPrivate ? getRandomPin() : '';

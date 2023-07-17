@@ -10,7 +10,7 @@ async function handler(req, res) {
   if (x_authorization == null) {
     res.status(401).json({
       status: 401,
-      message: 'Missing authorization header'
+      message: 'api_authorization_missing'
     })
     return;
   }
@@ -18,7 +18,7 @@ async function handler(req, res) {
   if (ACTION_KEY !== process.env.GATSBY_SECRET_KEY) {
     res.status(401).json({
       status: 401,
-      message: 'Unauthorized'
+      message: 'api_unauthorized'
     })
     return;
   }
@@ -26,7 +26,7 @@ async function handler(req, res) {
     var session = await Session.find({'_id': id})
 
     if (session === undefined) {
-      res.status(401).json({ error: `Session not found` });
+      res.status(401).json({ error: `api_session_not_found` });
       return;
     }
 
