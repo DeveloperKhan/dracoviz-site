@@ -24,45 +24,47 @@ async function handler(req, res) {
   }
   try {
     const Player = await getPlayerModel();
-    const player = await Player.findOne({ session: x_session_id });
+    const player = await Player.findOne({ session: id ?? x_session_id });
     if (player == null || player.length <= 0) {
       res.status(401).json({ error: 'Player not found' });
       return;
     }
 
-    const Session = await getSessionModel();
     const sessions = [];
-    await Promise.all(player.sessions.map(async (playerSession) => {
-      try {
-        const session = await Session.findOne({ key: playerSession });
-        let role = 'Player';
-        if (session.host.includes(player.session)) {
-          role = 'Host';
-        } else {
-          session.factions.forEach((faction) => {
-            if (faction.captain === player.session) {
-              role = 'Captain';
-            }
+    if (id == null) {
+      const Session = await getSessionModel();
+      await Promise.all(player.sessions.map(async (playerSession) => {
+        try {
+          const session = await Session.findOne({ key: playerSession });
+          let role = 'Player';
+          if (session.host.includes(player.session)) {
+            role = 'Host';
+          } else {
+            session.factions.forEach((faction) => {
+              if (faction.captain === player.session) {
+                role = 'Captain';
+              }
+            });
+          }
+          const {
+            key, name, state, metas, currentRoundNumber,
+          } = session;
+          const rule = rules[metas[0]];
+          sessions.push({
+            _id: key,
+            name,
+            currentRoundNumber,
+            playerValues: {
+              status: state,
+              role,
+              meta: rule.metaLogo,
+            },
           });
-        }
-        const {
-          key, name, state, metas, currentRoundNumber,
-        } = session;
-        const rule = rules[metas[0]];
-        sessions.push({
-          _id: key,
-          name,
-          currentRoundNumber,
-          playerValues: {
-            status: state,
-            role,
-            meta: rule.metaLogo,
-          },
-        });
-      } catch (error) {
+        } catch (error) {
         // Error finding session
-      }
-    }));
+        }
+      }));
+    }
 
     const response = {
       name: player.name,

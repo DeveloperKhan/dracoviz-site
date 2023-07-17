@@ -34,6 +34,12 @@ async function handler(req, res) {
       return;
     }
 
+    const otherPlayer = await Player.find({ name });
+    if (otherPlayer != null) {
+      res.status(401).json({ error: 'Someone else already has that name' });
+      return;
+    }
+
     player.name = name ?? player.name;
     player.description = description ?? player.description;
     player.friendCode = friendCode ?? player.friendCode;
