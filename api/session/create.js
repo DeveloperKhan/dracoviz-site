@@ -68,7 +68,7 @@ async function handler(req, res) {
     const Session = await getSessionModel();
     const session = new Session({
       name,
-      host: x_session_id,
+      host: [x_session_id],
       description,
       registrationNumber,
       bracketLink,
