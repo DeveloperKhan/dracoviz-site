@@ -5,7 +5,7 @@ import allowCors from '../../db/allowCors';
 
 async function handler(req, res) {
   const {
-    tournamentId, factionName
+    tournamentId, factionName,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -53,19 +53,17 @@ async function handler(req, res) {
     }
 
     if (session.players.every((p) => x_session_id !== p.playerId)) {
-
       const newFaction = new Faction({
-        name: factionName
+        name: factionName,
       });
-  
+
       newFaction.admins.push(x_session_id);
       newFaction.players.push(x_session_id);
       await newFaction.save();
-  
 
       session.players.push({
         playerId: x_session_id,
-        factionId: newFaction.key
+        factionId: newFaction.key,
       });
       player.sessions.push(tournamentId);
       session.factions.push(newFaction.key);
@@ -73,15 +71,12 @@ async function handler(req, res) {
 
       res.status(200).send({
         factionCode: newFaction.factionCode,
-        tournamentId
+        tournamentId,
       });
-
-      
     } else {
       res.status(401).json({ error: 'api_already_entered_error', alreadyEntered: true });
       return;
     }
-
   } catch (ex) {
     res.status(401).json({ error: `Invalid query of session=${tournamentId}` });
   }
