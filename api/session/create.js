@@ -3,6 +3,7 @@ import getPlayerModel from '../../db/player';
 import allowCors from '../../db/allowCors';
 import rules from '../../static/rules.json';
 import isValidUrl from '../../util/isValidUrl';
+import sessionStates from '../../db/sessionStates';
 
 function getRandomPin() {
   return Math.random().toString(36).slice(-4);
@@ -79,8 +80,9 @@ async function handler(req, res) {
       maxMatchTeamSize,
       isCPRequired,
       metas,
-      state: 'ROUND_NOT_STARTED',
-      currentRoundNumber: 1,
+      state: sessionStates.notStarted,
+      currentRoundNumber: 0,
+      bracket: [],
     });
 
     const { key } = session;
