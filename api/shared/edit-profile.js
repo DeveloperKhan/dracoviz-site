@@ -1,10 +1,11 @@
 import getPlayerModel from '../../db/player';
+import allowCors from '../../db/allowCors';
 
 async function handler(req, res) {
   const {
-    id, name, description, friendCode, discord, telegram,
-  } = req.query;
-  const { x_authorization } = req.headers;
+    name, description, friendCode, discord, telegram,
+  } = req.body;
+  const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
     res.status(401).json({
       status: 401,
@@ -22,35 +23,39 @@ async function handler(req, res) {
   }
   try {
     const Player = await getPlayerModel();
-    const player = await Player.find({ _id: id });
+    const player = await Player.find({ session: x_session_id });
 
     if (player === undefined) {
       res.status(401).json({ error: 'api_player_not_found' });
       return;
     }
 
-    if (!(/\d{12}/g).match(friendCode)) {
+    if (!(/\d{12}/g).test(friendCode)) {
       res.status(401).json({ error: 'api_invalid_friend_code' });
       return;
     }
 
     const otherPlayer = await Player.find({ name });
-    if (otherPlayer != null) {
+    if (otherPlayer != null && otherPlayer.session !== player.session) {
       res.status(401).json({ error: 'api_name_already_exists_error' });
       return;
     }
 
-    player.name = name ?? player.name;
-    player.description = description ?? player.description;
-    player.friendCode = friendCode ?? player.friendCode;
-    player.discord = discord ?? player.discord;
-    player.telegram = telegram ?? player.telegram;
-
-    await player.save();
+    await Player.updateOne({
+      session: x_session_id,
+    }, {
+      name: name ?? player.name,
+      description: description ?? player.description,
+      friendCode: friendCode ?? player.friendCode,
+      discord: discord ?? player.discord,
+      telegram: telegram ?? player.telegram,
+    }, {
+      runValidators: true,
+    });
     res.status(200).json(player);
   } catch (ex) {
-    res.status(401).json({ error: `Invalid query of player=${id}` });
+    res.status(401).json({ error: 'api_player_not_found' });
   }
 }
 
-export default handler;
+export default allowCors(handler);
