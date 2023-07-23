@@ -14,7 +14,11 @@ const getFactionModel = async () => {
     admins: [String],
     description: { type: String },
     serverInviteLink: { type: String },
-    password: { type: String },
+    factionCode: {
+      type: String,
+      default: () => crypto.randomUUID().slice(-8),
+      unique: true,
+    },
     players: [String],
   });
   return mongoose.model('faction', FactionSchema);
