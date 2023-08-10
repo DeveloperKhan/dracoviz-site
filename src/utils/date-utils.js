@@ -39,6 +39,10 @@ export const options = [
     value: 6,
     label: 'Jun',
   },
+  {
+    value: 8,
+    label: 'Aug',
+  },
 ];
 
 export function getDateFromTag(tag) {
