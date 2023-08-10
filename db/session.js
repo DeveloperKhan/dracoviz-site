@@ -21,7 +21,6 @@ const getSessionModel = async () => {
     maxTeamSize: { type: Number },
     matchTeamSize: { type: Number },
     metas: [String],
-    metaLogo: { type: String },
     state: { type: String },
     currentRoundNumber: { type: Number },
     factions: [String],
