@@ -2,37 +2,44 @@ import getPlayerModel from '../../db/player';
 import getSessionModel from '../../db/session';
 import sessionStates from '../../db/sessionStates';
 import rules from '../../static/rules.json';
+import allowCors from '../../db/allowCors';
 
 async function getPlayers(players, isHost, state, factionId) {
-  const Player = getPlayerModel();
+  const Player = await getPlayerModel();
   const shouldLookupAllPlayers = isHost
     || state === sessionStates.pokemonVisible
     || state === sessionStates.matchupsVisible
     || state === sessionStates.registerTeam;
   const shouldShowAllTeams = isHost || state === sessionStates.pokemonVisible;
-  const returnedPlayers = players.map(async (player) => {
-    const isTeammate = player.factionId === factionId;
+  const returnedPlayers = players?.map(async (player) => {
+    const isTeammate = player.factionId === factionId && factionId != null;
     const shouldLookupPlayer = shouldLookupAllPlayers || isTeammate;
-    const playerObj = await Player.find({ id: player.playerId });
+    const playerObj = await Player.findOne({ session: player.playerId });
     if (playerObj == null) {
-      throw Error();
+      return {};
     }
+    const returnObj = {
+      name: playerObj.name,
+      description: playerObj.description,
+      avatar: playerObj.avatar,
+      friendCode: playerObj.friendCode,
+      discord: playerObj.discord,
+      telegram: playerObj.telegram,
+      tournamentPosition: shouldLookupPlayer ? -1 : player.tournamentPosition,
+    };
     if (!shouldLookupPlayer || (!shouldShowAllTeams && !isTeammate)) {
-      return {
-        name: playerObj.name,
-        description: playerObj.description,
-        avatar: playerObj.avatar,
-        friendCode: playerObj.friendCode,
-        discord: playerObj.discord,
-        telegram: playerObj.telegram,
-      };
+      return returnObj;
     }
+    return {
+      ...returnObj,
+      pokemon: player.pokemon,
+    };
   });
   return returnedPlayers;
 }
 
 function getMetas(metas) {
-  return metas.map((meta) => rules[meta].metaLogo);
+  return metas?.map((meta) => rules[meta].metaLogo);
 }
 
 async function handler(req, res) {
@@ -54,8 +61,8 @@ async function handler(req, res) {
     return;
   }
   try {
-    const Session = getSessionModel();
-    const session = await Session.find({ _id: id });
+    const Session = await getSessionModel();
+    const session = await Session.findOne({ key: id });
 
     if (session === undefined) {
       res.status(401).json({ error: 'api_session_not_found' });
@@ -65,14 +72,15 @@ async function handler(req, res) {
     const {
       host, state, maxTeamSize, metas,
     } = session;
-    const isHost = host.includes(x_session_id);
+    const isHost = host?.includes(x_session_id);
     const isTeamTournament = maxTeamSize > 1;
     const metaLogos = getMetas(metas);
-    const thePlayer = session.players.find((player) => player.playerId === x_session_id);
+    const thePlayer = session.players?.find((player) => player.playerId === x_session_id);
     const isPlayer = thePlayer != null;
-    const { factionId } = thePlayer;
+    const factionId = thePlayer?.factionId;
     const isCaptain = false; // ToDo
     const players = await getPlayers(session.players, isHost, state, factionId);
+    const isParticipant = isPlayer || isHost;
 
     const maskedSession = {
       name: session.name,
@@ -81,6 +89,7 @@ async function handler(req, res) {
       serverInviteLink: session.serverInviteLink,
       isPrivate: session.isPrivate,
       maxTeams: session.maxTeams,
+      registrationNumber: isParticipant ? session.registrationNumber : '',
       maxTeamSize,
       matchTeamSize: session.matchTeamSize,
       metaLogos,
@@ -97,4 +106,4 @@ async function handler(req, res) {
   }
 }
 
-export default handler;
+export default allowCors(handler);

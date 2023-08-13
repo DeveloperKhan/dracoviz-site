@@ -53,6 +53,7 @@ async function handler(req, res) {
       if (session.players.every((p) => x_session_id !== p.playerId)) {
         session.players.push({
           playerId: x_session_id,
+          pokemon: [],
         });
         player.sessions.push(tournamentId);
         await player.save();

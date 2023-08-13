@@ -28,6 +28,14 @@ const getSessionModel = async () => {
       playerId: String,
       factionId: String,
       tournamentPostiion: Number,
+      pokemon: [{
+        name: { type: String },
+        form: { type: String },
+        cp: { type: Number },
+        best_buddy: { type: Boolean, default: false },
+        shadow: { type: Boolean, default: false },
+        purified: { type: Boolean, default: false },
+      }],
     }],
     bracket: [{
       round: {
