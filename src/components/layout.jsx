@@ -4,7 +4,9 @@ import Logo from './logo';
 import Social from './social';
 import BlogPostButton from './blog-post-button';
 
-function Layout({ children, isHomepage, isBlogPostArchive, ...rest }) {
+function Layout({
+  children, isHomepage, isBlogPostArchive, ...rest
+}) {
   const {
     wp: {
       // eslint-disable-next-line no-unused-vars
@@ -22,16 +24,15 @@ function Layout({ children, isHomepage, isBlogPostArchive, ...rest }) {
   `);
 
   return (
-    <>
-      <div className="global-wrapper" {...rest} >
-        {isHomepage ?? (
-          <header className="global-header">
-            <Link className="header-link-home" to="/">
-              <Logo />
-            </Link>
-            {!isBlogPostArchive && <BlogPostButton />}
-          </header>
-        )}
+    <div className="global-wrapper" {...rest}>
+      {isHomepage ?? (
+      <header className="global-header">
+        <Link className="header-link-home" to="/">
+          <Logo />
+        </Link>
+        {!isBlogPostArchive && <BlogPostButton />}
+      </header>
+      )}
 
       <main>{children}</main>
 
