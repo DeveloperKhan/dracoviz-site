@@ -11,30 +11,32 @@ async function getPlayers(players, isHost, state, factionId) {
     || state === sessionStates.matchupsVisible
     || state === sessionStates.registerTeam;
   const shouldShowAllTeams = isHost || state === sessionStates.pokemonVisible;
-  const returnedPlayers = players?.map(async (player) => {
-    const isTeammate = player.factionId === factionId && factionId != null;
-    const shouldLookupPlayer = shouldLookupAllPlayers || isTeammate;
-    const playerObj = await Player.findOne({ session: player.playerId });
-    if (playerObj == null) {
-      return {};
-    }
-    const returnObj = {
-      name: playerObj.name,
-      description: playerObj.description,
-      avatar: playerObj.avatar,
-      friendCode: playerObj.friendCode,
-      discord: playerObj.discord,
-      telegram: playerObj.telegram,
-      tournamentPosition: shouldLookupPlayer ? -1 : player.tournamentPosition,
-    };
-    if (!shouldLookupPlayer || (!shouldShowAllTeams && !isTeammate)) {
-      return returnObj;
-    }
-    return {
-      ...returnObj,
-      pokemon: player.pokemon,
-    };
-  });
+  const returnedPlayers = await Promise.all(
+    players?.map(async (player) => {
+      const isTeammate = player.factionId === factionId && factionId != null;
+      const shouldLookupPlayer = shouldLookupAllPlayers || isTeammate;
+      const playerObj = await Player.findOne({ session: player.playerId });
+      if (playerObj == null) {
+        return {};
+      }
+      const returnObj = {
+        name: playerObj.name,
+        description: playerObj.description,
+        avatar: playerObj.avatar,
+        friendCode: playerObj.friendCode,
+        discord: playerObj.discord,
+        telegram: playerObj.telegram,
+        tournamentPosition: shouldLookupPlayer ? -1 : player.tournamentPosition,
+      };
+      if (!shouldLookupPlayer || (!shouldShowAllTeams && !isTeammate)) {
+        return returnObj;
+      }
+      return {
+        ...returnObj,
+        pokemon: player.pokemon,
+      };
+    }),
+  );
   return returnedPlayers;
 }
 
