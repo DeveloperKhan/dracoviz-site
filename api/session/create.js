@@ -1,3 +1,4 @@
+import crypto from 'crypto';
 import getSessionModel from '../../db/session';
 import getPlayerModel from '../../db/player';
 import allowCors from '../../db/allowCors';
@@ -82,7 +83,12 @@ async function handler(req, res) {
       metas,
       state: sessionStates.notStarted,
       currentRoundNumber: 0,
-      bracket: [],
+      bracket: [{
+        round: 0,
+        matches: [{
+          id: crypto.randomUUID(),
+        }],
+      }],
     });
 
     const { key } = session;
@@ -96,6 +102,7 @@ async function handler(req, res) {
       isPrivate,
     });
   } catch (ex) {
+    console.log(ex);
     res.status(401).json({ error: `Invalid query of session=${name}` });
   }
 }
