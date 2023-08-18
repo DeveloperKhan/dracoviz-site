@@ -46,7 +46,7 @@ async function handler(req, res) {
     }, {
       name: name ?? player.name,
       description: description ?? player.description,
-      friendCode: friendCode ?? player.friendCode,
+      friendCode: friendCode.replaceAll(' ', '') ?? player.friendCode,
       discord: discord ?? player.discord,
       telegram: telegram ?? player.telegram,
     }, {
