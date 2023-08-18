@@ -4,6 +4,7 @@ import sessionStates from '../../db/sessionStates';
 import rules from '../../static/rules.json';
 import allowCors from '../../db/allowCors';
 import avatars from '../../static/avatars.json';
+import pokemonJSON from '../../static/pokemon.json';
 
 async function getPlayers(players, isHost, state, factionId) {
   const Player = await getPlayerModel();
@@ -36,7 +37,7 @@ async function getPlayers(players, isHost, state, factionId) {
         ...returnObj,
         pokemon: player.pokemon?.map((p) => ({
           sid: p.sid,
-          speciesName: p.speciesName,
+          speciesName: pokemonJSON[p.speciesName].speciesName,
           cp: p.cp,
           chargedMoves: isHost ? p.chargedMoves : null,
           fastMove: isHost ? p.fastMove : null,
