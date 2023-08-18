@@ -2,7 +2,7 @@ import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import parse from 'html-react-parser';
 import { Link } from 'gatsby';
-import classnames from "classnames";
+import classnames from 'classnames';
 import Pills from './pills';
 import { getDateFromTag } from '../utils/date-utils';
 
@@ -15,10 +15,10 @@ function Article({ post, variant = 'medium' }) {
   const shouldDisplayImage = featuredImage?.data != null && isLarge;
   const hasCategories = post.categories?.nodes != null && post.categories.nodes.length > 0;
   const hasTags = post.tags?.nodes != null && post.tags.nodes.length > 0;
-  const date = hasTags ? getDateFromTag(post.tags.nodes[0].name) : "";
+  const date = hasTags ? getDateFromTag(post.tags.nodes[0].name) : '';
   return (
     <Link to={post.uri} style={{ textDecoration: 'none' }}>
-      <div className={classnames("article-item", { "article-large": isLarge })}>
+      <div className={classnames('article-item', { 'article-large': isLarge })}>
         {shouldDisplayImage && (
         <GatsbyImage
           image={featuredImage.data}
@@ -26,7 +26,7 @@ function Article({ post, variant = 'medium' }) {
           style={{ width: '100%', height: '25rem' }}
         />
         )}
-        <div className={classnames({"article-item-content-large": isLarge})}>
+        <div className={classnames({ 'article-item-content-large': isLarge })}>
           {hasCategories && <Pills categories={post.categories.nodes} />}
           <div className="article-item-content">
             <h3>{post.title}</h3>

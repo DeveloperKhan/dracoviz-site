@@ -4,9 +4,12 @@ import Logo from './logo';
 import Social from './social';
 import BlogPostButton from './blog-post-button';
 
-function Layout({ children, isHomepage, isBlogPostArchive, ...rest }) {
+function Layout({
+  children, isHomepage, isBlogPostArchive, ...rest
+}) {
   const {
     wp: {
+      // eslint-disable-next-line no-unused-vars
       generalSettings: { title },
     },
   } = useStaticQuery(graphql`
@@ -21,34 +24,34 @@ function Layout({ children, isHomepage, isBlogPostArchive, ...rest }) {
   `);
 
   return (
-    <>
-      <div className="global-wrapper" {...rest} >
-        {isHomepage ?? (
-          <header className="global-header">
-            <Link className="header-link-home" to="/">
-              <Logo />
-            </Link>
-            {!isBlogPostArchive && <BlogPostButton />}
-          </header>
-        )}
+    <div className="global-wrapper" {...rest}>
+      {isHomepage ?? (
+      <header className="global-header">
+        <Link className="header-link-home" to="/">
+          <Logo />
+        </Link>
+        {!isBlogPostArchive && <BlogPostButton />}
+      </header>
+      )}
 
-        <main>{children}</main>
+      <main>{children}</main>
 
-        <footer id="footer">
-          <div className="footer-social">
-            <Social
-              links={['https://twitter.com/dracoviz','https://www.instagram.com/dracoviz.co','https://youtube.com/@dracoviz']}
-              buttonStyle={{margin: '0px 10px', backgroundColor: 'transparent'}}
-              iconStyle={{color: '#000000'}}
-              openNewTab={true}
-            />
-          </div>
-          <small>
-            2023 Dracoviz. All rights reserved of the original content. Pokémon and all other names are the property of The Pokémon Company, Creatures Inc., Game Freak and Nintendo © 1996-2023
-          </small>
-        </footer>
-      </div>
-    </>
+      <footer id="footer">
+        <div className="footer-social">
+          <Social
+            links={['https://twitter.com/dracoviz', 'https://www.instagram.com/dracoviz.co', 'https://youtube.com/@dracoviz']}
+            buttonStyle={{ margin: '0px 10px', backgroundColor: 'transparent' }}
+            iconStyle={{ color: '#000000' }}
+            openNewTab
+          />
+        </div>
+        <small>
+          2023 Dracoviz. All rights reserved of the original content.
+          Pokémon and all other names are the property of The Pokémon Company,
+          Creatures Inc., Game Freak and Nintendo © 1996-2023
+        </small>
+      </footer>
+    </div>
   );
 }
 

@@ -23,10 +23,13 @@ const orderOfMonths = {
 };
 
 const getRegion = (post) => {
-  const regions = ["na-region", "eu-region", "latam-region", "apac-region"];
+  const regions = ['na-region', 'eu-region', 'latam-region', 'apac-region'];
   const categories = post.categories.nodes;
-  return regions.findIndex(region => categories.findIndex(category => category.slug === region) > -1);
-}
+  return regions.findIndex((region) => {
+    const index = categories.findIndex((category) => category.slug === region);
+    return index > -1;
+  });
+};
 
 function getPostStartDate(post) {
   const { tags } = post;
@@ -74,6 +77,7 @@ function orderPostsByStartMonth(posts) {
         return diff > 0 ? 1 : -1;
       }
       // If currentMonth, and an event is upcoming...
+      // eslint-disable-next-line eqeqeq
       if (key == currentMonth) {
         // If only one event is upcoming, show that one
         if (a.day >= currentDay && b.day < currentDay) {

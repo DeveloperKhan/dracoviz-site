@@ -4,7 +4,7 @@
 
 function handler(req, res) {
   res.status(200).json({
-    message: `Welcome to dracoviz serverless!`,
+    message: 'Welcome to dracoviz serverless!',
   });
 }
 
