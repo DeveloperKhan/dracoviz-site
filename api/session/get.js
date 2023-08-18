@@ -3,6 +3,7 @@ import getSessionModel from '../../db/session';
 import sessionStates from '../../db/sessionStates';
 import rules from '../../static/rules.json';
 import allowCors from '../../db/allowCors';
+import avatars from '../../static/avatars.json';
 
 async function getPlayers(players, isHost, state, factionId) {
   const Player = await getPlayerModel();
@@ -22,7 +23,7 @@ async function getPlayers(players, isHost, state, factionId) {
       const returnObj = {
         name: playerObj.name,
         description: playerObj.description,
-        avatar: playerObj.avatar,
+        avatar: avatars[playerObj.avatar]?.src,
         friendCode: playerObj.friendCode,
         discord: playerObj.discord,
         telegram: playerObj.telegram,

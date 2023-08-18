@@ -24,7 +24,10 @@ async function handler(req, res) {
   }
   try {
     const Player = await getPlayerModel();
-    const player = await Player.findOne({ session: id ?? x_session_id });
+    const isIdValid = id == null || id === '';
+    const player = isIdValid
+      ? await Player.findOne({ session: x_session_id })
+      : await Player.findOne({ name: id });
     if (player == null || player.length <= 0) {
       res.status(401).json({ error: 'api_player_not_found' });
       return;

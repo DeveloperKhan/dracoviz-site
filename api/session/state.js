@@ -1,6 +1,7 @@
 import getPlayerModel from '../../db/player';
 import getSessionModel from '../../db/session';
 import allowCors from '../../db/allowCors';
+import sessionStates from '../../db/sessionStates';
 
 async function handler(req, res) {
   const {
@@ -39,7 +40,17 @@ async function handler(req, res) {
 
     const isTeamTournament = session.maxTeamSize > 1;
 
-    const validStates = isTeamTournament ? ['POKEMON_VISIBLE', 'ROSTERS_VISIBLE', 'ROUND_NOT_STARTED'] : ['POKEMON_VISIBLE', 'ROUND_NOT_STARTED'];
+    const validStates = isTeamTournament
+      ? [
+        sessionStates.pokemonVisible,
+        sessionStates.matchupsVisible,
+        sessionStates.registerRoster,
+        sessionStates.notStarted,
+      ] : [
+        sessionStates.pokemonVisible,
+        sessionStates.registerTeam,
+        sessionStates.notStarted,
+      ];
 
     if (!validStates.includes(newState)) {
       res.status(401).json({ error: 'api_invalid_state' });

@@ -29,8 +29,8 @@ const getSessionModel = async () => {
       factionId: String,
       tournamentPostiion: Number,
       pokemon: [{
-        name: { type: String },
-        form: { type: String },
+        sid: { type: Number },
+        speciesName: { type: String },
         cp: { type: Number },
         best_buddy: { type: Boolean, default: false },
         shadow: { type: Boolean, default: false },
@@ -53,8 +53,8 @@ const getSessionModel = async () => {
             id: String,
             score: [Number],
             pokemon: [{
-              name: { type: String },
-              form: { type: String },
+              sid: { type: Number },
+              speciesName: { type: String },
               cp: { type: Number },
               best_buddy: { type: Boolean, default: false },
               shadow: { type: Boolean, default: false },
