@@ -84,7 +84,7 @@ async function handler(req, res) {
       state: sessionStates.notStarted,
       currentRoundNumber: 0,
       bracket: [{
-        round: 0,
+        round: Date.now(),
         matches: [{
           id: crypto.randomUUID(),
         }],
@@ -102,7 +102,6 @@ async function handler(req, res) {
       isPrivate,
     });
   } catch (ex) {
-    console.log(ex);
     res.status(401).json({ error: `Invalid query of session=${name}` });
   }
 }
