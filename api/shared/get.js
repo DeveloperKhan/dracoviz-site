@@ -1,4 +1,3 @@
-import micro from 'micro-cors';
 import getPlayerModel from '../../db/player';
 import getSessionModel from '../../db/session';
 import allowCors from '../../db/allowCors';
@@ -6,9 +5,6 @@ import avatars from '../../static/avatars.json';
 import rules from '../../static/rules.json';
 
 async function handler(req, res) {
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
   const { id } = req.query;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -88,4 +84,4 @@ async function handler(req, res) {
   }
 }
 
-export default micro(handler);
+export default allowCors(handler);
