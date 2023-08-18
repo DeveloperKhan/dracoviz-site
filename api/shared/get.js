@@ -23,6 +23,7 @@ async function handler(req, res) {
     return;
   }
   try {
+    console.log("1");
     const Player = await getPlayerModel();
     const player = await Player.findOne({ session: x_session_id });
     if (player == null || player.length <= 0) {
@@ -32,6 +33,7 @@ async function handler(req, res) {
 
     const sessions = [];
     const Session = await getSessionModel();
+    console.log("2");
     await Promise.all(player.sessions.map(async (playerSession) => {
       try {
         const session = await Session.findOne({ key: playerSession });
@@ -63,6 +65,7 @@ async function handler(req, res) {
         // Error finding session
       }
     }));
+    console.log("3");
 
     const response = {
       name: player.name,
@@ -75,6 +78,7 @@ async function handler(req, res) {
     };
     res.status(200).json(response);
   } catch (ex) {
+    console.log(ex);
     res.status(401).json({ error: 'Invalid query of player', ex });
   }
 }
