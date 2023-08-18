@@ -21,7 +21,7 @@ const getFactionModel = async () => {
     },
     players: [String],
   });
-  return mongoose.model('faction', FactionSchema);
+  return mongoose.models.faction || mongoose.model('faction', FactionSchema);
 };
 
 export default getFactionModel;

@@ -14,7 +14,7 @@ const getPlayerModel = async () => {
     sessions: [{ type: String }],
     google: { type: String },
   });
-  return mongoose.model('player', PlayerSchema);
+  return mongoose.models.player || mongoose.model('player', PlayerSchema);
 };
 
 export default getPlayerModel;

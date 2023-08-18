@@ -67,7 +67,7 @@ const getSessionModel = async () => {
       ],
     }],
   });
-  return mongoose.model('session', SessionSchema);
+  return mongoose.models.session || mongoose.model('session', SessionSchema);
 };
 
 export default getSessionModel;
