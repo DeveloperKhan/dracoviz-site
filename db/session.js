@@ -32,6 +32,8 @@ const getSessionModel = async () => {
         sid: { type: Number },
         speciesName: { type: String },
         cp: { type: Number },
+        chargedMoves: [String],
+        fastMove: { type: String },
         best_buddy: { type: Boolean, default: false },
         shadow: { type: Boolean, default: false },
         purified: { type: Boolean, default: false },

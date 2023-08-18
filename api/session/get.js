@@ -34,7 +34,13 @@ async function getPlayers(players, isHost, state, factionId) {
       }
       return {
         ...returnObj,
-        pokemon: player.pokemon,
+        pokemon: player.pokemon?.map((p) => ({
+          sid: p.sid,
+          speciesName: p.speciesName,
+          cp: p.cp,
+          chargedMoves: isHost ? p.chargedMoves : null,
+          fastMove: isHost ? p.fastMove : null,
+        })),
       };
     }),
   );
