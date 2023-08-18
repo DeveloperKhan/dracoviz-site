@@ -102,6 +102,7 @@ async function handler(req, res) {
       isTeamTournament,
       isPlayer,
       isCaptain,
+      isHost,
     };
     res.status(200).json(maskedSession);
   } catch (ex) {
