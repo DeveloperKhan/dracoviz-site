@@ -113,7 +113,7 @@ async function handler(req, res) {
     };
     res.status(200).json(maskedSession);
   } catch (ex) {
-    res.status(401).json({ error: 'api_permission_denied' });
+    res.status(401).json({ error: 'api_permission_denied', ex });
   }
 }
 
