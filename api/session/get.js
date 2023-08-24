@@ -28,7 +28,7 @@ async function getFactions(session, playerId) {
         isCaptain = true;
       }
       return {
-        name, description,
+        name, description, key: faction, admins,
       };
     }),
   );
@@ -51,9 +51,11 @@ async function getPlayers(players, isHost, state, factionId) {
         return {};
       }
       const returnObj = {
+        session: playerObj.session,
         name: playerObj.name,
         description: playerObj.description,
         avatar: avatars[playerObj.avatar]?.src,
+        factionId: player.factionId,
         friendCode: playerObj.friendCode,
         discord: playerObj.discord,
         telegram: playerObj.telegram,
