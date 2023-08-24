@@ -5,7 +5,7 @@ import allowCors from '../../db/allowCors';
 
 async function handler(req, res) {
   const {
-    tournamentId, factionName, factionCode,
+    tournamentId, factionCode,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -46,7 +46,7 @@ async function handler(req, res) {
     }
 
     const Faction = await getFactionModel();
-    const faction = await Faction.findOne({ name: factionName });
+    const faction = await Faction.findOne({ factionCode });
     if (faction == null || session.length <= 0) {
       res.status(401).json({ error: 'api_faction_not_found' });
       return;
@@ -70,7 +70,7 @@ async function handler(req, res) {
 
       res.status(200).send({
         tournamentId,
-        factionName,
+        factionName: faction.name,
       });
     } else {
       res.status(401).json({ error: 'api_already_entered_error', alreadyEntered: true });

@@ -7,23 +7,29 @@ import avatars from '../../static/avatars.json';
 import pokemonJSON from '../../static/pokemon.json';
 import getFactionModel from '../../db/faction';
 
-async function getFactions(session, playerId) {
+async function getFactions(session, playerId, factionId) {
   const {
     maxTeamSize, factions,
   } = session;
   const isTeamTournament = maxTeamSize > 1;
   if (!isTeamTournament) {
-    return { factions: null, isCaptain: false };
+    return { factions: null, isCaptain: false, teamCode: null };
   }
   const Faction = await getFactionModel();
   let isCaptain = false;
+  let teamCode = null;
   const factionObjs = await Promise.all(
     factions?.map(async (faction) => {
       const factionObj = await Faction.findOne({ key: faction });
       if (factionObj == null) {
         return {};
       }
-      const { name, description, admins } = factionObj;
+      const {
+        name, description, admins, key, factionCode,
+      } = factionObj;
+      if (key === factionId) {
+        teamCode = factionCode;
+      }
       if (admins.includes(playerId)) {
         isCaptain = true;
       }
@@ -32,7 +38,7 @@ async function getFactions(session, playerId) {
       };
     }),
   );
-  return { factions: factionObjs, isCaptain };
+  return { factions: factionObjs, isCaptain, teamCode };
 }
 
 async function getPlayers(players, isHost, state, factionId, isTeamTournament) {
@@ -122,7 +128,11 @@ async function handler(req, res) {
     const thePlayer = session.players?.find((player) => player.playerId === x_session_id);
     const isPlayer = thePlayer != null;
     const factionId = thePlayer?.factionId;
-    const { factions, isCaptain } = await getFactions(session, thePlayer?.playerId);
+    const {
+      factions,
+      isCaptain,
+      teamCode,
+    } = await getFactions(session, thePlayer?.playerId, factionId);
     const players = await getPlayers(session.players, isHost, state, factionId, isTeamTournament);
     const isParticipant = isPlayer || isHost;
 
@@ -145,6 +155,7 @@ async function handler(req, res) {
       isCaptain,
       isHost,
       factions,
+      teamCode,
     };
     res.status(200).json(maskedSession);
   } catch (ex) {
