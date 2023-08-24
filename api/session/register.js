@@ -67,12 +67,6 @@ async function handler(req, res) {
       return;
     }
 
-    // Temp, CP check is manual
-    if (cp.filter((x) => x > 1500)?.length > 0) {
-      res.status(401).json({ error: 'api_cp_invalid' });
-      return;
-    }
-
     const team = pokemon.map((p, index) => ({
       sid: pokemonJSON[p].sid,
       speciesName: p,
