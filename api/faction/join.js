@@ -70,6 +70,7 @@ async function handler(req, res) {
 
       res.status(200).send({
         tournamentId,
+        factionName,
       });
     } else {
       res.status(401).json({ error: 'api_already_entered_error', alreadyEntered: true });

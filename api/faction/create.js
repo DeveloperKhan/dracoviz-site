@@ -68,10 +68,12 @@ async function handler(req, res) {
       player.sessions.push(tournamentId);
       session.factions.push(newFaction.key);
       await session.save();
+      await player.save();
 
       res.status(200).send({
         factionCode: newFaction.factionCode,
         tournamentId,
+        factionName,
       });
     } else {
       res.status(401).json({ error: 'api_already_entered_error', alreadyEntered: true });

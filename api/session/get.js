@@ -5,6 +5,35 @@ import rules from '../../static/rules.json';
 import allowCors from '../../db/allowCors';
 import avatars from '../../static/avatars.json';
 import pokemonJSON from '../../static/pokemon.json';
+import getFactionModel from '../../db/faction';
+
+async function getFactions(session, playerId) {
+  const {
+    maxTeamSize, factions,
+  } = session;
+  const isTeamTournament = maxTeamSize > 1;
+  if (!isTeamTournament) {
+    return { factions: null, isCaptain: false };
+  }
+  const Faction = await getFactionModel();
+  let isCaptain = false;
+  const factionObjs = await Promise.all(
+    factions?.map(async (faction) => {
+      const factionObj = await Faction.findOne({ key: faction });
+      if (factionObj == null) {
+        return {};
+      }
+      const { name, description, admins } = factionObj;
+      if (admins.includes(playerId)) {
+        isCaptain = true;
+      }
+      return {
+        name, description,
+      };
+    }),
+  );
+  return { factions: factionObjs, isCaptain };
+}
 
 async function getPlayers(players, isHost, state, factionId) {
   const Player = await getPlayerModel();
@@ -88,7 +117,7 @@ async function handler(req, res) {
     const thePlayer = session.players?.find((player) => player.playerId === x_session_id);
     const isPlayer = thePlayer != null;
     const factionId = thePlayer?.factionId;
-    const isCaptain = false; // ToDo
+    const { factions, isCaptain } = await getFactions(session, thePlayer?.playerId);
     const players = await getPlayers(session.players, isHost, state, factionId);
     const isParticipant = isPlayer || isHost;
 
@@ -110,6 +139,7 @@ async function handler(req, res) {
       isPlayer,
       isCaptain,
       isHost,
+      factions,
     };
     res.status(200).json(maskedSession);
   } catch (ex) {
