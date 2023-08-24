@@ -35,7 +35,7 @@ async function getFactions(session, playerId) {
   return { factions: factionObjs, isCaptain };
 }
 
-async function getPlayers(players, isHost, state, factionId) {
+async function getPlayers(players, isHost, state, factionId, isTeamTournament) {
   const Player = await getPlayerModel();
   const shouldLookupAllPlayers = isHost
     || state === sessionStates.pokemonVisible
@@ -61,7 +61,10 @@ async function getPlayers(players, isHost, state, factionId) {
         telegram: playerObj.telegram,
         tournamentPosition: shouldLookupPlayer ? -1 : player.tournamentPosition,
       };
-      if (!shouldLookupPlayer || (!shouldShowAllTeams && !isTeammate)) {
+      const isAlternate = isTeamTournament && (
+        player.tournamentPosition == null || player.tournamentPosition === -1
+      );
+      if ((isAlternate && !isHost) || !shouldLookupPlayer || (!shouldShowAllTeams && !isTeammate)) {
         return returnObj;
       }
       return {
@@ -120,7 +123,7 @@ async function handler(req, res) {
     const isPlayer = thePlayer != null;
     const factionId = thePlayer?.factionId;
     const { factions, isCaptain } = await getFactions(session, thePlayer?.playerId);
-    const players = await getPlayers(session.players, isHost, state, factionId);
+    const players = await getPlayers(session.players, isHost, state, factionId, isTeamTournament);
     const isParticipant = isPlayer || isHost;
 
     const maskedSession = {
