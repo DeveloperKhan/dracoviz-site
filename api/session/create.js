@@ -78,7 +78,7 @@ async function handler(req, res) {
       isPrivate,
       maxTeams,
       maxTeamSize,
-      maxMatchTeamSize,
+      matchTeamSize: maxMatchTeamSize,
       isCPRequired,
       metas,
       state: sessionStates.notStarted,
