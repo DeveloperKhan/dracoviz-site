@@ -65,7 +65,7 @@ async function getPlayers(players, isHost, state, factionId) {
         friendCode: playerObj.friendCode,
         discord: playerObj.discord,
         telegram: playerObj.telegram,
-        tournamentPosition: shouldLookupPlayer ? -1 : player.tournamentPosition,
+        tournamentPosition: shouldLookupPlayer ? player.tournamentPosition : -1,
       };
       if (!shouldLookupPlayer || (!shouldShowAllTeams && !isTeammate)) {
         return returnObj;
