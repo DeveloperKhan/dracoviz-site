@@ -38,8 +38,12 @@ async function handler(req, res) {
       return;
     }
 
+    const theSessionPlayerIndex = session.players.findIndex((p) => p.playerId === x_session_id);
+    const theSessionPlayer = session.players[theSessionPlayerIndex];
+
     const isTeamTournament = maxTeamSize > 1;
-    const isAlternate = player.tournamentPosition == null || player.tournamentPosition === -1;
+    const isAlternate = theSessionPlayer.tournamentPosition == null
+      || theSessionPlayer.tournamentPosition === -1;
 
     if (isAlternate && isTeamTournament) {
       res.status(401).json({ error: 'api_player_is_not_assigned' });
