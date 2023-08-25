@@ -74,6 +74,7 @@ async function handler(req, res) {
         factionCode: newFaction.factionCode,
         tournamentId,
         factionName,
+        tournamentPosition: -1,
       });
     } else {
       res.status(401).json({ error: 'api_already_entered_error', alreadyEntered: true });

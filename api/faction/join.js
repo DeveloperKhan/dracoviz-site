@@ -69,6 +69,8 @@ async function handler(req, res) {
       session.players.push({
         playerId: x_session_id,
         factionId: faction.key,
+        pokemon: [],
+        tournamentPosition: -1,
       });
       player.sessions.push(tournamentId);
       await session.save();

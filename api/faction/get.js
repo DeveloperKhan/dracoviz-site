@@ -62,12 +62,12 @@ async function handler(req, res) {
       if (aPlayer == null) {
         return {};
       }
-      const sessionPlayerIndex = session.players.findIndex((p) => p.playerId === x_session_id);
+      const sessionPlayerIndex = session.players.findIndex((p) => p.playerId === playerId);
       const sessionPlayer = session.players[sessionPlayerIndex];
       return {
         session: aPlayer.session,
         name: aPlayer.name,
-        tournamentPosition: sessionPlayer?.tournamentPosition ?? -1,
+        tournamentPosition: sessionPlayer?.tournamentPosition,
       };
     }));
     const data = {

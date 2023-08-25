@@ -27,7 +27,7 @@ const getSessionModel = async () => {
     players: [{
       playerId: String,
       factionId: String,
-      tournamentPostiion: Number,
+      tournamentPosition: Number,
       pokemon: [{
         sid: { type: Number },
         speciesName: { type: String },
