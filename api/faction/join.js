@@ -72,6 +72,7 @@ async function handler(req, res) {
       });
       player.sessions.push(tournamentId);
       await session.save();
+      await player.save();
 
       res.status(200).send({
         tournamentId,
