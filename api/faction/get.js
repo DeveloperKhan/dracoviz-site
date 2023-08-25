@@ -65,6 +65,7 @@ async function handler(req, res) {
       const sessionPlayerIndex = session.players.findIndex((p) => p.playerId === x_session_id);
       const sessionPlayer = session.players[sessionPlayerIndex];
       return {
+        session: aPlayer.session,
         name: aPlayer.name,
         tournamentPosition: sessionPlayer?.tournamentPosition ?? -1,
       };
