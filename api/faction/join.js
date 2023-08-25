@@ -57,7 +57,7 @@ async function handler(req, res) {
       return;
     }
 
-    if (session.maxTeamSize >= faction.players.length) {
+    if (session.maxTeamSize <= faction.players.length) {
       res.status(401).json({ error: 'api_faction_full' });
       return;
     }
