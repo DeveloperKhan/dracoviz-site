@@ -2,11 +2,12 @@ import getPlayerModel from '../../db/player';
 import getSessionModel from '../../db/session';
 import getFactionModel from '../../db/faction';
 import allowCors from '../../db/allowCors';
+import sessionStates from '../../db/sessionStates';
 
 async function handler(req, res) {
   const {
-    tournamentId, factionCode,
-  } = req.body;
+    tournamentId,
+  } = req.query;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
     res.status(401).json({
@@ -37,50 +38,45 @@ async function handler(req, res) {
       res.status(401).json({ error: 'api_session_not_found' });
       return;
     }
-
-    const isTeamTournament = session.maxTeamSize > 1;
+    const { state, maxTeamSize, metas } = session;
+    const isTeamTournament = maxTeamSize > 1;
 
     if (!isTeamTournament) {
       res.status(401).json({ error: 'api_not_team_session' });
       return;
     }
 
+    const theSessionPlayerIndex = session.players.findIndex((p) => p.playerId === x_session_id);
+    const theSessionPlayer = session.players[theSessionPlayerIndex];
+
     const Faction = await getFactionModel();
-    const faction = await Faction.findOne({ factionCode });
+    const faction = await Faction.findOne({ key: theSessionPlayer.factionId });
     if (faction == null || session.length <= 0) {
       res.status(401).json({ error: 'api_faction_not_found' });
       return;
     }
-
-    if (faction.factionCode !== factionCode) {
-      res.status(401).json({ error: 'api_wrong_faction_code' });
-      return;
-    }
-
-    if (session.maxTeamSize >= faction.players.length) {
-      res.status(401).json({ error: 'api_faction_full' });
-      return;
-    }
-
-    if (session.players.every((p) => x_session_id !== p.playerId)) {
-      faction.players.push(x_session_id);
-      await faction.save();
-
-      session.players.push({
-        playerId: x_session_id,
-        factionId: faction.key,
-      });
-      player.sessions.push(tournamentId);
-      await session.save();
-
-      res.status(200).send({
-        tournamentId,
-        factionName: faction.name,
-      });
-    } else {
-      res.status(401).json({ error: 'api_already_entered_error', alreadyEntered: true });
-      return;
-    }
+    const canEdit = (state !== sessionStates.pokemonVisible
+      && state !== sessionStates.matchupsVisible);
+    const thePlayers = await Promise.all(faction.players?.map(async (playerId) => {
+      const aPlayer = await Player.findOne({ session: playerId });
+      if (aPlayer == null) {
+        return {};
+      }
+      const sessionPlayerIndex = session.players.findIndex((p) => p.playerId === x_session_id);
+      const sessionPlayer = session.players[sessionPlayerIndex];
+      return {
+        name: aPlayer.name,
+        tournamentPosition: sessionPlayer?.tournamentPosition ?? -1,
+      };
+    }));
+    const data = {
+      factionName: faction.name,
+      description: faction.description,
+      metas,
+      players: thePlayers,
+      canEdit,
+    };
+    res.status(200).send(data);
   } catch (ex) {
     res.status(401).json({ error: `Invalid query of session=${tournamentId}` });
   }
