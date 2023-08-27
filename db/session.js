@@ -24,6 +24,12 @@ const getSessionModel = async () => {
     state: { type: String },
     currentRoundNumber: { type: Number },
     factions: [String],
+    movesetsRequired: { type: Boolean },
+    movesetsVisible: { type: Boolean },
+    cpRequired: { type: Boolean },
+    cpVisible: { type: Boolean },
+    isTeamDraft: { type: Boolean },
+    isGlobalDraft: { type: Boolean },
     players: [{
       playerId: String,
       factionId: String,
