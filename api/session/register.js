@@ -68,7 +68,14 @@ async function handler(req, res) {
     const metaIndex = thePlayer.tournamentPosition ?? 0;
     const metaToTest = metas[metaIndex];
 
-    const error = validateTeam(pokemon, cpToTest, fastMovesToTest, chargedMovesToTest, metaToTest);
+    const error = validateTeam(
+      pokemon,
+      cpToTest,
+      fastMovesToTest,
+      chargedMovesToTest,
+      metaToTest,
+      6,
+    );
 
     if (error) {
       res.status(401).json({ error });

@@ -9,8 +9,6 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize) =>
     pokemon_list.push(pokemonJSON[p]);
   });
 
-  // generic check
-
   // include
   let generic_error;
   if (rules.include != null) {
@@ -31,7 +29,7 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize) =>
         });
 
         if (!included) {
-          generic_error = 'One or more of your Pokémon are invalid for this meta';
+          generic_error = 'api_team_validation_generic';
           return false;
         }
       }
@@ -61,7 +59,7 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize) =>
         });
 
         if (excluded) {
-          generic_error = 'One or more of your Pokémon are invalid for this meta';
+          generic_error = 'api_team_validation_generic';
           return false;
         }
       }
@@ -156,9 +154,18 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize) =>
     }
   }
 
-  // draft team check
-
-  // draft global check
+  // mega check
+  if (rules.maxMega != null) {
+    let megaCount = 0;
+    pokemon_list.forEach((p) => {
+      if (p?.tags?.includes('mega')) {
+        megaCount += 1;
+      }
+    });
+    if (megaCount > rules.maxMega) {
+      return 'api_team_validation_mega';
+    }
+  }
 
   // duplicate check
   // if speciesClauseByDex == true
@@ -236,7 +243,7 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize) =>
         });
 
         if (!included) {
-          slot_error = 'Your team does match the required slots for this meta';
+          slot_error = 'api_team_validation_slot';
           return false;
         }
       }
@@ -269,7 +276,7 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize) =>
         });
 
         if (excluded) {
-          slot_error = 'Your team does match the required slots for this meta';
+          slot_error = 'api_team_validation_slot';
           return false;
         }
       }
