@@ -46,11 +46,11 @@ async function handler(req, res) {
     }
 
     const Faction = await getFactionModel();
-    const faction = await Faction.findOne({ name: factionName });
-    if (faction != null || session.length > 0) {
-      res.status(401).json({ error: 'api_faction_already_exists' });
-      return;
-    }
+    // const faction = await Faction.findOne({ name: factionName });
+    // if (faction != null || session.length > 0) {
+    //   res.status(401).json({ error: 'api_faction_already_exists' });
+    //   return;
+    // }
 
     if (session.players.every((p) => x_session_id !== p.playerId)) {
       const newFaction = new Faction({

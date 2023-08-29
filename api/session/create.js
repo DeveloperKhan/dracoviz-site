@@ -14,7 +14,7 @@ async function handler(req, res) {
   const {
     name, description, serverInviteLink,
     bracketLink, isPrivate, maxTeams, maxTeamSize, maxMatchTeamSize,
-    isCPRequired, metas,
+    metas, cpVisibility, movesetVisibility, draftMode,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -43,9 +43,13 @@ async function handler(req, res) {
       return;
     }
 
-    let theMetas = metas;
+    let theMetas;
     if (metas.length < Number(maxMatchTeamSize)) {
-      theMetas.fill(metas[0], metas.length, maxMatchTeamSize);
+      theMetas = [
+        ...metas,
+        ...new Array(Number(maxMatchTeamSize)).fill(metas).slice(metas.length),
+      ];
+      theMetas.fill(metas[0], metas.length);
     } else if (metas.length > Number(maxMatchTeamSize)) {
       theMetas = metas.slice(0, maxMatchTeamSize);
     }
@@ -86,7 +90,12 @@ async function handler(req, res) {
       maxTeams,
       maxTeamSize,
       matchTeamSize: maxMatchTeamSize,
-      isCPRequired,
+      movesetsRequired: movesetVisibility != null && movesetVisibility !== 'none',
+      movesetsVisible: movesetVisibility === 'global',
+      cpRequired: cpVisibility != null && cpVisibility !== 'none',
+      cpVisible: cpVisibility === 'global',
+      isTeamDraft: draftMode === 'team',
+      isGlobalDraft: draftMode === 'global',
       metas: theMetas,
       state: sessionStates.notStarted,
       currentRoundNumber: 0,
