@@ -1291,9 +1291,6 @@
         "maxLevel": 50,
         "maxBestBuddy": 1,
         "maxMega": 1,
-        "flags": {
-            "speciesClauseByDex": "true"
-        },
         "pointLimitOptions": {
             "maxPoints": 8,
             "defaultPrice": 0,
