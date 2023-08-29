@@ -43,7 +43,7 @@ async function handler(req, res) {
       return;
     }
 
-    let theMetas;
+    let theMetas = metas;
     if (metas.length < Number(maxMatchTeamSize)) {
       theMetas = [
         ...metas,
