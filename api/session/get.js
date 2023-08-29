@@ -41,7 +41,7 @@ async function getFactions(session, playerId, factionId) {
   return { factions: factionObjs, isCaptain, teamCode };
 }
 
-async function getPlayers(players, isHost, state, factionId) {
+async function getPlayers(players, isHost, state, factionId, movesetsVisible, cpVisible) {
   const Player = await getPlayerModel();
   const shouldLookupAllPlayers = isHost
     || state === sessionStates.pokemonVisible
@@ -75,9 +75,9 @@ async function getPlayers(players, isHost, state, factionId) {
         pokemon: player.pokemon?.map((p) => ({
           sid: p.sid,
           speciesName: pokemonJSON[p.speciesName].speciesName,
-          cp: p.cp,
-          chargedMoves: isHost ? p.chargedMoves : null,
-          fastMove: isHost ? p.fastMove : null,
+          cp: (isHost || cpVisible) ? p.cp : null,
+          chargedMoves: (isHost || movesetsVisible) ? p.chargedMoves : null,
+          fastMove: (isHost || movesetsVisible) ? p.fastMove : null,
         })),
       };
     }),
@@ -117,7 +117,7 @@ async function handler(req, res) {
     }
 
     const {
-      host, state, maxTeamSize, metas,
+      host, state, maxTeamSize, metas, cpVisible, movesetsVisible,
     } = session;
     const isHost = host?.includes(x_session_id);
     const isTeamTournament = maxTeamSize > 1;
@@ -130,7 +130,14 @@ async function handler(req, res) {
       isCaptain,
       teamCode,
     } = await getFactions(session, thePlayer?.playerId, factionId);
-    const players = await getPlayers(session.players, isHost, state, factionId);
+    const players = await getPlayers(
+      session.players,
+      isHost,
+      state,
+      factionId,
+      movesetsVisible,
+      cpVisible,
+    );
     const isParticipant = isPlayer || isHost;
 
     const maskedSession = {

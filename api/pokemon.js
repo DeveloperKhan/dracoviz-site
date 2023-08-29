@@ -29,7 +29,9 @@ async function handler(req, res) {
       return;
     }
 
-    const { players, state, maxTeamSize } = session;
+    const {
+      players, state, maxTeamSize, movesetsRequired, cpRequired,
+    } = session;
 
     const playerIndex = players.findIndex((p) => p.playerId === x_session_id);
 
@@ -51,8 +53,6 @@ async function handler(req, res) {
     }
 
     const canEdit = state !== sessionStates.pokemonVisible;
-    const movesRequired = true;
-    const cpRequired = true;
 
     const pokemon = [];
     const cp = [];
@@ -70,7 +70,7 @@ async function handler(req, res) {
 
     res.status(200).json({
       canEdit,
-      movesRequired,
+      movesetsRequired,
       cpRequired,
       pokemon,
       cp,
@@ -81,21 +81,6 @@ async function handler(req, res) {
   } catch (ex) {
     res.status(401).json({ error: 'api_unauthorized' });
   }
-  // TODO: Get pokemon for specific meta + session
-  /*
-    1. Do some logic to match player to session
-      a. Check if player is allowed to edit team
-    2. Find player's team for that session
-    3. Find meta the player is registered for
-    4. NICE TO HAVE: only return the Pokemon allowed for that meta
-    5. return:
-        {
-          currentTeam,
-          canEditTeam,
-          meta,
-          pokemon
-        }
-   */
 }
 
 export default allowCors(handler);
