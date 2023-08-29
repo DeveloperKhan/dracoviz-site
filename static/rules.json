@@ -1182,5 +1182,215 @@
             ]
         },
         "rankingsLink": "https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/rankings/factionsgreat/overall/rankings-1500.json"
+    },
+    "Viperwave Cup": {
+        "name": "Viperwave Cup",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "metaLogo": "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/Viperwave.png/public",
+        "teamPattern": [{
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["462-462", "460-460", "279-279", "867-867", "618-618", "530-530", "42-42", "31-31"]
+                }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": ["stunfisk_galarian"]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": ["ghost", "water", "grass"]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": ["poison", "ice", "flying"]
+                },
+                {
+                    "filterType": "dex",
+                    "values": ["302-302", "867-867", "563-563"]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": ["ghost", "water", "grass"]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": ["poison", "ice", "flying"]
+                },
+                {
+                    "filterType": "dex",
+                    "values": ["302-302", "867-867", "563-563"]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": ["electric", "water", "poison"]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": ["steel", "ground", "flying"]
+                },
+                {
+                    "filterType": "dex",
+                    "values": ["171-171"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["shadow", "mega"]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": ["electric", "water", "poison"]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": ["steel", "ground", "flying"]
+                },
+                {
+                    "filterType": "dex",
+                    "values": ["171-171"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["shadow", "mega"]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": ["electric", "water", "poison"]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": ["steel", "ground", "flying"]
+                },
+                {
+                    "filterType": "dex",
+                    "values": ["171-171"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["shadow", "mega"]
+                }]
+            }
+        ]
+    },
+    "Master League Unified": {
+        "name": "Master League Unified",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/master_league.png/public",
+        "maxCP": 10000,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 1,
+        "flags": {
+            "speciesClauseByDex": "true"
+        },
+        "pointLimitOptions": {
+            "maxPoints": 8,
+            "defaultPrice": 0,
+            "prices": [
+                {
+                    "pokemonIds": [
+                        "gengar_mega",
+                        "tyraniter_mega",
+                        "salamence_mega",
+                        "zygarde_complete"
+                    ],
+                    "price": 6
+                },
+                {
+                    "pokemonIds": [
+                        "scizor_mega",
+                        "aggron_mega",
+                        "xerneas",
+                        "zacian",
+                        "dialga",
+                        "solgaleo",
+                        "groudon",
+                        "mewtwo",
+                        "mewtwo_shadow"
+                    ],
+                    "price": 4
+                },
+                {
+                    "pokemonIds": [
+                        "lugia",
+                        "lugia_shadow",
+                        "ho_oh",
+                        "ho_oh_shadow",
+                        "kyogre",
+                        "giratina_origin",
+                        "giratina_altered",
+                        "meloetta_aria",
+                        "zarude",
+                        "steelix_mega"
+                    ],
+                    "price": 3
+                },
+                {
+                    "pokemonIds": [
+                        "zekrom",
+                        "slowbro_mega",
+                        "yveltal",
+                        "melmetal",
+                        "palkia",
+                        "dragonite",
+                        "dragonite_shadow",
+                        "reshiram",
+                        "blastoise_mega",
+                        "rayquaza",
+                        "charizard_mega_x"
+                    ],
+                    "price": 2
+                },
+                {
+                    "pokemonIds": [
+                        "landorus_therian",
+                        "landorus_incarnate",
+                        "genesect",
+                        "genesect_douse",
+                        "genesect_burn",
+                        "genesect_chill",
+                        "genesect_shock",
+                        "mew",
+                        "florges",
+                        "buzzwole",
+                        "venusaur_mega",
+                        "alakazam_mega",
+                        "blaziken_mega",
+                        "abomasnow_mega",
+                        "kyurem"
+                    ],
+                    "price": 1
+                }
+            ]
+        },
+        "rankingsLink": "https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/rankings/factionsmaster/overall/rankings-10000.json",
+        "exclude": [
+            {
+                "filterType": "id",
+                "values": [
+                    "charizard_mega_y",
+                    "latios_mega",
+                    "latias_mega",
+                    "gyarados_mega",
+                    "kyogre_primal",
+                    "groudon_primal",
+                    "swampert_mega",
+                    "gardevoir_mega",
+                    "rayquaza_mega",
+                    "diancie_mega"
+                ]
+            }
+        ]
     }
 }
