@@ -3,6 +3,7 @@ import getSessionModel from '../../db/session';
 import allowCors from '../../db/allowCors';
 import pokemonJSON from '../../static/pokemon.json';
 import sessionStates from '../../db/sessionStates';
+import validateTeam from '../../util/validation';
 
 async function handler(req, res) {
   const {
@@ -39,7 +40,9 @@ async function handler(req, res) {
       return;
     }
 
-    const { players, status } = session;
+    const {
+      players, status, cpRequired, movesetsRequired, metas,
+    } = session;
 
     if (status === sessionStates.pokemonVisible) {
       res.status(401).json({ error: 'api_session_already_started_error' });
@@ -58,12 +61,17 @@ async function handler(req, res) {
       return;
     }
 
-    if (
-      chargedMoves?.length !== fastMoves?.length
-      && cp?.length !== fastMoves?.length
-      && chargedMoves?.length !== pokemon.length
-    ) {
-      res.status(401).json({ error: 'api_pokemon_team_invalid' });
+    const thePlayer = players[playerIndex];
+    const chargedMovesToTest = movesetsRequired ? (chargedMoves ?? []) : null;
+    const fastMovesToTest = movesetsRequired ? (fastMoves ?? []) : null;
+    const cpToTest = cpRequired ? (cp ?? []) : null;
+    const metaIndex = thePlayer.tournamentPosition ?? 0;
+    const metaToTest = metas[metaIndex];
+
+    const error = validateTeam(pokemon, cpToTest, fastMovesToTest, chargedMovesToTest, metaToTest);
+
+    if (error) {
+      res.status(401).json({ error });
       return;
     }
 
