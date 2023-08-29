@@ -78,9 +78,9 @@ async function handler(req, res) {
     const team = pokemon.map((p, index) => ({
       sid: pokemonJSON[p].sid,
       speciesName: p,
-      cp: cp[index],
-      chargedMoves: chargedMoves[index],
-      fastMove: fastMoves[index],
+      cp: cpRequired ? cp[index] : null,
+      chargedMoves: movesetsRequired ? chargedMoves[index] : null,
+      fastMove: movesetsRequired ? fastMoves[index] : null,
     }));
 
     session.players[playerIndex].pokemon = team;
