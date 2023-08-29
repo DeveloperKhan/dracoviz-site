@@ -43,8 +43,15 @@ async function handler(req, res) {
       return;
     }
 
+    let theMetas = metas;
+    if (metas.length < Number(maxMatchTeamSize)) {
+      theMetas.fill(metas[0], metas.length, maxMatchTeamSize);
+    } else if (metas.length > Number(maxMatchTeamSize)) {
+      theMetas = metas.slice(0, maxMatchTeamSize);
+    }
+
     let isInvalidMeta = false;
-    metas.every((meta) => {
+    theMetas.every((meta) => {
       if (rules[meta] == null) {
         isInvalidMeta = true;
         return false;
@@ -80,7 +87,7 @@ async function handler(req, res) {
       maxTeamSize,
       matchTeamSize: maxMatchTeamSize,
       isCPRequired,
-      metas,
+      metas: theMetas,
       state: sessionStates.notStarted,
       currentRoundNumber: 0,
       bracket: [{
