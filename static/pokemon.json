@@ -284,7 +284,8 @@
       },
       "fastMoves": [
           "ACID",
-          "INFESTATION"
+          "INFESTATION",
+          "WATER_SHURIKEN"
       ],
       "gender": "male",
       "sid": 19744,
@@ -1034,7 +1035,8 @@
           "POWER_GEM",
           "THUNDER",
           "THUNDER_PUNCH",
-          "ZAP_CANNON"
+          "ZAP_CANNON",
+          "TRAILBLAZE"
       ],
       "dex": 181,
       "eliteMoves": [
@@ -1075,7 +1077,8 @@
           "POWER_GEM",
           "THUNDER",
           "THUNDER_PUNCH",
-          "ZAP_CANNON"
+          "ZAP_CANNON",
+          "TRAILBLAZE"
       ],
       "dex": 181,
       "eliteMoves": [
@@ -1116,7 +1119,8 @@
           "POWER_GEM",
           "THUNDER",
           "THUNDER_PUNCH",
-          "ZAP_CANNON"
+          "ZAP_CANNON",
+          "TRAILBLAZE"
       ],
       "dex": 181,
       "eliteMoves": [
@@ -1388,7 +1392,8 @@
           "FIRE_BLAST",
           "FLAMETHROWER",
           "PSYCHIC_FANGS",
-          "WILD_CHARGE"
+          "WILD_CHARGE",
+          "SCORCHING_SANDS"
       ],
       "dex": 59,
       "eliteMoves": [
@@ -1464,7 +1469,8 @@
           "FIRE_BLAST",
           "FLAMETHROWER",
           "PSYCHIC_FANGS",
-          "WILD_CHARGE"
+          "WILD_CHARGE",
+          "SCORCHING_SANDS"
       ],
       "dex": 59,
       "eliteMoves": [
@@ -2891,7 +2897,8 @@
           "CROSS_CHOP",
           "GRASS_KNOT",
           "SKULL_BASH",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "RAZOR_SHELL"
       ],
       "dex": 689,
       "family": {
@@ -3055,7 +3062,8 @@
       },
       "fastMoves": [
           "RAZOR_LEAF",
-          "TACKLE"
+          "TACKLE",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "level25CP": 843,
@@ -3092,7 +3100,8 @@
       },
       "fastMoves": [
           "RAZOR_LEAF",
-          "TACKLE"
+          "TACKLE",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "sid": 4896,
@@ -3399,7 +3408,8 @@
       "fastMoves": [
           "ACID",
           "BULLET_SEED",
-          "RAZOR_LEAF"
+          "RAZOR_LEAF",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "level25CP": 1383,
@@ -3433,7 +3443,8 @@
       "fastMoves": [
           "ACID",
           "BULLET_SEED",
-          "RAZOR_LEAF"
+          "RAZOR_LEAF",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "sid": 5824,
@@ -6369,7 +6380,8 @@
       },
       "fastMoves": [
           "TACKLE",
-          "VINE_WHIP"
+          "VINE_WHIP",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "level25CP": 512,
@@ -6405,7 +6417,8 @@
       },
       "fastMoves": [
           "TACKLE",
-          "VINE_WHIP"
+          "VINE_WHIP",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "sid": 4864,
@@ -6713,7 +6726,8 @@
           "ICE_BEAM",
           "PSYCHIC",
           "ROCK_TOMB",
-          "SHADOW_BALL"
+          "SHADOW_BALL",
+          "SCORCHING_SANDS"
       ],
       "dex": 344,
       "family": {
@@ -6886,7 +6900,8 @@
           "BLIZZARD",
           "HYDRO_PUMP",
           "ICY_WIND",
-          "LIQUIDATION"
+          "LIQUIDATION",
+          "RAZOR_SHELL"
       ],
       "dex": 91,
       "eliteMoves": [
@@ -6925,7 +6940,8 @@
           "BLIZZARD",
           "HYDRO_PUMP",
           "ICY_WIND",
-          "LIQUIDATION"
+          "LIQUIDATION",
+          "RAZOR_SHELL"
       ],
       "dex": 91,
       "eliteMoves": [
@@ -7261,7 +7277,8 @@
       "chargedMoves": [
           "AQUA_JET",
           "BUBBLE_BEAM",
-          "VICE_GRIP"
+          "VICE_GRIP",
+          "RAZOR_SHELL"
       ],
       "dex": 341,
       "family": {
@@ -7679,7 +7696,8 @@
           "BUBBLE_BEAM",
           "CRABHAMMER",
           "NIGHT_SLASH",
-          "VICE_GRIP"
+          "VICE_GRIP",
+          "RAZOR_SHELL"
       ],
       "dex": 342,
       "family": {
@@ -7752,7 +7770,8 @@
       },
       "fastMoves": [
           "POISON_JAB",
-          "POISON_STING"
+          "POISON_STING",
+          "MUD_SHOT"
       ],
       "gender": "male",
       "sid": 14496,
@@ -8420,7 +8439,8 @@
       "fastMoves": [
           "LEAFAGE",
           "PECK",
-          "RAZOR_LEAF"
+          "RAZOR_LEAF",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "sid": 23136,
@@ -8513,7 +8533,8 @@
       "fastMoves": [
           "ASTONISH",
           "LEAFAGE",
-          "RAZOR_LEAF"
+          "RAZOR_LEAF",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "sid": 23168,
@@ -8557,7 +8578,8 @@
       "chargedMoves": [
           "ENERGY_BALL",
           "SEED_BOMB",
-          "WILD_CHARGE"
+          "WILD_CHARGE",
+          "TRAILBLAZE"
       ],
       "dex": 585,
       "family": {
@@ -9059,7 +9081,8 @@
           "DIG",
           "EARTHQUAKE",
           "FIRE_PUNCH",
-          "HYPER_BEAM"
+          "HYPER_BEAM",
+          "SCORCHING_SANDS"
       ],
       "dex": 660,
       "family": {
@@ -9323,7 +9346,8 @@
           "BODY_SLAM",
           "EARTHQUAKE",
           "HEAVY_SLAM",
-          "PLAY_ROUGH"
+          "PLAY_ROUGH",
+          "TRAILBLAZE"
       ],
       "dex": 232,
       "family": {
@@ -9359,7 +9383,8 @@
           "BODY_SLAM",
           "EARTHQUAKE",
           "HEAVY_SLAM",
-          "PLAY_ROUGH"
+          "PLAY_ROUGH",
+          "TRAILBLAZE"
       ],
       "dex": 232,
       "family": {
@@ -11749,7 +11774,8 @@
           "FLAMETHROWER",
           "FLAME_CHARGE",
           "IRON_HEAD",
-          "OVERHEAT"
+          "OVERHEAT",
+          "SCORCHING_SANDS"
       ],
       "dex": 244,
       "fastMoves": [
@@ -11781,7 +11807,8 @@
           "FLAMETHROWER",
           "FLAME_CHARGE",
           "IRON_HEAD",
-          "OVERHEAT"
+          "OVERHEAT",
+          "SCORCHING_SANDS"
       ],
       "dex": 244,
       "fastMoves": [
@@ -11967,7 +11994,8 @@
           "DRILL_RUN",
           "EARTHQUAKE",
           "IRON_HEAD",
-          "ROCK_SLIDE"
+          "ROCK_SLIDE",
+          "SCORCHING_SANDS"
       ],
       "dex": 530,
       "family": {
@@ -12648,7 +12676,8 @@
       "chargedMoves": [
           "DISCHARGE",
           "POWER_GEM",
-          "THUNDERBOLT"
+          "THUNDERBOLT",
+          "TRAILBLAZE"
       ],
       "dex": 180,
       "family": {
@@ -12684,7 +12713,8 @@
       "chargedMoves": [
           "DISCHARGE",
           "POWER_GEM",
-          "THUNDERBOLT"
+          "THUNDERBOLT",
+          "TRAILBLAZE"
       ],
       "dex": 180,
       "family": {
@@ -12981,7 +13011,8 @@
           "DRAGON_CLAW",
           "EARTHQUAKE",
           "EARTH_POWER",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "SCORCHING_SANDS"
       ],
       "dex": 330,
       "eliteMoves": [
@@ -13019,7 +13050,8 @@
           "DRAGON_CLAW",
           "EARTHQUAKE",
           "EARTH_POWER",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "SCORCHING_SANDS"
       ],
       "dex": 330,
       "eliteMoves": [
@@ -13054,7 +13086,8 @@
       "chargedMoves": [
           "ENERGY_BALL",
           "GRASS_KNOT",
-          "LEAF_BLADE"
+          "LEAF_BLADE",
+          "TRAILBLAZE"
       ],
       "dex": 753,
       "family": {
@@ -13816,7 +13849,8 @@
           "DAZZLING_GLEAM",
           "PSYCHIC",
           "SHADOW_BALL",
-          "SYNCHRONOISE"
+          "SYNCHRONOISE",
+          "TRIPLE_AXEL"
       ],
       "dex": 282,
       "eliteMoves": [
@@ -13829,7 +13863,8 @@
       "fastMoves": [
           "CHARGE_BEAM",
           "CHARM",
-          "CONFUSION"
+          "CONFUSION",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "level25CP": 1919,
@@ -13854,7 +13889,8 @@
           "DAZZLING_GLEAM",
           "PSYCHIC",
           "SHADOW_BALL",
-          "SYNCHRONOISE"
+          "SYNCHRONOISE",
+          "TRIPLE_AXEL"
       ],
       "dex": 282,
       "eliteMoves": [
@@ -13863,7 +13899,8 @@
       "fastMoves": [
           "CHARGE_BEAM",
           "CHARM",
-          "CONFUSION"
+          "CONFUSION",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "level25CP": 2861,
@@ -13889,7 +13926,8 @@
           "DAZZLING_GLEAM",
           "PSYCHIC",
           "SHADOW_BALL",
-          "SYNCHRONOISE"
+          "SYNCHRONOISE",
+          "TRIPLE_AXEL"
       ],
       "dex": 282,
       "eliteMoves": [
@@ -13902,7 +13940,8 @@
       "fastMoves": [
           "CHARGE_BEAM",
           "CHARM",
-          "CONFUSION"
+          "CONFUSION",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "sid": 9024,
@@ -14611,7 +14650,8 @@
           "MIRROR_COAT",
           "PSYCHIC",
           "PSYCHIC_FANGS",
-          "THUNDERBOLT"
+          "THUNDERBOLT",
+          "TRAILBLAZE"
       ],
       "dex": 203,
       "fastMoves": [
@@ -14642,7 +14682,8 @@
           "MIRROR_COAT",
           "PSYCHIC",
           "PSYCHIC_FANGS",
-          "THUNDERBOLT"
+          "THUNDERBOLT",
+          "TRAILBLAZE"
       ],
       "dex": 203,
       "fastMoves": [
@@ -15583,7 +15624,8 @@
           "AERIAL_ACE",
           "AQUA_JET",
           "LIQUIDATION",
-          "X_SCISSOR"
+          "X_SCISSOR",
+          "RAZOR_SHELL"
       ],
       "dex": 768,
       "family": {
@@ -16306,7 +16348,8 @@
       "fastMoves": [
           "BITE",
           "BULLET_SEED",
-          "TACKLE"
+          "TACKLE",
+          "MUD_SHOT"
       ],
       "gender": "male",
       "sid": 26240,
@@ -17658,7 +17701,8 @@
           "BULLDOZE",
           "GRASS_KNOT",
           "PARABOLIC_CHARGE",
-          "THUNDERBOLT"
+          "THUNDERBOLT",
+          "BREAKING_SWIPE"
       ],
       "dex": 695,
       "family": {
@@ -17851,7 +17895,8 @@
           "EARTHQUAKE",
           "EARTH_POWER",
           "STONE_EDGE",
-          "WEATHER_BALL_ROCK"
+          "WEATHER_BALL_ROCK",
+          "SCORCHING_SANDS"
       ],
       "dex": 450,
       "family": {
@@ -17889,7 +17934,8 @@
           "EARTHQUAKE",
           "EARTH_POWER",
           "STONE_EDGE",
-          "WEATHER_BALL_ROCK"
+          "WEATHER_BALL_ROCK",
+          "SCORCHING_SANDS"
       ],
       "dex": 450,
       "family": {
@@ -18007,7 +18053,8 @@
           "CLOSE_COMBAT",
           "LOW_SWEEP",
           "STOMP",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "BLAZE_KICK"
       ],
       "dex": 106,
       "eliteMoves": [
@@ -18047,7 +18094,8 @@
           "CLOSE_COMBAT",
           "LOW_SWEEP",
           "STOMP",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "BLAZE_KICK"
       ],
       "dex": 106,
       "eliteMoves": [
@@ -18084,7 +18132,8 @@
       "chargedMoves": [
           "CLOSE_COMBAT",
           "GYRO_BALL",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "TRIPLE_AXEL"
       ],
       "dex": 237,
       "family": {
@@ -18118,7 +18167,8 @@
       "chargedMoves": [
           "CLOSE_COMBAT",
           "GYRO_BALL",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "TRIPLE_AXEL"
       ],
       "dex": 237,
       "family": {
@@ -19036,7 +19086,8 @@
       "chargedMoves": [
           "DARK_PULSE",
           "FIRE_BLAST",
-          "FLAME_CHARGE"
+          "FLAME_CHARGE",
+          "BLAZE_KICK"
       ],
       "dex": 727,
       "family": {
@@ -20184,7 +20235,8 @@
           "CRABHAMMER",
           "VICE_GRIP",
           "WATER_PULSE",
-          "X_SCISSOR"
+          "X_SCISSOR",
+          "RAZOR_SHELL"
       ],
       "dex": 99,
       "eliteMoves": [
@@ -20218,7 +20270,8 @@
           "DISARMING_VOICE",
           "DRAINING_KISS",
           "PSYCHIC",
-          "SHADOW_SNEAK"
+          "SHADOW_SNEAK",
+          "TRIPLE_AXEL"
       ],
       "dex": 281,
       "family": {
@@ -20231,7 +20284,8 @@
       },
       "fastMoves": [
           "CHARGE_BEAM",
-          "CONFUSION"
+          "CONFUSION",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "legacyMoves": [
@@ -20258,7 +20312,8 @@
       "chargedMoves": [
           "DISARMING_VOICE",
           "PSYCHIC",
-          "SHADOW_SNEAK"
+          "SHADOW_SNEAK",
+          "TRIPLE_AXEL"
       ],
       "dex": 281,
       "family": {
@@ -20271,7 +20326,8 @@
       },
       "fastMoves": [
           "CHARGE_BEAM",
-          "CONFUSION"
+          "CONFUSION",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "sid": 8992,
@@ -20326,7 +20382,8 @@
       "chargedMoves": [
           "ROCK_SLIDE",
           "STONE_EDGE",
-          "X_SCISSOR"
+          "X_SCISSOR",
+          "TRAILBLAZE"
       ],
       "dex": 900,
       "family": {
@@ -20575,7 +20632,8 @@
       "chargedMoves": [
           "BUBBLE_BEAM",
           "VICE_GRIP",
-          "WATER_PULSE"
+          "WATER_PULSE",
+          "RAZOR_SHELL"
       ],
       "dex": 98,
       "family": {
@@ -21936,7 +21994,8 @@
           "HIDDEN_POWER_PSYCHIC",
           "HIDDEN_POWER_ROCK",
           "HIDDEN_POWER_STEEL",
-          "HIDDEN_POWER_WATER"
+          "HIDDEN_POWER_WATER",
+          "MAGICAL_LEAF"
       ],
       "gender": "F",
       "sid": 17568,
@@ -22180,7 +22239,8 @@
       "chargedMoves": [
           "FIRE_PUNCH",
           "FOCUS_BLAST",
-          "HYPER_BEAM"
+          "HYPER_BEAM",
+          "TRIPLE_AXEL"
       ],
       "dex": 428,
       "family": {
@@ -22211,7 +22271,8 @@
       "chargedMoves": [
           "FIRE_PUNCH",
           "FOCUS_BLAST",
-          "HYPER_BEAM"
+          "HYPER_BEAM",
+          "TRIPLE_AXEL"
       ],
       "dex": 428,
       "family": {
@@ -22347,7 +22408,8 @@
           "CLOSE_COMBAT",
           "FLASH_CANNON",
           "POWER_UP_PUNCH",
-          "SHADOW_BALL"
+          "SHADOW_BALL",
+          "BLAZE_KICK"
       ],
       "dex": 448,
       "family": {
@@ -22566,7 +22628,8 @@
           "LEAF_BLADE",
           "LEAF_STORM",
           "SUPER_POWER",
-          "X_SCISSOR"
+          "X_SCISSOR",
+          "TRAILBLAZE"
       ],
       "dex": 754,
       "family": {
@@ -22799,7 +22862,8 @@
       "chargedMoves": [
           "CRUNCH",
           "IRON_HEAD",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "TRAILBLAZE"
       ],
       "dex": 745,
       "family": {
@@ -22832,7 +22896,8 @@
       "chargedMoves": [
           "CRUNCH",
           "DRILL_RUN",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "TRAILBLAZE"
       ],
       "dex": 745,
       "family": {
@@ -22861,7 +22926,8 @@
       "chargedMoves": [
           "CRUNCH",
           "PSYCHIC_FANGS",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "TRAILBLAZE"
       ],
       "dex": 745,
       "family": {
@@ -23293,7 +23359,8 @@
       "chargedMoves": [
           "FIRE_BLAST",
           "FIRE_PUNCH",
-          "FLAMETHROWER"
+          "FLAMETHROWER",
+          "SCORCHING_SANDS"
       ],
       "dex": 126,
       "family": {
@@ -23329,7 +23396,8 @@
       "chargedMoves": [
           "FIRE_BLAST",
           "FIRE_PUNCH",
-          "FLAMETHROWER"
+          "FLAMETHROWER",
+          "SCORCHING_SANDS"
       ],
       "dex": 126,
       "family": {
@@ -23366,7 +23434,8 @@
           "FIRE_BLAST",
           "FIRE_PUNCH",
           "PSYCHIC",
-          "THUNDERBOLT"
+          "THUNDERBOLT",
+          "SCORCHING_SANDS"
       ],
       "dex": 467,
       "eliteMoves": [
@@ -23404,7 +23473,8 @@
           "FIRE_BLAST",
           "FIRE_PUNCH",
           "PSYCHIC",
-          "THUNDERBOLT"
+          "THUNDERBOLT",
+          "SCORCHING_SANDS"
       ],
       "dex": 467,
       "eliteMoves": [
@@ -23450,7 +23520,8 @@
       },
       "fastMoves": [
           "SPARK",
-          "THUNDER_SHOCK"
+          "THUNDER_SHOCK",
+          "VOLT_SWITCH"
       ],
       "gender": "N",
       "level25CP": 780,
@@ -23485,7 +23556,8 @@
       },
       "fastMoves": [
           "SPARK",
-          "THUNDER_SHOCK"
+          "THUNDER_SHOCK",
+          "VOLT_SWITCH"
       ],
       "gender": "N",
       "sid": 2592,
@@ -23522,7 +23594,8 @@
       "fastMoves": [
           "CHARGE_BEAM",
           "SPARK",
-          "THUNDER_SHOCK"
+          "THUNDER_SHOCK",
+          "VOLT_SWITCH"
       ],
       "gender": "N",
       "level25CP": 1513,
@@ -23560,7 +23633,8 @@
       "fastMoves": [
           "CHARGE_BEAM",
           "SPARK",
-          "THUNDER_SHOCK"
+          "THUNDER_SHOCK",
+          "VOLT_SWITCH"
       ],
       "gender": "N",
       "sid": 2624,
@@ -23593,7 +23667,8 @@
       },
       "fastMoves": [
           "CHARGE_BEAM",
-          "SPARK"
+          "SPARK",
+          "VOLT_SWITCH"
       ],
       "gender": "N",
       "level25CP": 1993,
@@ -23628,7 +23703,8 @@
       },
       "fastMoves": [
           "CHARGE_BEAM",
-          "SPARK"
+          "SPARK",
+          "VOLT_SWITCH"
       ],
       "gender": "N",
       "searchPriority": 4,
@@ -24155,7 +24231,8 @@
       "chargedMoves": [
           "BODY_SLAM",
           "DISCHARGE",
-          "THUNDERBOLT"
+          "THUNDERBOLT",
+          "TRAILBLAZE"
       ],
       "dex": 179,
       "family": {
@@ -24190,7 +24267,8 @@
       "chargedMoves": [
           "BODY_SLAM",
           "DISCHARGE",
-          "THUNDERBOLT"
+          "THUNDERBOLT",
+          "TRAILBLAZE"
       ],
       "dex": 179,
       "family": {
@@ -24917,7 +24995,8 @@
       },
       "fastMoves": [
           "CHARM",
-          "CONFUSION"
+          "CONFUSION",
+          "MAGICAL_LEAF"
       ],
       "gender": "F",
       "sid": 21697,
@@ -25010,7 +25089,8 @@
       "chargedMoves": [
           "DIG",
           "GYRO_BALL",
-          "NIGHT_SLASH"
+          "NIGHT_SLASH",
+          "TRAILBLAZE"
       ],
       "dex": 52,
       "family": {
@@ -25501,7 +25581,8 @@
       "chargedMoves": [
           "BRICK_BREAK",
           "GRASS_KNOT",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "BLAZE_KICK"
       ],
       "dex": 620,
       "family": {
@@ -25940,7 +26021,8 @@
       },
       "fastMoves": [
           "HEX",
-          "SUCKER_PUNCH"
+          "SUCKER_PUNCH",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "level25CP": 1602,
@@ -25973,7 +26055,8 @@
       },
       "fastMoves": [
           "HEX",
-          "SUCKER_PUNCH"
+          "SUCKER_PUNCH",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "sid": 13728,
@@ -26319,7 +26402,8 @@
       },
       "fastMoves": [
           "CONFUSION",
-          "ZEN_HEADBUTT"
+          "ZEN_HEADBUTT",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "nicknames": [
@@ -26347,7 +26431,8 @@
       "chargedMoves": [
           "ICE_PUNCH",
           "PSYBEAM",
-          "PSYCHIC"
+          "PSYCHIC",
+          "TRIPLE_AXEL"
       ],
       "dex": 122,
       "family": {
@@ -26387,7 +26472,8 @@
           "ICE_PUNCH",
           "ICY_WIND",
           "PSYBEAM",
-          "PSYCHIC"
+          "PSYCHIC",
+          "TRIPLE_AXEL"
       ],
       "dex": 866,
       "family": {
@@ -27624,7 +27710,8 @@
           "OVERHEAT",
           "PSYSHOCK",
           "SOLAR_BEAM",
-          "WEATHER_BALL_FIRE"
+          "WEATHER_BALL_FIRE",
+          "SCORCHING_SANDS"
       ],
       "dex": 38,
       "eliteMoves": [
@@ -27752,7 +27839,8 @@
           "OVERHEAT",
           "PSYSHOCK",
           "SOLAR_BEAM",
-          "WEATHER_BALL_FIRE"
+          "WEATHER_BALL_FIRE",
+          "SCORCHING_SANDS"
       ],
       "dex": 38,
       "eliteMoves": [
@@ -28430,7 +28518,8 @@
           "IRON_HEAD",
           "ROCK_SLIDE",
           "SAND_TOMB",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "BREAKING_SWIPE"
       ],
       "dex": 95,
       "eliteMoves": [
@@ -28471,7 +28560,8 @@
           "IRON_HEAD",
           "ROCK_SLIDE",
           "SAND_TOMB",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "BREAKING_SWIPE"
       ],
       "dex": 95,
       "eliteMoves": [
@@ -28788,7 +28878,8 @@
       "chargedMoves": [
           "EARTH_POWER",
           "SAND_TOMB",
-          "SHADOW_BALL"
+          "SHADOW_BALL",
+          "SCORCHING_SANDS"
       ],
       "dex": 770,
       "family": {
@@ -29236,7 +29327,8 @@
           "CLOSE_COMBAT",
           "FOUL_PLAY",
           "IRON_HEAD",
-          "PLAY_ROUGH"
+          "PLAY_ROUGH",
+          "TRAILBLAZE"
       ],
       "dex": 863,
       "family": {
@@ -29419,7 +29511,8 @@
       "chargedMoves": [
           "BODY_SLAM",
           "BULLDOZE",
-          "ROCK_SLIDE"
+          "ROCK_SLIDE",
+          "TRAILBLAZE"
       ],
       "dex": 231,
       "family": {
@@ -29454,7 +29547,8 @@
       "chargedMoves": [
           "BODY_SLAM",
           "BULLDOZE",
-          "ROCK_SLIDE"
+          "ROCK_SLIDE",
+          "TRAILBLAZE"
       ],
       "dex": 231,
       "family": {
@@ -32557,7 +32651,8 @@
           "DRILL_RUN",
           "FIRE_BLAST",
           "FLAME_CHARGE",
-          "HEAT_WAVE"
+          "HEAT_WAVE",
+          "SCORCHING_SANDS"
       ],
       "dex": 78,
       "eliteMoves": [
@@ -33046,7 +33141,8 @@
       "chargedMoves": [
           "DRAGON_PULSE",
           "HYPER_BEAM",
-          "OUTRAGE"
+          "OUTRAGE",
+          "BREAKING_SWIPE"
       ],
       "dex": 895,
       "fastMoves": [
@@ -33079,7 +33175,8 @@
       "dex": 894,
       "fastMoves": [
           "LOCK_ON",
-          "THUNDER_SHOCK"
+          "THUNDER_SHOCK",
+          "VOLT_SWITCH"
       ],
       "gender": "N",
       "levelFloor": 20,
@@ -33424,7 +33521,8 @@
           "EARTHQUAKE",
           "MEGAHORN",
           "STONE_EDGE",
-          "SURF"
+          "SURF",
+          "BREAKING_SWIPE"
       ],
       "dex": 112,
       "eliteMoves": [
@@ -33497,7 +33595,8 @@
           "SKULL_BASH",
           "STONE_EDGE",
           "SUPER_POWER",
-          "SURF"
+          "SURF",
+          "BREAKING_SWIPE"
       ],
       "dex": 464,
       "eliteMoves": [
@@ -33591,7 +33690,8 @@
       "chargedMoves": [
           "BRICK_BREAK",
           "CROSS_CHOP",
-          "LOW_SWEEP"
+          "LOW_SWEEP",
+          "BLAZE_KICK"
       ],
       "dex": 447,
       "family": {
@@ -33622,7 +33722,8 @@
       "chargedMoves": [
           "CRUNCH",
           "ROCK_TOMB",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "TRAILBLAZE"
       ],
       "dex": 744,
       "family": {
@@ -33763,7 +33864,8 @@
       },
       "fastMoves": [
           "POISON_JAB",
-          "RAZOR_LEAF"
+          "RAZOR_LEAF",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "sid": 10080,
@@ -33800,7 +33902,8 @@
       "fastMoves": [
           "BULLET_SEED",
           "POISON_JAB",
-          "RAZOR_LEAF"
+          "RAZOR_LEAF",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "searchPriority": 3,
@@ -33992,7 +34095,8 @@
       "fastMoves": [
           "LEAFAGE",
           "RAZOR_LEAF",
-          "TACKLE"
+          "TACKLE",
+          "MAGICAL_LEAF"
       ],
       "gender": "male",
       "sid": 23104,
@@ -34596,7 +34700,8 @@
           "BULLDOZE",
           "EARTHQUAKE",
           "NIGHT_SLASH",
-          "ROCK_TOMB"
+          "ROCK_TOMB",
+          "SCORCHING_SANDS"
       ],
       "dex": 28,
       "eliteMoves": [
@@ -34723,7 +34828,8 @@
           "BULLDOZE",
           "EARTHQUAKE",
           "NIGHT_SLASH",
-          "ROCK_TOMB"
+          "ROCK_TOMB",
+          "SCORCHING_SANDS"
       ],
       "dex": 28,
       "eliteMoves": [
@@ -34761,7 +34867,8 @@
       "chargedMoves": [
           "EARTH_POWER",
           "SAND_TOMB",
-          "SHADOW_BALL"
+          "SHADOW_BALL",
+          "SCORCHING_SANDS"
       ],
       "dex": 769,
       "family": {
@@ -34850,7 +34957,8 @@
           "HYPER_BEAM",
           "MEGAHORN",
           "SOLAR_BEAM",
-          "WILD_CHARGE"
+          "WILD_CHARGE",
+          "TRAILBLAZE"
       ],
       "dex": 586,
       "family": {
@@ -34910,7 +35018,8 @@
           "DRAGON_CLAW",
           "EARTHQUAKE",
           "FRENZY_PLANT",
-          "LEAF_BLADE"
+          "LEAF_BLADE",
+          "BREAKING_SWIPE"
       ],
       "dex": 254,
       "eliteMoves": [
@@ -34950,7 +35059,8 @@
           "DRAGON_CLAW",
           "EARTHQUAKE",
           "FRENZY_PLANT",
-          "LEAF_BLADE"
+          "LEAF_BLADE",
+          "BREAKING_SWIPE"
       ],
       "dex": 254,
       "eliteMoves": [
@@ -34986,7 +35096,8 @@
           "DRAGON_CLAW",
           "EARTHQUAKE",
           "FRENZY_PLANT",
-          "LEAF_BLADE"
+          "LEAF_BLADE",
+          "BREAKING_SWIPE"
       ],
       "dex": 254,
       "eliteMoves": [
@@ -35023,7 +35134,8 @@
       "chargedMoves": [
           "IRON_HEAD",
           "NIGHT_SLASH",
-          "X_SCISSOR"
+          "X_SCISSOR",
+          "TRAILBLAZE"
       ],
       "dex": 212,
       "family": {
@@ -35057,7 +35169,8 @@
       "chargedMoves": [
           "IRON_HEAD",
           "NIGHT_SLASH",
-          "X_SCISSOR"
+          "X_SCISSOR",
+          "TRAILBLAZE"
       ],
       "dex": 212,
       "family": {
@@ -35091,7 +35204,8 @@
       "chargedMoves": [
           "IRON_HEAD",
           "NIGHT_SLASH",
-          "X_SCISSOR"
+          "X_SCISSOR",
+          "TRAILBLAZE"
       ],
       "dex": 212,
       "family": {
@@ -35248,7 +35362,8 @@
           "AERIAL_ACE",
           "BUG_BUZZ",
           "NIGHT_SLASH",
-          "X_SCISSOR"
+          "X_SCISSOR",
+          "TRAILBLAZE"
       ],
       "dex": 123,
       "eliteMoves": [
@@ -35290,7 +35405,8 @@
           "AERIAL_ACE",
           "BUG_BUZZ",
           "NIGHT_SLASH",
-          "X_SCISSOR"
+          "X_SCISSOR",
+          "TRAILBLAZE"
       ],
       "dex": 123,
       "eliteMoves": [
@@ -35908,7 +36024,8 @@
           "HIDDEN_POWER_ROCK",
           "HIDDEN_POWER_STEEL",
           "HIDDEN_POWER_WATER",
-          "ZEN_HEADBUTT"
+          "ZEN_HEADBUTT",
+          "MAGICAL_LEAF"
       ],
       "gender": "N",
       "sid": 15744,
@@ -35955,7 +36072,8 @@
           "HIDDEN_POWER_ROCK",
           "HIDDEN_POWER_STEEL",
           "HIDDEN_POWER_WATER",
-          "ZEN_HEADBUTT"
+          "ZEN_HEADBUTT",
+          "MAGICAL_LEAF"
       ],
       "gender": "N",
       "sid": 15745,
@@ -36082,7 +36200,8 @@
       "chargedMoves": [
           "BUBBLE_BEAM",
           "ICY_WIND",
-          "WATER_PULSE"
+          "WATER_PULSE",
+          "RAZOR_SHELL"
       ],
       "dex": 90,
       "family": {
@@ -36117,7 +36236,8 @@
       "chargedMoves": [
           "BUBBLE_BEAM",
           "ICY_WIND",
-          "WATER_PULSE"
+          "WATER_PULSE",
+          "RAZOR_SHELL"
       ],
       "dex": 90,
       "family": {
@@ -37829,7 +37949,8 @@
       "chargedMoves": [
           "CRUNCH",
           "FLAMETHROWER",
-          "SLUDGE_BOMB"
+          "SLUDGE_BOMB",
+          "TRAILBLAZE"
       ],
       "dex": 435,
       "family": {
@@ -37863,7 +37984,8 @@
       "chargedMoves": [
           "CRUNCH",
           "FLAMETHROWER",
-          "SLUDGE_BOMB"
+          "SLUDGE_BOMB",
+          "TRAILBLAZE"
       ],
       "dex": 435,
       "family": {
@@ -37895,7 +38017,8 @@
       },
       "chargedMoves": [
           "BODY_SLAM",
-          "CRUNCH"
+          "CRUNCH",
+          "TRAILBLAZE"
       ],
       "dex": 819,
       "family": {
@@ -38739,7 +38862,8 @@
       "chargedMoves": [
           "AVALANCHE",
           "FOUL_PLAY",
-          "ICE_PUNCH"
+          "ICE_PUNCH",
+          "TRIPLE_AXEL"
       ],
       "dex": 215,
       "family": {
@@ -38808,7 +38932,8 @@
       "chargedMoves": [
           "AVALANCHE",
           "FOUL_PLAY",
-          "ICE_PUNCH"
+          "ICE_PUNCH",
+          "TRIPLE_AXEL"
       ],
       "dex": 215,
       "family": {
@@ -40143,7 +40268,8 @@
           "CRUNCH",
           "EARTHQUAKE",
           "HEAVY_SLAM",
-          "PSYCHIC_FANGS"
+          "PSYCHIC_FANGS",
+          "BREAKING_SWIPE"
       ],
       "dex": 208,
       "family": {
@@ -40178,7 +40304,8 @@
           "CRUNCH",
           "EARTHQUAKE",
           "HEAVY_SLAM",
-          "PSYCHIC_FANGS"
+          "PSYCHIC_FANGS",
+          "BREAKING_SWIPE"
       ],
       "dex": 208,
       "family": {
@@ -40213,7 +40340,8 @@
           "CRUNCH",
           "EARTHQUAKE",
           "HEAVY_SLAM",
-          "PSYCHIC_FANGS"
+          "PSYCHIC_FANGS",
+          "BREAKING_SWIPE"
       ],
       "dex": 208,
       "family": {
@@ -40246,7 +40374,8 @@
       "chargedMoves": [
           "DRAINING_KISS",
           "ENERGY_BALL",
-          "GRASS_KNOT"
+          "GRASS_KNOT",
+          "TRIPLE_AXEL"
       ],
       "dex": 762,
       "family": {
@@ -40428,7 +40557,8 @@
       "chargedMoves": [
           "CRUNCH",
           "FLAMETHROWER",
-          "SLUDGE_BOMB"
+          "SLUDGE_BOMB",
+          "TRAILBLAZE"
       ],
       "dex": 434,
       "family": {
@@ -40463,7 +40593,8 @@
       "chargedMoves": [
           "CRUNCH",
           "FLAMETHROWER",
-          "SLUDGE_BOMB"
+          "SLUDGE_BOMB",
+          "TRAILBLAZE"
       ],
       "dex": 434,
       "family": {
@@ -40499,7 +40630,8 @@
           "METEOR_BEAM",
           "ROCK_SLIDE",
           "ROCK_TOMB",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "TRAILBLAZE"
       ],
       "dex": 185,
       "family": {
@@ -40535,7 +40667,8 @@
           "METEOR_BEAM",
           "ROCK_SLIDE",
           "ROCK_TOMB",
-          "STONE_EDGE"
+          "STONE_EDGE",
+          "TRAILBLAZE"
       ],
       "dex": 185,
       "family": {
@@ -40864,7 +40997,8 @@
       },
       "fastMoves": [
           "INFESTATION",
-          "ROCK_SMASH"
+          "ROCK_SMASH",
+          "MUD_SHOT"
       ],
       "gender": "male",
       "sid": 10144,
@@ -41614,7 +41748,8 @@
       "chargedMoves": [
           "EARTHQUAKE",
           "HORN_ATTACK",
-          "IRON_HEAD"
+          "IRON_HEAD",
+          "TRAILBLAZE"
       ],
       "dex": 128,
       "fastMoves": [
@@ -41642,7 +41777,8 @@
       "chargedMoves": [
           "CROSS_CHOP",
           "CRUNCH",
-          "PLAY_ROUGH"
+          "PLAY_ROUGH",
+          "TRAILBLAZE"
       ],
       "dex": 216,
       "family": {
@@ -41677,7 +41813,8 @@
       "chargedMoves": [
           "CROSS_CHOP",
           "CRUNCH",
-          "PLAY_ROUGH"
+          "PLAY_ROUGH",
+          "TRAILBLAZE"
       ],
       "dex": 216,
       "family": {
@@ -42706,7 +42843,8 @@
       },
       "fastMoves": [
           "COUNTER",
-          "POISON_JAB"
+          "POISON_JAB",
+          "MUD_SHOT"
       ],
       "gender": "male",
       "nicknames": [
@@ -42864,7 +43002,8 @@
       "chargedMoves": [
           "CRUNCH",
           "DIG",
-          "SAND_TOMB"
+          "SAND_TOMB",
+          "SCORCHING_SANDS"
       ],
       "dex": 328,
       "family": {
@@ -42899,7 +43038,8 @@
       "chargedMoves": [
           "CRUNCH",
           "DIG",
-          "SAND_TOMB"
+          "SAND_TOMB",
+          "SCORCHING_SANDS"
       ],
       "dex": 328,
       "family": {
@@ -43126,7 +43266,8 @@
           "DRAINING_KISS",
           "ENERGY_BALL",
           "GRASS_KNOT",
-          "STOMP"
+          "STOMP",
+          "TRIPLE_AXEL"
       ],
       "dex": 763,
       "family": {
@@ -43744,7 +43885,8 @@
           "FIRE_PUNCH",
           "HIGH_HORSEPOWER",
           "ICE_PUNCH",
-          "THUNDER_PUNCH"
+          "THUNDER_PUNCH",
+          "TRAILBLAZE"
       ],
       "dex": 901,
       "eliteMoves": [
@@ -43782,7 +43924,8 @@
           "FIRE_PUNCH",
           "HIGH_HORSEPOWER",
           "ICE_PUNCH",
-          "THUNDER_PUNCH"
+          "THUNDER_PUNCH",
+          "TRAILBLAZE"
       ],
       "dex": 901,
       "eliteMoves": [
@@ -43817,7 +43960,8 @@
       "chargedMoves": [
           "CLOSE_COMBAT",
           "HYPER_BEAM",
-          "PLAY_ROUGH"
+          "PLAY_ROUGH",
+          "TRAILBLAZE"
       ],
       "dex": 217,
       "family": {
@@ -43854,7 +43998,8 @@
       "chargedMoves": [
           "CLOSE_COMBAT",
           "HYPER_BEAM",
-          "PLAY_ROUGH"
+          "PLAY_ROUGH",
+          "TRAILBLAZE"
       ],
       "dex": 217,
       "family": {
@@ -44469,7 +44614,8 @@
       "chargedMoves": [
           "BUG_BUZZ",
           "BULLDOZE",
-          "SAND_TOMB"
+          "SAND_TOMB",
+          "SCORCHING_SANDS"
       ],
       "dex": 329,
       "family": {
@@ -44505,7 +44651,8 @@
       "chargedMoves": [
           "BUG_BUZZ",
           "BULLDOZE",
-          "SAND_TOMB"
+          "SAND_TOMB",
+          "SCORCHING_SANDS"
       ],
       "dex": 329,
       "family": {
@@ -45560,7 +45707,8 @@
       "chargedMoves": [
           "AVALANCHE",
           "FOCUS_BLAST",
-          "FOUL_PLAY"
+          "FOUL_PLAY",
+          "TRIPLE_AXEL"
       ],
       "dex": 461,
       "family": {
@@ -45594,7 +45742,8 @@
       "chargedMoves": [
           "AVALANCHE",
           "FOCUS_BLAST",
-          "FOUL_PLAY"
+          "FOUL_PLAY",
+          "TRIPLE_AXEL"
       ],
       "dex": 461,
       "family": {
