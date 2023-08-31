@@ -1307,7 +1307,6 @@
                 {
                     "pokemonIds": [
                         "scizor_mega",
-                        "aggron_mega",
                         "xerneas",
                         "zacian",
                         "zacian_hero",
@@ -1315,7 +1314,8 @@
                         "solgaleo",
                         "groudon",
                         "mewtwo",
-                        "mewtwo_shadow"
+                        "mewtwo_shadow",
+                        "steelix_mega"
                     ],
                     "price": 4
                 },
@@ -1330,7 +1330,7 @@
                         "giratina_altered",
                         "meloetta_aria",
                         "zarude",
-                        "steelix_mega"
+                        "aggron_mega"
                     ],
                     "price": 3
                 },
