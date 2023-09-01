@@ -30,7 +30,8 @@ async function handler(req, res) {
       return;
     }
 
-    if (!(/\d{12}/g).test(friendCode)) {
+    const trimmedFriendCode = friendCode?.replaceAll(' ', '');
+    if (trimmedFriendCode != null && !(/\d{12}/g).test(trimmedFriendCode)) {
       res.status(401).json({ error: 'api_invalid_friend_code' });
       return;
     }
@@ -46,7 +47,7 @@ async function handler(req, res) {
     }, {
       name: name ?? player.name,
       description: description ?? player.description,
-      friendCode: friendCode.replaceAll(' ', '') ?? player.friendCode,
+      friendCode: trimmedFriendCode ?? player.friendCode,
       discord: discord ?? player.discord,
       telegram: telegram ?? player.telegram,
     }, {
