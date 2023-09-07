@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
 const path = require('path');
-const chunk = require(`lodash/chunk`);
+
+const chunk = require('lodash/chunk');
 
 // This is a simple debugging tool
 // dd() will prettily dump to the terminal and kill the process
@@ -22,24 +22,24 @@ exports.createPages = async (gatsbyUtilities) => {
   }
 
   // Grab season page for our homepage
-  const homePage = getHomePage(pages);
+  const seasonPages = getSeasonPages(pages);
 
-  if (!homePage) {
+  if (seasonPages == null || seasonPages.length <= 0) {
     return;
   }
   // And a paginated archive
-  await createBlogPostArchive({ posts, gatsbyUtilities })
+  await createBlogPostArchive({ posts, gatsbyUtilities });
   // If there are posts, create pages for them
   await createIndividualBlogPostPages({ posts, gatsbyUtilities });
-  createHomePage({ homePage, gatsbyUtilities });
+  createSeasonPages({ seasonPages, gatsbyUtilities });
 
   // And a paginated archive
   // await createBlogPostArchive({ posts, gatsbyUtilities });
 };
 
-const getHomePage = (pages) => {
-  const homeEdge = pages.find(({ page }) => page.uri === '/play-pokemon-go-championship-series-2023/');
-  return homeEdge ? homeEdge.page : null;
+const getSeasonPages = (pages) => {
+  const seasonEdges = pages.filter(({ page }) => page.uri.includes('/play-pokemon-go-championship-series'));
+  return seasonEdges.map((seasonEdge) => seasonEdge?.page);
 };
 
 /**
@@ -54,24 +54,24 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
         }
       }
     }
-  `)
+  `);
 
-  const { postsPerPage } = graphqlResult.data.wp.readingSettings
+  const { postsPerPage } = graphqlResult.data.wp.readingSettings;
 
-  const postsChunkedIntoArchivePages = chunk(posts, postsPerPage)
-  const totalPages = postsChunkedIntoArchivePages.length
+  const postsChunkedIntoArchivePages = chunk(posts, postsPerPage);
+  const totalPages = postsChunkedIntoArchivePages.length;
 
   return Promise.all(
     postsChunkedIntoArchivePages.map(async (_posts, index) => {
-      const pageNumber = index + 1
+      const pageNumber = index + 1;
 
-      const getPagePath = page => {
+      const getPagePath = (page) => {
         if (page > 0 && page <= totalPages) {
           return `/blog/${page}`;
         }
 
         return null;
-      }
+      };
 
       // createPage is an action passed to createPages
       // See https://www.gatsbyjs.com/docs/actions#createPage for more info
@@ -79,7 +79,7 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
         path: getPagePath(pageNumber),
 
         // use the blog post archive template as the page component
-        component: path.resolve(`./src/templates/blog-post-archive.jsx`),
+        component: path.resolve('./src/templates/blog-post-archive.jsx'),
 
         // `context` is available in the template as a prop and
         // as a variable in GraphQL.
@@ -95,9 +95,9 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
           nextPagePath: getPagePath(pageNumber + 1),
           previousPagePath: getPagePath(pageNumber - 1),
         },
-      })
-    })
-  )
+      });
+    }),
+  );
 }
 
 /**
@@ -127,13 +127,15 @@ const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }) => Prom
   })),
 );
 
-const createHomePage = ({ homePage, gatsbyUtilities }) => {
-  gatsbyUtilities.actions.createPage({
-    path: '/',
-    component: path.resolve('./src/templates/season-page.jsx'),
-    context: {
-      id: homePage.id,
-    },
+const createSeasonPages = ({ seasonPages, gatsbyUtilities }) => {
+  seasonPages.forEach((seasonPage) => {
+    gatsbyUtilities.actions.createPage({
+      path: seasonPage.uri.includes('2024') ? '/' : seasonPage.uri,
+      component: path.resolve('./src/templates/season-page.jsx'),
+      context: {
+        id: seasonPage.id,
+      },
+    });
   });
 };
 

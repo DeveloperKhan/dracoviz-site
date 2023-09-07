@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import parse from 'html-react-parser';
 import { GatsbyImage } from 'gatsby-plugin-image';
@@ -10,10 +10,10 @@ import Seo from '../components/seo';
 import Logo from '../components/logo';
 import Schedule from '../components/schedule';
 import TableOfContents from '../components/table-of-contents';
-import TournamentRoster from "../components/tournamentroster";
+import TournamentRoster from '../components/tournamentroster';
 import BlogPostButton from '../components/blog-post-button';
 
-const description = "Data visualizations for Play! Pokemon GO Championship series. See tournament event schedule and details, Pokemon usage, the best Open Great League teams, and best players!"
+const description = 'Data visualizations for Play! Pokemon GO Championship series. See tournament event schedule and details, Pokemon usage, the best Open Great League teams, and best players!';
 
 const tableOfContentsItems = [
   {
@@ -47,8 +47,8 @@ function SeasonPage({ data: { allWpPost, page } }) {
           return undefined;
         }
 
-        if (attribs.id === "player-list") {
-          return <TournamentRoster showWorldsQualified/>;
+        if (attribs.id === 'player-list') {
+          return <TournamentRoster showWorldsQualified />;
         }
 
         if (attribs.type === 'div' && attribs.id != null) {
@@ -77,7 +77,7 @@ function SeasonPage({ data: { allWpPost, page } }) {
       <Seo title={page.title} description={description} />
       <header id="season-head">
         <div className="global-header">
-          <Logo/>
+          <Logo />
           <BlogPostButton />
         </div>
         <div className="headline-container">

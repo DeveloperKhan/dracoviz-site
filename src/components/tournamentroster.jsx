@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable max-len */
 /**
  * Bio component that queries for data
@@ -13,20 +15,18 @@ import ToolkitProvider from 'react-bootstrap-table2-toolkit';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import Modal from 'react-modal';
-import { getRosterHTML, getRosterSearchHTML } from '../utils/tournament-roster-utils';
 import classNames from 'classnames';
-import { Tooltip } from 'react-tooltip'
+import { Tooltip } from 'react-tooltip';
 import { Link } from 'gatsby';
+import { getRosterHTML, getRosterSearchHTML } from '../utils/tournament-roster-utils';
 import { linkifyEvent } from '../utils/url-utils';
 import useWindowSize from '../utils/use-window-size';
 
-const noDataIndication = "There is no data for this event. Please check back another time! :)";
+const noDataIndication = 'There is no data for this event. Please check back another time! :)';
 
-const parseTm = (tm) => {
-  return tm.replaceAll("-", " ")
-    .replace(/[a-z][a-z]ic/g, match => match.toUpperCase()) // all **ic
-    .replace(/(?:^|\s|["'([{])+\S/g, match => match.toUpperCase());
-}
+const parseTm = (tm) => tm.replaceAll('-', ' ')
+  .replace(/[a-z][a-z]ic/g, (match) => match.toUpperCase()) // all **ic
+  .replace(/(?:^|\s|["'([{])+\S/g, (match) => match.toUpperCase());
 
 const columnsMatches = [{
   dataField: 'placement',
@@ -123,13 +123,13 @@ function getColumns(width) {
     text: 'GW',
     sort: true,
     hidden: isMobile,
-    headerStyle: () => ({ width: '3.8rem'  }),
+    headerStyle: () => ({ width: '3.8rem' }),
   }, {
     dataField: 'gl',
     text: 'GL',
     sort: true,
     hidden: isMobile,
-    headerStyle: () => ({ width: '4rem'  }),
+    headerStyle: () => ({ width: '4rem' }),
   }];
   return newColumns;
 }
@@ -148,23 +148,34 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
 
   const handleClick = (player, matches) => {
     const newProductsMatches = [];
-    var player1RosterHtml = getRosterHTML(player);
-    var matchesData = player.match_wins + " W - " + player.match_losses + " L (" + (player.match_wins + player.match_losses > 0 ? (100 * player.match_wins / (player.match_wins + player.match_losses)) : 0).toFixed(2) + "%)"
-    var gamesData = player.game_wins + " W - " + player.game_losses + " L (" + (player.game_wins + player.game_losses > 0 ? (100 * player.game_wins / (player.game_wins + player.game_losses)) : 0).toFixed(2) + "%)"
+    const player1RosterHtml = getRosterHTML(player);
+    const matchesData = `${player.match_wins} W - ${player.match_losses} L (${(player.match_wins + player.match_losses > 0 ? ((100 * player.match_wins) / (player.match_wins + player.match_losses)) : 0).toFixed(2)}%)`;
+    const gamesData = `${player.game_wins} W - ${player.game_losses} L (${(player.game_wins + player.game_losses > 0 ? ((100 * player.game_wins) / (player.game_wins + player.game_losses)) : 0).toFixed(2)}%)`;
     newProductsMatches.push({
       placement: (
-        <label className="pill pill-black">#{player.final_rank}</label>
+        <label className="pill pill-black">
+          #
+          {player.final_rank}
+        </label>
       ),
       name: (
         <section className="player-item-team-container">
           <label>{player.name}</label>
           <div className="player-item-row">{player1RosterHtml}</div>
-          <label align="left">Matches: {matchesData}</label>
-          <br/>
-          <label align="left">Games: {gamesData}</label>
+          <label align="left">
+            Matches:
+            {' '}
+            {matchesData}
+          </label>
+          <br />
+          <label align="left">
+            Games:
+            {' '}
+            {gamesData}
+          </label>
         </section>
-      )
-    })
+      ),
+    });
     matches.forEach((match, index) => {
       // const player1 = match.player1 === player.name ? match.player1 : match.player2;
       const player2 = match.player2 === player.name ? match.player1 : match.player2;
@@ -172,21 +183,31 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
       const player2score = match.player2 === player.name ? match.player1score : match.player2score;
       const rosterHtml = getRosterHTML(playerDict[player2]);
 
-           newProductsMatches.push({
-            placement: (
-              <div>
-                <label>Match {index + 1}</label>
-                <br/>
-                <div className={classNames("pill", { "pill-green": player1score > player2score, "pill-red": player1score < player2score, "pill-accent": player1score === player2score})}>{player1score} - {player2score}</div>
-              </div>
-            ),
-            name: (
-              <div className="player-item-team-container">
-                <label>{player2}</label>
-                <div className="player-item-row">{rosterHtml}</div>
-              </div>
-              )
-          })
+      newProductsMatches.push({
+        placement: (
+          <div>
+            <label>
+              Match
+              {' '}
+              {index + 1}
+            </label>
+            <br />
+            <div className={classNames('pill', { 'pill-green': player1score > player2score, 'pill-red': player1score < player2score, 'pill-accent': player1score === player2score })}>
+              {player1score}
+              {' '}
+              -
+              {' '}
+              {player2score}
+            </div>
+          </div>
+        ),
+        name: (
+          <div className="player-item-team-container">
+            <label>{player2}</label>
+            <div className="player-item-row">{rosterHtml}</div>
+          </div>
+        ),
+      });
     });
     setProductMatches(newProductsMatches);
     setIsOpen(true);
@@ -208,82 +229,86 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
       setColumns(newColumns);
       setIsLoading(false);
     }, 1);
-  }, [width])
+  }, [width]);
 
   useEffect(() => {
     setIsLoading(true);
     const host = `${window.location.protocol}//${window.location.host}`;
-    const tmUrl = showWorldsQualified ? `${host}/api/tournament?qualified=${true}` : `${host}/api/tournament?tm=${tmName}`
+    const tmUrl = showWorldsQualified ? `${host}/api/tournament?qualified=${true}` : `${host}/api/tournament?tm=${tmName}`;
     Promise.all([
       axios.get(tmUrl, {
         headers: {
-          'x_authorization': `Basic ${process.env.GATSBY_SECRET_KEY}` 
-        }
+          x_authorization: `Basic ${process.env.GATSBY_SECRET_KEY}`,
+        },
       }),
       !showWorldsQualified ? axios.get(`${host}/api/matches?tm=${tmName}`, {
         headers: {
-          'x_authorization': `Basic ${process.env.GATSBY_SECRET_KEY}` 
-        }
+          x_authorization: `Basic ${process.env.GATSBY_SECRET_KEY}`,
+        },
       }) : undefined,
     ])
-    .then((response) => {
-      const [players, matches] = response;
-      if (players == null || players.data.length <= 0) {
-        setProducts([]);
-        setIsLoading(false);
-        return;
-      }
-      const playerMatches = {}
-      const newProducts = [];
-      if (matches != null) {
-        matches.data.forEach((match) => {
-          playerMatches[match.player1] = playerMatches[match.player1] !== undefined ? playerMatches[match.player1] : [];
-          playerMatches[match.player2] = playerMatches[match.player2] !== undefined ? playerMatches[match.player2] : [];
-          playerMatches[match.player1].push(match);
-          playerMatches[match.player2].push(match);
-        });
-      }
-      players.data.forEach((player) => {
-        playerDict[player.name] = player;
-        const rosterHtml = getRosterHTML(player);
-        const eventLabel = ` - (${parseTm(player.tournament)})`
-        newProducts.push({
-          placement: (
-            <div className="player-item-placement" value={player.final_rank}>
-              <div className="pill pill-black">#{player.final_rank}</div>
-              { showWorldsQualified ? null : (
-                <button className="player-item-modal-link" onClick={() => handleClick(player, playerMatches[player.name])} type="button">See Games</button>
-              )}
-            </div>
-          ),
-          name: (
-            <div className="player-item-team-container">
-              {
+      .then((response) => {
+        const [players, matches] = response;
+        if (players == null || players.data.length <= 0) {
+          setProducts([]);
+          setIsLoading(false);
+          return;
+        }
+        const playerMatches = {};
+        const newProducts = [];
+        if (matches != null) {
+          matches.data.forEach((match) => {
+            playerMatches[match.player1] = playerMatches[match.player1] !== undefined ? playerMatches[match.player1] : [];
+            playerMatches[match.player2] = playerMatches[match.player2] !== undefined ? playerMatches[match.player2] : [];
+            playerMatches[match.player1].push(match);
+            playerMatches[match.player2].push(match);
+          });
+        }
+        players.data.forEach((player) => {
+          playerDict[player.name] = player;
+          const rosterHtml = getRosterHTML(player);
+          const eventLabel = ` - (${parseTm(player.tournament)})`;
+          newProducts.push({
+            placement: (
+              <div className="player-item-placement" value={player.final_rank}>
+                <div className="pill pill-black">
+                  #
+                  {player.final_rank}
+                </div>
+                { showWorldsQualified ? null : (
+                  <button className="player-item-modal-link" onClick={() => handleClick(player, playerMatches[player.name])} type="button">See Games</button>
+                )}
+              </div>
+            ),
+            name: (
+              <div className="player-item-team-container">
+                {
                 showWorldsQualified ? (
                   <Link to={linkifyEvent(player.tournament)}>
-                    {player.name}{eventLabel}
+                    {player.name}
+                    {eventLabel}
                   </Link>
                 ) : (
                   <div>{player.name}</div>
                 )
               }
-              <div data-search={getRosterSearchHTML(player)} className="player-item-row">{rosterHtml}</div>
-            </div>
-          ),
-          mw: player.match_wins,
-          gw: player.game_wins,
-          gl: player.game_losses,
+                <div data-search={getRosterSearchHTML(player)} className="player-item-row">{rosterHtml}</div>
+              </div>
+            ),
+            mw: player.match_wins,
+            gw: player.game_wins,
+            gl: player.game_losses,
+          });
         });
+        const playername = players.data[0].final_rank;
+        setTm(playername);
+        setProducts(newProducts);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setProducts([]);
+        setIsLoading(false);
       });
-      const playername = players.data[0].final_rank;
-      setTm(playername);
-      setProducts(newProducts);
-      setIsLoading(false);
-    })
-    .catch(() => {
-      setProducts([]);
-      setIsLoading(false);
-    });
   }, [tm]);
 
   return (
@@ -292,9 +317,9 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Matches"
-        style={{overlay: {zIndex: 1000}}}
+        style={{ overlay: { zIndex: 1000 } }}
       >
-        <button onClick={closeModal} className="close-modal-btn">Close</button>
+        <button onClick={closeModal} className="close-modal-btn" type="button">Close</button>
         <div className="matches-container use-bootstrap use-table is-layout-constrained">
           <ToolkitProvider
             bootstrap4
@@ -318,7 +343,7 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
           </ToolkitProvider>
         </div>
       </Modal>
-          <ToolkitProvider
+      <ToolkitProvider
         bootstrap4
         keyField="ignore"
         data={products}
@@ -327,7 +352,7 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
         {
           (props) => {
             if (isLoading) {
-              return (<div className="player-table-loading">...Loading</div>)
+              return (<div className="player-table-loading">...Loading</div>);
             }
             return (
               <div>
@@ -342,7 +367,7 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
                   pagination={paginationFactory(options)}
                 />
               </div>
-            )
+            );
           }
         }
       </ToolkitProvider>

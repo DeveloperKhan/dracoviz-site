@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
 import { Link, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import parse from 'html-react-parser';
-import { Twitter, Facebook, Whatsapp, Telegram, Reddit } from 'react-social-sharing';
+import {
+  Twitter, Facebook, Whatsapp, Telegram, Reddit,
+} from 'react-social-sharing';
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
@@ -21,61 +23,56 @@ import TournamentRoster from '../components/tournamentroster';
 import { delinkifyEvent } from '../utils/url-utils';
 
 function hydrateImages() {
-  const doc = document
+  const doc = document;
   const inlineWPimages = Array.from(
-    doc.querySelectorAll(`[data-wp-inline-image]`)
-  )
+    doc.querySelectorAll('[data-wp-inline-image]'),
+  );
 
   if (!inlineWPimages.length) {
-    return
+    return;
   }
 
   import(
-    /* webpackChunkName: "gatsby-plugin-image" */ `gatsby-plugin-image`
-  ).then(mod => {
-    inlineWPimages.forEach(image => {
+    /* webpackChunkName: "gatsby-plugin-image" */ 'gatsby-plugin-image'
+  ).then((mod) => {
+    inlineWPimages.forEach((image) => {
       // usually this is the right element to hydrate on
-      const grandParentIsGatsbyImage =
-        // @ts-ignore-next-line classList is on HTMLElement
-        image?.parentNode?.parentNode?.classList?.contains(
-          `gatsby-image-wrapper`
-        )
+      const grandParentIsGatsbyImage = image?.parentNode?.parentNode?.classList?.contains(
+        'gatsby-image-wrapper',
+      );
 
       // but sometimes this is the right element
-      const parentIsGatsbyImage =
-        // @ts-ignore-next-line classList is on HTMLElement
-        image?.parentNode?.classList?.contains(`gatsby-image-wrapper`)
+      const parentIsGatsbyImage = image?.parentNode?.classList?.contains('gatsby-image-wrapper');
 
       if (!grandParentIsGatsbyImage && !parentIsGatsbyImage) {
-        return
+        return;
       }
 
       const gatsbyImageHydrationElement = grandParentIsGatsbyImage
         ? image.parentNode.parentNode
-        : image.parentNode
+        : image.parentNode;
 
       if (
-        image.dataset &&
-        image.dataset.wpInlineImage &&
-        gatsbyImageHydrationElement
+        image.dataset
+        && image.dataset.wpInlineImage
+        && gatsbyImageHydrationElement
       ) {
         const hydrationData = doc.querySelector(
-          `script[data-wp-inline-image-hydration="${image.dataset.wpInlineImage}"]`
-        )
+          `script[data-wp-inline-image-hydration="${image.dataset.wpInlineImage}"]`,
+        );
 
         if (hydrationData) {
           const imageProps = JSON.parse(
-            hydrationData.innerHTML
-          )
+            hydrationData.innerHTML,
+          );
 
-          const root = ReactDOM.createRoot(gatsbyImageHydrationElement)
-          root.render(React.createElement(mod.GatsbyImage, imageProps))
+          const root = ReactDOM.createRoot(gatsbyImageHydrationElement);
+          root.render(React.createElement(mod.GatsbyImage, imageProps));
         }
       }
-    })
-  })
+    });
+  });
 }
-
 
 function BlogPostTemplate({ data: { previous, next, post } }) {
   const imageData = post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData;
@@ -87,29 +84,30 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
 
   useEffect(() => {
     const options = {
+      // eslint-disable-next-line react/no-unstable-nested-components
       replace: ({ attribs, children }) => {
         if (!attribs) {
           return undefined;
         }
-    
-        if (attribs.classname === "player-list") {
+
+        if (attribs.classname === 'player-list') {
           const tmName = attribs.id != null ? attribs.id : delinkifyEvent(post.uri);
           return (
             <div className="is-layout-constrained">
-              <TournamentRoster tmName={tmName}/>
+              <TournamentRoster tmName={tmName} />
             </div>
           );
         }
-    
+
         // Tableau dashboards
         if (attribs.type === 'text/javascript') {
           return <Helmet><script>{children[0].data}</script></Helmet>;
         }
-    
+
         return undefined;
       },
     };
-    setTimeout(()=>hydrateImages(), 50);
+    setTimeout(() => hydrateImages(), 50);
     setContent(parse(post.content, options));
   }, []);
 
@@ -117,7 +115,11 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
 
   return (
     <Layout>
-      <Seo title={post.title} description={post.excerpt} image={post.featuredImage?.node?.sourceUrl} />
+      <Seo
+        title={post.title}
+        description={post.excerpt}
+        image={post.featuredImage?.node?.sourceUrl}
+      />
 
       <article
         className="blog-post"
