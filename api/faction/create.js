@@ -52,6 +52,11 @@ async function handler(req, res) {
     //   return;
     // }
 
+    if (session.host.includes(x_session_id)) {
+      res.status(401).json({ error: 'api_host_join_error', alreadyEntered: true });
+      return;
+    }
+
     if (session.players.every((p) => x_session_id !== p.playerId)) {
       const newFaction = new Faction({
         name: factionName,
