@@ -145,8 +145,9 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize) =>
         moveset_error = 'api_team_validation_moveset';
         return false;
       }
-      if (!pokemonJSON[p].chargedMoves.includes(chargedMoves[index][0])
-          || !pokemonJSON[p].chargedMoves.includes(chargedMoves[index][1])
+      const eligibleMoves = [...pokemonJSON[p].chargedMoves, 'RETURN', 'FRUSTRATION'];
+      if (!eligibleMoves.includes(chargedMoves[index][0])
+          || !eligibleMoves.includes(chargedMoves[index][1])
       ) {
         moveset_error = 'api_team_validation_moveset';
         return false;
