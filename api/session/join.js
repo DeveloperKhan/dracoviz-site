@@ -47,7 +47,7 @@ async function handler(req, res) {
 
     if (!isTeamTournament) {
       if (session.host.includes(x_session_id)) {
-        res.status(401).json({ error: 'api_host_join_error', alreadyEntered: true });
+        res.status(401).json({ error: 'api_host_join_error', id: key, alreadyEntered: true });
         return;
       }
       if (session.players.every((p) => x_session_id !== p.playerId)) {
@@ -59,7 +59,7 @@ async function handler(req, res) {
         await player.save();
         await session.save();
       } else {
-        res.status(401).json({ error: 'api_already_entered_error', alreadyEntered: true });
+        res.status(401).json({ error: 'api_already_entered_error', id: key, alreadyEntered: true });
         return;
       }
     }
