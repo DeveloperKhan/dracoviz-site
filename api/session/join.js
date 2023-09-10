@@ -44,6 +44,7 @@ async function handler(req, res) {
     }
 
     const isTeamTournament = session.maxTeamSize > 1;
+    const { key } = session;
 
     if (!isTeamTournament) {
       if (session.host.includes(x_session_id)) {
@@ -63,8 +64,6 @@ async function handler(req, res) {
         return;
       }
     }
-
-    const { key } = session;
 
     res.status(200).send({
       id: key,
