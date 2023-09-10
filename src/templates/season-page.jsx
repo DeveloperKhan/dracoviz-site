@@ -120,6 +120,7 @@ export default SeasonPage;
 export const pageQuery = graphql`
   query PageById(
     $id: String!
+    $slug: String!
   ) {
     page: wpPage(id: { eq: $id }) {
       id
@@ -142,7 +143,7 @@ export const pageQuery = graphql`
       }
     }
     allWpPost(
-      filter: {categories: {nodes: {elemMatch: {slug: {eq: "2023-series"}}}}}
+      filter: {categories: {nodes: {elemMatch: {slug: {eq: $slug}}}}}
     ) {
       nodes {
         id

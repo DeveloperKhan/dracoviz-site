@@ -129,11 +129,13 @@ const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }) => Prom
 
 const createSeasonPages = ({ seasonPages, gatsbyUtilities }) => {
   seasonPages.forEach((seasonPage) => {
+    const is2024 = seasonPage.uri.includes('2024');
     gatsbyUtilities.actions.createPage({
-      path: seasonPage.uri.includes('2024') ? '/' : seasonPage.uri,
+      path: is2024 ? '/' : seasonPage.uri,
       component: path.resolve('./src/templates/season-page.jsx'),
       context: {
         id: seasonPage.id,
+        slug: is2024 ? '2024-series' : '2023-series',
       },
     });
   });

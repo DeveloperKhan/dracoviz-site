@@ -5,7 +5,7 @@ function Pills({ categories }) {
   return (
     <div className="article-item-categories">
       {categories.map((category) => {
-        if (category.slug === '2023-series') {
+        if (category.slug === '2023-series' || category.slug === '2024-series') {
           return null;
         }
         return (

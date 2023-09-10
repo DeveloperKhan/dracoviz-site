@@ -47,9 +47,9 @@ export const options = [
 
 export function getDateFromTag(tag) {
   if (tag == null) {
-    return;
+    return '';
   }
-  const [month, day, year] = tag.replace("EVENT:", "").split("-");
-  const monthLabel = options.find(o => o.value.toString() === month)?.label ?? month;
-  return `${monthLabel} ${day}, ${year}`;
+  const [month, day, year] = tag.replace('EVENT:', '').split('-');
+  const monthLabel = options.find((o) => o.value.toString() === month.replace(/^0+(\d)/, '$1'))?.label ?? month;
+  return `${monthLabel} ${day.replace(/^0+(\d)/, '$1')}, ${year}`;
 }
