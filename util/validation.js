@@ -120,18 +120,18 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize) =>
     }
   }
 
-  // unreleased check
-  let unreleased_error;
-  pokemon.every((p) => {
-    if (pokemonJSON[p].tags?.includes('unreleased')) {
-      unreleased_error = 'api_team_validation_unreleased';
-      return false;
-    }
-    return true;
-  });
-  if (unreleased_error != null) {
-    return unreleased_error;
-  }
+  // // unreleased check
+  // let unreleased_error;
+  // pokemon.every((p) => {
+  //   if (pokemonJSON[p].tags?.includes('unreleased')) {
+  //     unreleased_error = 'api_team_validation_unreleased';
+  //     return false;
+  //   }
+  //   return true;
+  // });
+  // if (unreleased_error != null) {
+  //   return unreleased_error;
+  // }
 
   // moveset check
   if (fastMoves != null || chargedMoves != null) {
