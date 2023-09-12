@@ -6458,7 +6458,8 @@
         },
         "fastMoves": [
             "BUG_BITE",
-            "SPARK"
+            "SPARK",
+            "VOLT_SWITCH"
         ],
         "gender": "male",
         "sid": 23584,
@@ -48371,7 +48372,8 @@
         "fastMoves": [
             "BUG_BITE",
             "MUD_SLAP",
-            "SPARK"
+            "SPARK",
+            "VOLT_SWITCH"
         ],
         "gender": "male",
         "sid": 23616,
