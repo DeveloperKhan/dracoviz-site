@@ -62,6 +62,11 @@ async function handler(req, res) {
       return;
     }
 
+    if (!session.factions.includes(faction.key)) {
+      res.status(401).json({ error: 'api_faction_not_in_session' });
+      return;
+    }
+
     if (session.players.every((p) => x_session_id !== p.playerId)) {
       faction.players.push(x_session_id);
       await faction.save();

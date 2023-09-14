@@ -67,11 +67,20 @@ async function handler(req, res) {
     faction.name = factionName;
     faction.description = description;
 
+    let playerLookupError = null;
     faction.players.forEach((p) => {
       const playerInSlot = slot.findIndex((a) => a === p);
       const playerInSession = session.players.findIndex((a) => a.playerId === p);
-      session.players[playerInSession].tournamentPosition = playerInSlot;
+      if (session.players[playerInSession] == null) {
+        playerLookupError = 'api_faction_missing_player';
+      } else {
+        session.players[playerInSession].tournamentPosition = playerInSlot;
+      }
     });
+    if (playerLookupError != null) {
+      res.status(401).json({ error: playerLookupError });
+      return;
+    }
     await faction.save();
     await session.save();
     res.status(200).json({});
