@@ -47,6 +47,11 @@ async function handler(req, res) {
       return;
     }
 
+    if (!isHost && session.registrationClosed === true) {
+      res.status(401).json({ error: 'api_registration_closed_leave' });
+      return;
+    }
+
     const isHostBeingRemoved = session.host.includes(playerToRemove.session);
     if (isHostBeingRemoved) {
       res.status(401).json({ error: 'api_host_leave_error' });

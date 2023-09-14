@@ -64,7 +64,7 @@ async function handler(req, res) {
       return;
     }
 
-    faction.name = factionName;
+    faction.name = factionName ?? faction.name;
     faction.description = description;
 
     let playerLookupError = null;

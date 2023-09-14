@@ -30,6 +30,7 @@ const getSessionModel = async () => {
     cpVisible: { type: Boolean },
     isTeamDraft: { type: Boolean },
     isGlobalDraft: { type: Boolean },
+    registrationClosed: { type: Boolean },
     players: [{
       playerId: String,
       factionId: String,

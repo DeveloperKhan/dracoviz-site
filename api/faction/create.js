@@ -45,6 +45,11 @@ async function handler(req, res) {
       return;
     }
 
+    if (session.registrationClosed === true) {
+      res.status(401).json({ error: 'api_registration_closed_join' });
+      return;
+    }
+
     const Faction = await getFactionModel();
     // const faction = await Faction.findOne({ name: factionName });
     // if (faction != null || session.length > 0) {
