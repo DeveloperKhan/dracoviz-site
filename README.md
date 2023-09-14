@@ -2,7 +2,7 @@
 
 To get your project started or to just try it out, you can **follow the [Gatsby Wordpress Quickstart](https://github.com/gatsbyjs/gatsby-source-wordpress-experimental/blob/master/docs/getting-started.md#quick-start)** instructions
 
-## 🧐 What's inside?
+## 🧐 What's inside? 
 
 A quick look at the top-level files and directories you'll see in a Gatsby project.
 
