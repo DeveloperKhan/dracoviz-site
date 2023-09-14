@@ -40,6 +40,7 @@ async function handler(req, res) {
     res.status(200).send({
     });
   } catch (ex) {
+    console.error(ex);
     res.status(401).json({ error: 'Invalid query' });
   }
 }

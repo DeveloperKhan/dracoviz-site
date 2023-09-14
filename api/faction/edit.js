@@ -76,6 +76,7 @@ async function handler(req, res) {
     await session.save();
     res.status(200).json({});
   } catch (ex) {
+    console.error(ex);
     res.status(401).json({ error: `Invalid query of session=${tournamentId}` });
   }
 }

@@ -70,6 +70,7 @@ async function handler(req, res) {
       isTeamTournament,
     });
   } catch (ex) {
+    console.error(ex);
     res.status(401).json({ error: `Invalid query of session=${tournamentId}` });
   }
 }

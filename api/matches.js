@@ -30,6 +30,7 @@ async function handler(req, res) {
     const data = await players.find({ tournament: tm }).sort(sort).toArray();
     res.status(200).json(data);
   } catch (ex) {
+    console.error(ex);
     res.status(401).json({ error: `Invalid query of tm=${tm}` });
   }
 }

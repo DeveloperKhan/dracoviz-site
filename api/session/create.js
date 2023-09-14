@@ -118,6 +118,7 @@ async function handler(req, res) {
       isPrivate,
     });
   } catch (ex) {
+    console.error(ex);
     res.status(401).json({ error: `Invalid query of session=${name}` });
   }
 }
