@@ -2,6 +2,7 @@ import getPlayerModel from '../../db/player';
 import getSessionModel from '../../db/session';
 import allowCors from '../../db/allowCors';
 import deletePlayerFromSession from '../../util/deletePlayer';
+import getFactionModel from '../../db/faction';
 
 async function handler(req, res) {
   const {
@@ -41,7 +42,8 @@ async function handler(req, res) {
     }
 
     const isHost = session.host.includes(x_session_id);
-    const isThePlayer = x_session_id === playerToRemove.session;
+    const sessionId = playerToRemove.session;
+    const isThePlayer = x_session_id === sessionId;
     if (!isHost && !isThePlayer) {
       res.status(401).json({ error: 'api_unauthorized' });
       return;
@@ -52,10 +54,46 @@ async function handler(req, res) {
       return;
     }
 
-    const isHostBeingRemoved = session.host.includes(playerToRemove.session);
+    const isHostBeingRemoved = session.host.includes(sessionId);
     if (isHostBeingRemoved) {
       res.status(401).json({ error: 'api_host_leave_error' });
       return;
+    }
+
+    const thePlayerInSession = session.players.find((x) => x.playerId === sessionId);
+    const theFactionId = thePlayerInSession.factionId;
+
+    if (theFactionId != null && theFactionId !== '') {
+      const Faction = await getFactionModel();
+      const faction = await Faction.findOne({ key: theFactionId });
+      if (faction != null) {
+        const isCaptain = faction.admins.includes(playerToRemove.session);
+        if (isCaptain) {
+          // remove all players + faction
+          await Promise.all(
+            faction.players
+              .map(async (playerId) => {
+                if (playerId === sessionId) {
+                  return null;
+                }
+                const otherPlayer = await Player.findOne({ session: playerId });
+                if (otherPlayer == null) {
+                  return null;
+                }
+                const newData = deletePlayerFromSession(otherPlayer, session);
+                session.players = newData.players;
+                otherPlayer.sessions = newData.sessions;
+                await otherPlayer.save();
+                return otherPlayer;
+              }),
+          );
+          session.factions = session.factions.filter((f) => f !== theFactionId);
+          await Faction.deleteOne({ key: theFactionId });
+        } else {
+          faction.players = faction.players.filter((p) => p !== sessionId);
+          await faction.save();
+        }
+      }
     }
 
     const { players, sessions } = deletePlayerFromSession(playerToRemove, session);
