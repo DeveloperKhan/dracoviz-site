@@ -60,7 +60,7 @@ async function handler(req, res) {
     session.registrationClosed = registrationClosed ?? session.registrationClosed;
 
     await session.save();
-    res.status(200).send();
+    res.status(200).send({});
   } catch (ex) {
     console.error(ex);
     res.status(401).json({ error: `Invalid query of session=${name}` });
