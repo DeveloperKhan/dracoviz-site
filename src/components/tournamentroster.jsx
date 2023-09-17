@@ -134,7 +134,7 @@ function getColumns(width) {
   return newColumns;
 }
 
-function TournamentRoster({ tmName, showWorldsQualified }) {
+function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
   const [tm, setTm] = useState('e');
   const [products, setProducts] = useState([
     {
@@ -213,7 +213,8 @@ function TournamentRoster({ tmName, showWorldsQualified }) {
   useEffect(() => {
     setIsLoading(true);
     const host = `${window.location.protocol}//${window.location.host}`;
-    const tmUrl = showWorldsQualified ? `${host}/api/tournament?qualified=${true}` : `${host}/api/tournament?tm=${tmName}`
+    
+    const tmUrl = showWorldsQualified ? `${host}/api/tournament?searchType=qualified` : (playerName !== undefined ? `${host}/api/tournament?searchType=profile&name=${playerName}` : `${host}/api/tournament?searchType=tm&tm=${tmName}`)
     Promise.all([
       axios.get(tmUrl, {
         headers: {
