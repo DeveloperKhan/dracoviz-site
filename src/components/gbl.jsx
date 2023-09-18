@@ -23,8 +23,6 @@ const playerDict = {};
 
 
 function GBL({ response }) {
-  console.log("gbl")
-  console.log(response.data[0].gbl)
   if (response.data.length <= 0 || response.data[0].gbl === undefined) {
     return;
   }
@@ -33,18 +31,15 @@ function GBL({ response }) {
 
   const [selectedSeason, setSelectedSeason] = useState(seasons[0]);
   const filteredData = response.data[0].gbl.filter((item) => item.season === selectedSeason);
-  console.log("final")
 
   const finalDay = filteredData
   .map((filt) => filt.days.find((day) => day.day === 'final'))
   .find((day) => day !== undefined);
-  console.log(filteredData)
 
   const count = filteredData.reduce((totalCount, filt) => {
     const daysOnLeaderboard = filt.days.filter((day) => day.rank < 501 && day.day !== 'final');
     return totalCount + daysOnLeaderboard.length;
   }, 0);
-  console.log(count)
 
   const handleSeasonChange = (event) => {
     setSelectedSeason(event.target.value);

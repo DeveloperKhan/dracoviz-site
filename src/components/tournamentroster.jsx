@@ -6,6 +6,7 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
+import { debounce } from "lodash"
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import BootstrapTable from 'react-bootstrap-table-next';
@@ -21,6 +22,7 @@ import { linkifyEvent } from '../utils/url-utils';
 import useWindowSize from '../utils/use-window-size';
 
 const noDataIndication = "There is no data for this event. Please check back another time! :)";
+const noSearchIndication = "No search data found :)";
 
 const parseTm = (tm) => {
   return tm.replaceAll("-", " ")
@@ -135,6 +137,37 @@ function getColumns(width) {
 }
 
 function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
+  const [searchInput, setSearchInput] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState([]); // State to store filtered data
+
+
+  const handleSearchInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+
+  const filterData = () => {
+    if (searchInput === '' || searchInput == null) {
+      setFilteredProducts(products); // Set filteredProducts to all products when searchInput is blank
+      return;
+    }
+  
+    // Use a regular expression to split the search input by commas or ampersands and trim spaces
+    const searchTerms = searchInput.toLowerCase().split(/[,&]/).map(term => term.trim());
+  
+    const filteredData = products.filter((product) => {
+      if (product?.searchName?.toLowerCase().includes(searchInput.toLowerCase())) {
+        return true;
+      }
+      const productSearch = (product && product.search) ? product.search.toLowerCase() : '';
+      const productNames = productSearch.split(' ').map(name => name.trim());
+      return searchTerms.every((term) =>
+        productNames.some((name) => name.includes(term))
+      );
+    });
+    setFilteredProducts(filteredData);
+  };
+
   const [tm, setTm] = useState('e');
   const [products, setProducts] = useState([
     {
@@ -145,6 +178,13 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
   const [columns, setColumns] = useState(getColumns(window.innerWidth));
   const [isLoading, setIsLoading] = useState(true);
   const { width } = useWindowSize();
+
+  useEffect(() => {
+    const debounceFunction = debounce(() => {
+      filterData();
+    }, 500);
+    debounceFunction();
+  }, [searchInput, products]);
 
   const handleClick = (player, matches) => {
     const newProductsMatches = [];
@@ -271,6 +311,8 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
               <div data-search={getRosterSearchHTML(player)} className="player-item-row">{rosterHtml}</div>
             </div>
           ),
+          searchName: player.name,
+          search: getRosterSearchHTML(player),
           mw: player.match_wins,
           gw: player.game_wins,
           gl: player.game_losses,
@@ -279,6 +321,7 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
       const playername = players.data[0].final_rank;
       setTm(playername);
       setProducts(newProducts);
+      setFilteredProducts(newProducts);
       setIsLoading(false);
     })
     .catch(() => {
@@ -289,6 +332,14 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
 
   return (
     <div id="player-list" className="roster-container use-bootstrap use-table">
+      <div>
+        <input
+          type="text"
+          placeholder="Search Pokémon/Player"
+          value={searchInput}
+          onChange={handleSearchInputChange}
+        />
+      </div>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -319,10 +370,10 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
           </ToolkitProvider>
         </div>
       </Modal>
-          <ToolkitProvider
+      <ToolkitProvider
         bootstrap4
         keyField="ignore"
-        data={products}
+        data={filteredProducts}
         columns={columns}
       >
         {
@@ -335,7 +386,7 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
                 <BootstrapTable
                   {...props.baseProps}
                   className="player-list-table"
-                  noDataIndication={noDataIndication}
+                  noDataIndication={products.length > 0 ? noSearchIndication : noDataIndication}
                   striped
                   hover
                   condensed

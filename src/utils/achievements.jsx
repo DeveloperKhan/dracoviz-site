@@ -279,6 +279,5 @@ export function getAchievements(profile) {
     validAchievementsArray.push(achievement);
   }
 
-  console.log(validAchievementsArray);
   return validAchievementsArray;
 }
