@@ -17,21 +17,23 @@ function generateImage(profile, season, callback) {
   const canvas = document.createElement('canvas');
   canvas.width = 1200;
   canvas.height = 1500;
+  canvas.className = 'profile-image';
   const context = canvas.getContext('2d');
 
   // Load the background image
   const backgroundImage = new Image();
-backgroundImage.src = "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/02d7deed-24ae-4112-bc01-e36b20bd9900/public"
+  backgroundImage.crossOrigin = 'anonymous';
+  backgroundImage.src = 'https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/02d7deed-24ae-4112-bc01-e36b20bd9900/public';
 
   // // Generate the QR code for the profile URL
-  const profileUrl = `https://www.dracoviz.com/profile/${profile.name}`;
-  const qrCodeSize = 300; // Adjust the size as needed
+  // const profileUrl = `https://www.dracoviz.com/profile/${profile.name}`;
+  // const qrCodeSize = 300; // Adjust the size as needed
 
   // Create a canvas element for the QR code
-  const qrCodeCanvas = document.createElement('canvas');
-  qrCodeCanvas.width = qrCodeSize;
-  qrCodeCanvas.height = qrCodeSize;
-  const qrCodeContext = qrCodeCanvas.getContext('2d');
+  // const qrCodeCanvas = document.createElement('canvas');
+  // qrCodeCanvas.width = qrCodeSize;
+  // qrCodeCanvas.height = qrCodeSize;
+  // const qrCodeContext = qrCodeCanvas.getContext('2d');
 
   backgroundImage.onload = function () {
     // Draw the background image
@@ -117,7 +119,7 @@ backgroundImage.src = "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/02d7deed
     context.fill(); // Fill the shape
 
     context.font = '40px MyFont';
-    context.fillStyle = '#1F1F21'; 
+    context.fillStyle = '#1F1F21';
     textWidth = context.measureText(`${season} SEASON`).width;
     x = (canvas.width - textWidth) / 2;
     context.fillText(`${season} SEASON`, 35, 242);
@@ -126,11 +128,10 @@ backgroundImage.src = "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/02d7deed
     const championshipImage = new Image();
     championshipImage.onload = function () {
       context.drawImage(championshipImage, 325, 160, 160, 130);
-    }
+    };
 
     // Set the font style
     context.font = '30px MyFont';
-
 
     const profileDisplay = `www.dracoviz.com/profile/${profile.name}`;
     textWidth = context.measureText(profileDisplay).width;
@@ -142,7 +143,9 @@ backgroundImage.src = "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/02d7deed
     context.fillStyle = 'white';
     context.fillText(profileDisplay, x, canvas.height - 50);
 
-    const filteredTournaments = profile.tournaments.filter((tournament) => tournament.tournament.toLowerCase().includes(season));
+    const filteredTournaments = profile.tournaments.filter(
+      (tournament) => tournament.tournament.toLowerCase().includes(season),
+    );
     const isBig = filteredTournaments.length > 5;
     if (profile.tournaments && profile.tournaments.length > 0) {
       let yOffset = isBig ? 300 : 350; // Initialize yOffset for the first tournament
@@ -183,22 +186,22 @@ backgroundImage.src = "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/02d7deed
 
         function ordinal_suffix_of(i) {
           const j = i % 10;
-              const k = i % 100;
-          if (j == 1 && k != 11) {
-              return `${i}st`;
+          const k = i % 100;
+          if (j === 1 && k !== 11) {
+            return `${i}st`;
           }
-          if (j == 2 && k != 12) {
-              return `${i}nd`;
+          if (j === 2 && k !== 12) {
+            return `${i}nd`;
           }
-          if (j == 3 && k != 13) {
-              return `${i}rd`;
+          if (j === 3 && k !== 13) {
+            return `${i}rd`;
           }
           return `${i}th`;
-      }
-        const tournamentStats = tournament.date + `   ${
-          ordinal_suffix_of(parseInt(tournament.final_rank))
-           }   ${parseInt(tournament.match_wins)}-${parseInt(tournament.match_losses)
-           } (${parseInt(tournament.game_wins)}-${parseInt(tournament.game_losses)})`;
+        }
+        const tournamentStats = `${tournament.date}   ${
+          ordinal_suffix_of(parseInt(tournament.final_rank, 10))
+        }   ${parseInt(tournament.match_wins, 10)}-${parseInt(tournament.match_losses, 10)
+        } (${parseInt(tournament.game_wins, 10)}-${parseInt(tournament.game_losses, 10)})`;
 
         context.font = '30px MyFont';
 
@@ -218,7 +221,9 @@ backgroundImage.src = "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/02d7deed
               // All images in the roster have been loaded
               // Move to the next line
               xOffset = 100;
-              if (!isRight || !isBig) { yOffset += 170; } // Adjust the Y-coordinate for the next row
+              if (!isRight || !isBig) {
+                yOffset += 170;
+              } // Adjust the Y-coordinate for the next row
               processTournament(tournamentIndex + 1); // Process the next tournament
               return;
             }
@@ -246,44 +251,41 @@ backgroundImage.src = "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/02d7deed
                 ? xOffset + (!isRight ? 600 : 75)
                 : (canvas.width - totalRosterWidth) / 2 + xOffset;
 
-                const shadowImage = new Image();
-                shadowImage.onload = function () {
+              const shadowImage = new Image();
+              shadowImage.onload = () => {
+                // Draw the image
+                context.save();
+                context.beginPath();
+                context.arc(imageX + 34, yOffset + 85, 30, 0, 2 * Math.PI);
+                context.fillStyle = 'lightblue';
+                context.fill();
+                context.strokeStyle = 'white';
+                context.lineWidth = 3;
+                context.stroke();
+                context.closePath();
+                context.clip();
 
-                      
-                  // Draw the image
-                  context.save();
-                  context.beginPath();
-                  context.arc(imageX + 34, yOffset + 85, 30, 0, 2 * Math.PI);
-                  context.fillStyle = 'lightblue';
-                  context.fill();
-                  context.strokeStyle = 'white';
-                  context.lineWidth = 3;
-                  context.stroke();
-                  context.closePath();
-                  context.clip();
+                // Draw the image inside the circle
+                const zoomFactor = 0.14; // Adjust the zoom factor as needed
+                const zoomedWidth = image.width * zoomFactor;
+                const zoomedHeight = image.height * zoomFactor;
+                context.drawImage(
+                  image,
+                  imageX + (34 - zoomedWidth / 2),
+                  yOffset + (80 - zoomedHeight / 2),
+                  zoomedWidth,
+                  zoomedHeight,
+                );
 
-                  // Draw the image inside the circle
-                  const zoomFactor = 0.14; // Adjust the zoom factor as needed
-                  const zoomedWidth = image.width * zoomFactor;
-                  const zoomedHeight = image.height * zoomFactor;
-                  context.drawImage(
-                    image,
-                    imageX + (34 - zoomedWidth / 2),
-                    yOffset + (80 - zoomedHeight / 2),
-                    zoomedWidth,
-                    zoomedHeight,
-                  );
+                context.restore();
+                xOffset += 70; // Adjust the X-coordinate for the next image
 
-                  context.restore();
-                  xOffset += 70; // Adjust the X-coordinate for the next image
-                  
-                  if (pokemon.shadow) {
-                    context.drawImage(shadowImage, imageX + 40, yOffset + 85, 30, 30);
-                  }
-                  loadRosterImages(index + 1); // Load the next image in the roster recursively
+                if (pokemon.shadow) {
+                  context.drawImage(shadowImage, imageX + 40, yOffset + 85, 30, 30);
                 }
-                shadowImage.src = "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/2fd819c1-f95a-4810-65ac-52c423ae1400/public";
-
+                loadRosterImages(index + 1); // Load the next image in the roster recursively
+              };
+              shadowImage.src = 'https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/2fd819c1-f95a-4810-65ac-52c423ae1400/public';
             });
           };
 
@@ -291,8 +293,10 @@ backgroundImage.src = "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/02d7deed
           loadRosterImages(0);
         } else {
           // No roster for this tournament, continue to the next
-          xOffset = 100;
-          if (!isRight || !isBig) { yOffset += 170; } // Adjust the Y-coordinate for the next tournament
+          // xOffset = 100;
+          if (!isRight || !isBig) {
+            yOffset += 170;
+          } // Adjust the Y-coordinate for the next tournament
           processTournament(tournamentIndex + 1); // Process the next tournament
         }
         isRight = !isRight;
@@ -304,15 +308,15 @@ backgroundImage.src = "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/02d7deed
       // No tournaments to process, call the callback
       callback(null, canvas.toDataURL('image/png'));
     }
-    
-    
-  const dracovizImage = new Image();
-  dracovizImage.onload = function () {
-    context.drawImage(dracovizImage, (canvas.width - 300) / 2, canvas.height - 150, 300, 63);
-  }
-  championshipImage.src = "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/373dbe60-952c-4bdf-009a-0db41ab3b600/public"
-  dracovizImage.src = "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/43a7cc83-6e97-4b34-40cc-abcdc6a83f00/public"
-   
+
+    const dracovizImage = new Image();
+    dracovizImage.onload = () => {
+      context.drawImage(dracovizImage, (canvas.width - 300) / 2, canvas.height - 150, 300, 63);
+    };
+    championshipImage.crossOrigin = 'anonymous';
+    dracovizImage.crossOrigin = 'anonymous';
+    championshipImage.src = 'https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/373dbe60-952c-4bdf-009a-0db41ab3b600/public';
+    dracovizImage.src = 'https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/43a7cc83-6e97-4b34-40cc-abcdc6a83f00/public';
   };
 }
 
@@ -339,9 +343,15 @@ function GenerateLocalImage({ profile, season }) {
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       {imageUrl && (
         <a href={imageUrl} download={`dracoviz-profile-${profile.name}`}>
-          <img style={{marginBottom: 10, maxWidth: 560, width: '100%', objectFit: 'contain' }} src={imageUrl} alt="Player Performance" />
-          <br/>
-          <button type="button" className='btn btn-primary'>Download Image</button>
+          <img
+            style={{
+              marginBottom: 10, maxWidth: 560, width: '100%', objectFit: 'contain',
+            }}
+            src={imageUrl}
+            alt="Player Performance"
+          />
+          <br />
+          <button type="button" className="btn btn-primary">Download Image</button>
         </a>
       )}
     </div>
