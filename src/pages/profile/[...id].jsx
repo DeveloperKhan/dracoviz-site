@@ -32,12 +32,11 @@ function PlayerTemplate(props) {
   const [content] = useState();
   const [profile, setProfile] = useState(null);
 
-  const host = `${window.location.protocol}//${window.location.host}`;
-  const tmUrl = `${host}/api/tournament?searchType=profile&name=${name}`;
-
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const host = `${window.location.protocol}//${window.location.host}`;
+    const tmUrl = `${host}/api/tournament?searchType=profile&name=${name}`;
     axios
       .get(tmUrl, {
         headers: {
