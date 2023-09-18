@@ -87,7 +87,7 @@ function PlayerTemplate(props) {
   const achievementsStyle = {
     fontFamily: 'Jost, sans-serif',
     fontWeight: '400',
-    fontSize: '25px',
+   //fontSize: '25px',
     marginTop: '-10px', // Adjust this value as needed
   };
   const achievementNameStyle = {
@@ -137,8 +137,8 @@ function PlayerTemplate(props) {
         <div style={usernameStyle}>
           <p>{name}</p>
         </div>
-        <div style={achievementsStyle}>
-          <p><b>Player Achievements</b></p>
+        <div>
+          <h2 class="wp-block-heading">Player Achievements</h2>
         </div>
         <div>
           <div style={gridContainerStyle}>{imageElements}</div>
@@ -153,6 +153,7 @@ function PlayerTemplate(props) {
       {!isLoading && (
         <ProfileRoster className="play-pokemon" playerName={name} response={profile} />
       )}
+      
       <br/>
       <br/>
       <br/>

@@ -10,6 +10,7 @@ import { Tooltip } from 'react-tooltip';
 import { Link } from 'gatsby';
 import { linkifyEvent } from '../utils/url-utils';
 import useWindowSize from '../utils/use-window-size';
+import ProfileImage from '../components/profileimage';
 
 const noDataIndication = "No data found for this player :)";
 
@@ -271,7 +272,7 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName, response })
       const eventLabel = ` - (${parseTm(tournament.tournament)})`
       newProducts.push({
         placement: (
-          <div className="player-item-placement" value={parseInt(tournament.final_rank)}>
+          <div key={tournament.tournament} className="player-item-placement" value={parseInt(tournament.final_rank)}>
             <div className="pill pill-black">#{parseInt(tournament.final_rank)}</div>
             { showWorldsQualified ? null : (
               <button className="player-item-modal-link" onClick={() => handleClick(tournament, tournament.matches)} type="button">See Games</button>
@@ -279,7 +280,7 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName, response })
           </div>
         ),
         name: (
-          <div className="player-item-team-container">
+          <div key={tournament.tournament} className="player-item-team-container">
             {
               showWorldsQualified ? (
                 <Link to={linkifyEvent(tournament.tournament)}>
@@ -321,16 +322,15 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName, response })
             </option>
           ))}
         </select>
-      </div>
-      <br/>
-      <div>
         <input
           type="text"
           placeholder="Search Pokémon"
           value={searchInput}
           onChange={handleSearchInputChange}
+          style={{ marginLeft: '30px' }}
         />
       </div>
+      <br/>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -385,6 +385,7 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName, response })
                 defaultSorted={[{ dataField: 'date', order: 'desc' }]}
                 pagination={paginationFactory(options)}
               />
+              <ProfileImage className="play-pokemon-image" season={selectedSeason} profile={response.data[0]} />
             </div>
           );
         }}
