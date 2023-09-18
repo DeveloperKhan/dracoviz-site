@@ -31,7 +31,7 @@ function isTop8(profile) {
 function isTop8x2(profile) {
   // Filter the tournaments where the player got top 8
   const top8Tournaments = (profile.tournaments || []).filter((tournament) => tournament.final_rank <= 8);
-  
+
   // Check if there are at least 2 tournaments with top 8 finishes
   return top8Tournaments.length >= 2;
 }
@@ -39,7 +39,7 @@ function isTop8x2(profile) {
 function isTop8x3(profile) {
   // Filter the tournaments where the player got top 8
   const top8Tournaments = (profile.tournaments || []).filter((tournament) => tournament.final_rank <= 8);
-  
+
   // Check if there are at least 3 tournaments with top 8 finishes
   return top8Tournaments.length >= 3;
 }
@@ -47,7 +47,7 @@ function isTop8x3(profile) {
 function isTop8x4(profile) {
   // Filter the tournaments where the player got top 8
   const top8Tournaments = (profile.tournaments || []).filter((tournament) => tournament.final_rank <= 8);
-  
+
   // Check if there are at least 4 tournaments with top 8 finishes
   return top8Tournaments.length >= 4;
 }
@@ -70,25 +70,25 @@ function is1st(profile) {
 
 function isWorlds4th(profile) {
   return !!profile.tournaments?.some(
-    (tournament) => tournament.final_rank == 4 && tournament.tournament.includes("worlds")
+    (tournament) => tournament.final_rank == 4 && tournament.tournament.includes('worlds'),
   );
 }
 
 function isWorlds3rd(profile) {
   return !!profile.tournaments?.some(
-    (tournament) => tournament.final_rank == 3 && tournament.tournament.includes("worlds")
+    (tournament) => tournament.final_rank == 3 && tournament.tournament.includes('worlds'),
   );
 }
 
 function isWorlds2nd(profile) {
   return !!profile.tournaments?.some(
-    (tournament) => tournament.final_rank == 2 && tournament.tournament.includes("worlds")
+    (tournament) => tournament.final_rank == 2 && tournament.tournament.includes('worlds'),
   );
 }
 
 function isWorlds1st(profile) {
   return !!profile.tournaments?.some(
-    (tournament) => tournament.final_rank == 1 && tournament.tournament.includes("worlds")
+    (tournament) => tournament.final_rank == 1 && tournament.tournament.includes('worlds'),
   );
 }
 
@@ -258,10 +258,8 @@ const achievements = [
     description: 'Reach top 8 at a Play! Pokemon event 3 times in a single season',
     check: isTop8x3Season,
     image: rating3500,
-  }
+  },
 ];
-
-
 
 export function getAchievements(profile) {
   const highestTierAchievements = {};
