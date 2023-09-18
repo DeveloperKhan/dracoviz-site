@@ -1,16 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link, graphql } from 'gatsby';
 import axios from 'axios';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import parse from 'html-react-parser';
-import { Router } from '@reach/router';
-import {
- Twitter, Facebook, Whatsapp, Telegram, Reddit,
-} from 'react-social-sharing';
 import TableOfContents from '../../components/table-of-contents';
-import hello from '../../../static/hello2.png'; // Adjust the path to your image
-import {getAchievements} from '../../utils/achievements';
-
+import { getAchievements } from '../../utils/achievements';
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
@@ -20,13 +11,10 @@ import {getAchievements} from '../../utils/achievements';
 import '../../css/@wordpress/block-library/build-style/style.css';
 import '../../css/@wordpress/block-library/build-style/theme.css';
 
-import { Helmet } from 'react-helmet';
 import Layout from '../../components/layout';
 import Seo from '../../components/seo';
-import Pills from '../../components/pills';
 import ProfileRoster from '../../components/profileroster';
 import GBL from '../../components/gbl';
-import { delinkifyEvent } from '../../utils/url-utils';
 
 const tableOfContentsItems = [
   {
@@ -36,17 +24,16 @@ const tableOfContentsItems = [
   {
     location: 'go-battle-league',
     title: 'Go Battle League',
-  }
+  },
 ];
 
 function PlayerTemplate(props) {
-  const name = props.params.id;
-  const [content, setContent] = useState();
-  const [profile, setProfile] = useState(null); // Initialize with null or an initial value if needed
-
+  const name = props?.params?.id;
+  const [content] = useState();
+  const [profile, setProfile] = useState(null);
 
   const host = `${window.location.protocol}//${window.location.host}`;
-  const tmUrl = `${host}/api/tournament?searchType=profile&name=${name}`
+  const tmUrl = `${host}/api/tournament?searchType=profile&name=${name}`;
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -54,16 +41,14 @@ function PlayerTemplate(props) {
     axios
       .get(tmUrl, {
         headers: {
-          'x_authorization': `Basic ${process.env.GATSBY_SECRET_KEY}` 
-        }
+          x_authorization: `Basic ${process.env.GATSBY_SECRET_KEY}`,
+        },
       })
       .then((response) => {
         setProfile(response);
         setIsLoading(false); // Set loading to false when data is fetched
       });
   }, []);
-
-  const postLink = 'https://www.dracoviz.com';
 
   const containerStyle = {
     padding: '20px', // Adjust the padding as needed
@@ -83,12 +68,6 @@ function PlayerTemplate(props) {
     fontWeight: '400',
     fontSize: '25px',
     marginTop: '-40px', // Adjust this value as needed
-  };
-  const achievementsStyle = {
-    fontFamily: 'Jost, sans-serif',
-    fontWeight: '400',
-   //fontSize: '25px',
-    marginTop: '-10px', // Adjust this value as needed
   };
   const achievementNameStyle = {
     fontFamily: 'Jost, sans-serif',
@@ -111,25 +90,23 @@ function PlayerTemplate(props) {
     width: '100%', // Ensure images fill their container
     height: 'auto', // Maintain aspect ratio
   };
-  var achievements = [];
-  var imageElements = [];
+  let achievements = [];
+  let imageElements = [];
   if (profile !== null) {
     achievements = getAchievements(profile.data[0]);
   }
 
-
   // Render the list of images in the grid
   imageElements = achievements.map((achievement, index) => (
-    <div key={index} style={gridItemStyle}>
-      <img src={achievement.image} alt={`Image ${index + 1}`} style={imageStyle} />
+    <div key={achievement.id} style={gridItemStyle}>
+      <img src={achievement.image} alt={`${index + 1}`} style={imageStyle} />
       <div style={achievementNameStyle}>{achievement.name}</div>
     </div>
   ));
 
-
   return (
     <Layout>
-      <Seo title={name} description={name} />    
+      <Seo title={name} description={name} />
       <div style={containerStyle}>
         <div style={playerProfileStyle}>
           <p><b>PLAYER PROFILE</b></p>
@@ -138,7 +115,7 @@ function PlayerTemplate(props) {
           <p>{name}</p>
         </div>
         <div>
-          <h2 class="wp-block-heading">Player Achievements</h2>
+          <h2 className="wp-block-heading">Player Achievements</h2>
         </div>
         <div>
           <div style={gridContainerStyle}>{imageElements}</div>
@@ -147,22 +124,22 @@ function PlayerTemplate(props) {
       <div className="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
         <TableOfContents items={tableOfContentsItems} />
 
-        <div class="play-pokemon wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
-        <h2 class="wp-block-heading">Play! Pokemon</h2>
-      </div>
-      {!isLoading && (
+        <div className="play-pokemon wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
+          <h2 className="wp-block-heading">Play! Pokemon</h2>
+        </div>
+        {!isLoading && (
         <ProfileRoster className="play-pokemon" playerName={name} response={profile} />
-      )}
-      
-      <br/>
-      <br/>
-      <br/>
-      <div class="go-battle-league wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
-        <h2 class="wp-block-heading">GO Battle League</h2>
-      </div>
-      {!isLoading && (
+        )}
+
+        <br />
+        <br />
+        <br />
+        <div className="go-battle-league wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
+          <h2 className="wp-block-heading">GO Battle League</h2>
+        </div>
+        {!isLoading && (
         <GBL className="go-battle-league" playerName={name} response={profile} />
-      )}
+        )}
 
         <article
           className="player"
@@ -181,49 +158,3 @@ function PlayerTemplate(props) {
 }
 
 export default PlayerTemplate;
-
-export const pageQuery = graphql`
-  query BlogPostById(
-    $id: String!
-    $previousPostId: String
-    $nextPostId: String
-  ) {
-    post: wpPost(id: { eq: $id }) {
-      id
-      excerpt
-      content
-      title
-      uri
-      categories {
-        nodes {
-          name
-          slug
-        }
-      }
-      date(formatString: "MMMM DD, YYYY")
-      featuredImage {
-        node {
-          altText
-          sourceUrl
-          localFile {
-            childImageSharp {
-              gatsbyImageData(
-                quality: 100
-                placeholder: TRACED_SVG
-                layout: FULL_WIDTH
-              )
-            }
-          }
-        }
-      }
-    }
-    previous: wpPost(id: { eq: $previousPostId }) {
-      uri
-      title
-    }
-    next: wpPost(id: { eq: $nextPostId }) {
-      uri
-      title
-    }
-  }
-`;
