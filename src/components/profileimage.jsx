@@ -6,8 +6,7 @@ import pokemonJson from '../../public/pokemon.json';
 
 function loadImage(url, callback) {
   const img = new Image();
-  img.crossOrigin = 'anonymous'; // Enable cross-origin requests if needed
-
+  img.setAttribute('crossorigin', 'anonymous');
   img.onload = () => callback(null, img);
   img.onerror = (error) => callback(error, null);
   img.src = url;
@@ -22,6 +21,7 @@ function generateImage(profile, season, callback) {
 
   // Load the background image
   const backgroundImage = new Image();
+  backgroundImage.setAttribute('crossorigin', 'anonymous');
   backgroundImage.crossOrigin = 'anonymous';
   backgroundImage.src = 'https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/02d7deed-24ae-4112-bc01-e36b20bd9900/public';
 
@@ -313,8 +313,8 @@ function generateImage(profile, season, callback) {
     dracovizImage.onload = () => {
       context.drawImage(dracovizImage, (canvas.width - 300) / 2, canvas.height - 150, 300, 63);
     };
-    championshipImage.crossOrigin = 'anonymous';
-    dracovizImage.crossOrigin = 'anonymous';
+    championshipImage.setAttribute('crossorigin', 'anonymous');
+    dracovizImage.setAttribute('crossorigin', 'anonymous');
     championshipImage.src = 'https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/373dbe60-952c-4bdf-009a-0db41ab3b600/public';
     dracovizImage.src = 'https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/43a7cc83-6e97-4b34-40cc-abcdc6a83f00/public';
   };
