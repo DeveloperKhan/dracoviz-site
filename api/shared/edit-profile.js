@@ -31,7 +31,8 @@ async function handler(req, res) {
     }
 
     const trimmedFriendCode = friendCode?.replaceAll(' ', '');
-    if (trimmedFriendCode != null && !(/\d{12}/g).test(trimmedFriendCode)) {
+    const isFriendCodeEmpty = trimmedFriendCode == null || trimmedFriendCode == '';
+    if (!isFriendCodeEmpty && !(/\d{12}/g).test(trimmedFriendCode)) {
       res.status(401).json({ error: 'api_invalid_friend_code' });
       return;
     }
