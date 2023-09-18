@@ -16,7 +16,6 @@ function generateImage(profile, season, callback) {
   const canvas = document.createElement('canvas');
   canvas.width = 1200;
   canvas.height = 1500;
-  canvas.className = 'profile-image';
   const context = canvas.getContext('2d');
 
   // Load the background image
@@ -35,7 +34,7 @@ function generateImage(profile, season, callback) {
   // qrCodeCanvas.height = qrCodeSize;
   // const qrCodeContext = qrCodeCanvas.getContext('2d');
 
-  backgroundImage.onload = function () {
+  backgroundImage.onload = () => {
     // Draw the background image
     context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
     // canvas.width = 1200;
@@ -126,7 +125,7 @@ function generateImage(profile, season, callback) {
     context.fillStyle = 'white';
 
     const championshipImage = new Image();
-    championshipImage.onload = function () {
+    championshipImage.onload = () => {
       context.drawImage(championshipImage, 325, 160, 160, 130);
     };
 
@@ -213,7 +212,6 @@ function generateImage(profile, season, callback) {
         const { roster } = tournament; // Assuming each tournament has a roster array
 
         if (roster && roster.length > 0) {
-          const maxRosterPerRow = 6; // Maximum number of roster images per row
           let xOffset = isBig ? 50 : 0; // Adjust the X-coordinate for roster display
 
           const loadRosterImages = (index) => {
@@ -285,6 +283,7 @@ function generateImage(profile, season, callback) {
                 }
                 loadRosterImages(index + 1); // Load the next image in the roster recursively
               };
+              shadowImage.setAttribute('crossorigin', 'anonymous');
               shadowImage.src = 'https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/2fd819c1-f95a-4810-65ac-52c423ae1400/public';
             });
           };
@@ -344,6 +343,7 @@ function GenerateLocalImage({ profile, season }) {
       {imageUrl && (
         <a href={imageUrl} download={`dracoviz-profile-${profile.name}`}>
           <img
+            className="profile-image"
             style={{
               marginBottom: 10, maxWidth: 560, width: '100%', objectFit: 'contain',
             }}
