@@ -1,11 +1,11 @@
 @font-face {
-    font-family: 'MyFont';
-    src: url('/myfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  /* Optionally, apply the font to specific elements*/
-  body {
-    font-family: 'MyFont', sans-serif;
-  } 
+  font-family: 'MyFont';
+  src: url('/myfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Optionally, apply the font to specific elements*/
+.profile-image {
+  font-family: 'MyFont', sans-serif;
+}
