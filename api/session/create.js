@@ -100,6 +100,7 @@ async function handler(req, res) {
       state: sessionStates.notStarted,
       currentRoundNumber: 0,
       registrationClosed: false,
+      concluded: false,
       bracket: [{
         round: Date.now(),
         matches: [{

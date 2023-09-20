@@ -117,7 +117,7 @@ async function handler(req, res) {
     }
 
     const {
-      host, state, maxTeamSize, metas, cpVisible, movesetsVisible, registrationClosed,
+      host, state, maxTeamSize, metas, cpVisible, movesetsVisible, registrationClosed, concluded,
     } = session;
     const isHost = host?.includes(x_session_id);
     const isTeamTournament = maxTeamSize > 1;
@@ -161,6 +161,7 @@ async function handler(req, res) {
       factions,
       teamCode,
       registrationClosed,
+      concluded,
     };
     res.status(200).json(maskedSession);
   } catch (ex) {
