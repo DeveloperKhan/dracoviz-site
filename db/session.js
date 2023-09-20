@@ -51,24 +51,33 @@ const getSessionModel = async () => {
       losses: { type: Number },
       gameWins: { type: Number },
       gameLosses: { type: Number },
+      teamsByRound: [{
+        round: { type: Number },
+        pokemon: [
+          {
+            sid: { type: Number },
+            speciesName: { type: String },
+            cp: { type: Number },
+            chargedMoves: [String],
+            fastMove: { type: String },
+            best_buddy: { type: Boolean, default: false },
+            shadow: { type: Boolean, default: false },
+            purified: { type: Boolean, default: false },
+          },
+        ],
+      }],
     }],
+    bracketType: { type: String },
     bracket: [{
       round: { type: Number },
+      score: [[Number]],
       matches: [
         {
-          score: [Number],
-          meta: String,
-          players: [{
+          seed: { type: Number },
+          metas: [String],
+          participants: [{
             id: String,
-            score: [Number],
-            pokemon: [{
-              sid: { type: Number },
-              speciesName: { type: String },
-              cp: { type: Number },
-              best_buddy: { type: Boolean, default: false },
-              shadow: { type: Boolean, default: false },
-              purified: { type: Boolean, default: false },
-            }],
+            score: [[Number]],
           }],
         },
       ],
