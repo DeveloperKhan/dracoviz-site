@@ -7,7 +7,7 @@ const getSessionModel = async () => {
   const SessionSchema = new mongoose.Schema({
     key: {
       type: String,
-      default: () => crypto.randomUUID().slice(-8),
+      default: () => crypto.randomUUID().slice(-12),
       unique: true,
     },
     name: { type: String, required: true },
@@ -46,17 +46,15 @@ const getSessionModel = async () => {
         shadow: { type: Boolean, default: false },
         purified: { type: Boolean, default: false },
       }],
+      wins: { type: Number },
+      losses: { type: Number },
+      gameWins: { type: Number },
+      gameLosses: { type: Number },
     }],
     bracket: [{
-      round: {
-        type: Number,
-      },
+      round: { type: Number },
       matches: [
         {
-          id: {
-            type: String,
-            unique: true,
-          },
           score: [Number],
           meta: String,
           players: [{
