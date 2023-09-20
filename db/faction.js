@@ -7,7 +7,7 @@ const getFactionModel = async () => {
   const FactionSchema = new mongoose.Schema({
     key: {
       type: String,
-      default: () => crypto.randomUUID().slice(-8),
+      default: () => crypto.randomUUID().slice(-11),
       unique: true,
     },
     name: { type: String, required: true },
