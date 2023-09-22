@@ -12,7 +12,7 @@
         "gatsby"
     ],
     "engines": {
-        "node": "17.x"
+        "node": "18.x"
     },
     "license": "0BSD",
     "main": "n/a",
