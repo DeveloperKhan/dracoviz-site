@@ -2,6 +2,7 @@ import React from 'react';
 import BestBuddy from '../../content/assets/best_buddy_small.png';
 import Purified from '../../content/assets/purified_small.png';
 import Shadow from '../../content/assets/shadow_small.png';
+import pokemonJson from '../../static/pokemon.json';
 
 function compare(a, b) {
   if (a.name < b.name) {
@@ -27,10 +28,62 @@ export function getRosterSearchHTML(player) {
 }
 
 function capitalize(s) {
-  return s && s[0].toUpperCase() + s.slice(1);
+  return s.split(' ').map((sp) => sp.charAt(0).toUpperCase() + sp.substring(1)).join(' ');
+  // return s && s[0].toUpperCase() + s.slice(1);
+}
+
+export function getPokemonURLName(pokemon) {
+  let pokemonName = pokemon.name.toLowerCase()
+      .replace(' ', '-')
+      .replace('.', '')
+      .replace('&#39;', '')
+      .replace("-", "_"); // `
+      console.log(pokemon.name)
+      console.log(pokemonName)
+    let formString = '';
+    // default image is too big
+    if (pokemonName === 'spinda') {
+      pokemonName = 'spinda_01';
+    } else if (pokemonName === 'meowstic') {
+      pokemonName = 'meowstic_male';
+    } else if (pokemonName === 'tapufini') {
+      pokemonName = 'tapu_fini';
+    }
+    if (pokemon.form !== '') {
+      if (pokemon.name === 'Pikachu') { // yes, people have ran this lol
+        if (pokemon.form === '[Pikachu Vs 2019*]') {
+          pokemonName = 'pikachu_libre';
+        } else if (pokemon.form === '[Pikachu Costume 2020*]') {
+          pokemonName = 'pikachu_balloon4';
+        } else if (pokemon.form === '[Pikachu Flying 5Th Anniv*]') {
+          pokemonName = 'pikachu_balloon5';
+        } else if (pokemon.form === '[Pikachu Flying Okinawa*]') {
+          pokemonName = 'pikachu_okinawa-balloon';
+        } else if (pokemon.form === '[Pikachu Kariyushi*]') {
+          pokemonName = 'pikachu_kariyushi';
+        } else if (pokemon.form === '[Pikachu Pop star*]') {
+          pokemonName = 'pikachu_popstar';
+        } else if (pokemon.form === '[Pikachu Rock Star*]') {
+          pokemonName = 'pikachu_rockstar';
+        }
+      } else if (pokemon.name === 'Castform') {
+        formString = `-${pokemon.form.toLowerCase().split(' ')[1].split(']')[0].replace('*', '')}`;
+      } else if (pokemon.name === 'Mr. Mime') {
+        if (pokemon.form.includes('galar')) {
+          formString = '_galarian';
+        }
+      } else if (pokemon.form.includes(' ')) {
+        const split = pokemon.form.toLowerCase().split('[');
+        formString = `_${split[split.length - 1].split('form')[0].replace(' ', '')}`;
+      }
+    }
+
+    console.log(pokemonName)
+    return pokemonName + formString;
 }
 
 export function getRosterHTML(player) {
+  console.log(player)
   if (player === undefined) {
     return null;
   }
@@ -47,6 +100,8 @@ export function getRosterHTML(player) {
       pokemonName = 'spinda-01';
     } else if (pokemonName === 'meowstic') {
       pokemonName = 'meowstic-male';
+    } else if (pokemonName === 'tapufini') {
+      pokemonName = 'tapu-fini';
     }
     if (pokemon.form !== '') {
       if (pokemon.name === 'Pikachu') { // yes, people have ran this lol
@@ -79,7 +134,7 @@ export function getRosterHTML(player) {
     }
 
     const title = `${
-      capitalize(formString.replace('-', '') + (formString ? ' ' : '') + capitalize(pokemonName))} ${
+      capitalize(formString.replace('-', '') + (formString ? ' ' : '') + capitalize(pokemonName.replace('-', ' ')))} ${
       pokemon.cp} CP${
       pokemon.shadow ? ' Shadow' : ''
     }${pokemon.purified ? ' Purified' : ''
@@ -107,6 +162,16 @@ export function getRosterHTML(player) {
       return null;
     };
 
+    
+    console.log("test")
+    console.log(pokemonName.replace("-", "_"))
+    const pokemonJsonSid = pokemonJson[getPokemonURLName(pokemon)];
+    console.log(pokemonName.replace("-", "_"))
+    const sid = pokemonJsonSid != null && pokemonJsonSid.sid != null ? pokemonJsonSid.sid : 1000000000;
+    console.log(pokemonName.replace("-", "_"))
+    const imageUrl = `https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/home_${sid}.png/public`;
+    console.log(imageUrl)
+
     return (
       <div
         width="69px"
@@ -119,12 +184,12 @@ export function getRosterHTML(player) {
         {getShadow()}
         {getPurified()}
         <img
-          width="69px"
-          height="69px"
+          width="60px"
+          height="60px"
           className="pokemon-image"
           alt={pokemonName}
-          src={`https://img.pokemondb.net/sprites/go/normal/${
-            pokemonName}${formString}.png`}
+          src={imageUrl}
+          style={{objectFit: "contain"}}
         />
       </div>
     );
