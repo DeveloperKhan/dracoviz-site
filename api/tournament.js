@@ -1,5 +1,4 @@
 import { MongoClient } from 'mongodb';
-
 import { createClient } from '@vercel/kv';
 
 const uri = process.env.GATSBY_MONGODB_URL;
