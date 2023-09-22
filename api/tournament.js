@@ -1,5 +1,4 @@
 import { MongoClient } from 'mongodb';
-
 import { createClient } from '@vercel/kv';
 
 const uri = process.env.GATSBY_MONGODB_URL;
@@ -33,9 +32,43 @@ async function handler(req, res) {
     } else if (searchType === 'profile') {
       const kvClient = createClient({
         token: process.env.KV_REST_API_TOKEN,
-        url: process.env.KV_REST_API_URL
+        url: process.env.KV_REST_API_URL,
       });
-      const profileData = await kvClient.get(`profiles:${name.toLowerCase()}`);
+
+      let profileData = null;
+      console.log('ok');
+      if (name !== '') {
+        profileData = await kvClient.get(`profiles:${name.toLowerCase()}`);
+        console.log('ok2');
+      }
+      if (profileData == null) {
+        console.log('saj');
+        let prevKey = 0;
+        let allProfiles = [];
+        for (let i = 0; i < 10000; i += 1) {
+          // eslint-disable-next-line no-await-in-loop
+          const profiles = await kvClient.scan(
+            prevKey,
+            {
+              match: 'profiles:*',
+              count: 1000,
+              type: 'string',
+            },
+          );
+          if (profiles[1].length === 0 || profiles[0] === 0) {
+            break;
+          }
+          console.log(profiles);
+          // eslint-disable-next-line prefer-destructuring
+          prevKey = profiles[0];
+          allProfiles = allProfiles.concat(profiles[1]);
+        }
+
+        const filteredList = [...new Set(allProfiles.filter((str) => str === str.toLowerCase()))]
+          .map((str) => str.slice(9));
+        res.status(200).json({ allProfiles: filteredList });
+        return;
+      }
       res.status(200).json(profileData);
     } else {
       const players = pokemongo.collection('tm_players');

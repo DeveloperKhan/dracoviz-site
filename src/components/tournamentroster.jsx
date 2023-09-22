@@ -6,7 +6,7 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import { debounce } from "lodash"
+import { debounce } from 'lodash';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import BootstrapTable from 'react-bootstrap-table-next';
@@ -14,21 +14,19 @@ import ToolkitProvider from 'react-bootstrap-table2-toolkit';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import Modal from 'react-modal';
-import { getRosterHTML, getRosterSearchHTML } from '../utils/tournament-roster-utils';
 import classNames from 'classnames';
-import { Tooltip } from 'react-tooltip'
+import { Tooltip } from 'react-tooltip';
 import { Link } from 'gatsby';
+import { getRosterHTML, getRosterSearchHTML } from '../utils/tournament-roster-utils';
 import { linkifyEvent } from '../utils/url-utils';
 import useWindowSize from '../utils/use-window-size';
 
-const noDataIndication = "There is no data for this event. Please check back another time! :)";
-const noSearchIndication = "No search data found :)";
+const noDataIndication = 'There is no data for this event. Please check back another time! :)';
+const noSearchIndication = 'No search data found :)';
 
-const parseTm = (tm) => {
-  return tm.replaceAll("-", " ")
-    .replace(/[a-z][a-z]ic/g, match => match.toUpperCase()) // all **ic
-    .replace(/(?:^|\s|["'([{])+\S/g, match => match.toUpperCase());
-}
+const parseTm = (tm) => tm.replaceAll('-', ' ')
+  .replace(/[a-z][a-z]ic/g, (match) => match.toUpperCase()) // all **ic
+  .replace(/(?:^|\s|["'([{])+\S/g, (match) => match.toUpperCase());
 
 const columnsMatches = [{
   dataField: 'placement',
@@ -125,13 +123,13 @@ function getColumns(width) {
     text: 'GW',
     sort: true,
     hidden: isMobile,
-    headerStyle: () => ({ width: '3.8rem'  }),
+    headerStyle: () => ({ width: '3.8rem' }),
   }, {
     dataField: 'gl',
     text: 'GL',
     sort: true,
     hidden: isMobile,
-    headerStyle: () => ({ width: '4rem'  }),
+    headerStyle: () => ({ width: '4rem' }),
   }];
   return newColumns;
 }
@@ -140,30 +138,26 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
   const [searchInput, setSearchInput] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]); // State to store filtered data
 
-
   const handleSearchInputChange = (e) => {
     setSearchInput(e.target.value);
   };
-
 
   const filterData = () => {
     if (searchInput === '' || searchInput == null) {
       setFilteredProducts(products); // Set filteredProducts to all products when searchInput is blank
       return;
     }
-  
+
     // Use a regular expression to split the search input by commas or ampersands and trim spaces
-    const searchTerms = searchInput.toLowerCase().split(/[,&]/).map(term => term.trim());
-  
+    const searchTerms = searchInput.toLowerCase().split(/[,&]/).map((term) => term.trim());
+
     const filteredData = products.filter((product) => {
       if (product?.searchName?.toLowerCase().includes(searchInput.toLowerCase())) {
         return true;
       }
       const productSearch = (product && product.search) ? product.search.toLowerCase() : '';
-      const productNames = productSearch.split(' ').map(name => name.trim());
-      return searchTerms.every((term) =>
-        productNames.some((name) => name.includes(term))
-      );
+      const productNames = productSearch.split(' ').map((name) => name.trim());
+      return searchTerms.every((term) => productNames.some((name) => name.includes(term)));
     });
     setFilteredProducts(filteredData);
   };
@@ -188,28 +182,39 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
 
   const handleClick = (player, matches) => {
     const newProductsMatches = [];
-    var player1RosterHtml = getRosterHTML(player);
-    var matchesData = player.match_wins + " W - " + player.match_losses + " L (" + (player.match_wins + player.match_losses > 0 ? (100 * player.match_wins / (player.match_wins + player.match_losses)) : 0).toFixed(2) + "%)"
-    var gamesData = player.game_wins + " W - " + player.game_losses + " L (" + (player.game_wins + player.game_losses > 0 ? (100 * player.game_wins / (player.game_wins + player.game_losses)) : 0).toFixed(2) + "%)"
+    const player1RosterHtml = getRosterHTML(player);
+    const matchesData = `${player.match_wins} W - ${player.match_losses} L (${(player.match_wins + player.match_losses > 0 ? (100 * player.match_wins / (player.match_wins + player.match_losses)) : 0).toFixed(2)}%)`;
+    const gamesData = `${player.game_wins} W - ${player.game_losses} L (${(player.game_wins + player.game_losses > 0 ? (100 * player.game_wins / (player.game_wins + player.game_losses)) : 0).toFixed(2)}%)`;
     newProductsMatches.push({
       placement: (
-        <label className="pill pill-black">#{player.final_rank}</label>
+        <label className="pill pill-black">
+          #
+          {player.final_rank}
+        </label>
       ),
       name: (
         <section className="player-item-team-container">
-          <a href={`/profile/${player.name}`} style={{textDecoration: "none"}}>
+          <a href={`/profile/${player.name}`} style={{ textDecoration: 'none' }}>
             {player.name}
             <svg style={{ marginLeft: 10, marginBottom: 2 }} width="7" height="10" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M9.06001 6.93997C9.34091 7.22122 9.49869 7.60247 9.49869 7.99997C9.49869 8.39747 9.34091 8.77872 9.06001 9.05997L3.40401 14.718C3.12262 14.9992 2.74102 15.1572 2.34316 15.1571C1.9453 15.157 1.56377 14.9989 1.28251 14.7175C1.00125 14.4361 0.84329 14.0545 0.843384 13.6566C0.843478 13.2588 1.00162 12.8772 1.28301 12.596L5.87901 7.99997L1.28301 3.40397C1.00964 3.1212 0.858265 2.74237 0.861496 2.34907C0.864727 1.95577 1.0223 1.57947 1.30028 1.30123C1.57827 1.02298 1.95441 0.865054 2.34771 0.861452C2.741 0.85785 3.11998 1.00887 3.40301 1.28197L9.06101 6.93897L9.06001 6.93997Z" fill="black"/>
+              <path fillRule="evenodd" clipRule="evenodd" d="M9.06001 6.93997C9.34091 7.22122 9.49869 7.60247 9.49869 7.99997C9.49869 8.39747 9.34091 8.77872 9.06001 9.05997L3.40401 14.718C3.12262 14.9992 2.74102 15.1572 2.34316 15.1571C1.9453 15.157 1.56377 14.9989 1.28251 14.7175C1.00125 14.4361 0.84329 14.0545 0.843384 13.6566C0.843478 13.2588 1.00162 12.8772 1.28301 12.596L5.87901 7.99997L1.28301 3.40397C1.00964 3.1212 0.858265 2.74237 0.861496 2.34907C0.864727 1.95577 1.0223 1.57947 1.30028 1.30123C1.57827 1.02298 1.95441 0.865054 2.34771 0.861452C2.741 0.85785 3.11998 1.00887 3.40301 1.28197L9.06101 6.93897L9.06001 6.93997Z" fill="black" />
             </svg>
           </a>
           <div className="player-item-row">{player1RosterHtml}</div>
-          <label align="left">Matches: {matchesData}</label>
-          <br/>
-          <label align="left">Games: {gamesData}</label>
+          <label align="left">
+            Matches:
+            {' '}
+            {matchesData}
+          </label>
+          <br />
+          <label align="left">
+            Games:
+            {' '}
+            {gamesData}
+          </label>
         </section>
-      )
-    })
+      ),
+    });
     matches.forEach((match, index) => {
       // const player1 = match.player1 === player.name ? match.player1 : match.player2;
       const player2 = match.player2 === player.name ? match.player1 : match.player2;
@@ -217,27 +222,37 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
       const player2score = match.player2 === player.name ? match.player1score : match.player2score;
       const rosterHtml = getRosterHTML(playerDict[player2]);
 
-           newProductsMatches.push({
-            placement: (
-              <div>
-                <label>Match {index + 1}</label>
-                <br/>
-                <div className={classNames("pill", { "pill-green": player1score > player2score, "pill-red": player1score < player2score, "pill-accent": player1score === player2score})}>{player1score} - {player2score}</div>
-              </div>
-            ),
-            name: (
-              <div className="player-item-team-container">
-                
-                <a href={`/profile/${player2}`} style={{textDecoration: "none"}}>
-                  {player2}
-                  <svg style={{ marginLeft: 10, marginBottom: 2 }} width="7" height="10" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.06001 6.93997C9.34091 7.22122 9.49869 7.60247 9.49869 7.99997C9.49869 8.39747 9.34091 8.77872 9.06001 9.05997L3.40401 14.718C3.12262 14.9992 2.74102 15.1572 2.34316 15.1571C1.9453 15.157 1.56377 14.9989 1.28251 14.7175C1.00125 14.4361 0.84329 14.0545 0.843384 13.6566C0.843478 13.2588 1.00162 12.8772 1.28301 12.596L5.87901 7.99997L1.28301 3.40397C1.00964 3.1212 0.858265 2.74237 0.861496 2.34907C0.864727 1.95577 1.0223 1.57947 1.30028 1.30123C1.57827 1.02298 1.95441 0.865054 2.34771 0.861452C2.741 0.85785 3.11998 1.00887 3.40301 1.28197L9.06101 6.93897L9.06001 6.93997Z" fill="black"/>
-                  </svg>
-                </a>
-                <div className="player-item-row">{rosterHtml}</div>
-              </div>
-              )
-          })
+      newProductsMatches.push({
+        placement: (
+          <div>
+            <label>
+              Match
+              {' '}
+              {index + 1}
+            </label>
+            <br />
+            <div className={classNames('pill', { 'pill-green': player1score > player2score, 'pill-red': player1score < player2score, 'pill-accent': player1score === player2score })}>
+              {player1score}
+              {' '}
+              -
+              {' '}
+              {player2score}
+            </div>
+          </div>
+        ),
+        name: (
+          <div className="player-item-team-container">
+
+            <a href={`/profile/${player2}`} style={{ textDecoration: 'none' }}>
+              {player2}
+              <svg style={{ marginLeft: 10, marginBottom: 2 }} width="7" height="10" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" clipRule="evenodd" d="M9.06001 6.93997C9.34091 7.22122 9.49869 7.60247 9.49869 7.99997C9.49869 8.39747 9.34091 8.77872 9.06001 9.05997L3.40401 14.718C3.12262 14.9992 2.74102 15.1572 2.34316 15.1571C1.9453 15.157 1.56377 14.9989 1.28251 14.7175C1.00125 14.4361 0.84329 14.0545 0.843384 13.6566C0.843478 13.2588 1.00162 12.8772 1.28301 12.596L5.87901 7.99997L1.28301 3.40397C1.00964 3.1212 0.858265 2.74237 0.861496 2.34907C0.864727 1.95577 1.0223 1.57947 1.30028 1.30123C1.57827 1.02298 1.95441 0.865054 2.34771 0.861452C2.741 0.85785 3.11998 1.00887 3.40301 1.28197L9.06101 6.93897L9.06001 6.93997Z" fill="black" />
+              </svg>
+            </a>
+            <div className="player-item-row">{rosterHtml}</div>
+          </div>
+        ),
+      });
     });
     setProductMatches(newProductsMatches);
     setIsOpen(true);
@@ -259,94 +274,98 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
       setColumns(newColumns);
       setIsLoading(false);
     }, 1);
-  }, [width])
+  }, [width]);
 
   useEffect(() => {
     setIsLoading(true);
     const host = `${window.location.protocol}//${window.location.host}`;
-    
-    const tmUrl = showWorldsQualified ? `${host}/api/tournament?searchType=qualified` : (playerName !== undefined ? `${host}/api/tournament?searchType=profile&name=${playerName}` : `${host}/api/tournament?searchType=tm&tm=${tmName}`)
+
+    const tmUrl = showWorldsQualified ? `${host}/api/tournament?searchType=qualified` : (playerName !== undefined ? `${host}/api/tournament?searchType=profile&name=${playerName}` : `${host}/api/tournament?searchType=tm&tm=${tmName}`);
     Promise.all([
       axios.get(tmUrl, {
         headers: {
-          'x_authorization': `Basic ${process.env.GATSBY_SECRET_KEY}` 
-        }
+          x_authorization: `Basic ${process.env.GATSBY_SECRET_KEY}`,
+        },
       }),
       !showWorldsQualified ? axios.get(`${host}/api/matches?tm=${tmName}`, {
         headers: {
-          'x_authorization': `Basic ${process.env.GATSBY_SECRET_KEY}` 
-        }
+          x_authorization: `Basic ${process.env.GATSBY_SECRET_KEY}`,
+        },
       }) : undefined,
     ])
-    .then((response) => {
-      const [players, matches] = response;
-      if (players == null || players.data.length <= 0) {
-        setProducts([]);
-        setIsLoading(false);
-        return;
-      }
-      const playerMatches = {}
-      const newProducts = [];
-      if (matches != null) {
-        matches.data.forEach((match) => {
-          playerMatches[match.player1] = playerMatches[match.player1] !== undefined ? playerMatches[match.player1] : [];
-          playerMatches[match.player2] = playerMatches[match.player2] !== undefined ? playerMatches[match.player2] : [];
-          playerMatches[match.player1].push(match);
-          playerMatches[match.player2].push(match);
-        });
-      }
-      players.data.forEach((player) => {
-        playerDict[player.name] = player;
-        const rosterHtml = getRosterHTML(player);
-        const eventLabel = ` - (${parseTm(player.tournament)})`
-        newProducts.push({
-          placement: (
-            <div className="player-item-placement" value={player.final_rank}>
-              <div className="pill pill-black">#{player.final_rank}</div>
-              { showWorldsQualified ? null : (
-                <button className="player-item-modal-link" onClick={() => handleClick(player, playerMatches[player.name])} type="button">See Games</button>
-              )}
-            </div>
-          ),
-          name: (
-            <div className="player-item-team-container">
-              {
+      .then((response) => {
+        const [players, matches] = response;
+        if (players == null || players.data.length <= 0) {
+          setProducts([]);
+          setIsLoading(false);
+          return;
+        }
+        const playerMatches = {};
+        const newProducts = [];
+        if (matches != null) {
+          matches.data.forEach((match) => {
+            playerMatches[match.player1] = playerMatches[match.player1] !== undefined ? playerMatches[match.player1] : [];
+            playerMatches[match.player2] = playerMatches[match.player2] !== undefined ? playerMatches[match.player2] : [];
+            playerMatches[match.player1].push(match);
+            playerMatches[match.player2].push(match);
+          });
+        }
+        players.data.forEach((player) => {
+          playerDict[player.name] = player;
+          const rosterHtml = getRosterHTML(player);
+          const eventLabel = ` - (${parseTm(player.tournament)})`;
+          newProducts.push({
+            placement: (
+              <div className="player-item-placement" value={player.final_rank}>
+                <div className="pill pill-black">
+                  #
+                  {player.final_rank}
+                </div>
+                { showWorldsQualified ? null : (
+                  <button className="player-item-modal-link" onClick={() => handleClick(player, playerMatches[player.name])} type="button">See Games</button>
+                )}
+              </div>
+            ),
+            name: (
+              <div className="player-item-team-container">
+                {
                 showWorldsQualified ? (
                   <Link to={linkifyEvent(player.tournament)}>
-                    {player.name}{eventLabel}
+                    {player.name}
+                    {eventLabel}
                   </Link>
                 ) : (
                   <div>
-                    <a href={`/profile/${player.name}`} style={{textDecoration: "none"}}>
+                    <a href={`/profile/${player.name}`} style={{ textDecoration: 'none' }}>
                       {player.name}
                       <svg style={{ marginLeft: 10, marginBottom: 2 }} width="7" height="10" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.06001 6.93997C9.34091 7.22122 9.49869 7.60247 9.49869 7.99997C9.49869 8.39747 9.34091 8.77872 9.06001 9.05997L3.40401 14.718C3.12262 14.9992 2.74102 15.1572 2.34316 15.1571C1.9453 15.157 1.56377 14.9989 1.28251 14.7175C1.00125 14.4361 0.84329 14.0545 0.843384 13.6566C0.843478 13.2588 1.00162 12.8772 1.28301 12.596L5.87901 7.99997L1.28301 3.40397C1.00964 3.1212 0.858265 2.74237 0.861496 2.34907C0.864727 1.95577 1.0223 1.57947 1.30028 1.30123C1.57827 1.02298 1.95441 0.865054 2.34771 0.861452C2.741 0.85785 3.11998 1.00887 3.40301 1.28197L9.06101 6.93897L9.06001 6.93997Z" fill="black"/>
+                        <path fillRule="evenodd" clipRule="evenodd" d="M9.06001 6.93997C9.34091 7.22122 9.49869 7.60247 9.49869 7.99997C9.49869 8.39747 9.34091 8.77872 9.06001 9.05997L3.40401 14.718C3.12262 14.9992 2.74102 15.1572 2.34316 15.1571C1.9453 15.157 1.56377 14.9989 1.28251 14.7175C1.00125 14.4361 0.84329 14.0545 0.843384 13.6566C0.843478 13.2588 1.00162 12.8772 1.28301 12.596L5.87901 7.99997L1.28301 3.40397C1.00964 3.1212 0.858265 2.74237 0.861496 2.34907C0.864727 1.95577 1.0223 1.57947 1.30028 1.30123C1.57827 1.02298 1.95441 0.865054 2.34771 0.861452C2.741 0.85785 3.11998 1.00887 3.40301 1.28197L9.06101 6.93897L9.06001 6.93997Z" fill="black" />
                       </svg>
- 
+
                     </a>
                   </div>
                 )
               }
-              <div data-search={getRosterSearchHTML(player)} className="player-item-row">{rosterHtml}</div>
-            </div>
-          ),
-          searchName: player.name,
-          search: getRosterSearchHTML(player),
-          mw: player.match_wins,
-          gw: player.game_wins,
-          gl: player.game_losses,
+                <div data-search={getRosterSearchHTML(player)} className="player-item-row">{rosterHtml}</div>
+              </div>
+            ),
+            searchName: player.name,
+            search: getRosterSearchHTML(player),
+            mw: player.match_wins,
+            gw: player.game_wins,
+            gl: player.game_losses,
+          });
         });
+        const playername = players.data[0].final_rank;
+        setTm(playername);
+        setProducts(newProducts);
+        setFilteredProducts(newProducts);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setProducts([]);
+        setIsLoading(false);
       });
-      const playername = players.data[0].final_rank;
-      setTm(playername);
-      setProducts(newProducts);
-      setFilteredProducts(newProducts);
-      setIsLoading(false);
-    })
-    .catch(() => {
-      setProducts([]);
-      setIsLoading(false);
-    });
   }, [tm]);
 
   return (
@@ -363,7 +382,7 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Matches"
-        style={{overlay: {zIndex: 1000}}}
+        style={{ overlay: { zIndex: 1000 } }}
       >
         <button onClick={closeModal} className="close-modal-btn">Close</button>
         <div className="matches-container use-bootstrap use-table is-layout-constrained">
@@ -398,7 +417,7 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
         {
           (props) => {
             if (isLoading) {
-              return (<div className="player-table-loading">...Loading</div>)
+              return (<div className="player-table-loading">...Loading</div>);
             }
             return (
               <div>
@@ -413,7 +432,7 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
                   pagination={paginationFactory(options)}
                 />
               </div>
-            )
+            );
           }
         }
       </ToolkitProvider>

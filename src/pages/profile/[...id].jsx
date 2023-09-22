@@ -14,6 +14,7 @@ import '../../css/@wordpress/block-library/build-style/theme.css';
 import Layout from '../../components/layout';
 import Seo from '../../components/seo';
 import ProfileRoster from '../../components/profileroster';
+import SearchBar from '../../components/searchbar';
 import GBL from '../../components/gbl';
 
 let tableOfContentsItems = [
@@ -29,8 +30,17 @@ const loadingStyle = {
 const usernameStyle = {
   fontFamily: 'Jost, sans-serif',
   fontWeight: '400',
-  fontSize: '75px',
+  fontSize: '4rem',
+  maxWidth: '100%', // Set a maximum width to prevent text from overflowing
   marginTop: '-40px', // Adjust this value as needed
+  wordWrap: 'break-word', // Add this line to enable word wrapping
+};
+const smallerFontSize = {
+  fontSize: '3rem', // Adjust this font size as needed
+};
+
+const smallestFontSize = {
+  fontSize: '1.5rem', // Adjust this font size as needed
 };
 
 function PlayerTemplate(props) {
@@ -38,16 +48,28 @@ function PlayerTemplate(props) {
   const [content] = useState();
   const [profileName, setProfileName] = useState('Loading...');
   const [profile, setProfile] = useState(null);
+  const [allProfiles, setAllProfiles] = useState(null);
+  const [query, setQuery] = useState('');
 
   const [playerFound, setPlayerFound] = useState(false);
   const [gblFound, setGBLFound] = useState(false);
   const [tournamentsFound, setTournamentsFound] = useState(false);
   const [profileStyle, setProfileStyle] = useState(loadingStyle);
 
+  let fontSizeStyle = {};
+
+  if (window.innerWidth <= 820) {
+    fontSizeStyle = smallerFontSize;
+  }
+
+  if (window.innerWidth <= 480) {
+    fontSizeStyle = smallestFontSize;
+  }
+
   useEffect(() => {
     const host = `${window.location.protocol}//${window.location.host}`;
     const tmUrl = `${host}/api/tournament?searchType=profile&name=${name}`;
-  
+
     axios
       .get(tmUrl, {
         headers: {
@@ -55,10 +77,15 @@ function PlayerTemplate(props) {
         },
       })
       .then((response) => {
-        console.log(response.data);
-        const obj = JSON.parse(response.data);
-        console.log(obj);
         
+        if (response.data.allProfiles != null) {
+          // setProfileStyle(usernameStyle);
+          setProfileName(name !== '' ? 'Player not found' : '');
+          setAllProfiles(response.data.allProfiles);
+          return;
+        }
+        const obj = JSON.parse(response.data);
+
         setProfileStyle(usernameStyle);
         if (obj == null) {
           setProfileName('Player not found');
@@ -137,12 +164,12 @@ function PlayerTemplate(props) {
   return (
     <Layout>
       <Seo title={profile != null ? profile.name : ''} description={profile != null ? profile.name : ''} />
-      <div className="is-layout-constrained">
-        <div style={containerStyle}>
+      <div className="article-body is-layout-constrained">
+        <div className="wp-block-group">
           <div style={playerProfileStyle}>
             <p><b>PLAYER PROFILE</b></p>
           </div>
-          <div style={profileStyle}>
+          <div style={{...profileStyle, ...fontSizeStyle}}>
             <p>{profile != null ? profile.name : profileName}</p>
           </div>
           {playerFound && (
@@ -154,6 +181,9 @@ function PlayerTemplate(props) {
           <div>
             <div style={gridContainerStyle}>{imageElements}</div>
           </div>
+          )}
+          {allProfiles != null && (
+            <SearchBar allSuggestions={allProfiles}/>
           )}
         </div>
 

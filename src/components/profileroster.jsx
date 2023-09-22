@@ -193,14 +193,9 @@ function TournamentRoster({
   seasons.push('All');
   seasons.reverse();
   const [selectedSeason, setSelectedSeason] = useState(seasons[0]); // Initialize with an empty string
-  const [selectedGraphicSeason, setSelectedGraphicSeason] = useState(seasons[1]); // Initialize with an empty string
 
   const handleSeasonChange = (event) => {
     setSelectedSeason(event.target.value);
-  };
-
-  const handleGraphicSeasonChange = (event) => {
-    setSelectedGraphicSeason(event.target.value);
   };
 
   const handleClick = (player, matches) => {
@@ -358,7 +353,7 @@ function TournamentRoster({
     setProducts(newProducts);
     setFilteredProducts(newProducts);
     setIsLoading(false);
-  }, [selectedSeason, selectedGraphicSeason]); // Listen for changes to selectedSeason
+  }, [selectedSeason]); // Listen for changes to selectedSeason
 
   return (
     <div id="player-list" className="roster-container use-bootstrap use-table">
@@ -438,7 +433,7 @@ function TournamentRoster({
             return <div className="player-table-loading">...Loading</div>;
           }
           return (
-            <div>
+            <div style={{overflowX: 'hidden'}}>
               <BootstrapTable
                 {...props.baseProps}
                 className="player-list-table"
@@ -449,18 +444,8 @@ function TournamentRoster({
                 defaultSorted={[{ dataField: 'date', order: 'desc' }]}
                 pagination={paginationFactory(options)}
               />
-              <select value={selectedGraphicSeason} onChange={handleGraphicSeasonChange} style={{ marginTop: '15px', fontFamily: 'var(--fontFamily-sans)' }}>
-                {seasons
-                .filter((season) => !season.includes('All'))
-                .map((season) => (
-                  <option key={season} value={season}>
-                    {season}
-                    {' '}
-                    Season
-                  </option>
-                ))}
-              </select>
-              <ProfileImage className="play-pokemon-image" season={selectedGraphicSeason} profile={response} />
+
+              <ProfileImage className="play-pokemon-image" seasons={seasons} profile={response} />
             </div>
           );
         }}

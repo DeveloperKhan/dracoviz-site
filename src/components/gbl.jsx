@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable max-len */
 /**
  * Bio component that queries for data
@@ -6,25 +7,12 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-
-
-
-
-
-/**
-<SearchBar
-  {...props.searchProps}
-  style={{ width: "400px", height: "40px" }}
-/>
-* */
-const playerDict = {};
-
 
 function GBL({ response }) {
   if (response == null || response.gbl == null) {
-    return;
+    return undefined;
   }
 
   const seasons = [...new Set(response.gbl.map((item) => item.season))];
@@ -33,8 +21,8 @@ function GBL({ response }) {
   const filteredData = response.gbl.filter((item) => item.season === selectedSeason);
 
   const finalDay = filteredData
-  .map((filt) => filt.days.find((day) => day.day === 'final'))
-  .find((day) => day !== undefined);
+    .map((filt) => filt.days.find((day) => day.day === 'final'))
+    .find((day) => day !== undefined);
 
   const count = filteredData.reduce((totalCount, filt) => {
     const daysOnLeaderboard = filt.days.filter((day) => day.rank < 501 && day.day !== 'final');
@@ -45,33 +33,66 @@ function GBL({ response }) {
     setSelectedSeason(event.target.value);
   };
 
-  
-  const divStyle = {
-    fontFamily: 'Arial, sans-serif',
-  };
-
   return (
     <div>
       <div>
-        <select value={selectedSeason} onChange={handleSeasonChange} style={{ fontFamily: 'var(--fontFamily-sans)' }}>
+        <select
+          value={selectedSeason}
+          onChange={handleSeasonChange}
+          style={{ fontFamily: 'var(--fontFamily-sans)' }}
+        >
           {seasons.map((season) => (
             <option key={season} value={season}>
-              Season {season}
+              Season
+              {' '}
+              {season}
             </option>
           ))}
         </select>
       </div>
-      <br/>
+      <br />
       <div className="data-container">
-        {filteredData.map((item, index) => (
-          <div key={index} className="data-item grid-container" style={{ fontWeight: 'var(--fontWeight-semibold)', fontFamily: 'var(--fontFamily-sans)' }}>
-            <div className="grid-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '25px' }}>
+        {filteredData.map((item) => (
+          <div
+            key={item.season}
+            className="data-item grid-container"
+            style={{
+              fontWeight: 'var(--fontWeight-semibold)',
+              fontFamily: 'var(--fontFamily-sans)',
+            }}
+          >
+            <div className="gbl-item-row">
               <div className="grid-item">
-                <div style={{ fontSize: '30px' }}><b>{finalDay.rank == null || finalDay.rank == "Unk" || finalDay.rank == "unk" || finalDay.rank == 501 ? "Unknown" : finalDay.rank}</b></div>
+                <div style={{ fontSize: '30px' }}>
+                  <b>
+                    {
+                      finalDay.rank == null
+                      || finalDay.rank === 'Unk'
+                      || finalDay.rank === 'unk'
+                      || finalDay.rank === 'Unk.'
+                      || finalDay.rank === 'unk.'
+                      || finalDay.rank === 501
+                        ? 'Unknown'
+                        : finalDay.rank
+                    }
+                  </b>
+                </div>
                 <label>Final Rank</label>
               </div>
               <div className="grid-item">
-                <div style={{ fontSize: '30px' }}><b>{finalDay.rating == null || finalDay.rating == "Unk" || finalDay.rating == "unk" ? "Unknown" : finalDay.rating}</b></div>
+                <div style={{ fontSize: '30px' }}>
+                  <b>
+                    {
+                      finalDay.rating == null
+                      || finalDay.rating === 'Unk'
+                      || finalDay.rating === 'unk'
+                      || finalDay.rating === 'unk.'
+                      || finalDay.rating === 'Unk.'
+                        ? 'Unknown'
+                        : finalDay.rating
+                      }
+                  </b>
+                </div>
                 <label>Final Rating</label>
               </div>
               <div className="grid-item">
@@ -87,7 +108,12 @@ function GBL({ response }) {
                 <label>Peak Rating</label>
               </div>
               <div className="grid-item">
-                <div style={{ fontSize: '30px' }}><b>{(item.score*100).toFixed(2)}%</b></div>
+                <div style={{ fontSize: '30px' }}>
+                  <b>
+                    {(item.score * 100).toFixed(2)}
+                    %
+                  </b>
+                </div>
                 <label>Performance Rating</label>
               </div>
             </div>
@@ -98,6 +124,5 @@ function GBL({ response }) {
     </div>
   );
 }
-  
 
 export default GBL;
