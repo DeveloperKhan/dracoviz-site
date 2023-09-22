@@ -1,5 +1,7 @@
 import { MongoClient } from 'mongodb';
 
+import { createClient } from '@vercel/kv';
+
 const uri = process.env.GATSBY_MONGODB_URL;
 const client = new MongoClient(uri);
 
@@ -29,9 +31,12 @@ async function handler(req, res) {
       const data = await players.find({ qualified: true }).toArray();
       res.status(200).json(data);
     } else if (searchType === 'profile') {
-      const profiles = pokemongo.collection('profiles');
-      const data = await profiles.find({  "name" : { $regex : new RegExp(name, "i") } }).toArray();
-      res.status(200).json(data);
+      const kvClient = createClient({
+        token: process.env.KV_REST_API_TOKEN,
+        url: process.env.KV_REST_API_URL
+      });
+      const profileData = await kvClient.get(`profiles:${name.toLowerCase()}`);
+      res.status(200).json(profileData);
     } else {
       const players = pokemongo.collection('tm_players');
       const data = await players.find({ tournament: tm }).toArray();

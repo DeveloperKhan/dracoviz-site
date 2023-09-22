@@ -19,12 +19,16 @@ export function getPokemonURLName(pokemon) {
       .replace('.', '')
       .replace('&#39;', '')
       .replace("-", "_"); // `
+      console.log(pokemon.name)
+      console.log(pokemonName)
     let formString = '';
     // default image is too big
     if (pokemonName === 'spinda') {
       pokemonName = 'spinda_01';
     } else if (pokemonName === 'meowstic') {
       pokemonName = 'meowstic_male';
+    } else if (pokemonName === 'tapufini') {
+      pokemonName = 'tapu_fini';
     }
     if (pokemon.form !== '') {
       if (pokemon.name === 'Pikachu') { // yes, people have ran this lol
@@ -55,6 +59,7 @@ export function getPokemonURLName(pokemon) {
       }
     }
 
+    console.log(pokemonName)
     return pokemonName + formString;
 }
 
@@ -72,7 +77,7 @@ export function getRosterSearchHTML(player) {
 }
 
 function capitalize(s) {
-  return s && s[0].toUpperCase() + s.slice(1);
+  return s.split(' ').map((sp) => sp.charAt(0).toUpperCase() + sp.substring(1)).join(' ');
 }
 
 export function getRosterHTML(tournament) {
@@ -91,6 +96,8 @@ export function getRosterHTML(tournament) {
       pokemonName = 'spinda-01';
     } else if (pokemonName === 'meowstic') {
       pokemonName = 'meowstic-male';
+    } else if (pokemonName === 'tapufini') {
+      pokemonName = 'tapu-fini';
     }
     if (pokemon.form !== '') {
       if (pokemon.name === 'Pikachu') { // yes, people have ran this lol
@@ -122,7 +129,7 @@ export function getRosterHTML(tournament) {
     }
 
     const title = `${
-      capitalize(formString.replace('-', '') + (formString ? ' ' : '') + capitalize(pokemonName))} ${
+      capitalize(formString.replace('-', '') + (formString ? ' ' : '') + capitalize(pokemonName.replace('-', ' ')))} ${
       pokemon.cp} CP${
       pokemon.shadow ? ' Shadow' : ''
     }${pokemon.purified ? ' Purified' : ''

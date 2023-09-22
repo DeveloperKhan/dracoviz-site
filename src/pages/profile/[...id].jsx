@@ -16,27 +16,38 @@ import Seo from '../../components/seo';
 import ProfileRoster from '../../components/profileroster';
 import GBL from '../../components/gbl';
 
-const tableOfContentsItems = [
-  {
-    location: 'play-pokemon',
-    title: 'Play! Pokemon',
-  },
-  {
-    location: 'go-battle-league',
-    title: 'Go Battle League',
-  },
+let tableOfContentsItems = [
+
 ];
+
+const loadingStyle = {
+  fontFamily: 'Jost, sans-serif',
+  fontWeight: '400',
+  fontSize: '25px',
+  marginTop: '-40px', // Adjust this value as needed
+};
+const usernameStyle = {
+  fontFamily: 'Jost, sans-serif',
+  fontWeight: '400',
+  fontSize: '75px',
+  marginTop: '-40px', // Adjust this value as needed
+};
 
 function PlayerTemplate(props) {
   const name = props?.params?.id;
   const [content] = useState();
+  const [profileName, setProfileName] = useState('Loading...');
   const [profile, setProfile] = useState(null);
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [playerFound, setPlayerFound] = useState(false);
+  const [gblFound, setGBLFound] = useState(false);
+  const [tournamentsFound, setTournamentsFound] = useState(false);
+  const [profileStyle, setProfileStyle] = useState(loadingStyle);
 
   useEffect(() => {
     const host = `${window.location.protocol}//${window.location.host}`;
     const tmUrl = `${host}/api/tournament?searchType=profile&name=${name}`;
+  
     axios
       .get(tmUrl, {
         headers: {
@@ -44,8 +55,34 @@ function PlayerTemplate(props) {
         },
       })
       .then((response) => {
-        setProfile(response);
-        setIsLoading(false); // Set loading to false when data is fetched
+        console.log(response.data);
+        const obj = JSON.parse(response.data);
+        console.log(obj);
+        
+        setProfileStyle(usernameStyle);
+        if (obj == null) {
+          setProfileName('Player not found');
+        } else {
+          setPlayerFound(true);
+          tableOfContentsItems = [];
+          if (obj.tournaments != null) {
+            setTournamentsFound(true);
+            tableOfContentsItems.push({
+              location: 'play-pokemon',
+              title: 'Play! Pokemon',
+            });
+          }
+          if (obj.gbl != null) {
+            tableOfContentsItems.push(
+            {
+              location: 'go-battle-league',
+              title: 'GO Battle League',
+            },
+);
+            setGBLFound(true);
+          }
+        }
+        setProfile(obj);
       });
   }, []);
 
@@ -53,7 +90,6 @@ function PlayerTemplate(props) {
     padding: '20px', // Adjust the padding as needed
     boxSizing: 'border-box',
     width: '100%',
-    maxWidth: '1150px', // Adjust the maximum width as needed
     margin: '0 auto', // Center the container horizontally
   };
 
@@ -62,12 +98,7 @@ function PlayerTemplate(props) {
     fontWeight: '400',
     fontSize: '40px',
   };
-  const usernameStyle = {
-    fontFamily: 'Jost, sans-serif',
-    fontWeight: '400',
-    fontSize: '25px',
-    marginTop: '-40px', // Adjust this value as needed
-  };
+
   const achievementNameStyle = {
     fontFamily: 'Jost, sans-serif',
     fontWeight: '400',
@@ -92,7 +123,7 @@ function PlayerTemplate(props) {
   let achievements = [];
   let imageElements = [];
   if (profile !== null) {
-    achievements = getAchievements(profile.data[0]);
+    achievements = getAchievements(profile);
   }
 
   // Render the list of images in the grid
@@ -105,51 +136,61 @@ function PlayerTemplate(props) {
 
   return (
     <Layout>
-      <Seo title={name} description={name} />
-      <div style={containerStyle}>
-        <div style={playerProfileStyle}>
-          <p><b>PLAYER PROFILE</b></p>
+      <Seo title={profile != null ? profile.name : ''} description={profile != null ? profile.name : ''} />
+      <div className="is-layout-constrained">
+        <div style={containerStyle}>
+          <div style={playerProfileStyle}>
+            <p><b>PLAYER PROFILE</b></p>
+          </div>
+          <div style={profileStyle}>
+            <p>{profile != null ? profile.name : profileName}</p>
+          </div>
+          {playerFound && (
+          <div>
+            <h2 className="wp-block-heading">Player Achievements</h2>
+          </div>
+          )}
+          {playerFound && (
+          <div>
+            <div style={gridContainerStyle}>{imageElements}</div>
+          </div>
+          )}
         </div>
-        <div style={usernameStyle}>
-          <p>{name}</p>
-        </div>
+
+        {playerFound && (
         <div>
-          <h2 className="wp-block-heading">Player Achievements</h2>
-        </div>
-        <div>
-          <div style={gridContainerStyle}>{imageElements}</div>
-        </div>
-      </div>
-      <div className="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
-        <TableOfContents items={tableOfContentsItems} />
+          <TableOfContents items={tableOfContentsItems} />
 
-        <div className="play-pokemon wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
-          <h2 className="wp-block-heading">Play! Pokemon</h2>
+          {tournamentsFound && (
+          <div className="play-pokemon">
+            <h2>Play! Pokemon</h2>
+          </div>
+          )}
+          {tournamentsFound && (
+          <ProfileRoster className="play-pokemon" playerName={name} response={profile} />
+          )}
+
+          {gblFound && (
+          <>
+            <div className="go-battle-league">
+              <h2>GO Battle League</h2>
+            </div>
+            <GBL playerName={name} response={profile} />
+          </>
+          )}
+
+          <article
+            className="player"
+            itemScope
+            itemType="http://schema.org/Article"
+          >
+
+            <section className="article-body" itemProp="articleBody">
+              {content}
+            </section>
+          </article>
         </div>
-        {!isLoading && (
-        <ProfileRoster className="play-pokemon" playerName={name} response={profile} />
         )}
-
-        <br />
-        <br />
-        <br />
-        <div className="go-battle-league wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
-          <h2 className="wp-block-heading">GO Battle League</h2>
-        </div>
-        {!isLoading && (
-        <GBL className="go-battle-league" playerName={name} response={profile} />
-        )}
-
-        <article
-          className="player"
-          itemScope
-          itemType="http://schema.org/Article"
-        >
-
-          <section className="article-body" itemProp="articleBody">
-            {content}
-          </section>
-        </article>
       </div>
 
     </Layout>

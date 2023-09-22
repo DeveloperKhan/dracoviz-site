@@ -23,14 +23,14 @@ const playerDict = {};
 
 
 function GBL({ response }) {
-  if (response.data.length <= 0 || response.data[0].gbl === undefined) {
+  if (response == null || response.gbl == null) {
     return;
   }
 
-  const seasons = [...new Set(response.data[0].gbl.map((item) => item.season))];
+  const seasons = [...new Set(response.gbl.map((item) => item.season))];
 
   const [selectedSeason, setSelectedSeason] = useState(seasons[0]);
-  const filteredData = response.data[0].gbl.filter((item) => item.season === selectedSeason);
+  const filteredData = response.gbl.filter((item) => item.season === selectedSeason);
 
   const finalDay = filteredData
   .map((filt) => filt.days.find((day) => day.day === 'final'))
@@ -67,11 +67,11 @@ function GBL({ response }) {
           <div key={index} className="data-item grid-container" style={{ fontWeight: 'var(--fontWeight-semibold)', fontFamily: 'var(--fontFamily-sans)' }}>
             <div className="grid-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '25px' }}>
               <div className="grid-item">
-                <div style={{ fontSize: '30px' }}><b>{finalDay.rank == 501 ? "Unknown" : finalDay.rank}</b></div>
+                <div style={{ fontSize: '30px' }}><b>{finalDay.rank == null || finalDay.rank == "Unk" || finalDay.rank == "unk" || finalDay.rank == 501 ? "Unknown" : finalDay.rank}</b></div>
                 <label>Final Rank</label>
               </div>
               <div className="grid-item">
-                <div style={{ fontSize: '30px' }}><b>{finalDay.rating == "Unk" ? "Unknown" : finalDay.rating}</b></div>
+                <div style={{ fontSize: '30px' }}><b>{finalDay.rating == null || finalDay.rating == "Unk" || finalDay.rating == "unk" ? "Unknown" : finalDay.rating}</b></div>
                 <label>Final Rating</label>
               </div>
               <div className="grid-item">
