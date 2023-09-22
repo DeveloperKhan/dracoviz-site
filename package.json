@@ -11,6 +11,9 @@
     "keywords": [
         "gatsby"
     ],
+    "engines": {
+        "node": "17.x"
+    },
     "license": "0BSD",
     "main": "n/a",
     "repository": {
