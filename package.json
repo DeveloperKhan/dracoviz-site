@@ -11,9 +11,6 @@
     "keywords": [
         "gatsby"
     ],
-    "engines": {
-        "node": "18.x"
-    },
     "license": "0BSD",
     "main": "n/a",
     "repository": {
@@ -82,8 +79,5 @@
         "eslint-plugin-react": "^7.32.2",
         "eslint-plugin-react-hooks": "^4.6.0",
         "prettier": "2.8.1"
-    },
-    "optionalDependencies": {
-        "@parcel/watcher-linux-x64-glibc": "^2.3.0"
     }
 }
