@@ -29,7 +29,7 @@ module.exports = {
     resolve: 'gatsby-source-wordpress',
     options: {
       // the only required plugin option for WordPress is the GraphQL url.
-      url: 'https://dracoviz.com/graphql',
+      url: 'https://wp.dracoviz.com/graphql',
     },
   },
 
