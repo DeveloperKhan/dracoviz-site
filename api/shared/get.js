@@ -46,13 +46,14 @@ async function handler(req, res) {
           });
         }
         const {
-          key, name, state, metas, currentRoundNumber,
+          key, name, state, metas, currentRoundNumber, concluded,
         } = session;
         const rule = rules[metas[0]];
         sessions.push({
           _id: key,
           name,
           currentRoundNumber,
+          concluded,
           playerValues: {
             status: state,
             role,

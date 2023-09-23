@@ -1,4 +1,3 @@
-import crypto from 'crypto';
 import getSessionModel from '../../db/session';
 import getPlayerModel from '../../db/player';
 import allowCors from '../../db/allowCors';
@@ -100,12 +99,8 @@ async function handler(req, res) {
       state: sessionStates.notStarted,
       currentRoundNumber: 0,
       registrationClosed: false,
-      bracket: [{
-        round: Date.now(),
-        matches: [{
-          id: crypto.randomUUID(),
-        }],
-      }],
+      concluded: false,
+      bracket: [],
     });
 
     const { key } = session;

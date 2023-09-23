@@ -41,6 +41,11 @@ async function handler(req, res) {
       return;
     }
 
+    if (session.concluded) {
+      res.status(401).json({ error: 'api_session_concluded' });
+      return;
+    }
+
     const isHost = session.host.includes(x_session_id);
     const sessionId = playerToRemove.session;
     const isThePlayer = x_session_id === sessionId;

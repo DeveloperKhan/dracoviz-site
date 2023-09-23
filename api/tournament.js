@@ -1,4 +1,5 @@
 import { MongoClient } from 'mongodb';
+import { createClient } from '@vercel/kv';
 
 import { createClient } from '@vercel/kv';
 

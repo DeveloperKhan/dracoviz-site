@@ -37,6 +37,11 @@ async function handler(req, res) {
       return;
     }
 
+    if (session.concluded) {
+      res.status(401).json({ error: 'api_session_concluded' });
+      return;
+    }
+
     if (session.registrationNumber !== undefined
        && session.registrationNumber !== registrationNumber) {
       res.status(401).json({ error: 'api_invalid_registration_number' });

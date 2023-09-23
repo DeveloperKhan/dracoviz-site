@@ -45,7 +45,6 @@ function generateImage(profile, season, callback) {
   } else {
     canvas.height = Math.max(1200, 550 + (Math.ceil(sortedTournaments.length/2) * 170));
   }
-  console.log(canvas.height)
   const context = canvas.getContext('2d');
 
   // // Generate the QR code for the profile URL
@@ -170,9 +169,6 @@ function generateImage(profile, season, callback) {
         // Draw the username
         context.fillStyle = 'white';
         context.fillText(profileDisplay, x, canvas.height - 50);
-    
-       
-        
         
         if (isBig) {
           function customSort(arr) {
