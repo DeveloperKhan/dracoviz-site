@@ -1,7 +1,8 @@
 import React from 'react';
-import BestBuddy from '../../content/assets/best_buddy_small.png';
-import Purified from '../../content/assets/purified_small.png';
-import Shadow from '../../content/assets/shadow_small.png';
+import BestBuddy from '../../content/assets/buddy_icon.png';
+import Purified from '../../content/assets/purified_icon.png';
+import Shadow from '../../content/assets/shadow_icon.png';
+import pokemonJson from '../../static/pokemon.json';
 
 function compare(a, b) {
   if (a.name < b.name) {
@@ -19,8 +20,6 @@ export function getPokemonURLName(pokemon) {
       .replace('.', '')
       .replace('&#39;', '')
       .replace("-", "_"); // `
-      console.log(pokemon.name)
-      console.log(pokemonName)
     let formString = '';
     // default image is too big
     if (pokemonName === 'spinda') {
@@ -59,7 +58,6 @@ export function getPokemonURLName(pokemon) {
       }
     }
 
-    console.log(pokemonName)
     return pokemonName + formString;
 }
 
@@ -136,46 +134,87 @@ export function getRosterHTML(tournament) {
     }${pokemon.best_buddy ? ' Best Buddy' : ''
     }`;
 
+    const buddyStyle = {
+      position: 'absolute', // Use position absolute to position shadow image
+      width: '25px', // Adjust the desired width for the shadow
+      height: '25px', // Adjust the desired height for the shadow
+      marginTop: '40px',
+      //marginLeft: '40px'
+    };
+
+    const shadowStyle = {
+      position: 'absolute', // Use position absolute to position shadow image
+      width: '25px', // Adjust the desired width for the shadow
+      height: '25px', // Adjust the desired height for the shadow
+      marginTop: '40px',
+      marginLeft: '40px'
+    };
+
     const getBestBuddy = () => {
       if (pokemon.best_buddy) {
-        return (<img className="image2" width="69px" alt="Best Buddy" src={BestBuddy} />);
+        return (
+          <img
+            className="image2"
+            alt="Best Buddy"
+            src={BestBuddy}
+            style={buddyStyle}
+            />
+        );
       }
       return null;
     };
 
     const getShadow = () => {
       if (pokemon.shadow) {
-        return (<img className="image2" width="69px" alt="Shadow" height="69px" src={Shadow} />);
+        return (
+          <img
+            className="image2"
+            alt="Shadow"
+            src={Shadow}
+            style={shadowStyle}
+            />
+        );
       }
       return null;
     };
 
     const getPurified = () => {
       if (pokemon.purified) {
-        return (<img className="image2" width="69px" alt="Purified" height="69px" src={Purified} />);
+        return (
+          <img
+            className="image2"
+            alt="Purified"
+            src={Purified}
+            style={shadowStyle}
+            />
+        );
       }
       return null;
     };
 
+        
+    const pokemonJsonSid = pokemonJson[getPokemonURLName(pokemon)];
+    const sid = pokemonJsonSid != null && pokemonJsonSid.sid != null ? pokemonJsonSid.sid : 1000000000;
+    const imageUrl = `https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/home_${sid}.png/public`;
+
     return (
       <div
-        width="69px"
-        height="69px"
         className="pokemon-image-wrapper"
         data-tooltip-id="pokemon-item"
         data-tooltip-content={title}
+
       >
-        {getBestBuddy()}
-        {getShadow()}
-        {getPurified()}
-        <img
-          width="69px"
-          height="69px"
-          className="pokemon-image"
-          alt={pokemonName}
-          src={`https://img.pokemondb.net/sprites/go/normal/${
-            pokemonName}${formString}.png`}
-        />
+          <img
+            width="60px"
+            height="60px"
+            className="pokemon-image"
+            alt={pokemonName}
+            src={imageUrl}
+            style={{objectFit: "contain"}}
+          />
+          {getShadow()}
+          {getBestBuddy()}
+          {getPurified()}
       </div>
     );
   });

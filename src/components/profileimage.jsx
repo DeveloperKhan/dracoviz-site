@@ -14,8 +14,38 @@ function loadImage(url, callback) {
 
 function generateImage(profile, season, callback) {
   const canvas = document.createElement('canvas');
+
+  const filteredTournaments = profile.tournaments.filter(
+    (tournament) => tournament.tournament.toLowerCase().includes(season),
+  );
+  const isBig = filteredTournaments.length >= 4;
+
+  function parseDateDDMMYY(dateString) {
+    const [day, month, year] = dateString.split('/');
+    const parsedDate = new Date(`20${year}`, month - 1, day);
+    return parsedDate;
+  }
+  
+  let sortedTournaments = profile.tournaments.slice(); // Create a shallow copy to avoid modifying the original array directly
+
+  sortedTournaments = sortedTournaments.filter((tournament) => {
+    return tournament["tournament"].includes(season);
+  });
+
+  sortedTournaments.sort((a, b) => {
+    const dateA = parseDateDDMMYY(a.date);
+    const dateB = parseDateDDMMYY(b.date);
+  
+    return dateA - dateB;
+  });
+  
   canvas.width = 1200;
-  canvas.height = 1500;
+  if (sortedTournaments.length <= 8) {
+    canvas.height = 1200;
+  } else {
+    canvas.height = Math.max(1200, 550 + (Math.ceil(sortedTournaments.length/2) * 170));
+  }
+  console.log(canvas.height)
   const context = canvas.getContext('2d');
 
   // // Generate the QR code for the profile URL
@@ -28,7 +58,7 @@ function generateImage(profile, season, callback) {
   // qrCodeCanvas.height = qrCodeSize;
   // const qrCodeContext = qrCodeCanvas.getContext('2d');
 
-  const font = new FontFace('MyFont', "url(/myfont.ttf) format('truetype')", {
+  const font = new FontFace('MyFont', "url(/myfont2.ttf) format('truetype')", {
     family: 'MyFont',
     style: 'normal',
     weight: '400',
@@ -141,29 +171,7 @@ function generateImage(profile, season, callback) {
         context.fillStyle = 'white';
         context.fillText(profileDisplay, x, canvas.height - 50);
     
-        const filteredTournaments = profile.tournaments.filter(
-          (tournament) => tournament.tournament.toLowerCase().includes(season),
-        );
-        const isBig = filteredTournaments.length > 5;
-
-        function parseDateDDMMYY(dateString) {
-          const [day, month, year] = dateString.split('/');
-          const parsedDate = new Date(`20${year}`, month - 1, day);
-          return parsedDate;
-        }
-        
-        let sortedTournaments = profile.tournaments.slice(); // Create a shallow copy to avoid modifying the original array directly
-    
-        sortedTournaments = sortedTournaments.filter((tournament) => {
-          return tournament["tournament"].includes(season);
-        });
-    
-        sortedTournaments.sort((a, b) => {
-          const dateA = parseDateDDMMYY(a.date);
-          const dateB = parseDateDDMMYY(b.date);
-        
-          return dateA - dateB;
-        });
+       
         
         
         if (isBig) {
