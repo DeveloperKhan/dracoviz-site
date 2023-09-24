@@ -37,8 +37,6 @@ function SeasonPage({ data: { allWpPost, page } }) {
     alt: page.featuredImage?.node?.alt || '',
   };
 
-  console.log(page);
-
   const [content, setContent] = useState();
 
   useEffect(() => {
@@ -50,7 +48,8 @@ function SeasonPage({ data: { allWpPost, page } }) {
         }
 
         if (attribs.id === 'player-list') {
-          return <TournamentRoster showWorldsQualified />;
+          const year = attribs['data-attribute'];
+          return <TournamentRoster showWorldsQualified year={year} />;
         }
 
         if (attribs.type === 'div' && attribs.id != null) {
