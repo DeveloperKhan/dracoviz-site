@@ -438,7 +438,7 @@ function TournamentRoster({
             return <div className="player-table-loading">...Loading</div>;
           }
           return (
-            <div>
+            <div style={{overflowX: 'hidden'}}>
               <BootstrapTable
                 {...props.baseProps}
                 className="player-list-table"

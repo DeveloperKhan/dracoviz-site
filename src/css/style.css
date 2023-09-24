@@ -559,6 +559,11 @@ a:focus {
   grid-template-columns: auto auto auto auto auto auto;
 }
 
+.gbl-item-row {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
 .pokemon-image-wrapper {
   position: relative;
   display: inline-block;
@@ -621,6 +626,10 @@ a:focus {
     display: grid;
     grid-template-columns: auto auto auto;
   }
+  .gbl-item-row {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
 }
 
 @media (max-width: 42rem) {
@@ -629,6 +638,10 @@ a:focus {
     width: 100%;
   }
   .player-item-row {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .gbl-item-row {
     display: grid;
     grid-template-columns: auto auto;
   }

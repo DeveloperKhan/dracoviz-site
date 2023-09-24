@@ -36,7 +36,37 @@ async function handler(req, res) {
         token: process.env.KV_REST_API_TOKEN,
         url: process.env.KV_REST_API_URL
       });
-      const profileData = await kvClient.get(`profiles:${name.toLowerCase()}`);
+      
+      let profileData = null;
+      console.log("ok")
+      if (name !== '') {
+        profileData = await kvClient.get(`profiles:${name.toLowerCase()}`);
+        console.log("ok2")
+      }
+      if (profileData == null) {
+        console.log("saj")
+        let prevKey = 0;
+        let results = [];
+        let allProfiles = [];
+        for (let i = 0; i < 10000; i++) {
+          let profiles = await kvClient.scan(prevKey, 
+            {match: "profiles:*",
+            count: 1000,
+            type: "string"});
+          if (profiles[1] == [] || profiles[0] == 0) {
+            break;
+          }
+          console.log(profiles)
+          prevKey = profiles[0];
+          allProfiles = allProfiles.concat(profiles[1]);
+        }
+        console.log("done")
+          
+        const filteredList = [...new Set(allProfiles.filter((str) => str === str.toLowerCase()))]
+          .map((str) => str.slice(9));;
+        res.status(200).json({allProfiles: filteredList});
+        return;
+      }
       res.status(200).json(profileData);
     } else {
       const players = pokemongo.collection('tm_players');
