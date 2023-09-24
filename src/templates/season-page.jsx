@@ -7,11 +7,9 @@ import { Element } from 'react-scroll';
 
 import Layout from '../components/layout';
 import Seo from '../components/seo';
-import Logo from '../components/logo';
 import Schedule from '../components/schedule';
 import TableOfContents from '../components/table-of-contents';
 import TournamentRoster from '../components/tournamentroster';
-import BlogPostButton from '../components/blog-post-button';
 
 const description = 'Data visualizations for Play! Pokemon GO Championship series. See tournament event schedule and details, Pokemon usage, the best Open Great League teams, and best players!';
 
@@ -76,13 +74,9 @@ function SeasonPage({ data: { allWpPost, page } }) {
   const titleSections = page?.title?.toUpperCase()?.split(' ');
 
   return (
-    <Layout isHomepage data-is-root-path>
+    <Layout data-is-root-path>
       <Seo title={page.title} description={description} />
       <header id="season-head">
-        <div className="global-header">
-          <Logo />
-          <BlogPostButton />
-        </div>
         <div className="headline-container">
           <div>
             <h1 className="headline" itemProp="headline">
