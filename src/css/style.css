@@ -449,6 +449,11 @@ a:focus {
   color: white;
 } 
 
+.pill-indigo {
+  background-color: indigo;
+  color: white;
+}
+
 .pill-green {
   background-color: #42EBB1;
   color: var(--color-text);

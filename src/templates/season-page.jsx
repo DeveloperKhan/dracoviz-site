@@ -37,6 +37,8 @@ function SeasonPage({ data: { allWpPost, page } }) {
     alt: page.featuredImage?.node?.alt || '',
   };
 
+  console.log(page);
+
   const [content, setContent] = useState();
 
   useEffect(() => {
@@ -72,6 +74,8 @@ function SeasonPage({ data: { allWpPost, page } }) {
     setContent(parse(page.content, options));
   }, []);
 
+  const titleSections = page?.title?.toUpperCase()?.split(' ');
+
   return (
     <Layout isHomepage data-is-root-path>
       <Seo title={page.title} description={description} />
@@ -83,11 +87,10 @@ function SeasonPage({ data: { allWpPost, page } }) {
         <div className="headline-container">
           <div>
             <h1 className="headline" itemProp="headline">
-              <b>PLAY!</b>
-              {' '}
-              POKEMON GO
+              <b>{titleSections[0]}</b>
+              {` ${titleSections[1]} ${titleSections[2]}`}
               <div className="headline-sub">
-                CHAMPIONSHIP SERIES 2023
+                {` ${titleSections[3]} ${titleSections[4]} ${titleSections[5]}`}
               </div>
             </h1>
           </div>

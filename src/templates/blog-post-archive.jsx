@@ -52,7 +52,12 @@ export default BlogIndex;
 export const pageQuery = graphql`
   query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
     allWpPost(
-      filter: {categories: {nodes: {elemMatch: {slug: {nin: ["regional-event", "special-event", "pokemon-go-international-event"]}}}}}
+      filter: {categories: {nodes: {elemMatch: {slug: {nin: [
+        "regional-event",
+        "special-event",
+        "pokemon-go-international-event",
+        "world-championships"
+      ]}}}}}
       sort: { fields: [date], order: DESC }
       limit: $postsPerPage
       skip: $offset

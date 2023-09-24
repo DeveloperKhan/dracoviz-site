@@ -21,6 +21,7 @@ function Pills({ categories }) {
               'pill-blue': category.slug === 'special-event',
               'pill-pink': category.slug === 'latam-region',
               'pill-black': category.slug === 'world-championships',
+              'pill-indigo': category.slug === 'go-battle-league',
             },
           )
         }
