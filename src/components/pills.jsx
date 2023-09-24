@@ -5,7 +5,7 @@ function Pills({ categories }) {
   return (
     <div className="article-item-categories">
       {categories.map((category) => {
-        if (category.slug === '2023-series') {
+        if (category.slug === '2023-series' || category.slug === '2024-series') {
           return null;
         }
         return (
@@ -21,6 +21,7 @@ function Pills({ categories }) {
               'pill-blue': category.slug === 'special-event',
               'pill-pink': category.slug === 'latam-region',
               'pill-black': category.slug === 'world-championships',
+              'pill-indigo': category.slug === 'go-battle-league',
             },
           )
         }

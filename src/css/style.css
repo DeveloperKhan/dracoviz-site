@@ -260,11 +260,28 @@ a:focus {
 
 .global-header {
   margin: 0 auto;
-  padding: var(--spacing-3) 0;
+  padding: var(--spacing-3) var(--spacing-2) var(--spacing-3) var(--spacing-3);
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: var(--maxWidth-4xl);
+  background-color: white;
+}
+
+.global-header-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  flex: 1;
+}
+
+.global-header-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  flex: 1;
 }
 
 #season-head {
@@ -275,7 +292,21 @@ a:focus {
   background-size: 12px 12px;
 }
 
-.blog-post-button {
+.nav-button {
+  text-decoration: none;
+  font-family: var(--fontFamily-sans);
+  font-weight: var(--fontWeight-semibold);
+  color: var(--color-text);
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.nav-button:hover {
+  color: var(--color-primary);
+}
+
+.tournaments-button {
   text-decoration: none;
   background-color: var(--color-primary);
   color: white;
@@ -284,7 +315,7 @@ a:focus {
   font-weight: var(--fontWeight-bold);
 }
 
-.blog-post-button:hover {
+.tournaments-button:hover {
   background-color: blueviolet;
 }
 
@@ -448,6 +479,11 @@ a:focus {
   background-color: #FE2F22;
   color: white;
 } 
+
+.pill-indigo {
+  background-color: indigo;
+  color: white;
+}
 
 .pill-green {
   background-color: #42EBB1;
@@ -615,6 +651,12 @@ a:focus {
 }
 
 /* Media queries */
+
+@media (max-width: 992px) {
+  .global-header-content {
+    flex-direction: column;
+  }
+}
 
 @media (max-width: 50rem) {
   .player-item-row {

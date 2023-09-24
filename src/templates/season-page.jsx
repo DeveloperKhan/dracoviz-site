@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import parse from 'html-react-parser';
 import { GatsbyImage } from 'gatsby-plugin-image';
@@ -7,13 +7,11 @@ import { Element } from 'react-scroll';
 
 import Layout from '../components/layout';
 import Seo from '../components/seo';
-import Logo from '../components/logo';
 import Schedule from '../components/schedule';
 import TableOfContents from '../components/table-of-contents';
-import TournamentRoster from "../components/tournamentroster";
-import BlogPostButton from '../components/blog-post-button';
+import TournamentRoster from '../components/tournamentroster';
 
-const description = "Data visualizations for Play! Pokemon GO Championship series. See tournament event schedule and details, Pokemon usage, the best Open Great League teams, and best players!"
+const description = 'Data visualizations for Play! Pokemon GO Championship series. See tournament event schedule and details, Pokemon usage, the best Open Great League teams, and best players!';
 
 const tableOfContentsItems = [
   {
@@ -47,8 +45,9 @@ function SeasonPage({ data: { allWpPost, page } }) {
           return undefined;
         }
 
-        if (attribs.id === "player-list") {
-          return <TournamentRoster showWorldsQualified/>;
+        if (attribs.id === 'player-list') {
+          const year = attribs['data-attribute'];
+          return <TournamentRoster showWorldsQualified year={year} />;
         }
 
         if (attribs.type === 'div' && attribs.id != null) {
@@ -72,22 +71,19 @@ function SeasonPage({ data: { allWpPost, page } }) {
     setContent(parse(page.content, options));
   }, []);
 
+  const titleSections = page?.title?.toUpperCase()?.split(' ');
+
   return (
-    <Layout isHomepage data-is-root-path>
+    <Layout data-is-root-path>
       <Seo title={page.title} description={description} />
       <header id="season-head">
-        <div className="global-header">
-          <Logo/>
-          <BlogPostButton />
-        </div>
         <div className="headline-container">
           <div>
             <h1 className="headline" itemProp="headline">
-              <b>PLAY!</b>
-              {' '}
-              POKEMON GO
+              <b>{titleSections[0]}</b>
+              {` ${titleSections[1]} ${titleSections[2]}`}
               <div className="headline-sub">
-                CHAMPIONSHIP SERIES 2023
+                {` ${titleSections[3]} ${titleSections[4]} ${titleSections[5]}`}
               </div>
             </h1>
           </div>
@@ -120,6 +116,7 @@ export default SeasonPage;
 export const pageQuery = graphql`
   query PageById(
     $id: String!
+    $slug: String!
   ) {
     page: wpPage(id: { eq: $id }) {
       id
@@ -142,7 +139,7 @@ export const pageQuery = graphql`
       }
     }
     allWpPost(
-      filter: {categories: {nodes: {elemMatch: {slug: {eq: "2023-series"}}}}}
+      filter: {categories: {nodes: {elemMatch: {slug: {eq: $slug}}}}}
     ) {
       nodes {
         id

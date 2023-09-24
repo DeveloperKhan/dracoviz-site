@@ -4,7 +4,7 @@ const uri = process.env.GATSBY_MONGODB_URL;
 const client = new MongoClient(uri);
 
 async function handler(req, res) {
-  const { tm, qualified } = req.query;
+  const { tm, qualified, year } = req.query;
   const { x_authorization } = req.headers;
   if (x_authorization == null) {
     res.status(401).json({
@@ -26,7 +26,7 @@ async function handler(req, res) {
     const pokemongo = client.db('pokemongo');
     const players = pokemongo.collection('tm_players');
     if (qualified) {
-      const data = await players.find({ qualified: true }).toArray();
+      const data = await players.find({ qualified: true, tournament: { $regex: new RegExp(year, 'i') } }).toArray();
       res.status(200).json(data);
     } else {
       const data = await players.find({ tournament: tm }).toArray();

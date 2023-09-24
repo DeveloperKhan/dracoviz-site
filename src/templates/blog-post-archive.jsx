@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import Article from '../components/article';
-import parse from 'html-react-parser';
 
 import Layout from '../components/layout';
 import Seo from '../components/seo';
@@ -11,14 +10,16 @@ function BlogIndex({
   pageContext: { nextPagePath, previousPagePath },
 }) {
   const posts = data.allWpPost.nodes;
-  const missingPostText = "No blog posts found.";
+  const missingPostText = 'No blog posts found.';
 
   if (!posts.length) {
     return (
       <Layout isBlogPostArchive>
         <Seo title="All posts" />
         <p className="is-layout-constrained">
-          {missingPostText} <Link to="/">Go to home</Link>
+          {missingPostText}
+          {' '}
+          <Link to="/">Go to home</Link>
         </p>
       </Layout>
     );
@@ -51,7 +52,12 @@ export default BlogIndex;
 export const pageQuery = graphql`
   query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
     allWpPost(
-      filter: {categories: {nodes: {elemMatch: {slug: {nin: ["regional-event", "special-event", "pokemon-go-international-event"]}}}}}
+      filter: {categories: {nodes: {elemMatch: {slug: {nin: [
+        "regional-event",
+        "special-event",
+        "pokemon-go-international-event",
+        "world-championships"
+      ]}}}}}
       sort: { fields: [date], order: DESC }
       limit: $postsPerPage
       skip: $offset
