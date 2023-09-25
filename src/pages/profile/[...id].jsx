@@ -35,6 +35,13 @@ const usernameStyle = {
   marginTop: '-40px', // Adjust this value as needed
   wordWrap: 'break-word', // Add this line to enable word wrapping
 };
+const smallerFontSize = {
+  fontSize: '3rem', // Adjust this font size as needed
+};
+
+const smallestFontSize = {
+  fontSize: '1.5rem', // Adjust this font size as needed
+};
 
 function PlayerTemplate(props) {
   const name = props?.params?.id;
@@ -49,11 +56,20 @@ function PlayerTemplate(props) {
   const [tournamentsFound, setTournamentsFound] = useState(false);
   const [profileStyle, setProfileStyle] = useState(loadingStyle);
 
+  let fontSizeStyle = {};
+
+  if (window.innerWidth <= 820) {
+    fontSizeStyle = smallerFontSize;
+  }
+
+  if (window.innerWidth <= 480) {
+    fontSizeStyle = smallestFontSize;
+  }
+
   useEffect(() => {
     const host = `${window.location.protocol}//${window.location.host}`;
     const tmUrl = `${host}/api/tournament?searchType=profile&name=${name}`;
 
-    console.log("starting")
     axios
       .get(tmUrl, {
         headers: {
@@ -66,7 +82,6 @@ function PlayerTemplate(props) {
           // setProfileStyle(usernameStyle);
           setProfileName(name !== '' ? 'Player not found' : '');
           setAllProfiles(response.data.allProfiles);
-          console.log("set profiles")
           return;
         }
         const obj = JSON.parse(response.data);
@@ -154,8 +169,8 @@ function PlayerTemplate(props) {
           <div style={playerProfileStyle}>
             <p><b>PLAYER PROFILE</b></p>
           </div>
-          <div style={profileStyle}>
-            <p>{profile != null ? "WWWWWWWWWWWWWWWW" : profileName}</p>
+          <div style={{...profileStyle, ...fontSizeStyle}}>
+            <p>{profile != null ? profile.name : profileName}</p>
           </div>
           {playerFound && (
           <div>

@@ -619,6 +619,36 @@ a:focus {
   justify-content: center;
 }
 
+.profile-text {
+  font-family: 'Jost, sans-serif';
+  font-weight: 400;
+  font-size: 4rem; /* Default font size */
+  max-width: 100%; /* Set a maximum width to prevent text from overflowing */
+  margin-top: -40px; /* Adjust this value as needed */
+  word-wrap: break-word; /* Enable word wrapping */
+}  
+
+.loading-text {
+  font-family: 'Jost, sans-serif';
+  font-weight: '400';
+  font-size: '25px';
+  margin-top: '-40px';
+}  
+
+@media (max-width: 768px) {
+  /* Adjust the font size for screens with a maximum width of 768px */
+  .profile-text {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjust the font size for screens with a maximum width of 480px */
+  .profile-text {
+    font-size: 2rem;
+  }
+}
+
 /* Media queries */
 
 @media (max-width: 50rem) {

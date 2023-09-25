@@ -65,7 +65,7 @@ function generateImage(profile, season, callback) {
     style: 'normal',
     weight: '400',
   });
-  // Load the 
+  // Load the
   font.load().then((loadedFont) => {
     font2.load().then((loadedFont2) => {
       document.fonts.add(loadedFont);
@@ -82,35 +82,35 @@ function generateImage(profile, season, callback) {
           context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
           // canvas.width = 1200;
           // canvas.height = 1200;
-  
+
           // Generate the QR code image
           // qrcode.toCanvas(qrCodeCanvas, profileUrl, { errorCorrectionLevel: 'H' }, (error) => {
           //   if (error) {
           //     console.error('Error generating QR code:', error);
           //     return;
           //   }
-  
+
           //   // Draw the QR code onto the main canvas
           //   const qrCodeX = (canvas.width - qrCodeSize) / 2;
           //   const qrCodeY = canvas.height - qrCodeSize - 30;
           //   context.drawImage(qrCodeCanvas, qrCodeX, qrCodeY, qrCodeSize, qrCodeSize);
-  
+
           // });
-  
+
           // Set the font style
           context.font = '75px MyFont';
-  
+
           let textWidth = context.measureText(profile.name).width;
-  
+
           // Calculate the x-coordinate to center the text
           let x = (canvas.width - textWidth) / 2;
-  
+
           // Draw the username
           context.fillStyle = 'white';
           context.fillText(profile.name, x, 115);
-  
+
           context.font = '60px MyFont';
-  
+
           let x1 = 0;
           let y1 = 200;
           let x2 = 400;
@@ -119,7 +119,7 @@ function generateImage(profile, season, callback) {
           let y3 = 255;
           let x4 = 0;
           let y4 = 255;
-  
+
           context.beginPath();
           context.moveTo(x1, y1);
           context.lineTo(x2, y2);
@@ -128,7 +128,7 @@ function generateImage(profile, season, callback) {
           context.closePath(); // Close the path to form a closed shape
           context.fillStyle = 'white'; // Set the fill color
           context.fill(); // Fill the shape
-  
+
           context.font = '40px MyFont2';
           textWidth = context.measureText('PLAYER PERFORMANCE').width;
           context.fillText('PLAYER PERFORMANCE', 600, 240);
@@ -140,7 +140,7 @@ function generateImage(profile, season, callback) {
           y3 = 258;
           x4 = 607;
           y4 = 258;
-  
+
           context.beginPath();
           context.moveTo(x1, y1);
           context.lineTo(x2, y2);
@@ -149,44 +149,44 @@ function generateImage(profile, season, callback) {
           context.closePath(); // Close the path to form a closed shape
           context.fillStyle = 'white'; // Set the fill color
           context.fill(); // Fill the shape
-  
+
           context.font = '40px MyFont2';
           context.fillStyle = '#1F1F21';
           textWidth = context.measureText(`${season} SEASON`).width;
           x = (canvas.width - textWidth) / 2;
           context.fillText(`${season} SEASON`, 65, 242);
           context.fillStyle = 'white';
-  
+
           const championshipImage = new Image();
           championshipImage.onload = () => {
             context.drawImage(championshipImage, 325, 160, 160, 130);
           };
-  
+
           // Set the font style
           context.font = '30px MyFont';
-  
+
           const profileDisplay = `www.dracoviz.com/profile/${profile.name}`;
           textWidth = context.measureText(profileDisplay).width;
-  
+
           // Calculate the x-coordinate to center the text
           x = (canvas.width - textWidth) / 2;
-  
+
           // Draw the username
           context.fillStyle = 'white';
           context.fillText(profileDisplay, x, canvas.height - 50);
-  
+
           if (isBig) {
             function customSort(arr) {
               // Sort the array in ascending order based on the 'value' property
               arr.sort((a, b) => a.value - b.value);
-  
+
               const sortedArr = [];
               const n = arr.length;
               let left = 0;
               let right = Math.floor((n + 1) / 2);
-  
+
               const rightCount = 0; // Initialize a count for the right values
-  
+
               while (left < (n) / 2) {
                 // Take the left element
                 if (arr[left] === undefined) {
@@ -198,27 +198,27 @@ function generateImage(profile, season, callback) {
                   break;
                 }
                 sortedArr.push(arr[right]);
-  
+
                 left++;
                 right++;
               }
-  
+
               return sortedArr;
             }
             sortedTournaments = customSort(sortedTournaments);
           }
-  
+
           if (profile.tournaments && profile.tournaments.length > 0) {
             let yOffset = isBig ? 300 : 350; // Initialize yOffset for the first tournament
             let isRight = false;
-  
+
             const processTournament = (tournamentIndex) => {
               if (tournamentIndex >= sortedTournaments.length) {
                 // All tournaments have been processed, call the callback
                 callback(null, canvas.toDataURL('image/png'));
                 return;
               }
-  
+
               const tournament = sortedTournaments[tournamentIndex];
               if (!tournament.tournament.includes(season)) {
                 processTournament(tournamentIndex + 1);
@@ -236,16 +236,16 @@ function generateImage(profile, season, callback) {
                 .split(' ')
                 .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
                 .join(' ');
-  
+
               // Draw the tournament name
               context.fillStyle = 'white';
               context.font = '40px MyFont';
-  
+
               textWidth = context.measureText(tournamentName).width;
               let centerX = !isBig ? (canvas.width - textWidth) / 2 : (isRight ? 600 : 75) + 50;
-  
+
               context.fillText(tournamentName, centerX, yOffset + 42);
-  
+
               function ordinal_suffix_of(i) {
                 const j = i % 10;
                 const k = i % 100;
@@ -264,19 +264,19 @@ function generateImage(profile, season, callback) {
                 ordinal_suffix_of(parseInt(tournament.final_rank, 10))
               }   ${parseInt(tournament.match_wins, 10)}-${parseInt(tournament.match_losses, 10)
               } (${parseInt(tournament.game_wins, 10)}-${parseInt(tournament.game_losses, 10)})`;
-  
+
               context.font = '30px MyFont';
-  
+
               textWidth = context.measureText(tournamentStats).width;
               centerX = !isBig ? (canvas.width - textWidth) / 2 : (isRight ? 600 : 75) + 50;
               context.fillText(tournamentStats, centerX, yOffset + 145);
-  
+
               // Draw the roster images for this tournament
               const { roster } = tournament; // Assuming each tournament has a roster array
-  
+
               if (roster && roster.length > 0) {
                 let xOffset = isBig ? 50 : 0; // Adjust the X-coordinate for roster display
-  
+
                 const loadRosterImages = (index) => {
                   if (index >= roster.length) {
                     // All images in the roster have been loaded
@@ -288,31 +288,31 @@ function generateImage(profile, season, callback) {
                     processTournament(tournamentIndex + 1); // Process the next tournament
                     return;
                   }
-  
+
                   const pokemon = roster[index];
                   const pokemonJsonSid = pokemonJson[getPokemonURLName(pokemon)];
                   const sid = pokemonJsonSid != null && pokemonJsonSid.sid != null ? pokemonJsonSid.sid : pokemonJson.unown.sid;
                   const imageUrl = `https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/home_${sid}.png/public`;
                   // const imageUrl = `https://img.pokemondb.net/sprites/go/normal/${getPokemonURLName(pokemon)}.png`;
-  
+
                   loadImage(imageUrl, (error, image) => {
                     if (error) {
                       console.error('Error loading image:', error);
                       return;
                     }
-  
+
                     // Calculate the total width of the roster images when isBig is false
                     let totalRosterWidth = roster.length * 64; // Assuming each image has a width of 70
-  
+
                     if (!isBig) {
                       totalRosterWidth += (roster.length - 1) * 6; // Add spacing between images
                     }
-  
+
                     // Calculate the x-coordinate for drawing the image to center them horizontally
                     const imageX = isBig
                       ? xOffset + (!isRight ? 600 : 75)
                       : (canvas.width - totalRosterWidth) / 2 + xOffset;
-  
+
                     const shadowImage = new Image();
                     shadowImage.onload = () => {
                       // Draw the image
@@ -326,7 +326,7 @@ function generateImage(profile, season, callback) {
                       context.stroke();
                       context.closePath();
                       context.clip();
-  
+
                       // Draw the image inside the circle
                       const zoomFactor = 0.14; // Adjust the zoom factor as needed
                       const tallBois = {
@@ -337,11 +337,11 @@ function generateImage(profile, season, callback) {
                         Registeel: -5,
                         Cresselia: 5,
                         Noctowl: 5,
-                        Runerigus: -5
+                        Runerigus: -5,
                       };
-                      const tallBoi = tallBois[pokemon.name] != null ?
-                        tallBois[pokemon.name] : 0; //he zoomin in
-  
+                      const tallBoi = tallBois[pokemon.name] != null
+                        ? tallBois[pokemon.name] : 0; // he zoomin in
+
                       const zoomedWidth = image.width * zoomFactor;
                       const zoomedHeight = image.height * zoomFactor;
                       context.drawImage(
@@ -351,10 +351,10 @@ function generateImage(profile, season, callback) {
                         zoomedWidth,
                         zoomedHeight,
                       );
-  
+
                       context.restore();
                       xOffset += 70; // Adjust the X-coordinate for the next image
-  
+
                       if (pokemon.shadow) {
                         context.drawImage(shadowImage, imageX + 40, yOffset + 85, 30, 30);
                       }
@@ -364,7 +364,7 @@ function generateImage(profile, season, callback) {
                     shadowImage.src = 'https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/2fd819c1-f95a-4810-65ac-52c423ae1400/public';
                   });
                 };
-  
+
                 // Start loading images for this tournament
                 loadRosterImages(0);
               } else {
@@ -377,14 +377,14 @@ function generateImage(profile, season, callback) {
               }
               isRight = !isRight;
             };
-  
+
             // Start processing the tournaments
             processTournament(0);
           } else {
             // No tournaments to process, call the callback
             callback(null, canvas.toDataURL('image/png'));
           }
-  
+
           const dracovizImage = new Image();
           dracovizImage.onload = () => {
             context.drawImage(dracovizImage, (canvas.width - 300) / 2, canvas.height - 150, 300, 63);
@@ -400,15 +400,19 @@ function generateImage(profile, season, callback) {
     });
   }).catch((error) => {
     console.error('Error loading custom font:', error);
-  });;
-
+  });
 }
 
-function GenerateLocalImage({ profile, season }) {
+function GenerateLocalImage({ profile, seasons }) {
   if (profile === undefined) {
     return null;
   }
   const [imageUrl, setImageUrl] = useState('');
+  const [season, setSeason] = useState(seasons[1]); // Initialize with an empty string
+
+  const handleGraphicSeasonChange = (event) => {
+    setSeason(event.target.value);
+  };
 
   useEffect(() => {
     if (season == null) {
@@ -427,6 +431,19 @@ function GenerateLocalImage({ profile, season }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       {imageUrl && (
+      <div>
+        <select value={season} onChange={handleGraphicSeasonChange} style={{ marginTop: '15px', fontFamily: 'var(--fontFamily-sans)' }}>
+          {seasons
+          .filter((filteredSeason) => !filteredSeason.includes('All'))
+          .map((filteredSeason) => (
+            <option key={filteredSeason} value={filteredSeason}>
+              {filteredSeason}
+              {' '}
+              Season
+            </option>
+          ))}
+        </select>
+        <br />
         <a href={imageUrl} download={`dracoviz-profile-${profile.name}`}>
           <br />
           <img
@@ -440,7 +457,8 @@ function GenerateLocalImage({ profile, season }) {
           <br />
           <button type="button" className="btn btn-primary">Download Image</button>
         </a>
-      )}
+      </div>
+)}
     </div>
   );
 }

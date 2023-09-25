@@ -59,11 +59,11 @@ function GBL({ response }) {
           <div key={index} className="data-item grid-container" style={{ fontWeight: 'var(--fontWeight-semibold)', fontFamily: 'var(--fontFamily-sans)' }}>
             <div className="gbl-item-row">
               <div className="grid-item">
-                <div style={{ fontSize: '30px' }}><b>{finalDay.rank == null || finalDay.rank == 'Unk' || finalDay.rank == 'unk' || finalDay.rank == 501 ? 'Unknown' : finalDay.rank}</b></div>
+                <div style={{ fontSize: '30px' }}><b>{finalDay.rank == null || finalDay.rank == 'Unk' || finalDay.rank == 'unk' || finalDay.rank == 'Unk.' || finalDay.rank == 'unk.' || finalDay.rank == 501 ? 'Unknown' : finalDay.rank}</b></div>
                 <label>Final Rank</label>
               </div>
               <div className="grid-item">
-                <div style={{ fontSize: '30px' }}><b>{finalDay.rating == null || finalDay.rating == 'Unk' || finalDay.rating == 'unk' ? 'Unknown' : finalDay.rating}</b></div>
+                <div style={{ fontSize: '30px' }}><b>{finalDay.rating == null || finalDay.rating == 'Unk' || finalDay.rating == 'unk' || finalDay.rating == 'unk.' || finalDay.rating == 'Unk.' ? 'Unknown' : finalDay.rating}</b></div>
                 <label>Final Rating</label>
               </div>
               <div className="grid-item">
