@@ -171,11 +171,11 @@ function TournamentRoster({
     {
       name: '',
     }]);
+  const { width } = useWindowSize();
   const [productMatches, setProductMatches] = useState([]);
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [columns, setColumns] = useState(getColumns(width));
   const [isLoading, setIsLoading] = useState(true);
-  const { width } = useWindowSize();
 
   useEffect(() => {
     const debounceFunction = debounce(() => {
