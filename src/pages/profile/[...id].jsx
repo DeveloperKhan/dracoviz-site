@@ -49,7 +49,6 @@ function PlayerTemplate(props) {
   const [profileName, setProfileName] = useState('Loading...');
   const [profile, setProfile] = useState(null);
   const [allProfiles, setAllProfiles] = useState(null);
-  const [query, setQuery] = useState('');
 
   const [playerFound, setPlayerFound] = useState(false);
   const [gblFound, setGBLFound] = useState(false);
@@ -58,11 +57,11 @@ function PlayerTemplate(props) {
 
   let fontSizeStyle = {};
 
-  if (window.innerWidth <= 820) {
+  if (window != null && window.innerWidth <= 820) {
     fontSizeStyle = smallerFontSize;
   }
 
-  if (window.innerWidth <= 480) {
+  if (window != null && window.innerWidth <= 480) {
     fontSizeStyle = smallestFontSize;
   }
 
@@ -77,7 +76,6 @@ function PlayerTemplate(props) {
         },
       })
       .then((response) => {
-        
         if (response.data.allProfiles != null) {
           // setProfileStyle(usernameStyle);
           setProfileName(name !== '' ? 'Player not found' : 'Explore GBL and Play! Pokemon data from any player!');
@@ -101,24 +99,17 @@ function PlayerTemplate(props) {
           }
           if (obj.gbl != null) {
             tableOfContentsItems.push(
-            {
-              location: 'go-battle-league',
-              title: 'GO Battle League',
-            },
-);
+              {
+                location: 'go-battle-league',
+                title: 'GO Battle League',
+              },
+            );
             setGBLFound(true);
           }
         }
         setProfile(obj);
       });
   }, []);
-
-  const containerStyle = {
-    padding: '20px', // Adjust the padding as needed
-    boxSizing: 'border-box',
-    width: '100%',
-    margin: '0 auto', // Center the container horizontally
-  };
 
   const playerProfileStyle = {
     fontFamily: 'Jost, sans-serif',
@@ -169,7 +160,7 @@ function PlayerTemplate(props) {
           <div style={playerProfileStyle}>
             <p><b>PLAYER PROFILE</b></p>
           </div>
-          <div style={{...profileStyle, ...fontSizeStyle}}>
+          <div style={{ ...profileStyle, ...fontSizeStyle }}>
             <p>{profile != null ? profile.name : profileName}</p>
           </div>
           {playerFound && (
@@ -183,7 +174,7 @@ function PlayerTemplate(props) {
           </div>
           )}
           {allProfiles != null && (
-            <SearchBar allSuggestions={allProfiles}/>
+            <SearchBar allSuggestions={allProfiles} />
           )}
         </div>
 
