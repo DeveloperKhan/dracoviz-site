@@ -173,7 +173,7 @@ function TournamentRoster({
     }]);
   const [productMatches, setProductMatches] = useState([]);
   const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [columns, setColumns] = useState(getColumns(window.innerWidth));
+  const [columns, setColumns] = useState(getColumns(width));
   const [isLoading, setIsLoading] = useState(true);
   const { width } = useWindowSize();
 
@@ -274,7 +274,7 @@ function TournamentRoster({
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {
-      const newColumns = getColumns(window.innerWidth);
+      const newColumns = getColumns(width);
       setColumns(newColumns);
       setIsLoading(false);
     }, 1);

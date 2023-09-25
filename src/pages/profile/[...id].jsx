@@ -16,6 +16,7 @@ import Seo from '../../components/seo';
 import ProfileRoster from '../../components/profileroster';
 import SearchBar from '../../components/searchbar';
 import GBL from '../../components/gbl';
+import useWindowSize from '../../utils/use-window-size';
 
 let tableOfContentsItems = [
 
@@ -54,14 +55,14 @@ function PlayerTemplate(props) {
   const [gblFound, setGBLFound] = useState(false);
   const [tournamentsFound, setTournamentsFound] = useState(false);
   const [profileStyle, setProfileStyle] = useState(loadingStyle);
+  const { width } = useWindowSize();
 
   let fontSizeStyle = {};
 
-  if (window != null && window.innerWidth <= 820) {
+  if (width <= 820) {
     fontSizeStyle = smallerFontSize;
   }
-
-  if (window != null && window.innerWidth <= 480) {
+  if (width <= 480) {
     fontSizeStyle = smallestFontSize;
   }
 
