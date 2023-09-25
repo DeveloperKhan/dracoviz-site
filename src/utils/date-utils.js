@@ -47,9 +47,23 @@ export const options = [
 
 export function getDateFromTag(tag) {
   if (tag == null) {
-    return;
+    return '';
   }
-  const [month, day, year] = tag.replace("EVENT:", "").split("-");
-  const monthLabel = options.find(o => o.value.toString() === month)?.label ?? month;
-  return `${monthLabel} ${day}, ${year}`;
+  const [month, day, year] = tag.replace('EVENT:', '').split('-');
+  if (month == null || year == null) {
+    return '';
+  }
+  const monthLabel = options.find((o) => o.value.toString() === month.replace(/^0+(\d)/, '$1'))?.label ?? month;
+  return `${monthLabel} ${day?.replace(/^0+(\d)/, '$1')}, ${year}`;
+}
+
+export function getCurrentMonth(currentDate) {
+  // returns the month (from 0 to 11)
+  const month = currentDate.getMonth() + 1;
+  // returns the year (four digits)
+  const year = currentDate.getFullYear();
+  if (year >= 2023 && month >= 8) {
+    return month;
+  }
+  return 8;
 }

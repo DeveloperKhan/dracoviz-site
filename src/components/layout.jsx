@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import Logo from './logo';
+import { useStaticQuery, graphql } from 'gatsby';
 import Social from './social';
-import BlogPostButton from './blog-post-button';
+import NavBar from './navbar';
 
 function Layout({
-  children, isHomepage, isBlogPostArchive, ...rest
+  children, isBlogPostArchive, ...rest
 }) {
   const {
     wp: {
@@ -25,17 +24,8 @@ function Layout({
 
   return (
     <div className="global-wrapper" {...rest}>
-      {isHomepage ?? (
-      <header className="global-header">
-        <Link className="header-link-home" to="/">
-          <Logo />
-        </Link>
-        {!isBlogPostArchive && <BlogPostButton />}
-      </header>
-      )}
-
+      <NavBar />
       <main>{children}</main>
-
       <footer id="footer">
         <div className="footer-social">
           <Social

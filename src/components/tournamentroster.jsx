@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable max-len */
 /**
  * Bio component that queries for data
@@ -134,7 +136,9 @@ function getColumns(width) {
   return newColumns;
 }
 
-function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
+function TournamentRoster({
+  tmName, showWorldsQualified, playerName, year,
+}) {
   const [searchInput, setSearchInput] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]); // State to store filtered data
 
@@ -279,8 +283,13 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
   useEffect(() => {
     setIsLoading(true);
     const host = `${window.location.protocol}//${window.location.host}`;
-
-    const tmUrl = showWorldsQualified ? `${host}/api/tournament?searchType=qualified` : (playerName !== undefined ? `${host}/api/tournament?searchType=profile&name=${playerName}` : `${host}/api/tournament?searchType=tm&tm=${tmName}`);
+    const tmUrl = (
+      // eslint-disable-next-line no-nested-ternary
+      showWorldsQualified
+        ? `${host}/api/tournament?searchType=qualified&year=${year}`
+        : (playerName !== undefined
+          ? `${host}/api/tournament?searchType=profile&name=${playerName}`
+          : `${host}/api/tournament?searchType=tm&tm=${tmName}`));
     Promise.all([
       axios.get(tmUrl, {
         headers: {
@@ -384,7 +393,7 @@ function TournamentRoster({ tmName, showWorldsQualified, playerName }) {
         contentLabel="Matches"
         style={{ overlay: { zIndex: 1000 } }}
       >
-        <button onClick={closeModal} className="close-modal-btn">Close</button>
+        <button onClick={closeModal} className="close-modal-btn" type="button">Close</button>
         <div className="matches-container use-bootstrap use-table is-layout-constrained">
           <ToolkitProvider
             bootstrap4

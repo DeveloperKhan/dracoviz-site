@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Tabs from './tabs';
 import Article from './article';
-import { options } from '../utils/date-utils';
+import { options, getCurrentMonth } from '../utils/date-utils';
 
 // Assuming format "EVENT:MM-DD-YYYY"
 const dateTagPrefix = 'EVENT:';
 const currentDate = new Date();
 const currentDay = currentDate.getDate();
-const currentMonth = 8;
+const currentMonth = getCurrentMonth(currentDate);
 const orderOfMonths = {
   9: 0,
   10: 1,
@@ -122,10 +122,13 @@ function Schedule(posts) {
   if (orderedPosts == null) {
     return null;
   }
+
+  const filteredOptions = options.filter((o) => orderedPosts[o.value]?.length > 0);
+
   return (
     <div id="event-schedule">
       <Tabs
-        options={options}
+        options={filteredOptions}
         orderedPosts={orderedPosts}
         onSelect={onSelect}
         value={selectedMonth}
