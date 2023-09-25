@@ -34,56 +34,52 @@ function capitalize(s) {
 
 export function getPokemonURLName(pokemon) {
   let pokemonName = pokemon.name.toLowerCase()
-      .replace(' ', '-')
-      .replace('.', '')
-      .replace('&#39;', '')
-      .replace("-", "_"); // `
-      console.log(pokemon.name)
-      console.log(pokemonName)
-    let formString = '';
-    // default image is too big
-    if (pokemonName === 'spinda') {
-      pokemonName = 'spinda_01';
-    } else if (pokemonName === 'meowstic') {
-      pokemonName = 'meowstic_male';
-    } else if (pokemonName === 'tapufini') {
-      pokemonName = 'tapu_fini';
-    }
-    if (pokemon.form !== '') {
-      if (pokemon.name === 'Pikachu') { // yes, people have ran this lol
-        if (pokemon.form === '[Pikachu Vs 2019*]') {
-          pokemonName = 'pikachu_libre';
-        } else if (pokemon.form === '[Pikachu Costume 2020*]') {
-          pokemonName = 'pikachu_balloon4';
-        } else if (pokemon.form === '[Pikachu Flying 5Th Anniv*]') {
-          pokemonName = 'pikachu_balloon5';
-        } else if (pokemon.form === '[Pikachu Flying Okinawa*]') {
-          pokemonName = 'pikachu_okinawa-balloon';
-        } else if (pokemon.form === '[Pikachu Kariyushi*]') {
-          pokemonName = 'pikachu_kariyushi';
-        } else if (pokemon.form === '[Pikachu Pop star*]') {
-          pokemonName = 'pikachu_popstar';
-        } else if (pokemon.form === '[Pikachu Rock Star*]') {
-          pokemonName = 'pikachu_rockstar';
-        }
-      } else if (pokemon.name === 'Castform') {
-        formString = `-${pokemon.form.toLowerCase().split(' ')[1].split(']')[0].replace('*', '')}`;
-      } else if (pokemon.name === 'Mr. Mime') {
-        if (pokemon.form.includes('galar')) {
-          formString = '_galarian';
-        }
-      } else if (pokemon.form.includes(' ')) {
-        const split = pokemon.form.toLowerCase().split('[');
-        formString = `_${split[split.length - 1].split('form')[0].replace(' ', '')}`;
+    .replace(' ', '-')
+    .replace('.', '')
+    .replace('&#39;', '')
+    .replace('-', '_'); // `
+  let formString = '';
+  // default image is too big
+  if (pokemonName === 'spinda') {
+    pokemonName = 'spinda_01';
+  } else if (pokemonName === 'meowstic') {
+    pokemonName = 'meowstic_male';
+  } else if (pokemonName === 'tapufini') {
+    pokemonName = 'tapu_fini';
+  }
+  if (pokemon.form !== '') {
+    if (pokemon.name === 'Pikachu') { // yes, people have ran this lol
+      if (pokemon.form === '[Pikachu Vs 2019*]') {
+        pokemonName = 'pikachu_libre';
+      } else if (pokemon.form === '[Pikachu Costume 2020*]') {
+        pokemonName = 'pikachu_balloon4';
+      } else if (pokemon.form === '[Pikachu Flying 5Th Anniv*]') {
+        pokemonName = 'pikachu_balloon5';
+      } else if (pokemon.form === '[Pikachu Flying Okinawa*]') {
+        pokemonName = 'pikachu_okinawa-balloon';
+      } else if (pokemon.form === '[Pikachu Kariyushi*]') {
+        pokemonName = 'pikachu_kariyushi';
+      } else if (pokemon.form === '[Pikachu Pop star*]') {
+        pokemonName = 'pikachu_popstar';
+      } else if (pokemon.form === '[Pikachu Rock Star*]') {
+        pokemonName = 'pikachu_rockstar';
       }
+    } else if (pokemon.name === 'Castform') {
+      formString = `-${pokemon.form.toLowerCase().split(' ')[1].split(']')[0].replace('*', '')}`;
+    } else if (pokemon.name === 'Mr. Mime') {
+      if (pokemon.form.includes('galar')) {
+        formString = '_galarian';
+      }
+    } else if (pokemon.form.includes(' ')) {
+      const split = pokemon.form.toLowerCase().split('[');
+      formString = `_${split[split.length - 1].split('form')[0].replace(' ', '')}`;
     }
+  }
 
-    console.log(pokemonName)
-    return pokemonName + formString;
+  return pokemonName + formString;
 }
 
 export function getRosterHTML(player) {
-  console.log(player)
   if (player === undefined) {
     return null;
   }
@@ -146,7 +142,7 @@ export function getRosterHTML(player) {
       width: '25px', // Adjust the desired width for the shadow
       height: '25px', // Adjust the desired height for the shadow
       marginTop: '40px',
-      //marginLeft: '40px'
+      // marginLeft: '40px'
     };
 
     const shadowStyle = {
@@ -154,7 +150,7 @@ export function getRosterHTML(player) {
       width: '25px', // Adjust the desired width for the shadow
       height: '25px', // Adjust the desired height for the shadow
       marginTop: '40px',
-      marginLeft: '40px'
+      marginLeft: '40px',
     };
 
     const getBestBuddy = () => {
@@ -165,7 +161,7 @@ export function getRosterHTML(player) {
             alt="Best Buddy"
             src={BestBuddy}
             style={buddyStyle}
-            />
+          />
         );
       }
       return null;
@@ -179,7 +175,7 @@ export function getRosterHTML(player) {
             alt="Shadow"
             src={Shadow}
             style={shadowStyle}
-            />
+          />
         );
       }
       return null;
@@ -193,7 +189,7 @@ export function getRosterHTML(player) {
             alt="Purified"
             src={Purified}
             style={shadowStyle}
-            />
+          />
         );
       }
       return null;
@@ -217,7 +213,7 @@ export function getRosterHTML(player) {
           className="pokemon-image"
           alt={pokemonName}
           src={imageUrl}
-          style={{objectFit: "contain"}}
+          style={{ objectFit: 'contain' }}
         />
         {getBestBuddy()}
         {getShadow()}

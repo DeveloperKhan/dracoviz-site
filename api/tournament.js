@@ -5,7 +5,9 @@ const uri = process.env.GATSBY_MONGODB_URL;
 const client = new MongoClient(uri);
 
 async function handler(req, res) {
-  const { tm, name, searchType, year } = req.query;
+  const {
+    tm, name, searchType, year,
+  } = req.query;
   const { x_authorization } = req.headers;
   if (x_authorization == null) {
     res.status(401).json({
@@ -36,13 +38,10 @@ async function handler(req, res) {
       });
 
       let profileData = null;
-      console.log('ok');
       if (name !== '') {
         profileData = await kvClient.get(`profiles:${name.toLowerCase()}`);
-        console.log('ok2');
       }
       if (profileData == null) {
-        console.log('saj');
         let prevKey = 0;
         let allProfiles = [];
         for (let i = 0; i < 10000; i += 1) {
@@ -58,7 +57,6 @@ async function handler(req, res) {
           if (profiles[1].length === 0 || profiles[0] === 0) {
             break;
           }
-          console.log(profiles);
           // eslint-disable-next-line prefer-destructuring
           prevKey = profiles[0];
           allProfiles = allProfiles.concat(profiles[1]);

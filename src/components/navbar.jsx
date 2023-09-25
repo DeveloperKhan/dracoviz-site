@@ -30,6 +30,7 @@ export default function NavBar() {
                     2023 Season
                   </NavDropdown.Item>
                 </NavDropdown>
+                <Nav.Link href="/profile/" className="nav-button">Player Profiles</Nav.Link>
                 <Nav.Link href="/blog/1" className="nav-button">Blog Posts</Nav.Link>
                 <Link
                   to="https://dracoviz.gg"
