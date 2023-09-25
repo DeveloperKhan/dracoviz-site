@@ -1,11 +1,14 @@
 import { debounce } from 'lodash';
 import { useState, useEffect } from 'react';
 
+// Check if window is defined (so if in the browser or in node.js).
+const isBrowser = typeof window !== 'undefined';
+
 export default function useWindowSize() {
   function getSize() {
     return {
-      width: window.innerWidth,
-      height: window.innerHeight,
+      width: isBrowser ? 1000 : window.innerWidth,
+      height: isBrowser ? 1000 : window.innerHeight,
     };
   }
 
