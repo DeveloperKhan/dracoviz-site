@@ -7,8 +7,8 @@ const isBrowser = typeof window !== 'undefined';
 export default function useWindowSize() {
   function getSize() {
     return {
-      width: isBrowser ? 1000 : window.innerWidth,
-      height: isBrowser ? 1000 : window.innerHeight,
+      width: isBrowser ? window.innerWidth : 1000,
+      height: isBrowser ? window.innerHeight : 1000,
     };
   }
 
