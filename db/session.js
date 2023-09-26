@@ -74,6 +74,7 @@ const getSessionModel = async () => {
         {
           seed: { type: Number },
           score: [[Number]],
+          disputed: { type: Boolean, default: false },
           participants: [[{
             id: String,
             score: [[Number]],
