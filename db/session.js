@@ -77,6 +77,7 @@ const getSessionModel = async () => {
           participants: [[{
             id: String,
             score: [[Number]],
+            removed: { type: Boolean, default: false },
           }]],
         },
       ],
