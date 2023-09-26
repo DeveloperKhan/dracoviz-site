@@ -73,7 +73,6 @@ const getSessionModel = async () => {
       matches: [
         {
           seed: { type: Number },
-          metas: [String],
           score: [[Number]],
           participants: [{
             id: String,
