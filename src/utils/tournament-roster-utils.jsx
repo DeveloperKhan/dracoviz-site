@@ -196,7 +196,9 @@ export function getRosterHTML(player) {
     };
 
     const pokemonJsonSid = pokemonJson[getPokemonURLName(pokemon)];
-    const sid = pokemonJsonSid != null && pokemonJsonSid.sid != null ? pokemonJsonSid.sid : 1000000000;
+    const sid = pokemonJsonSid != null && pokemonJsonSid.sid != null
+      ? pokemonJsonSid.sid
+      : 1000000000;
     const imageUrl = `https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/home_${sid}.png/public`;
 
     return (
