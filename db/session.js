@@ -74,10 +74,10 @@ const getSessionModel = async () => {
         {
           seed: { type: Number },
           score: [[Number]],
-          participants: [{
+          participants: [[{
             id: String,
             score: [[Number]],
-          }],
+          }]],
         },
       ],
     }],
