@@ -70,11 +70,11 @@ const getSessionModel = async () => {
     bracketType: { type: String },
     bracket: [{
       round: { type: Number },
-      score: [[Number]],
       matches: [
         {
           seed: { type: Number },
           metas: [String],
+          score: [[Number]],
           participants: [{
             id: String,
             score: [[Number]],
