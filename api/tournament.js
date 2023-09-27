@@ -1,10 +1,27 @@
 import { MongoClient } from 'mongodb';
 import { createClient } from '@vercel/kv';
+import axios from 'axios';
+import fs from 'fs';
+
 
 const uri = process.env.GATSBY_MONGODB_URL;
 const client = new MongoClient(uri);
 
+const profilesUrl = 'https://gist.github.com/ShinyDialga/0c294c1cfd434a36054bc8cd2b6fe5bc/raw'; // Replace with your actual URL
+ // '                 https://gist.githubusercontent.com/ShinyDialga/0c294c1cfd434a36054bc8cd2b6fe5bc/raw/6e108f920796e917332dc219a2a228f6f1842f12/gistfile1.txt
+
+async function fetchProfilesData() {
+  try {
+    const response = await axios.get(profilesUrl);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching data from URL:', error);
+    return '';
+  }
+}
+
 async function handler(req, res) {
+  console.log("yes")
   const {
     tm, name, searchType, year,
   } = req.query;
@@ -32,39 +49,27 @@ async function handler(req, res) {
       const data = await players.find({ qualified: true, tournament: { $regex: new RegExp(year, 'i') } }).toArray();
       res.status(200).json(data);
     } else if (searchType === 'profile') {
+      console.log("ok")
       const kvClient = createClient({
         token: process.env.KV_REST_API_TOKEN,
         url: process.env.KV_REST_API_URL,
       });
+      console.log("oknt")
 
+      const names = (await fetchProfilesData()).split(',');
+      const lowerNames = names.map((str) => str.toLowerCase());
+
+      console.log(lowerNames)
+      console.log(name.toLowerCase())
       let profileData = null;
-      if (name !== '') {
+      if (name !== '' && lowerNames.includes(name.toLowerCase())) {
+        console.log("ok1")
         profileData = await kvClient.get(`profiles:${name.toLowerCase()}`);
       }
       if (profileData == null) {
-        let prevKey = 0;
-        let allProfiles = [];
-        for (let i = 0; i < 10000; i += 1) {
-          // eslint-disable-next-line no-await-in-loop
-          const profiles = await kvClient.scan(
-            prevKey,
-            {
-              match: 'profiles:*',
-              count: 1000,
-              type: 'string',
-            },
-          );
-          if (profiles[1].length === 0 || profiles[0] === 0) {
-            break;
-          }
-          // eslint-disable-next-line prefer-destructuring
-          prevKey = profiles[0];
-          allProfiles = allProfiles.concat(profiles[1]);
-        }
-
-        const filteredList = [...new Set(allProfiles.filter((str) => str === str.toLowerCase()))]
-          .map((str) => str.slice(9));
-        res.status(200).json({ allProfiles: filteredList });
+        console.log("ok2")
+        // console.log(profiles_output)
+        res.status(200).json({ allProfiles: names });
         return;
       }
       res.status(200).json(profileData);

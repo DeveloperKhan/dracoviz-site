@@ -70,6 +70,8 @@ function PlayerTemplate(props) {
     const host = `${window.location.protocol}//${window.location.host}`;
     const tmUrl = `${host}/api/tournament?searchType=profile&name=${name}`;
 
+    console.log("axiops")
+    console.log(process.env)
     axios
       .get(tmUrl, {
         headers: {

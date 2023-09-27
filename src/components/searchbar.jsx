@@ -14,9 +14,23 @@ function SearchBar(props) {
       setSuggestions([]);
       return;
     }
-    const filteredSuggestions = allSuggestions.filter(
-      (suggestion) => suggestion.toLowerCase().includes(inputValue.toLowerCase()),
-    ).slice(0, 10);
+    const filteredSuggestions = allSuggestions
+      .filter((suggestion) => suggestion.toLowerCase().includes(inputValue.toLowerCase()))
+      .sort((a, b) => {
+        const lowerA = a.toLowerCase();
+        const lowerB = b.toLowerCase();
+        const startsWithInputA = lowerA.startsWith(inputValue.toLowerCase());
+        const startsWithInputB = lowerB.startsWith(inputValue.toLowerCase());
+    
+        // Sort alphabetically when both start with the input
+        if (startsWithInputA && startsWithInputB) {
+          return lowerA.localeCompare(lowerB);
+        }
+    
+        // Sort by startsWithInput (true comes before false)
+        return startsWithInputB - startsWithInputA || lowerA.indexOf(inputValue.toLowerCase()) - lowerB.indexOf(inputValue.toLowerCase());
+      })
+      .slice(0, 10);
 
     setSuggestions(filteredSuggestions);
 

@@ -72,6 +72,7 @@ function GBL({ response }) {
                       || finalDay.rank === 'Unk.'
                       || finalDay.rank === 'unk.'
                       || finalDay.rank === 501
+                      || finalDay.rank === '501'
                         ? 'Unknown'
                         : finalDay.rank
                     }
