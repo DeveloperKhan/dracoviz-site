@@ -731,7 +731,7 @@ a:focus {
   .tableauPlaceholder {
     max-width: var(--maxWidth-full);
   }
-  .blog-post-nav, .article-head {
+  .blog-post-nav, .article-head, .profile-container {
     padding: 0 var(--spacing-4);
   }
   ul,

@@ -158,7 +158,7 @@ function PlayerTemplate(props) {
   return (
     <Layout>
       <Seo title={profile != null ? profile.name : ''} description={profile != null ? profile.name : ''} />
-      <div className="article-body is-layout-constrained">
+      <div className="profile-container is-layout-constrained">
         <div className="wp-block-group">
           <div style={playerProfileStyle}>
             <p><b>PLAYER PROFILE</b></p>
@@ -168,7 +168,7 @@ function PlayerTemplate(props) {
           </div>
           {playerFound && (
           <div>
-            <h2 className="wp-block-heading">Player Achievements</h2>
+            <h2>Player Achievements</h2>
           </div>
           )}
           {playerFound && (
