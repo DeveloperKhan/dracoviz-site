@@ -92,6 +92,10 @@ function isWorlds1st(profile) {
   );
 }
 
+function isUndefeated(profile) {
+  return !!profile.tournaments?.some((tournament) => (tournament.final_rank == 1 && tournament.game_wins <= 0));
+}
+
 function isTop8x3Season(profile) {
   const top8Counts = {}; // Store the count of top 8 appearances by year
 
@@ -257,6 +261,13 @@ const achievements = [
     name: 'Season Top 8 x3',
     description: 'Reach top 8 at a Play! Pokemon event 3 times in a single season',
     check: isTop8x3Season,
+    image: rating3500,
+  },
+  {
+    id: 'undefeated',
+    name: 'Undefeated',
+    description: 'Never lose a single game at a Play! Pokemon event',
+    check: isUndefeated,
     image: rating3500,
   },
 ];
