@@ -37,6 +37,9 @@ const getSessionModel = async () => {
       playerId: String,
       factionId: String,
       tournamentPosition: Number,
+      opponents: [String],
+      receivedBye: { type: Boolean, default: false },
+      rating: { type: Number },
       pokemon: [{
         sid: { type: Number },
         speciesName: { type: String },
@@ -68,14 +71,21 @@ const getSessionModel = async () => {
       }],
     }],
     bracketType: { type: String },
+    gameAmount: { type: Number },
+    playAllMatches: { type: Boolean, default: false },
     bracket: [{
       round: { type: Number },
       matches: [
         {
           seed: { type: Number },
           score: [[Number]],
-          disputed: { type: Boolean, default: false },
-          touched: { type: Boolean, default: false },
+          disputed: [{ type: Boolean, default: false }],
+          touched: [{ type: Boolean, default: false }],
+          factions: [{
+            id: String,
+            score: [[Number]],
+            removed: { type: Boolean, default: false },
+          }],
           participants: [[{
             id: String,
             score: [[Number]],
