@@ -75,6 +75,7 @@ async function getPlayers(
         discord: playerObj.discord,
         telegram: playerObj.telegram,
         tournamentPosition: shouldLookupPlayer ? player.tournamentPosition : -1,
+        valid: isHost && player.pokemon != null && player.pokemon.length >= 6,
       };
       if (!shouldLookupPlayer || (!shouldShowAllTeams && !isTeammate)) {
         return returnObj;
