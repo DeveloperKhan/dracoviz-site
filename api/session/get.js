@@ -8,31 +8,40 @@ import pokemonJSON from '../../static/pokemon.json';
 import getFactionModel from '../../db/faction';
 
 function findName(id, players) {
-  if (id === 'Bye') {
-    return id;
+  if (id == null) {
+    return 'Bye';
   }
-  return players.find((p) => p.session === id).name ?? '';
+  return players.find((p) => p.session === id)?.name ?? '';
 }
 
 function getBracket(bracket, players, currentRoundNumber) {
-  if (currentRoundNumber == null || currentRoundNumber <= 0) {
+  if (currentRoundNumber == null
+      || currentRoundNumber <= 0
+      || bracket == null
+      || bracket.length <= 0
+  ) {
     return undefined;
   }
   const maskedBracket = bracket.map((b) => {
     const matches = b.matches.map((match) => {
       // TODO Factions
-      const participants = match.participants.map((participant) => ({
-        score: participant.score,
-        removed: participant.removed,
-        name: findName(participant.id, players),
-      }));
+      const participants = match.participants.map((pairings) => (
+        pairings.map((participant) => ({
+          score: participant.score,
+          removed: participant.removed,
+          name: findName(participant.id, players),
+        }))
+      ));
       return {
-        ...match,
+        seed: match.seed,
+        score: match.score,
+        disputed: match.disputed,
+        touched: match.touched,
         participants,
       };
     });
     return {
-      ...b,
+      round: b.round,
       matches,
     };
   });
