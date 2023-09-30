@@ -7,6 +7,7 @@ async function handler(req, res) {
   const {
     name, description, serverInviteLink,
     bracketLink, registrationClosed, tournamentId,
+    hideTeamsFromHost,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -63,6 +64,7 @@ async function handler(req, res) {
     session.bracketLink = bracketLink ?? session.bracketLink;
     session.serverInviteLink = serverInviteLink ?? session.serverInviteLink;
     session.registrationClosed = registrationClosed ?? session.registrationClosed;
+    session.hideTeamsFromHost = hideTeamsFromHost ?? session.hideTeamsFromHost;
 
     await session.save();
     res.status(200).send({});

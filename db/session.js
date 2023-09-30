@@ -32,6 +32,7 @@ const getSessionModel = async () => {
     isGlobalDraft: { type: Boolean },
     registrationClosed: { type: Boolean },
     concluded: { type: Boolean },
+    hideTeamsFromHost: { type: Boolean, default: false },
     players: [{
       playerId: String,
       factionId: String,

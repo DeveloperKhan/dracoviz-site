@@ -14,6 +14,7 @@ async function handler(req, res) {
     name, description, serverInviteLink,
     bracketLink, isPrivate, maxTeams, maxTeamSize, maxMatchTeamSize,
     metas, cpVisibility, movesetVisibility, draftMode,
+    hideTeamsFromHost,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -100,6 +101,7 @@ async function handler(req, res) {
       currentRoundNumber: 0,
       registrationClosed: false,
       concluded: false,
+      hideTeamsFromHost,
       bracket: [],
     });
 
