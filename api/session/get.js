@@ -7,6 +7,38 @@ import avatars from '../../static/avatars.json';
 import pokemonJSON from '../../static/pokemon.json';
 import getFactionModel from '../../db/faction';
 
+function findName(id, players) {
+  if (id === 'Bye') {
+    return id;
+  }
+  return players.find((p) => p.session === id).name ?? '';
+}
+
+function getBracket(bracket, players, currentRoundNumber) {
+  if (currentRoundNumber == null || currentRoundNumber <= 0) {
+    return undefined;
+  }
+  const maskedBracket = bracket.map((b) => {
+    const matches = b.matches.map((match) => {
+      // TODO Factions
+      const participants = match.participants.map((participant) => ({
+        score: participant.score,
+        removed: participant.removed,
+        name: findName(participant.id, players),
+      }));
+      return {
+        ...match,
+        participants,
+      };
+    });
+    return {
+      ...b,
+      matches,
+    };
+  });
+  return maskedBracket;
+}
+
 async function getFactions(session, playerId, factionId) {
   const {
     maxTeamSize, factions,
@@ -136,6 +168,7 @@ async function handler(req, res) {
       registrationClosed,
       concluded,
       hideTeamsFromHost,
+      currentRoundNumber,
     } = session;
     const isHost = host?.includes(x_session_id);
     const isTeamTournament = maxTeamSize > 1;
@@ -157,6 +190,11 @@ async function handler(req, res) {
       cpVisible,
       hideTeamsFromHost,
     );
+    const bracket = getBracket(
+      session.bracket,
+      players,
+      currentRoundNumber,
+    );
     const isParticipant = isPlayer || isHost;
 
     const maskedSession = {
@@ -172,7 +210,6 @@ async function handler(req, res) {
       matchTeamSize: session.matchTeamSize,
       metaLogos,
       state,
-      currentRoundNumber: session.currentRoundNumber,
       players,
       isTeamTournament,
       isPlayer,
@@ -182,6 +219,8 @@ async function handler(req, res) {
       teamCode,
       registrationClosed,
       concluded,
+      currentRoundNumber,
+      bracket,
     };
     res.status(200).json(maskedSession);
   } catch (ex) {
