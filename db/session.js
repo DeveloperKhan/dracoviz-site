@@ -23,6 +23,7 @@ const getSessionModel = async () => {
     metas: [String],
     state: { type: String },
     currentRoundNumber: { type: Number },
+    totalRounds: { type: Number },
     factions: [String],
     movesetsRequired: { type: Boolean },
     movesetsVisible: { type: Boolean },
