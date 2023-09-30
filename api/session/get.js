@@ -169,6 +169,7 @@ async function handler(req, res) {
       concluded,
       hideTeamsFromHost,
       currentRoundNumber,
+      bracketType,
     } = session;
     const isHost = host?.includes(x_session_id);
     const isTeamTournament = maxTeamSize > 1;
@@ -221,6 +222,7 @@ async function handler(req, res) {
       concluded,
       currentRoundNumber,
       bracket,
+      bracketType,
     };
     res.status(200).json(maskedSession);
   } catch (ex) {
