@@ -30,7 +30,7 @@ const loadingStyle = {
 };
 const usernameStyle = {
   fontFamily: 'Jost, sans-serif',
-  fontWeight: '400',
+  fontWeight: '800',
   fontSize: '4rem',
   maxWidth: '100%', // Set a maximum width to prevent text from overflowing
   marginTop: '-40px', // Adjust this value as needed
@@ -41,7 +41,7 @@ const smallerFontSize = {
 };
 
 const smallestFontSize = {
-  fontSize: '1.5rem', // Adjust this font size as needed
+  fontSize: '3rem', // Adjust this font size as needed
 };
 
 function PlayerTemplate(props) {
@@ -55,6 +55,7 @@ function PlayerTemplate(props) {
   const [gblFound, setGBLFound] = useState(false);
   const [tournamentsFound, setTournamentsFound] = useState(false);
   const [profileStyle, setProfileStyle] = useState(loadingStyle);
+  const [showMore, setShowMore] = useState(false);
   const { width } = useWindowSize();
 
   let fontSizeStyle = {};
@@ -70,8 +71,6 @@ function PlayerTemplate(props) {
     const host = `${window.location.protocol}//${window.location.host}`;
     const tmUrl = `${host}/api/tournament?searchType=profile&name=${name}`;
 
-    console.log("axiops")
-    console.log(process.env)
     axios
       .get(tmUrl, {
         headers: {
@@ -141,30 +140,37 @@ function PlayerTemplate(props) {
     width: '100%', // Ensure images fill their container
     height: 'auto', // Maintain aspect ratio
   };
+
   let achievements = [];
   let imageElements = [];
   if (profile !== null) {
     achievements = getAchievements(profile);
   }
 
+  const maxAchievementsToShow = showMore ? achievements.length : 5;
   // Render the list of images in the grid
-  imageElements = achievements.map((achievement, index) => (
-    <div key={achievement.id} style={gridItemStyle}>
-      <img src={achievement.image} alt={`${index + 1}`} style={imageStyle} />
-      <div style={achievementNameStyle}>{achievement.name}</div>
+  imageElements = achievements.slice(0, maxAchievementsToShow).map((achievement, index) => (
+    <div key={achievement.id} style={gridItemStyle} data-tooltip-id="pokemon-item" data-tooltip-content={achievement.description}>
+      <img src={achievement.image} alt={`${index + 1}`} style={imageStyle} className="image-glow" />
     </div>
   ));
+
+  const toggleShowMore = () => {
+    setShowMore(!showMore);
+  };
 
   return (
     <Layout>
       <Seo title={profile != null ? profile.name : ''} description={profile != null ? profile.name : ''} />
       <div className="profile-container is-layout-constrained">
         <div className="wp-block-group">
+          {!playerFound && (
           <div style={playerProfileStyle}>
             <p><b>PLAYER PROFILE</b></p>
           </div>
+          )}
           <div style={{ ...profileStyle, ...fontSizeStyle }}>
-            <p>{profile != null ? profile.name : profileName}</p>
+            <h1>{profile != null ? profile.name : profileName}</h1>
           </div>
           {playerFound && (
           <div>
@@ -173,7 +179,14 @@ function PlayerTemplate(props) {
           )}
           {playerFound && (
           <div>
-            <div style={gridContainerStyle}>{imageElements}</div>
+            <div>
+              <div style={gridContainerStyle}>{imageElements}</div>
+              {achievements.length > 5 && (
+                <button className="player-item-modal-link" onClick={toggleShowMore}>
+                  {showMore ? 'Show less...' : 'Show more...'}
+                </button>
+              )}
+            </div>
           </div>
           )}
           {allProfiles != null && (

@@ -9,7 +9,7 @@ import Modal from 'react-modal';
 import classNames from 'classnames';
 import { Tooltip } from 'react-tooltip';
 import { Link } from 'gatsby';
-import { getRosterHTML, getRosterSearchHTML } from '../utils/profile-roster-utils';
+import { getRosterHTML, getRosterSearchHTML } from '../utils/roster-utils';
 import { linkifyEvent } from '../utils/url-utils';
 import useWindowSize from '../utils/use-window-size';
 import ProfileImage from './profileimage';
@@ -375,7 +375,7 @@ function TournamentRoster({
           placeholder="Search Pokémon"
           value={searchInput}
           onChange={handleSearchInputChange}
-          style={{ marginLeft: '30px' }}
+          style={{ marginLeft: '10px' }}
         />
       </div>
       <br />

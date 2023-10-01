@@ -20,7 +20,7 @@ import Modal from 'react-modal';
 import classNames from 'classnames';
 import { Tooltip } from 'react-tooltip';
 import { Link } from 'gatsby';
-import { getRosterHTML, getRosterSearchHTML } from '../utils/tournament-roster-utils';
+import { getRosterHTML, getRosterSearchHTML } from '../utils/roster-utils';
 import { linkifyEvent } from '../utils/url-utils';
 import useWindowSize from '../utils/use-window-size';
 
@@ -427,7 +427,7 @@ function TournamentRoster({
         {
           (props) => {
             if (isLoading) {
-              return (<div className="player-table-loading">...Loading</div>);
+              return (<div className="player-table-loading">Loading...</div>);
             }
             return (
               <div>

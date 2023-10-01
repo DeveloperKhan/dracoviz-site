@@ -108,14 +108,16 @@ function GBL({ response }) {
                 <div style={{ fontSize: '30px' }}><b>{item.peakRating}</b></div>
                 <label>Peak Rating</label>
               </div>
-              <div className="grid-item">
+              <div style={{backgroundColor:"white"}} className="grid-item" data-tooltip-id="pokemon-item" data-tooltip-content={"Please explain yourself here"}>
                 <div style={{ fontSize: '30px' }}>
-                  <b>
-                    {(item.score * 100).toFixed(2)}
-                    %
-                  </b>
+                  <b>{(item.score * 100).toFixed(2)}%</b>
                 </div>
-                <label>Performance Rating</label>
+                <div>
+                  <label>Performance Rating</label>
+                  <span className="tooltip">
+                      <span>ℹ️</span>
+                  </span>
+                </div>
               </div>
             </div>
           </div>

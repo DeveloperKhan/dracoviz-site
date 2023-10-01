@@ -21,7 +21,6 @@ async function fetchProfilesData() {
 }
 
 async function handler(req, res) {
-  console.log("yes")
   const {
     tm, name, searchType, year,
   } = req.query;
@@ -49,26 +48,19 @@ async function handler(req, res) {
       const data = await players.find({ qualified: true, tournament: { $regex: new RegExp(year, 'i') } }).toArray();
       res.status(200).json(data);
     } else if (searchType === 'profile') {
-      console.log("ok")
       const kvClient = createClient({
         token: process.env.KV_REST_API_TOKEN,
         url: process.env.KV_REST_API_URL,
       });
-      console.log("oknt")
 
       const names = (await fetchProfilesData()).split(',');
       const lowerNames = names.map((str) => str.toLowerCase());
 
-      console.log(lowerNames)
-      console.log(name.toLowerCase())
       let profileData = null;
       if (name !== '' && lowerNames.includes(name.toLowerCase())) {
-        console.log("ok1")
         profileData = await kvClient.get(`profiles:${name.toLowerCase()}`);
       }
       if (profileData == null) {
-        console.log("ok2")
-        // console.log(profiles_output)
         res.status(200).json({ allProfiles: names });
         return;
       }

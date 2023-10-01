@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../css/fonts.css';
 // import qrcode from 'qrcode';
-import { getPokemonURLName } from '../utils/profile-roster-utils';
+import { getPokemonURLName } from '../utils/roster-utils';
 import pokemonJson from '../../static/pokemon.json';
 
 function loadImage(url, callback) {
