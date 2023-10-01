@@ -1,10 +1,28 @@
 import { MongoClient } from 'mongodb';
+import { createClient } from '@vercel/kv';
+import axios from 'axios';
+import fs from 'fs';
 
 const uri = process.env.GATSBY_MONGODB_URL;
 const client = new MongoClient(uri);
 
+const profilesUrl = 'https://gist.github.com/ShinyDialga/0c294c1cfd434a36054bc8cd2b6fe5bc/raw'; // Replace with your actual URL
+ // '                 https://gist.githubusercontent.com/ShinyDialga/0c294c1cfd434a36054bc8cd2b6fe5bc/raw/6e108f920796e917332dc219a2a228f6f1842f12/gistfile1.txt
+
+async function fetchProfilesData() {
+  try {
+    const response = await axios.get(profilesUrl);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching data from URL:', error);
+    return '';
+  }
+}
+
 async function handler(req, res) {
-  const { tm, qualified, year } = req.query;
+  const {
+    tm, name, searchType, year,
+  } = req.query;
   const { x_authorization } = req.headers;
   if (x_authorization == null) {
     res.status(401).json({
@@ -24,11 +42,30 @@ async function handler(req, res) {
   try {
     await client.connect();
     const pokemongo = client.db('pokemongo');
-    const players = pokemongo.collection('tm_players');
-    if (qualified) {
+    if (searchType === 'qualified') {
+      const players = pokemongo.collection('tm_players');
       const data = await players.find({ qualified: true, tournament: { $regex: new RegExp(year, 'i') } }).toArray();
       res.status(200).json(data);
+    } else if (searchType === 'profile') {
+      const kvClient = createClient({
+        token: process.env.KV_REST_API_TOKEN,
+        url: process.env.KV_REST_API_URL,
+      });
+
+      const names = (await fetchProfilesData()).split(',');
+      const lowerNames = names.map((str) => str.toLowerCase());
+
+      let profileData = null;
+      if (name !== '' && lowerNames.includes(name.toLowerCase())) {
+        profileData = await kvClient.get(`profiles:${name.toLowerCase()}`);
+      }
+      if (profileData == null) {
+        res.status(200).json({ allProfiles: names });
+        return;
+      }
+      res.status(200).json(profileData);
     } else {
+      const players = pokemongo.collection('tm_players');
       const data = await players.find({ tournament: tm }).toArray();
       res.status(200).json(data);
     }

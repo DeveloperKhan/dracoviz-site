@@ -595,6 +595,11 @@ a:focus {
   grid-template-columns: auto auto auto auto auto auto;
 }
 
+.gbl-item-row {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
 .pokemon-image-wrapper {
   position: relative;
   display: inline-block;
@@ -629,6 +634,55 @@ a:focus {
   height: 40rem;
 }
 
+.image-glow {
+  transition: filter 0.3s;
+}
+
+.image-glow:hover {
+  filter: brightness(1.2);
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px; /* Adjust the spacing between the percentage and the tooltip */
+}
+
+.circle {
+  font-size: 10px; /* Adjust the circle size */
+}
+
+.question-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px; /* Adjust the question mark size */
+  color: white; /* Set the color to match the tooltip background */
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  top: -30px; /* Adjust the distance from the percentage */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
 .close-modal-btn {
   box-shadow: none;
   border: none;
@@ -650,6 +704,36 @@ a:focus {
   justify-content: center;
 }
 
+.profile-text {
+  font-family: 'Jost, sans-serif';
+  font-weight: 400;
+  font-size: 4rem; /* Default font size */
+  max-width: 100%; /* Set a maximum width to prevent text from overflowing */
+  margin-top: -40px; /* Adjust this value as needed */
+  word-wrap: break-word; /* Enable word wrapping */
+}  
+
+.loading-text {
+  font-family: 'Jost, sans-serif';
+  font-weight: '400';
+  font-size: '25px';
+  margin-top: '-40px';
+}  
+
+@media (max-width: 768px) {
+  /* Adjust the font size for screens with a maximum width of 768px */
+  .profile-text {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjust the font size for screens with a maximum width of 480px */
+  .profile-text {
+    font-size: 2rem;
+  }
+}
+
 /* Media queries */
 
 @media (max-width: 992px) {
@@ -663,6 +747,10 @@ a:focus {
     display: grid;
     grid-template-columns: auto auto auto;
   }
+  .gbl-item-row {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
 }
 
 @media (max-width: 42rem) {
@@ -671,6 +759,10 @@ a:focus {
     width: 100%;
   }
   .player-item-row {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .gbl-item-row {
     display: grid;
     grid-template-columns: auto auto;
   }
@@ -688,7 +780,7 @@ a:focus {
   .tableauPlaceholder {
     max-width: var(--maxWidth-full);
   }
-  .blog-post-nav, .article-head {
+  .blog-post-nav, .article-head, .profile-container {
     padding: 0 var(--spacing-4);
   }
   ul,
