@@ -169,7 +169,7 @@ export function getRosterHTML(tournament) {
     };
 
     const pokemonJsonSid = pokemonJson[getPokemonURLName(pokemon)];
-    let imageUrl = 'https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/02ef0811-df6c-45e4-1da3-9bf377260100/public';
+    let imageUrl = 'https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/2da163c6-167f-4b7d-5e3d-bbc5cf178b00/public';
     // if (pokemon.name.includes("a")) {
     if (pokemonJsonSid != null && pokemonJsonSid.sid != null) {
       imageUrl = `https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/home_${pokemonJsonSid.sid}.png/public`;

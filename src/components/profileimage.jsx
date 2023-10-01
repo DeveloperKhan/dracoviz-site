@@ -293,7 +293,7 @@ function generateImage(profile, season, callback) {
 
                   const pokemon = roster[index];
                   const pokemonJsonSid = pokemonJson[getPokemonURLName(pokemon)];
-                  let imageUrl = 'https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/02ef0811-df6c-45e4-1da3-9bf377260100/public';
+                  let imageUrl = 'https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/2da163c6-167f-4b7d-5e3d-bbc5cf178b00/public';
                   // if (pokemon.name.includes("a")) {
                   if (pokemonJsonSid != null && pokemonJsonSid.sid != null) {
                     imageUrl = `https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/home_${pokemonJsonSid.sid}.png/public`;
@@ -334,7 +334,7 @@ function generateImage(profile, season, callback) {
                       context.clip();
 
                       // Draw the image inside the circle
-                      const zoomFactor = 0.14; // Adjust the zoom factor as needed
+                      let zoomFactor = 0.14; // Adjust the zoom factor as needed
                       const tallBois = {
                         Dragonite: 10,
                         Deoxys: 10,
@@ -349,7 +349,8 @@ function generateImage(profile, season, callback) {
                         ? tallBois[pokemon.name] : 0; // he zoomin in
 
                       if (pokemonJsonSid == null) { //missingno offset
-                        tallBoi = 5;
+                        zoomFactor = 0.37;
+                        tallBoi = -3;
                       }
 
                       const zoomedWidth = image.width * zoomFactor;
