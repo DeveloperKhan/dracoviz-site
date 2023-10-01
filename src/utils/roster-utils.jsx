@@ -19,7 +19,6 @@ function capitalize(s) {
 }
 
 function transformPokemonName(pokemonName, form) {
-    console.log(pokemonName + "," + form)
   let transformedName = pokemonName.toLowerCase()
     .replace('_', '-')
     .replace(' ', '-')
@@ -77,7 +76,6 @@ function transformPokemonName(pokemonName, form) {
     }
   }
 
-  console.log(transformedName)
   return transformedName;
 }
 
@@ -91,7 +89,6 @@ export function getRosterSearchHTML(player) {
   player.roster.forEach((pokemon) => {
     rosterString = `${rosterString + transformPokemonName(pokemon.name, pokemon.form)} `;
   });
-  console.log(rosterString)
   return rosterString;
 }
 
