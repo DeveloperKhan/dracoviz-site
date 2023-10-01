@@ -180,6 +180,8 @@ async function handler(req, res) {
       currentRoundNumber,
       bracketType,
       totalRounds,
+      gameAmount,
+      playAllMatches,
     } = session;
     const isHost = host?.includes(x_session_id);
     const isTeamTournament = maxTeamSize > 1;
@@ -234,6 +236,8 @@ async function handler(req, res) {
       bracket,
       bracketType,
       totalRounds,
+      gameAmount,
+      playAllMatches,
     };
     res.status(200).json(maskedSession);
   } catch (ex) {
