@@ -4,7 +4,7 @@ import allowCors from '../../db/allowCors';
 import sessionStates from '../../db/sessionStates';
 import pokemonJSON from '../../static/pokemon.json';
 
-function findLatestRoundWithParticipant(participantId, roundsArray) {
+function findLatestRoundWithParticipant(participantId, roundsArray, currentRoundNumber) {
   let latestRound = null;
   let latestParticipantGroupIndex = -1;
   let latestParticipantIndex = -1;
@@ -16,7 +16,7 @@ function findLatestRoundWithParticipant(participantId, roundsArray) {
         const participantIndex = participantGroup.findIndex(
           (participant) => participant.id === participantId,
         );
-        if (participantIndex !== -1 && (!latestRound || round.round > latestRound.round)) {
+        if (participantIndex !== -1 && round.round === currentRoundNumber) {
           latestMatchIndex = matchIndex;
           latestRound = round;
           latestParticipantGroupIndex = groupIndex;
@@ -82,14 +82,21 @@ async function handler(req, res) {
     }
 
     const {
-      state, bracket, gameAmount, playAllMatches, players, cpVisible, movesetsVisible,
+      state,
+      bracket,
+      gameAmount,
+      playAllMatches,
+      players,
+      cpVisible,
+      movesetsVisible,
+      currentRoundNumber,
     } = session;
     const {
       latestRound,
       latestMatchIndex,
       latestParticipantGroupIndex,
       latestParticipantIndex,
-    } = findLatestRoundWithParticipant(x_session_id, bracket);
+    } = findLatestRoundWithParticipant(x_session_id, bracket, currentRoundNumber);
 
     if (latestRound == null || latestMatchIndex === -1 || latestParticipantGroupIndex === -1) {
       res.status(401).json({ error: 'api_session_not_found' });
