@@ -14,12 +14,12 @@ import dracoviz_badges_int4 from '../../static/achievements/dracoviz_badges_int4
 import dracoviz_badges_int8 from '../../static/achievements/dracoviz_badges_int8.png';
 import dracoviz_badges_int16 from '../../static/achievements/dracoviz_badges_int16.png';
 import dracoviz_badges_intchamp from '../../static/achievements/dracoviz_badges_intchamp.png';
-import dracoviz_badges_quest_8x3 from '../../public/achievements/dracoviz_badges_quest_8x3.png';
-import dracoviz_badges_quest_8x4 from '../../public/achievements/dracoviz_badges_quest_8x4.png';
-import dracoviz_badges_quest_8x5 from '../../public/achievements/dracoviz_badges_quest_8x5.png';
+import dracoviz_badges_quest_8x3 from '../../static/achievements/dracoviz_badges_quest_8x3.png';
+import dracoviz_badges_quest_8x4 from '../../static/achievements/dracoviz_badges_quest_8x4.png';
+import dracoviz_badges_quest_8x5 from '../../static/achievements/dracoviz_badges_quest_8x5.png';
 import dracoviz_badges_quest_80 from '../../static/achievements/dracoviz_badges_quest_80.png';
 import dracoviz_badges_quest_90 from '../../static/achievements/dracoviz_badges_quest_90.png';
-import dracoviz_badges_quest_100 from '../../public/achievements/dracoviz_badges_quest_100.png';
+import dracoviz_badges_quest_100 from '../../static/achievements/dracoviz_badges_quest_100.png';
 import dracoviz_badges_reg1 from '../../static/achievements/dracoviz_badges_reg1.png';
 import dracoviz_badges_reg2 from '../../static/achievements/dracoviz_badges_reg2.png';
 import dracoviz_badges_reg3 from '../../static/achievements/dracoviz_badges_reg3.png';
