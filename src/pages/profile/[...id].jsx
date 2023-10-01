@@ -204,7 +204,11 @@ function PlayerTemplate(props) {
           </div>
           )}
           {tournamentsFound && (
-          <ProfileRoster className="play-pokemon" playerName={name} response={profile} />
+            <>
+              <ProfileRoster className="play-pokemon" playerName={name} response={profile} />
+              <br />
+              <small>The following Play! data isn’t included: all 2022 data Senior and Master divisions except for Worlds and last-chance Qualifier; and 2023 Mexico City Qualifier. Partial data is currently available for 2023 Asia Qualifiers as we’re working to update our database.</small>
+            </>
           )}
 
           {gblFound && (
