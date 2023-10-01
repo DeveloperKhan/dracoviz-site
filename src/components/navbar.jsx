@@ -33,6 +33,13 @@ export default function NavBar() {
                 <Nav.Link href="/profile/" className="nav-button">Player Profiles</Nav.Link>
                 <Nav.Link href="/blog/1" className="nav-button">Blog Posts</Nav.Link>
                 <Link
+                  to="https://ko-fi.com/dracoviz"
+                  className="nav-button"
+                  style={{ padding: '5px 0 15px 0', textDecoration: 'none' }}
+                >
+                  ❤️ Support us
+                </Link>
+                <Link
                   to="https://dracoviz.gg"
                   className="tournaments-button"
                   style={{ color: 'white', textDecoration: 'none' }}

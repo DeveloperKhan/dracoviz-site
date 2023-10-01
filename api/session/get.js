@@ -41,13 +41,22 @@ async function getFactions(session, playerId, factionId) {
   return { factions: factionObjs, isCaptain, teamCode };
 }
 
-async function getPlayers(players, isHost, state, factionId, movesetsVisible, cpVisible) {
+async function getPlayers(
+  players,
+  isHost,
+  state,
+  factionId,
+  movesetsVisible,
+  cpVisible,
+  hideTeamsFromHost,
+) {
   const Player = await getPlayerModel();
   const shouldLookupAllPlayers = isHost
     || state === sessionStates.pokemonVisible
     || state === sessionStates.matchupsVisible
     || state === sessionStates.registerTeam;
-  const shouldShowAllTeams = isHost || state === sessionStates.pokemonVisible;
+  const shouldShowAllTeams = (isHost && hideTeamsFromHost !== true)
+    || state === sessionStates.pokemonVisible;
   const returnedPlayers = await Promise.all(
     players?.map(async (player) => {
       const isTeammate = player.factionId === factionId && factionId != null;
@@ -66,6 +75,7 @@ async function getPlayers(players, isHost, state, factionId, movesetsVisible, cp
         discord: playerObj.discord,
         telegram: playerObj.telegram,
         tournamentPosition: shouldLookupPlayer ? player.tournamentPosition : -1,
+        valid: isHost && player.pokemon != null && player.pokemon.length >= 6,
       };
       if (!shouldLookupPlayer || (!shouldShowAllTeams && !isTeammate)) {
         return returnObj;
@@ -117,7 +127,15 @@ async function handler(req, res) {
     }
 
     const {
-      host, state, maxTeamSize, metas, cpVisible, movesetsVisible, registrationClosed, concluded,
+      host,
+      state,
+      maxTeamSize,
+      metas,
+      cpVisible,
+      movesetsVisible,
+      registrationClosed,
+      concluded,
+      hideTeamsFromHost,
     } = session;
     const isHost = host?.includes(x_session_id);
     const isTeamTournament = maxTeamSize > 1;
@@ -137,11 +155,13 @@ async function handler(req, res) {
       factionId,
       movesetsVisible,
       cpVisible,
+      hideTeamsFromHost,
     );
     const isParticipant = isPlayer || isHost;
 
     const maskedSession = {
       name: session.name,
+      hideTeamsFromHost,
       description: session.description,
       bracketLink: session.bracketLink,
       serverInviteLink: session.serverInviteLink,
