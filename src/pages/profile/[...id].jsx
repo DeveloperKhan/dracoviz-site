@@ -217,6 +217,13 @@ function PlayerTemplate(props) {
               <h2>GO Battle League</h2>
             </div>
             <GBL playerName={name} response={profile} />
+            <br />
+            <small>
+              Season 1, 2, and 3 data are not yet live. Data is sourced from
+              {' '}
+              <a href="https://twitter.com/JJan11PGO" target="_blank" rel="noreferrer">JJan</a>
+              .
+            </small>
           </>
           )}
 
