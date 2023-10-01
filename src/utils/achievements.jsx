@@ -209,7 +209,7 @@ function is80WinPercent(profile) {
     const winPercentage = (parseInt(tournament.game_wins, 10) + parseInt(tournament.game_losses, 10) > 0
      ? (100 * parseInt(tournament.game_wins, 10) / (parseInt(tournament.game_wins, 10) + parseInt(tournament.game_losses, 10)))
       : 0);
-    return tournament.final_rank === 1 && winPercentage >= 80;
+    return tournament.final_rank <= 8 && winPercentage >= 80;
   });
 }
 
@@ -218,7 +218,7 @@ function is90WinPercent(profile) {
     const winPercentage = (parseInt(tournament.game_wins, 10) + parseInt(tournament.game_losses, 10) > 0
      ? (100 * parseInt(tournament.game_wins, 10) / (parseInt(tournament.game_wins, 10) + parseInt(tournament.game_losses, 10)))
       : 0);
-    return tournament.final_rank === 1 && winPercentage >= 90;
+    return tournament.final_rank <= 8 && winPercentage >= 90;
   });
 }
 
@@ -274,7 +274,7 @@ function isTop8x5(profile) {
   });
 
   // Check if any year has three or more top 8 appearances
-  return Object.values(top8Counts).some((count) => count >= 3);
+  return Object.values(top8Counts).some((count) => count >= 5);
 }
 
 const achievements = [
@@ -502,7 +502,7 @@ const achievements = [
   },
   {
     tier: 1,
-    id: 'is80WinPercent',
+    id: 'isWinPercent',
     name: '80% Win Rate',
     description: 'Win a Play! Pokémon event with a 80%+ game win rate',
     check: is80WinPercent,
@@ -510,7 +510,7 @@ const achievements = [
   },
   {
     tier: 2,
-    id: 'is90WinPercent',
+    id: 'isWinPercent',
     name: '90% Win Rate',
     description: 'Win a Play! Pokémon event with a 90%+ game win rate',
     check: is90WinPercent,
@@ -518,7 +518,7 @@ const achievements = [
   },
   {
     tier: 3,
-    id: 'is100WinPercent',
+    id: 'isWinPercent',
     name: '100% Win Rate',
     description: 'Win a Play! Pokémon event with a 100% game win rate',
     check: is100WinPercent,

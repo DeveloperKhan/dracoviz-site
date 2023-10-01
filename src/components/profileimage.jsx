@@ -293,13 +293,11 @@ function generateImage(profile, season, callback) {
 
                   const pokemon = roster[index];
                   const pokemonJsonSid = pokemonJson[getPokemonURLName(pokemon)];
-                  const sid = (
-                    pokemonJsonSid != null
-                    && pokemonJsonSid.sid != null
-                      ? pokemonJsonSid.sid
-                      : pokemonJson.unown.sid
-                  );
-                  const imageUrl = `https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/home_${sid}.png/public`;
+                  let imageUrl = 'https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/02ef0811-df6c-45e4-1da3-9bf377260100/public';
+                  // if (pokemon.name.includes("a")) {
+                  if (pokemonJsonSid != null && pokemonJsonSid.sid != null) {
+                    imageUrl = `https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/home_${pokemonJsonSid.sid}.png/public`;
+                  }
                   // const imageUrl = `https://img.pokemondb.net/sprites/go/normal/${getPokemonURLName(pokemon)}.png`;
 
                   loadImage(imageUrl, (error, image) => {
@@ -347,8 +345,12 @@ function generateImage(profile, season, callback) {
                         Noctowl: 5,
                         Runerigus: -5,
                       };
-                      const tallBoi = tallBois[pokemon.name] != null
+                      let tallBoi = tallBois[pokemon.name] != null
                         ? tallBois[pokemon.name] : 0; // he zoomin in
+
+                      if (pokemonJsonSid == null) { //missingno offset
+                        tallBoi = 5;
+                      }
 
                       const zoomedWidth = image.width * zoomFactor;
                       const zoomedHeight = image.height * zoomFactor;
