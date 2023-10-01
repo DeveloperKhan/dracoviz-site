@@ -344,6 +344,8 @@ function generateImage(profile, season, callback) {
                         Cresselia: 5,
                         Noctowl: 5,
                         Runerigus: -5,
+                        Pelipper: 10,
+                        Serperior: 10,
                       };
                       let tallBoi = tallBois[pokemon.name] != null
                         ? tallBois[pokemon.name] : 0; // he zoomin in
