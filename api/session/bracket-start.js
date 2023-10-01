@@ -97,7 +97,7 @@ async function handler(req, res) {
       return;
     }
 
-    if (session.currentRoundNumber > 0) {
+    if (session.currentRoundNumber > 0 || (session.bracket != null && session.bracket.length > 0)) {
       res.status(401).json({ error: 'api_bracket_already_started' });
       return;
     }
