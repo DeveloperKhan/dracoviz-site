@@ -101,8 +101,9 @@ async function handler(req, res) {
       }
     }
 
-    const { players, sessions } = deletePlayerFromSession(playerToRemove, session);
+    const { players, sessions, bracket } = deletePlayerFromSession(playerToRemove, session);
 
+    session.bracket = bracket;
     session.players = players;
     playerToRemove.sessions = sessions;
 

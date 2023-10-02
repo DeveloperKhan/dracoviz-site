@@ -20,6 +20,15 @@ const getFactionModel = async () => {
       unique: true,
     },
     players: [String],
+    sessions: [
+      {
+        session: { type: String },
+        playersByRound: [{
+          round: { type: String },
+          players: [String],
+        }],
+      },
+    ],
   });
   return mongoose.models.faction || mongoose.model('faction', FactionSchema);
 };

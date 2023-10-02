@@ -7,6 +7,50 @@ import avatars from '../../static/avatars.json';
 import pokemonJSON from '../../static/pokemon.json';
 import getFactionModel from '../../db/faction';
 
+function findName(id, players, removed) {
+  if (removed) {
+    return id;
+  }
+  if (id == null) {
+    return 'Bye';
+  }
+  return players.find((p) => p.session === id)?.name ?? '';
+}
+
+function getBracket(bracket, players, currentRoundNumber) {
+  if (currentRoundNumber == null
+      || currentRoundNumber <= 0
+      || bracket == null
+      || bracket.length <= 0
+  ) {
+    return undefined;
+  }
+  const maskedBracket = bracket.map((b) => {
+    const matches = b.matches.map((match) => {
+      // TODO Factions
+      const participants = match.participants.map((pairings) => (
+        pairings.map((participant) => ({
+          score: participant.score,
+          removed: participant.removed,
+          name: findName(participant.playerId, players, participant.removed),
+        }))
+      ));
+      return {
+        seed: match.seed,
+        score: match.score,
+        disputed: match.disputed,
+        touched: match.touched,
+        participants,
+      };
+    });
+    return {
+      round: b.round,
+      matches,
+    };
+  });
+  return maskedBracket;
+}
+
 async function getFactions(session, playerId, factionId) {
   const {
     maxTeamSize, factions,
@@ -71,6 +115,10 @@ async function getPlayers(
         description: playerObj.description,
         avatar: avatars[playerObj.avatar]?.src,
         factionId: player.factionId,
+        wins: player.wins,
+        losses: player.losses,
+        gameWins: player.gameWins,
+        gameLosses: player.gameLosses,
         friendCode: playerObj.friendCode,
         discord: playerObj.discord,
         telegram: playerObj.telegram,
@@ -136,6 +184,12 @@ async function handler(req, res) {
       registrationClosed,
       concluded,
       hideTeamsFromHost,
+      currentRoundNumber,
+      bracketType,
+      totalRounds,
+      gameAmount,
+      playAllMatches,
+      requireBothPlayersToReport,
     } = session;
     const isHost = host?.includes(x_session_id);
     const isTeamTournament = maxTeamSize > 1;
@@ -157,6 +211,11 @@ async function handler(req, res) {
       cpVisible,
       hideTeamsFromHost,
     );
+    const bracket = getBracket(
+      session.bracket,
+      players,
+      currentRoundNumber,
+    );
     const isParticipant = isPlayer || isHost;
 
     const maskedSession = {
@@ -172,7 +231,6 @@ async function handler(req, res) {
       matchTeamSize: session.matchTeamSize,
       metaLogos,
       state,
-      currentRoundNumber: session.currentRoundNumber,
       players,
       isTeamTournament,
       isPlayer,
@@ -182,6 +240,13 @@ async function handler(req, res) {
       teamCode,
       registrationClosed,
       concluded,
+      currentRoundNumber,
+      bracket,
+      bracketType,
+      totalRounds,
+      gameAmount,
+      playAllMatches,
+      requireBothPlayersToReport,
     };
     res.status(200).json(maskedSession);
   } catch (ex) {

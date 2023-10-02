@@ -4,6 +4,7 @@ import allowCors from '../../db/allowCors';
 import rules from '../../static/rules.json';
 import isValidUrl from '../../util/isValidUrl';
 import sessionStates from '../../db/sessionStates';
+import bracketTypes from '../../db/bracketTypes';
 
 function getRandomPin() {
   return Math.random().toString(36).slice(-4);
@@ -15,6 +16,7 @@ async function handler(req, res) {
     bracketLink, isPrivate, maxTeams, maxTeamSize, maxMatchTeamSize,
     metas, cpVisibility, movesetVisibility, draftMode,
     hideTeamsFromHost,
+    bracketType, gameAmount, playAllMatches, requireBothPlayersToReport,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -33,7 +35,7 @@ async function handler(req, res) {
     return;
   }
   try {
-    if (!isValidUrl(bracketLink)) {
+    if (bracketType === bracketTypes.none && !isValidUrl(bracketLink)) {
       res.status(401).json({ error: 'api_bracket_link_invalid' });
       return;
     }
@@ -103,6 +105,10 @@ async function handler(req, res) {
       concluded: false,
       hideTeamsFromHost,
       bracket: [],
+      bracketType,
+      gameAmount,
+      playAllMatches,
+      requireBothPlayersToReport,
     });
 
     const { key } = session;
