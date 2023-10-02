@@ -68,7 +68,7 @@ function transformBracketFormat(inputArray) {
 function getSwissPlayers(players) {
   return players.map((player) => ({
     id: player.playerId,
-    score: player.wins * 10 + player.gameWins,
+    score: player.wins,
     receivedBye: player.receivedBye,
     avoid: player.opponents,
   }));
