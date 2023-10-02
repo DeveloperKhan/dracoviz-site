@@ -69,7 +69,9 @@ async function handler(req, res) {
       return;
     }
 
-    const { currentRoundNumber, bracket, requireBothPlayersToReport } = session;
+    const {
+      currentRoundNumber, bracket, requireBothPlayersToReport, gameAmount,
+    } = session;
 
     if (currentRoundNumber === 0) {
       res.status(401).json({ error: 'api_bracket_not_started' });
@@ -81,6 +83,11 @@ async function handler(req, res) {
 
     if (currentRound == null) {
       res.status(401).json({ error: 'api_bracket_not_started' });
+      return;
+    }
+
+    if (gameAmount < (player1 + player2)) {
+      res.status(401).json({ error: 'api_bracket_invalid_score' });
       return;
     }
 
