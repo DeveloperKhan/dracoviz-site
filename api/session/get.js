@@ -7,7 +7,10 @@ import avatars from '../../static/avatars.json';
 import pokemonJSON from '../../static/pokemon.json';
 import getFactionModel from '../../db/faction';
 
-function findName(id, players) {
+function findName(id, players, removed) {
+  if (removed) {
+    return id;
+  }
   if (id == null) {
     return 'Bye';
   }
@@ -29,7 +32,7 @@ function getBracket(bracket, players, currentRoundNumber) {
         pairings.map((participant) => ({
           score: participant.score,
           removed: participant.removed,
-          name: findName(participant.playerId, players),
+          name: findName(participant.playerId, players, participant.removed),
         }))
       ));
       return {
