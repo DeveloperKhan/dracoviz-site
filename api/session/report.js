@@ -102,7 +102,7 @@ async function handler(req, res) {
         res.status(401).json({ error: 'api_bracket_could_not_find_match' });
         return;
       }
-      if (currentMatch.touched) {
+      if (currentMatch.touched[targetGroupIndex]) {
         res.status(401).json({ error: 'api_unauthorized' });
         return;
       }
