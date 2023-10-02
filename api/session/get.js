@@ -93,6 +93,7 @@ async function getPlayers(
   movesetsVisible,
   cpVisible,
   hideTeamsFromHost,
+  hpVisible,
 ) {
   const Player = await getPlayerModel();
   const shouldLookupAllPlayers = isHost
@@ -136,6 +137,7 @@ async function getPlayers(
           cp: (isHost || cpVisible) ? p.cp : null,
           chargedMoves: (isHost || movesetsVisible) ? p.chargedMoves : null,
           fastMove: (isHost || movesetsVisible) ? p.fastMove : null,
+          hp: (isHost || hpVisible) ? p.hp : null,
         })),
       };
     }),
@@ -190,6 +192,7 @@ async function handler(req, res) {
       gameAmount,
       playAllMatches,
       requireBothPlayersToReport,
+      hpVisible,
     } = session;
     const isHost = host?.includes(x_session_id);
     const isTeamTournament = maxTeamSize > 1;
@@ -210,6 +213,7 @@ async function handler(req, res) {
       movesetsVisible,
       cpVisible,
       hideTeamsFromHost,
+      hpVisible,
     );
     const bracket = getBracket(
       session.bracket,

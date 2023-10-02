@@ -30,7 +30,7 @@ async function handler(req, res) {
     }
 
     const {
-      players, state, maxTeamSize, movesetsRequired, cpRequired,
+      players, state, maxTeamSize, movesetsRequired, cpRequired, hpRequired,
     } = session;
 
     const playerIndex = players.findIndex((p) => p.playerId === x_session_id);
@@ -56,6 +56,7 @@ async function handler(req, res) {
 
     const pokemon = [];
     const cp = [];
+    const hp = [];
     const chargedMoves = [];
     const fastMoves = [];
 
@@ -64,6 +65,7 @@ async function handler(req, res) {
     thePlayer.pokemon.forEach((p) => {
       pokemon.push(p.speciesName ?? '');
       cp.push(p.cp ?? '');
+      hp.push(p.hp ?? '');
       chargedMoves.push(p.chargedMoves ?? []);
       fastMoves.push(p.fastMove);
     });
@@ -72,8 +74,10 @@ async function handler(req, res) {
       canEdit,
       movesetsRequired,
       cpRequired,
+      hpRequired,
       pokemon,
       cp,
+      hp,
       chargedMoves,
       fastMoves,
       pokemonData: pokemonJSON,

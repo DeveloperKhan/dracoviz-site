@@ -14,7 +14,7 @@ async function handler(req, res) {
   const {
     name, description, serverInviteLink,
     bracketLink, isPrivate, maxTeams, maxTeamSize, maxMatchTeamSize,
-    metas, cpVisibility, movesetVisibility, draftMode,
+    metas, cpVisibility, movesetVisibility, hpVisibility, draftMode,
     hideTeamsFromHost,
     bracketType, gameAmount, playAllMatches, requireBothPlayersToReport,
   } = req.body;
@@ -96,6 +96,8 @@ async function handler(req, res) {
       movesetsVisible: movesetVisibility === 'global',
       cpRequired: cpVisibility != null && cpVisibility !== 'none',
       cpVisible: cpVisibility === 'global',
+      hpRequired: hpVisibility != null && hpVisibility !== 'none',
+      hpVisible: hpVisibility === 'global',
       isTeamDraft: draftMode === 'team',
       isGlobalDraft: draftMode === 'global',
       metas: theMetas,
