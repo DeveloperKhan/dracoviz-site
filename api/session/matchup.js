@@ -14,7 +14,7 @@ function findLatestRoundWithParticipant(participantId, roundsArray, currentRound
     round.matches.forEach((match, matchIndex) => {
       match.participants.some((participantGroup, groupIndex) => {
         const participantIndex = participantGroup.findIndex(
-          (participant) => participant.id === participantId,
+          (participant) => participant.playerId === participantId,
         );
         if (participantIndex !== -1 && round.round === currentRoundNumber) {
           latestMatchIndex = matchIndex;
@@ -103,9 +103,12 @@ async function handler(req, res) {
       return;
     }
 
-    const { score, participants } = latestRound.matches[latestMatchIndex];
+    const { score, participants, touched } = latestRound.matches[latestMatchIndex];
     const matchScore = score[latestParticipantGroupIndex];
-    const opponentId = participants[latestParticipantGroupIndex][1 - latestParticipantIndex]?.id;
+    const shouldReverse = latestParticipantIndex === 1;
+    const opponentId = (
+      participants[latestParticipantGroupIndex][1 - latestParticipantIndex]?.playerId
+    );
     const hasOpponent = opponentId != null;
     const playerObj = players.find((p) => p.session === x_session_id);
     let opponent = {};
@@ -135,11 +138,13 @@ async function handler(req, res) {
       gameAmount,
       playAllMatches,
       hasOpponent,
+      touched,
       player: {
         name: player.name,
         pokemon: playerObj?.pokemon,
       },
       opponent,
+      shouldReverse,
     });
   } catch (ex) {
     console.error(ex);

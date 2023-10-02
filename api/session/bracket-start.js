@@ -14,14 +14,14 @@ function transformBracketFormat(inputArray) {
   // Then, iterate through each unique round and construct the desired format
   rounds.forEach((roundNumber) => {
     const matchesForRound = inputArray.filter((match) => match.round === roundNumber);
-
     const formattedMatches = matchesForRound.map((match) => ({
       seed: match.match,
-      score: [[0, 0]],
+      score: [[match.player2 == null ? 1 : 0, match.player1 == null ? 1 : 0]],
+      touched: match.player2 == null || match.player2 == null,
       participants: [
         [
-          { id: match.player1, score: [0, 0] },
-          { id: match.player2, score: [0, 0] },
+          { playerId: match.player1, score: [0, 0] },
+          { playerId: match.player2, score: [0, 0] },
         ],
       ],
     }));

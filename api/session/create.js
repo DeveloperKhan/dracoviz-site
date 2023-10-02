@@ -16,7 +16,7 @@ async function handler(req, res) {
     bracketLink, isPrivate, maxTeams, maxTeamSize, maxMatchTeamSize,
     metas, cpVisibility, movesetVisibility, draftMode,
     hideTeamsFromHost,
-    bracketType, gameAmount, playAllMatches,
+    bracketType, gameAmount, playAllMatches, requireBothPlayersToReport,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -108,6 +108,7 @@ async function handler(req, res) {
       bracketType,
       gameAmount,
       playAllMatches,
+      requireBothPlayersToReport,
     });
 
     const { key } = session;

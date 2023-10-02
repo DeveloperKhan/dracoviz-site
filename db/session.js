@@ -74,6 +74,7 @@ const getSessionModel = async () => {
     bracketType: { type: String },
     gameAmount: { type: Number },
     playAllMatches: { type: Boolean, default: false },
+    requireBothPlayersToReport: { type: Boolean, default: false },
     bracket: [{
       round: { type: Number },
       matches: [
@@ -83,13 +84,14 @@ const getSessionModel = async () => {
           disputed: [{ type: Boolean, default: false }],
           touched: [{ type: Boolean, default: false }],
           factions: [{
-            id: String,
-            score: [[Number]],
+            factionId: { type: String },
+            score: [Number],
             removed: { type: Boolean, default: false },
           }],
           participants: [[{
-            id: String,
-            score: [[Number]],
+            playerId: { type: String },
+            score: [Number],
+            touched: { type: Boolean, default: false },
             removed: { type: Boolean, default: false },
           }]],
         },

@@ -29,7 +29,7 @@ function getBracket(bracket, players, currentRoundNumber) {
         pairings.map((participant) => ({
           score: participant.score,
           removed: participant.removed,
-          name: findName(participant.id, players),
+          name: findName(participant.playerId, players),
         }))
       ));
       return {
@@ -182,6 +182,7 @@ async function handler(req, res) {
       totalRounds,
       gameAmount,
       playAllMatches,
+      requireBothPlayersToReport,
     } = session;
     const isHost = host?.includes(x_session_id);
     const isTeamTournament = maxTeamSize > 1;
@@ -238,6 +239,7 @@ async function handler(req, res) {
       totalRounds,
       gameAmount,
       playAllMatches,
+      requireBothPlayersToReport,
     };
     res.status(200).json(maskedSession);
   } catch (ex) {
