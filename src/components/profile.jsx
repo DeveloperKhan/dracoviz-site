@@ -80,7 +80,7 @@ function Profile(props) {
       .then((response) => {
         if (response.data.allProfiles != null) {
           // setProfileStyle(usernameStyle);
-          setProfileName(name !== '' ? 'Player not found' : 'Explore GBL and Play! Pokemon data from any player!');
+          setProfileName((name != null && name !== '') ? 'Player not found' : 'Explore GBL and Play! Pokemon data from any player!');
           setAllProfiles(response.data.allProfiles);
           return;
         }
