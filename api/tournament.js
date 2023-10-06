@@ -1,22 +1,21 @@
 import { MongoClient } from 'mongodb';
 import { createClient } from '@vercel/kv';
-import axios from 'axios';
-import fs from 'fs';
 
 const uri = process.env.GATSBY_MONGODB_URL;
 const client = new MongoClient(uri);
 
-const profilesUrl = 'https://gist.github.com/ShinyDialga/0c294c1cfd434a36054bc8cd2b6fe5bc/raw'; // Replace with your actual URL
- // '                 https://gist.githubusercontent.com/ShinyDialga/0c294c1cfd434a36054bc8cd2b6fe5bc/raw/6e108f920796e917332dc219a2a228f6f1842f12/gistfile1.txt
+const profilesUrl = 'https://api.github.com/gists/0c294c1cfd434a36054bc8cd2b6fe5bc'; // Replace with your actual URL
+// '                 https://gist.githubusercontent.com/ShinyDialga/0c294c1cfd434a36054bc8cd2b6fe5bc/raw/6e108f920796e917332dc219a2a228f6f1842f12/gistfile1.txt
 
 async function fetchProfilesData() {
-  try {
-    const response = await axios.get(profilesUrl);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching data from URL:', error);
-    return '';
-  }
+  const content = await fetch(profilesUrl)
+    .then((response) => response.json())
+    .then((data) => data.files['gistfile1.txt'].content)
+    .catch((error) => {
+      console.error('Error fetching data from URL:', error);
+      return '';
+    });
+  return content;
 }
 
 async function handler(req, res) {
