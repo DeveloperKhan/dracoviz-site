@@ -10,7 +10,7 @@ const profilesUrl = 'https://api.github.com/gists/0c294c1cfd434a36054bc8cd2b6fe5
 async function fetchProfilesData() {
   const content = await fetch(profilesUrl)
     .then((response) => response.json())
-    .then((data) => data.files['gistfile1.txt'].content)
+    .then((data) => data?.files['gistfile1.txt']?.content)
     .catch((error) => {
       console.error('Error fetching data from URL:', error);
       return '';
