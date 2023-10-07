@@ -71,6 +71,7 @@ function getSwissPlayers(players) {
     score: player.wins,
     receivedBye: player.receivedBye,
     avoid: player.opponents,
+    pairedUpDown: player.pairedUpDown,
   }));
 }
 
@@ -139,19 +140,31 @@ async function handler(req, res) {
     }
 
     if (session.bracketType === bracketTypes.swiss) {
+      const values = [];
       session.players.forEach((p, i) => {
         const {
           wins, losses, gameWins, gameLosses, opponent,
         } = getResults(currentRound.matches, p.playerId);
-        session.players[i].wins = (session.players[i].wins ?? 0) + wins;
-        session.players[i].losses = (session.players[i].losses ?? 0) + losses;
-        session.players[i].gameWins = (session.players[i].gameWins ?? 0) + gameWins;
-        session.players[i].gameLosses = (session.players[i].gameLosses ?? 0) + gameLosses;
+        values.push({
+          wins: (session.players[i].wins ?? 0) + wins,
+          losses: (session.players[i].losses ?? 0) + losses,
+          gameWins: (session.players[i].gameWins ?? 0) + gameWins,
+          gameLosses: (session.players[i].gameLosses ?? 0) + gameLosses,
+        });
         if (opponent == null) {
           session.players[i].receivedBye = true;
           return;
         }
+        if (opponent.wins != null && opponent.wins !== session.players[i].wins) {
+          session.players[i].pairedUpDown = true;
+        }
         session.players[i].opponents.push(opponent);
+      });
+      session.players.forEach((p, i) => {
+        session.players[i].wins = values[i].wins;
+        session.players[i].losses = values[i].losses;
+        session.players[i].gameWins = values[i].gameWins;
+        session.players[i].gameLosses = values[i].gameLosses;
       });
       const swissPlayers = getSwissPlayers(session.players);
       const swissBracket = Swiss(swissPlayers, session.currentRoundNumber);
