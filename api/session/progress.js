@@ -148,10 +148,10 @@ async function handler(req, res) {
         session.players[i].gameWins = (session.players[i].gameWins ?? 0) + gameWins;
         session.players[i].gameLosses = (session.players[i].gameLosses ?? 0) + gameLosses;
         if (opponent == null) {
+          session.players[i].receivedBye = true;
           return;
         }
         session.players[i].opponents.push(opponent);
-        session.players[i].receivedBye = true;
       });
       const swissPlayers = getSwissPlayers(session.players);
       const swissBracket = Swiss(swissPlayers, session.currentRoundNumber);
