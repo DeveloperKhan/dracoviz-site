@@ -14,7 +14,7 @@ function getResults(matches, playerIdToSearch) {
     match.participants.forEach((participantsArray, i) => {
       participantsArray.forEach((participant, j) => {
         if (participant.playerId === playerIdToSearch) {
-          const opponentIndex = participantsArray[1 - j];
+          const opponentIndex = 1 - j;
           opponent = participantsArray[opponentIndex]?.playerId ?? null;
           gameWins = match.score[i][j];
           gameLosses = match.score[i][1 - j];
