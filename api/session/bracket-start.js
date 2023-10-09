@@ -4,7 +4,7 @@ import getPlayerModel from '../../db/player';
 import allowCors from '../../db/allowCors';
 import bracketTypes from '../../db/bracketTypes';
 
-function transformBracketFormat(inputArray) {
+function transformBracketFormat(inputArray, byeAward) {
   const bracket = [];
   const rounds = new Set();
 
@@ -15,7 +15,7 @@ function transformBracketFormat(inputArray) {
   rounds.forEach((roundNumber) => {
     const matchesForRound = inputArray.filter((match) => match.round === roundNumber);
     const formattedMatches = matchesForRound.map((match) => {
-      const score = [match.player2 == null ? 1 : 0, match.player1 == null ? 1 : 0];
+      const score = [match.player2 == null ? byeAward : 0, match.player1 == null ? byeAward : 0];
       return {
         seed: match.match,
         score: [score],
@@ -117,7 +117,7 @@ async function handler(req, res) {
       const players = getSwissPlayers(session.players);
       totalRounds = calculateSwissRounds(players.length);
       const swissBracket = Swiss(players, 0);
-      bracket = transformBracketFormat(swissBracket);
+      bracket = transformBracketFormat(swissBracket, session.byeAward ?? 1);
     } else if (session.bracketType === bracketTypes.roundRobin) {
       // todo
       res.status(401).json({ error: 'Round Robin Is Temporarily Disabled' });

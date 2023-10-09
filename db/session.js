@@ -78,6 +78,7 @@ const getSessionModel = async () => {
     }],
     bracketType: { type: String },
     gameAmount: { type: Number },
+    byeAward: { type: Number, default: 1 },
     playAllMatches: { type: Boolean, default: false },
     requireBothPlayersToReport: { type: Boolean, default: false },
     bracket: [{

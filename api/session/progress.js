@@ -31,7 +31,7 @@ function getResults(matches, playerIdToSearch) {
   };
 }
 
-function transformBracketFormat(inputArray) {
+function transformBracketFormat(inputArray, byeAward) {
   let bracket = null;
   const rounds = new Set();
 
@@ -42,7 +42,7 @@ function transformBracketFormat(inputArray) {
   rounds.forEach((roundNumber) => {
     const matchesForRound = inputArray.filter((match) => match.round === roundNumber);
     const formattedMatches = matchesForRound.map((match) => {
-      const score = [match.player2 == null ? 1 : 0, match.player1 == null ? 1 : 0];
+      const score = [match.player2 == null ? byeAward : 0, match.player1 == null ? byeAward : 0];
       return {
         seed: match.match,
         score: [score],
@@ -168,7 +168,7 @@ async function handler(req, res) {
       });
       const swissPlayers = getSwissPlayers(session.players);
       const swissBracket = Swiss(swissPlayers, session.currentRoundNumber);
-      round = transformBracketFormat(swissBracket);
+      round = transformBracketFormat(swissBracket, session.byeAward ?? 1);
     } else if (session.bracketType === bracketTypes.roundRobin) {
       // todo
       res.status(401).json({ error: 'Round Robin Is Temporarily Disabled' });
