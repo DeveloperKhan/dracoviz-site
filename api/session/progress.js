@@ -72,6 +72,7 @@ function getSwissPlayers(players) {
     receivedBye: player.receivedBye,
     avoid: player.opponents,
     pairedUpDown: player.pairedUpDown,
+    rating: player.wins * 10 + player.gameWins,
   }));
 }
 
@@ -167,7 +168,7 @@ async function handler(req, res) {
         session.players[i].gameLosses = values[i].gameLosses;
       });
       const swissPlayers = getSwissPlayers(session.players);
-      const swissBracket = Swiss(swissPlayers, session.currentRoundNumber);
+      const swissBracket = Swiss(swissPlayers, session.currentRoundNumber, true);
       round = transformBracketFormat(swissBracket, session.byeAward ?? 1);
     } else if (session.bracketType === bracketTypes.roundRobin) {
       // todo
