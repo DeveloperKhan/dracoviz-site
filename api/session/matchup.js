@@ -110,7 +110,7 @@ async function handler(req, res) {
       participants[latestParticipantGroupIndex][1 - latestParticipantIndex]?.playerId
     );
     const hasOpponent = opponentId != null;
-    const playerObj = players.find((p) => p.session === x_session_id);
+    const playerObj = players.find((p) => p.playerId === x_session_id);
     let opponent = {};
     if (hasOpponent) {
       const opponentObj = await Player.findOne({ session: opponentId });
