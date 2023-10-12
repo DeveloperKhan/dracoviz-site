@@ -30,7 +30,7 @@ function findIndexes(matches, playerIdToSearch) {
 
 function deletePlayerFromSession(player, session) {
   const {
-    key, bracket, bracketType, currentRoundNumber,
+    key, bracket, bracketType, currentRoundNumber, byeAward,
   } = session;
   const newBracket = bracket;
   const playerId = player.session;
@@ -43,7 +43,10 @@ function deletePlayerFromSession(player, session) {
       const {
         targetMatchIndex, targetGroupIndex, targetParticipantIndex,
       } = findIndexes(currentRound.matches, playerId);
-      const newScore = [targetParticipantIndex, 1 - targetParticipantIndex];
+      const newScore = [
+        targetParticipantIndex === 0 ? 0 : byeAward,
+        targetParticipantIndex === 1 ? 0 : byeAward,
+      ];
       const newMatch = newBracket[currentRoundIndex].matches[targetMatchIndex];
       if (
         currentRound.round === currentRoundNumber
