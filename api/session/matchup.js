@@ -128,6 +128,7 @@ async function handler(req, res) {
             cp: cpVisible ? p.cp : null,
             chargedMoves: movesetsVisible ? p.chargedMoves : null,
             fastMove: movesetsVisible ? p.fastMove : null,
+            hp: p.hp,
           })) : [],
         };
       }
@@ -141,7 +142,14 @@ async function handler(req, res) {
       touched,
       player: {
         name: player.name,
-        pokemon: playerObj?.pokemon,
+        pokemon: playerObj.pokemon?.map((p) => ({
+          sid: p.sid,
+          speciesName: pokemonJSON[p.speciesName].speciesName,
+          cp: p.cp,
+          chargedMoves: p.chargedMoves,
+          fastMove: p.fastMove,
+          hp: p.hp,
+        })),
       },
       opponent,
       shouldReverse,
