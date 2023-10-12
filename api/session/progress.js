@@ -72,7 +72,7 @@ function getSwissPlayers(players) {
     receivedBye: player.receivedBye,
     avoid: player.opponents,
     pairedUpDown: player.pairedUpDown,
-    rating: player.wins * 10 + player.gameWins,
+    rating: (player.wins ?? 0) * 10 + (player.gameWins ?? 0),
   }));
 }
 

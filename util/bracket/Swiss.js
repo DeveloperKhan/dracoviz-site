@@ -100,15 +100,44 @@ export default function Swiss(players, round, rated = false, colors = false) {
       player2: playerB.id,
     });
   } while (playerCopy.length > blossomPairs.reduce((sum, idx) => (idx === -1 ? sum + 1 : sum), 0));
+
+  // Function to compare matches by the average rating of players
+  function compareMatches(matchA, matchB) {
+    const playerA1 = playerArray.find((player) => player.id === matchA.player1);
+    const playerA2 = playerArray.find((player) => player.id === matchA.player2);
+    const playerB1 = playerArray.find((player) => player.id === matchB.player1);
+    const playerB2 = playerArray.find((player) => player.id === matchB.player2);
+
+    const ratingA = (playerA1.rating + playerA2.rating) / 2;
+    const ratingB = (playerB1.rating + playerB2.rating) / 2;
+
+    return ratingB - ratingA; // Sort in descending order
+  }
+
+  // Sort matches within a round based on average player rating and renumber them
+  function orderMatchesInRound(roundNumber) {
+    const matchesInRound = matches.filter((m) => m.round === roundNumber);
+    matchesInRound.sort(compareMatches);
+
+    // Renumber the matches
+    for (let i = 0; i < matchesInRound.length; i++) {
+      matchesInRound[i].match = i + 1;
+    }
+
+    return matchesInRound;
+  }
+
+  const orderedMatches = orderMatchesInRound(round);
+
   byeArray = [...byeArray, ...playerCopy];
   for (let i = 0; i < byeArray.length; i++) {
-    matches.push({
+    orderedMatches.push({
       round,
       match: match++,
       player1: byeArray[i].id,
       player2: null,
     });
   }
-  return matches;
+  return orderedMatches;
 }
 // # sourceMappingURL=Swiss.js.map
