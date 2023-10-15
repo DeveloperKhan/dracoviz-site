@@ -204,7 +204,11 @@ function TournamentRoster({
     const newProductsMatches = [];
     const player1RosterHtml = getRosterHTML(player);
     const matchesData = `${parseInt(player.match_wins, 10)} W - ${parseInt(player.match_losses, 10)} L (${(parseInt(player.match_wins, 10) + parseInt(player.match_losses, 10) > 0 ? (100 * parseInt(player.match_wins, 10) / (parseInt(player.match_wins, 10) + parseInt(player.match_losses, 10))) : 0).toFixed(2)}%)`;
-    const gamesData = `${parseInt(player.game_wins, 10)} W - ${parseInt(player.game_losses, 10)} L (${(parseInt(player.game_wins, 10) + parseInt(player.game_losses, 10) > 0 ? (100 * parseInt(player.game_wins, 10) / (parseInt(player.game_wins, 10) + parseInt(player.game_losses, 10))) : 0).toFixed(2)}%)`;
+    const gamesData = `${
+      parseInt(player.game_wins, 10) >= 0 && parseInt(player.game_losses, 10) >= 0
+        ? `${parseInt(player.game_wins, 10)} W - ${parseInt(player.game_losses, 10)} L (${(parseInt(player.game_wins, 10) + parseInt(player.game_losses, 10) > 0 ? (100 * parseInt(player.game_wins, 10) / (parseInt(player.game_wins, 10) + parseInt(player.game_losses, 10))) : 0).toFixed(2)}%)`
+        : 'Unknown'
+    }`;
     newProductsMatches.push({
       placement: (
         <label className="pill pill-black">
