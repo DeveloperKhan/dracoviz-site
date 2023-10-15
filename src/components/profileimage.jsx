@@ -277,7 +277,6 @@ function generateImage(profile, season, callback) {
 
               textWidth = context.measureText(tournamentStats).width;
               centerX = !isBig ? (canvas.width - textWidth) / 2 : (isRight ? 600 : 75) + 50;
-              console.log(centerX)
               context.fillText(tournamentStats, centerX, yOffset + (roster && roster.length > 0 ? 145 : 100));
 
 
