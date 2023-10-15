@@ -86,6 +86,10 @@ export function getPokemonURLName(pokemon) {
 export function getRosterSearchHTML(player) {
   let rosterString = '';
 
+  if (player.roster == null) {
+    return rosterString;
+  }
+
   player.roster.forEach((pokemon) => {
     rosterString = `${rosterString + transformPokemonName(pokemon.name, pokemon.form)} `;
   });
