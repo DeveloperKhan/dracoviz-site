@@ -262,19 +262,23 @@ function generateImage(profile, season, callback) {
                 }
                 return `${i}th`;
               }
-              const tournamentStats = `${tournament.date.substring(3)}   ${
+              const tournamentStats = `${tournament.date.substring(3)} ${
                 ordinal_suffix_of(parseInt(tournament.final_rank, 10))
-              }   ${parseInt(tournament.match_wins, 10)}-${parseInt(tournament.match_losses, 10)
-              } (${parseInt(tournament.game_wins, 10)}-${parseInt(tournament.game_losses, 10)})`;
+              } ${parseInt(tournament.match_wins, 10)}-${parseInt(tournament.match_losses, 10)}${
+                parseInt(tournament.game_wins, 10) >= 0 && parseInt(tournament.game_losses, 10) >= 0
+                  ? ` (${parseInt(tournament.game_wins, 10)}-${parseInt(tournament.game_losses, 10)})`
+                  : ''
+              }`;
 
               context.font = '30px MyFont';
 
+              // Draw the roster images for this tournament
+              const { roster } = tournament;
+
               textWidth = context.measureText(tournamentStats).width;
               centerX = !isBig ? (canvas.width - textWidth) / 2 : (isRight ? 600 : 75) + 50;
-              context.fillText(tournamentStats, centerX, yOffset + 145);
+              context.fillText(tournamentStats, centerX, yOffset + (roster && roster.length > 0 ? 145 : 100));
 
-              // Draw the roster images for this tournament
-              const { roster } = tournament; // Assuming each tournament has a roster array
 
               if (roster && roster.length > 0) {
                 let xOffset = isBig ? 50 : 0; // Adjust the X-coordinate for roster display

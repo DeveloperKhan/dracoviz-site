@@ -428,6 +428,22 @@ function TournamentRoster({
               },
             };
           }
+          if (col.dataField === 'gw') {
+            return {
+              ...col,
+              formatter: (cell) => {
+                return cell == '-1' ? 'Unk' : cell;
+              },
+            };
+          }
+          if (col.dataField === 'gl') {
+            return {
+              ...col,
+              formatter: (cell) => {
+                return cell == '-1' ? 'Unk' : cell;
+              },
+            };
+          }
           return col;
         })}
       >
