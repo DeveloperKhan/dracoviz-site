@@ -277,6 +277,7 @@ function generateImage(profile, season, callback) {
 
               textWidth = context.measureText(tournamentStats).width;
               centerX = !isBig ? (canvas.width - textWidth) / 2 : (isRight ? 600 : 75) + 50;
+              console.log(centerX)
               context.fillText(tournamentStats, centerX, yOffset + (roster && roster.length > 0 ? 145 : 100));
 
 
@@ -384,15 +385,16 @@ function generateImage(profile, season, callback) {
 
                 // Start loading images for this tournament
                 loadRosterImages(0);
+                isRight = !isRight;
               } else {
                 // No roster for this tournament, continue to the next
                 // xOffset = 100;
-                if (!isRight || !isBig) {
+                if (isRight || !isBig) {
                   yOffset += 170;
                 } // Adjust the Y-coordinate for the next tournament
+                isRight = !isRight;
                 processTournament(tournamentIndex + 1); // Process the next tournament
               }
-              isRight = !isRight;
             };
 
             // Start processing the tournaments
