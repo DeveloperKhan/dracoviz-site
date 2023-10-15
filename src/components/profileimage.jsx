@@ -384,15 +384,16 @@ function generateImage(profile, season, callback) {
 
                 // Start loading images for this tournament
                 loadRosterImages(0);
+                isRight = !isRight;
               } else {
                 // No roster for this tournament, continue to the next
                 // xOffset = 100;
-                if (!isRight || !isBig) {
+                if (isRight || !isBig) {
                   yOffset += 170;
                 } // Adjust the Y-coordinate for the next tournament
+                isRight = !isRight;
                 processTournament(tournamentIndex + 1); // Process the next tournament
               }
-              isRight = !isRight;
             };
 
             // Start processing the tournaments
