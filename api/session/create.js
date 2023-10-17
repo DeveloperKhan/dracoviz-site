@@ -15,7 +15,7 @@ async function handler(req, res) {
     name, description, serverInviteLink,
     bracketLink, isPrivate, maxTeams, maxTeamSize, maxMatchTeamSize,
     metas, cpVisibility, movesetVisibility, hpVisibility, draftMode,
-    hideTeamsFromHost, byeAward,
+    hideTeamsFromHost, byeAward, timeControl,
     bracketType, gameAmount, playAllMatches, requireBothPlayersToReport,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
@@ -112,6 +112,7 @@ async function handler(req, res) {
       playAllMatches,
       requireBothPlayersToReport,
       byeAward,
+      timeControl,
     });
 
     const { key } = session;

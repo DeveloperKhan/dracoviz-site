@@ -193,6 +193,7 @@ async function handler(req, res) {
       playAllMatches,
       requireBothPlayersToReport,
       hpVisible,
+      timeControl,
     } = session;
     const isHost = host?.includes(x_session_id);
     const isTeamTournament = maxTeamSize > 1;
@@ -249,6 +250,7 @@ async function handler(req, res) {
       bracketType,
       totalRounds,
       gameAmount,
+      timeControl,
       playAllMatches,
       requireBothPlayersToReport,
     };

@@ -3,6 +3,7 @@ import getSessionModel from '../../db/session';
 import getPlayerModel from '../../db/player';
 import allowCors from '../../db/allowCors';
 import bracketTypes from '../../db/bracketTypes';
+import sessionStates from '../../db/sessionStates';
 
 function transformBracketFormat(inputArray, byeAward) {
   const bracket = [];
@@ -124,9 +125,11 @@ async function handler(req, res) {
       return;
     }
 
+    session.roundStartTime = Date.now();
     session.currentRoundNumber = 1;
     session.bracket = bracket;
     session.totalRounds = totalRounds;
+    session.state = sessionStates.pokemonVisible;
     session.registrationClosed = true;
     await session.save();
     res.status(200).send({});

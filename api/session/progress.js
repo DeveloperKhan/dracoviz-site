@@ -181,6 +181,7 @@ async function handler(req, res) {
       return;
     }
 
+    session.roundStartTime = Date.now();
     session.currentRoundNumber += 1;
     session.bracket.push(round);
     session.registrationClosed = true;
