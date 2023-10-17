@@ -7,6 +7,15 @@ import avatars from '../../static/avatars.json';
 import pokemonJSON from '../../static/pokemon.json';
 import getFactionModel from '../../db/faction';
 
+function addMinutesToDate(date, minutesToAdd) {
+  if (date == null) {
+    return null;
+  }
+  const newDate = new Date(date);
+  newDate.setMinutes(newDate.getMinutes() + minutesToAdd);
+  return newDate;
+}
+
 function findName(id, players, removed) {
   if (removed) {
     return id;
@@ -194,6 +203,7 @@ async function handler(req, res) {
       requireBothPlayersToReport,
       hpVisible,
       timeControl,
+      roundStartTime,
     } = session;
     const isHost = host?.includes(x_session_id);
     const isTeamTournament = maxTeamSize > 1;
@@ -222,6 +232,7 @@ async function handler(req, res) {
       currentRoundNumber,
     );
     const isParticipant = isPlayer || isHost;
+    const roundEndTime = addMinutesToDate(roundStartTime, timeControl);
 
     const maskedSession = {
       name: session.name,
@@ -251,6 +262,7 @@ async function handler(req, res) {
       totalRounds,
       gameAmount,
       timeControl,
+      roundEndTime,
       playAllMatches,
       requireBothPlayersToReport,
     };
