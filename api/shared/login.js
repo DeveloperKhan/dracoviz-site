@@ -23,6 +23,7 @@ async function handler(req, res) {
     return;
   }
   try {
+    let isNewUser = false;
     const Player = await getPlayerModel();
     let player = await Player.find({ session: x_session_id });
     if (player == null || player.length <= 0) {
@@ -35,9 +36,11 @@ async function handler(req, res) {
         description: 'A rising legend.',
       });
       await player.save();
+      isNewUser = true;
     }
 
     res.status(200).send({
+      isNewUser,
     });
   } catch (ex) {
     console.error(ex);
