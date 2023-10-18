@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from 'gatsby';
 import Tabs from './tabs';
 import Article from './article';
-import { options, getCurrentMonth } from '../utils/date-utils';
+import { options, getCurrentMonth, getDateFromTag } from '../utils/date-utils';
 
 // Assuming format "EVENT:MM-DD-YYYY"
 const dateTagPrefix = 'EVENT:';
 const currentDate = new Date();
 const currentDay = currentDate.getDate();
 const currentMonth = getCurrentMonth(currentDate);
+const currentYear = currentDate.getFullYear();
 const orderOfMonths = {
   9: 0,
   10: 1,
@@ -31,17 +33,46 @@ const getRegion = (post) => {
   });
 };
 
-function getPostStartDate(post) {
+function getPostStartDate(post, prefix) {
   const { tags } = post;
   const { nodes } = tags;
   if (nodes == null || nodes.length === 0) {
     return null;
   }
-  const targetTag = nodes.find((tag) => tag.name.startsWith(dateTagPrefix));
+  const targetTag = nodes.find((tag) => tag.name.startsWith(prefix ?? dateTagPrefix));
   if (targetTag == null) {
     return null;
   }
-  return targetTag.name.replace(dateTagPrefix, '').trim().replace(/\b0/g, '').split('-');
+  return targetTag.name.replace(prefix ?? dateTagPrefix, '').trim().replace(/\b0/g, '').split('-');
+}
+
+function getPostsForUpcomingRegistration(posts) {
+  const postsWithTag = posts?.map((post) => {
+    const regDate = getPostStartDate(post, 'REGISTRATION:');
+    const startDate = getPostStartDate(post);
+    if (regDate == null || startDate == null) {
+      return null;
+    }
+    const [month, day, year] = startDate;
+    const yearInvalid = parseInt(year, 10) < currentYear;
+    const yearMatch = parseInt(year, 10) === currentYear;
+    const monthInvalid = orderOfMonths[month] < orderOfMonths[currentMonth];
+    const monthMatch = orderOfMonths[month] === orderOfMonths[currentMonth];
+    const dayInvalid = parseInt(day, 10) < currentDay && yearMatch && monthMatch;
+    if (yearInvalid || monthInvalid || dayInvalid) {
+      return null;
+    }
+    return (
+      <Link to={post.uri} style={{ textDecoration: 'none' }}>
+        <div className="event-registration-cell">
+          {post.title}
+          <br />
+          <small>{getDateFromTag(post.tags.nodes[0].name)}</small>
+        </div>
+      </Link>
+    );
+  });
+  return postsWithTag.filter((x) => x != null);
 }
 
 function orderPostsByStartMonth(posts) {
@@ -115,6 +146,8 @@ function Schedule(posts) {
     <Article post={post} variant={index === 0 ? 'large' : 'medium'} key={post.id} />
   )), [selectedMonth, orderedPosts]);
 
+  const renderUpcoming = useCallback(() => getPostsForUpcomingRegistration(posts?.data), [posts]);
+
   const onSelect = (value) => {
     setSelectedMonth(value);
   };
@@ -124,17 +157,26 @@ function Schedule(posts) {
   }
 
   const filteredOptions = options.filter((o) => orderedPosts[o.value]?.length > 0);
+  const upcoming = renderUpcoming();
 
   return (
     <div id="event-schedule">
-      <Tabs
-        options={filteredOptions}
-        orderedPosts={orderedPosts}
-        onSelect={onSelect}
-        value={selectedMonth}
-      />
-      <div style={{ paddingTop: '1rem' }}>
-        {getArticles()}
+      <div className="event-upcoming">
+        {upcoming.length > 0 && <h5>Registration open for the following events</h5>}
+        <div className="event-upcoming-row">
+          {upcoming}
+        </div>
+      </div>
+      <div className="event-schedule-row">
+        <Tabs
+          options={filteredOptions}
+          orderedPosts={orderedPosts}
+          onSelect={onSelect}
+          value={selectedMonth}
+        />
+        <div style={{ paddingTop: '1rem' }}>
+          {getArticles()}
+        </div>
       </div>
     </div>
   );

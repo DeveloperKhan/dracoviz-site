@@ -430,10 +430,29 @@ a:focus {
   margin-bottom: 0;
 }
 
-#event-schedule {
+.event-upcoming-row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.event-schedule-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.event-registration-cell {
+  width: 150px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-family: var(--fontFamily-sans);
+}
+
+.event-registration-cell small {
+  color: var(--color-text-light);
+  font-family: var(--fontFamily-serif);
 }
 
 .event-tab-list {
