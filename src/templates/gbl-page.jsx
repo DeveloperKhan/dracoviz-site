@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import parse, { attributesToProps, domToReact } from 'html-react-parser';
-import { isBrowser } from 'react-device-detect';
+import { isBrowser, isMobile } from 'react-device-detect';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import Layout from '../components/layout';
@@ -44,7 +44,7 @@ function SeasonPage({ data: { page } }) {
                   <div
                     onClick={() => setOpen(true)}
                     className={props.className}
-                    style={{ width: isArchive ? 280 : 480, cursor: 'pointer' }}
+                    style={{ width: (isArchive && !isMobile) ? 280 : 480, cursor: 'pointer' }}
                   >
                     {props.children}
                   </div>
