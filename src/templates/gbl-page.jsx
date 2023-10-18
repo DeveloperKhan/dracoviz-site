@@ -15,7 +15,7 @@ const description = 'Discover Winning Pokemon GO Battle League Teams! Explore to
 
 function SeasonPage({ data: { page } }) {
   const [content, setContent] = useState();
-  const [srcs, setSrcs] = useState([]);
+  const [srcs, setSrcs] = useState(null);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -79,7 +79,7 @@ function SeasonPage({ data: { page } }) {
         {content}
       </article>
       {
-        isBrowser && (
+        (isBrowser && srcs != null) && (
           <Lightbox
             open={open}
             close={() => setOpen(false)}
