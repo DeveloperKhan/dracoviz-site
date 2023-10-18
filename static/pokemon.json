@@ -3079,6 +3079,43 @@
         "sid": 10848,
         "speciesId": "barboach",
         "speciesName": "Barboach",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "ground",
+            "water"
+        ]
+    },
+    "barboach_shadow": {
+        "baseStats": {
+            "atk": 93,
+            "def": 82,
+            "hp": 137
+        },
+        "chargedMoves": [
+            "AQUA_TAIL",
+            "ICE_BEAM",
+            "MUD_BOMB"
+        ],
+        "dex": 339,
+        "family": {
+            "evolutions": [
+                "whiscash"
+            ],
+            "id": "FAMILY_BARBOACH"
+        },
+        "fastMoves": [
+            "MUD_SHOT",
+            "WATER_GUN"
+        ],
+        "gender": "male",
+        "sid": 10848,
+        "speciesId": "barboach",
+        "speciesName": "Barboach (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "ground",
             "water"
@@ -3170,6 +3207,42 @@
         "sid": 13152,
         "speciesId": "bastiodon",
         "speciesName": "Bastiodon",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "rock",
+            "steel"
+        ]
+    },
+    "bastiodon_shadow": {
+        "baseStats": {
+            "atk": 94,
+            "def": 286,
+            "hp": 155
+        },
+        "chargedMoves": [
+            "FLAMETHROWER",
+            "FLASH_CANNON",
+            "STONE_EDGE"
+        ],
+        "dex": 411,
+        "family": {
+            "id": "FAMILY_SHIELDON",
+            "parent": "shieldon"
+        },
+        "fastMoves": [
+            "IRON_TAIL",
+            "SMACK_DOWN"
+        ],
+        "gender": "male",
+        "searchPriority": 25,
+        "sid": 13152,
+        "speciesId": "bastiodon",
+        "speciesName": "Bastiodon (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "rock",
             "steel"
@@ -6162,6 +6235,47 @@
         "sid": 19488,
         "speciesId": "chandelure",
         "speciesName": "Chandelure",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "fire",
+            "ghost"
+        ]
+    },
+    "chandelure_shadow": {
+        "baseStats": {
+            "atk": 271,
+            "def": 182,
+            "hp": 155
+        },
+        "chargedMoves": [
+            "ENERGY_BALL",
+            "FLAME_CHARGE",
+            "OVERHEAT",
+            "POLTERGEIST",
+            "SHADOW_BALL"
+        ],
+        "dex": 609,
+        "eliteMoves": [
+            "POLTERGEIST"
+        ],
+        "family": {
+            "id": "FAMILY_LITWICK",
+            "parent": "lampent"
+        },
+        "fastMoves": [
+            "FIRE_SPIN",
+            "HEX",
+            "INCINERATE"
+        ],
+        "gender": "male",
+        "sid": 19488,
+        "speciesId": "chandelure",
+        "speciesName": "Chandelure (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "fire",
             "ghost"
@@ -7436,7 +7550,8 @@
             "EARTHQUAKE",
             "SLUDGE_BOMB",
             "STONE_EDGE",
-            "SURF"
+            "SURF",
+            "MEGAHORN"
         ],
         "dex": 980,
         "family": {
@@ -7786,7 +7901,8 @@
         "chargedMoves": [
             "DYNAMIC_PUNCH",
             "FOCUS_BLAST",
-            "STONE_EDGE"
+            "STONE_EDGE",
+            "BRUTAL_SWING"
         ],
         "dex": 534,
         "family": {
@@ -8252,6 +8368,43 @@
         "sid": 13056,
         "speciesId": "cranidos",
         "speciesName": "Cranidos",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "none",
+            "rock"
+        ]
+    },
+    "cranidos_shadow": {
+        "baseStats": {
+            "atk": 218,
+            "def": 71,
+            "hp": 167
+        },
+        "chargedMoves": [
+            "ANCIENT_POWER",
+            "BULLDOZE",
+            "ROCK_TOMB"
+        ],
+        "dex": 408,
+        "family": {
+            "evolutions": [
+                "rampardos"
+            ],
+            "id": "FAMILY_CRANIDOS"
+        },
+        "fastMoves": [
+            "TAKE_DOWN",
+            "ZEN_HEADBUTT"
+        ],
+        "gender": "male",
+        "sid": 13056,
+        "speciesId": "cranidos",
+        "speciesName": "Cranidos (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "none",
             "rock"
@@ -10956,6 +11109,43 @@
         "sid": 16928,
         "speciesId": "drilbur",
         "speciesName": "Drilbur",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "ground",
+            "none"
+        ]
+    },
+    "drilbur_shadow": {
+        "baseStats": {
+            "atk": 154,
+            "def": 85,
+            "hp": 155
+        },
+        "chargedMoves": [
+            "DIG",
+            "DRILL_RUN",
+            "ROCK_TOMB"
+        ],
+        "dex": 529,
+        "family": {
+            "evolutions": [
+                "excadrill"
+            ],
+            "id": "FAMILY_DRILBUR"
+        },
+        "fastMoves": [
+            "MUD_SLAP",
+            "SCRATCH"
+        ],
+        "gender": "male",
+        "sid": 16928,
+        "speciesId": "drilbur",
+        "speciesName": "Drilbur (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "ground",
             "none"
@@ -12902,6 +13092,45 @@
         "sid": 16960,
         "speciesId": "excadrill",
         "speciesName": "Excadrill",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "ground",
+            "steel"
+        ]
+    },
+    "excadrill_shadow": {
+        "baseStats": {
+            "atk": 255,
+            "def": 129,
+            "hp": 242
+        },
+        "chargedMoves": [
+            "DRILL_RUN",
+            "EARTHQUAKE",
+            "IRON_HEAD",
+            "ROCK_SLIDE",
+            "SCORCHING_SANDS"
+        ],
+        "dex": 530,
+        "family": {
+            "id": "FAMILY_DRILBUR",
+            "parent": "drilbur"
+        },
+        "fastMoves": [
+            "METAL_CLAW",
+            "MUD_SHOT",
+            "MUD_SLAP"
+        ],
+        "gender": "male",
+        "searchPriority": 5,
+        "sid": 16960,
+        "speciesId": "excadrill",
+        "speciesName": "Excadrill (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "ground",
             "steel"
@@ -15195,6 +15424,49 @@
         "sid": 2944,
         "speciesId": "gastly",
         "speciesName": "Gastly",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "ghost",
+            "poison"
+        ]
+    },
+    "gastly_shadow": {
+        "baseStats": {
+            "atk": 186,
+            "def": 67,
+            "hp": 102
+        },
+        "chargedMoves": [
+            "DARK_PULSE",
+            "NIGHT_SHADE",
+            "OMINOUS_WIND",
+            "SLUDGE_BOMB"
+        ],
+        "dex": 92,
+        "eliteMoves": [
+            "OMINOUS_WIND",
+            "SUCKER_PUNCH"
+        ],
+        "family": {
+            "evolutions": [
+                "haunter"
+            ],
+            "id": "FAMILY_GASTLY"
+        },
+        "fastMoves": [
+            "ASTONISH",
+            "LICK",
+            "SUCKER_PUNCH"
+        ],
+        "gender": "male",
+        "sid": 2944,
+        "speciesId": "gastly",
+        "speciesName": "Gastly (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "ghost",
             "poison"
@@ -15496,6 +15768,55 @@
         "sid": 3008,
         "speciesId": "gengar",
         "speciesName": "Gengar",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "ghost",
+            "poison"
+        ]
+    },
+    "gengar_shadow": {
+        "baseStats": {
+            "atk": 261,
+            "def": 149,
+            "hp": 155
+        },
+        "chargedMoves": [
+            "DARK_PULSE",
+            "FOCUS_BLAST",
+            "PSYCHIC",
+            "SHADOW_BALL",
+            "SHADOW_PUNCH",
+            "SLUDGE_BOMB",
+            "SLUDGE_WAVE"
+        ],
+        "dex": 94,
+        "eliteMoves": [
+            "DARK_PULSE",
+            "LICK",
+            "PSYCHIC",
+            "SHADOW_PUNCH",
+            "SLUDGE_WAVE"
+        ],
+        "family": {
+            "id": "FAMILY_GASTLY",
+            "parent": "haunter"
+        },
+        "fastMoves": [
+            "HEX",
+            "LICK",
+            "SHADOW_CLAW",
+            "SUCKER_PUNCH"
+        ],
+        "gender": "male",
+        "searchPriority": 14,
+        "sid": 3008,
+        "speciesId": "gengar",
+        "speciesName": "Gengar (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "ghost",
             "poison"
@@ -18936,6 +19257,51 @@
         "sid": 2976,
         "speciesId": "haunter",
         "speciesName": "Haunter",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "ghost",
+            "poison"
+        ]
+    },
+    "haunter_shadow": {
+        "baseStats": {
+            "atk": 223,
+            "def": 107,
+            "hp": 128
+        },
+        "chargedMoves": [
+            "DARK_PULSE",
+            "ICE_PUNCH",
+            "SHADOW_BALL",
+            "SHADOW_PUNCH",
+            "SLUDGE_BOMB"
+        ],
+        "dex": 93,
+        "eliteMoves": [
+            "LICK"
+        ],
+        "family": {
+            "evolutions": [
+                "gengar"
+            ],
+            "id": "FAMILY_GASTLY",
+            "parent": "gastly"
+        },
+        "fastMoves": [
+            "ASTONISH",
+            "LICK",
+            "SHADOW_CLAW"
+        ],
+        "gender": "male",
+        "searchPriority": 3,
+        "sid": 2976,
+        "speciesId": "haunter",
+        "speciesName": "Haunter (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "ghost",
             "poison"
@@ -22795,6 +23161,44 @@
         "sid": 19456,
         "speciesId": "lampent",
         "speciesName": "Lampent",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "fire",
+            "ghost"
+        ]
+    },
+    "lampent_shadow": {
+        "baseStats": {
+            "atk": 169,
+            "def": 115,
+            "hp": 155
+        },
+        "chargedMoves": [
+            "ENERGY_BALL",
+            "FLAME_BURST",
+            "HEAT_WAVE"
+        ],
+        "dex": 608,
+        "family": {
+            "evolutions": [
+                "chandelure"
+            ],
+            "id": "FAMILY_LITWICK",
+            "parent": "litwick"
+        },
+        "fastMoves": [
+            "ASTONISH",
+            "EMBER"
+        ],
+        "gender": "male",
+        "sid": 19456,
+        "speciesId": "lampent",
+        "speciesName": "Lampent (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "fire",
             "ghost"
@@ -23952,6 +24356,44 @@
         "sid": 19424,
         "speciesId": "litwick",
         "speciesName": "Litwick",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "fire",
+            "ghost"
+        ]
+    },
+    "litwick_shadow": {
+        "baseStats": {
+            "atk": 108,
+            "def": 98,
+            "hp": 137
+        },
+        "chargedMoves": [
+            "FLAME_BURST",
+            "FLAME_CHARGE",
+            "HEAT_WAVE",
+            "MYSTICAL_FIRE"
+        ],
+        "dex": 607,
+        "family": {
+            "evolutions": [
+                "lampent"
+            ],
+            "id": "FAMILY_LITWICK"
+        },
+        "fastMoves": [
+            "ASTONISH",
+            "EMBER"
+        ],
+        "gender": "male",
+        "sid": 19424,
+        "speciesId": "litwick",
+        "speciesName": "Litwick (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "fire",
             "ghost"
@@ -34575,7 +35017,8 @@
             "EARTHQUAKE",
             "MUD_BOMB",
             "SLUDGE_BOMB",
-            "STONE_EDGE"
+            "STONE_EDGE",
+            "AQUA_TAIL"
         ],
         "dex": 195,
         "family": {
@@ -35199,7 +35642,41 @@
         "speciesId": "rampardos",
         "speciesName": "Rampardos",
         "tags": [
-            "include1500"
+            "include1500",
+            "shadoweligible"
+        ],
+        "types": [
+            "none",
+            "rock"
+        ]
+    },
+    "rampardos_shadow": {
+        "baseStats": {
+            "atk": 295,
+            "def": 109,
+            "hp": 219
+        },
+        "chargedMoves": [
+            "FLAMETHROWER",
+            "OUTRAGE",
+            "ROCK_SLIDE"
+        ],
+        "dex": 409,
+        "family": {
+            "id": "FAMILY_CRANIDOS",
+            "parent": "cranidos"
+        },
+        "fastMoves": [
+            "SMACK_DOWN",
+            "ZEN_HEADBUTT"
+        ],
+        "gender": "male",
+        "sid": 13088,
+        "speciesId": "rampardos",
+        "speciesName": "Rampardos (Shadow)",
+        "tags": [
+            "include1500",
+            "shadow"
         ],
         "types": [
             "none",
@@ -36176,7 +36653,50 @@
         "sid": 3584,
         "speciesId": "rhydon",
         "speciesName": "Rhydon",
-        "tags": [],
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "ground",
+            "rock"
+        ]
+    },
+    "rhydon_shadow": {
+        "baseStats": {
+            "atk": 222,
+            "def": 171,
+            "hp": 233
+        },
+        "chargedMoves": [
+            "BREAKING_SWIPE",
+            "EARTHQUAKE",
+            "MEGAHORN",
+            "STONE_EDGE",
+            "SURF"
+        ],
+        "dex": 112,
+        "eliteMoves": [
+            "MEGAHORN"
+        ],
+        "family": {
+            "evolutions": [
+                "rhyperior"
+            ],
+            "id": "FAMILY_RHYHORN",
+            "parent": "rhyhorn"
+        },
+        "fastMoves": [
+            "MUD_SLAP",
+            "ROCK_SMASH"
+        ],
+        "gender": "male",
+        "level25CP": 1976,
+        "sid": 3584,
+        "speciesId": "rhydon",
+        "speciesName": "Rhydon (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "ground",
             "rock"
@@ -36209,7 +36729,44 @@
         "sid": 3552,
         "speciesId": "rhyhorn",
         "speciesName": "Rhyhorn",
-        "tags": [],
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "ground",
+            "rock"
+        ]
+    },
+    "rhyhorn_shadow": {
+        "baseStats": {
+            "atk": 140,
+            "def": 127,
+            "hp": 190
+        },
+        "chargedMoves": [
+            "BULLDOZE",
+            "HORN_ATTACK",
+            "STOMP"
+        ],
+        "dex": 111,
+        "family": {
+            "evolutions": [
+                "rhydon"
+            ],
+            "id": "FAMILY_RHYHORN"
+        },
+        "fastMoves": [
+            "MUD_SLAP",
+            "ROCK_SMASH"
+        ],
+        "gender": "male",
+        "level25CP": 970,
+        "sid": 3552,
+        "speciesId": "rhyhorn",
+        "speciesName": "Rhyhorn (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "ground",
             "rock"
@@ -36248,6 +36805,50 @@
         "sid": 14848,
         "speciesId": "rhyperior",
         "speciesName": "Rhyperior",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "ground",
+            "rock"
+        ]
+    },
+    "rhyperior_shadow": {
+        "baseStats": {
+            "atk": 241,
+            "def": 190,
+            "hp": 251
+        },
+        "chargedMoves": [
+            "BREAKING_SWIPE",
+            "EARTHQUAKE",
+            "ROCK_WRECKER",
+            "SKULL_BASH",
+            "STONE_EDGE",
+            "SUPER_POWER",
+            "SURF"
+        ],
+        "dex": 464,
+        "eliteMoves": [
+            "ROCK_WRECKER"
+        ],
+        "family": {
+            "id": "FAMILY_RHYHORN",
+            "parent": "rhydon"
+        },
+        "fastMoves": [
+            "MUD_SLAP",
+            "SMACK_DOWN"
+        ],
+        "gender": "male",
+        "level25CP": 2347,
+        "searchPriority": 5,
+        "sid": 14848,
+        "speciesId": "rhyperior",
+        "speciesName": "Rhyperior (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "ground",
             "rock"
@@ -39151,6 +39752,43 @@
         "sid": 13120,
         "speciesId": "shieldon",
         "speciesName": "Shieldon",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "rock",
+            "steel"
+        ]
+    },
+    "shieldon_shadow": {
+        "baseStats": {
+            "atk": 76,
+            "def": 195,
+            "hp": 102
+        },
+        "chargedMoves": [
+            "ANCIENT_POWER",
+            "HEAVY_SLAM",
+            "ROCK_TOMB"
+        ],
+        "dex": 410,
+        "family": {
+            "evolutions": [
+                "bastiodon"
+            ],
+            "id": "FAMILY_SHIELDON"
+        },
+        "fastMoves": [
+            "IRON_TAIL",
+            "TACKLE"
+        ],
+        "gender": "male",
+        "sid": 13120,
+        "speciesId": "shieldon",
+        "speciesName": "Shieldon (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "rock",
             "steel"
@@ -49686,6 +50324,42 @@
         "sid": 10880,
         "speciesId": "whiscash",
         "speciesName": "Whiscash",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "ground",
+            "water"
+        ]
+    },
+    "whiscash_shadow": {
+        "baseStats": {
+            "atk": 151,
+            "def": 141,
+            "hp": 242
+        },
+        "chargedMoves": [
+            "BLIZZARD",
+            "MUD_BOMB",
+            "WATER_PULSE"
+        ],
+        "dex": 340,
+        "family": {
+            "id": "FAMILY_BARBOACH",
+            "parent": "barboach"
+        },
+        "fastMoves": [
+            "MUD_SHOT",
+            "WATER_GUN"
+        ],
+        "gender": "male",
+        "searchPriority": 8,
+        "sid": 10880,
+        "speciesId": "whiscash",
+        "speciesName": "Whiscash (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "ground",
             "water"
