@@ -30,8 +30,21 @@ export default function NavBar() {
                     2023 Season
                   </NavDropdown.Item>
                 </NavDropdown>
+                <NavDropdown title="Our Content" className="nav-button">
+                  <NavDropdown.Item
+                    href="/top-gbl-teams/"
+                    className="nav-button"
+                  >
+                    Best GO Battle League Teams
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    href="/blog/1"
+                    className="nav-button"
+                  >
+                    Blog Posts
+                  </NavDropdown.Item>
+                </NavDropdown>
                 <Nav.Link href="/profile/" className="nav-button">Player Profiles</Nav.Link>
-                <Nav.Link href="/blog/1" className="nav-button">Blog Posts</Nav.Link>
                 <Link
                   to="https://ko-fi.com/dracoviz"
                   className="nav-button"

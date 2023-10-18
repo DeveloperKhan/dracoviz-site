@@ -578,6 +578,19 @@ a:focus {
   margin-bottom: var(--spacing-8);
 }
 
+.gbl-row {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.gbl-root {
+  margin: 0 auto;
+  padding: 0 var(--spacing-3);
+  max-width: var(--maxWidth-4xl);
+}
+
 .tableauPlaceholder {
   max-width: var(--maxWidth-3xl);
 }

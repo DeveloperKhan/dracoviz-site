@@ -23,6 +23,7 @@ exports.createPages = async (gatsbyUtilities) => {
 
   // Grab season page for our homepage
   const seasonPages = getSeasonPages(pages);
+  const gblPage = getGBLPage(pages);
 
   if (seasonPages == null || seasonPages.length <= 0) {
     return;
@@ -32,6 +33,7 @@ exports.createPages = async (gatsbyUtilities) => {
   // If there are posts, create pages for them
   await createIndividualBlogPostPages({ posts, gatsbyUtilities });
   createSeasonPages({ seasonPages, gatsbyUtilities });
+  createGBLPage({ gblPage, gatsbyUtilities });
 
   // And a paginated archive
   // await createBlogPostArchive({ posts, gatsbyUtilities });
@@ -40,6 +42,11 @@ exports.createPages = async (gatsbyUtilities) => {
 const getSeasonPages = (pages) => {
   const seasonEdges = pages.filter(({ page }) => page.uri.includes('/play-pokemon-go-championship-series'));
   return seasonEdges.map((seasonEdge) => seasonEdge?.page);
+};
+
+const getGBLPage = (pages) => {
+  const pageEdges = pages.filter(({ page }) => page.uri.includes('/top-gbl-teams'));
+  return pageEdges?.[0].page;
 };
 
 /**
@@ -138,6 +145,16 @@ const createSeasonPages = ({ seasonPages, gatsbyUtilities }) => {
         slug: is2024 ? '2024-series' : '2023-series',
       },
     });
+  });
+};
+
+const createGBLPage = ({ gblPage, gatsbyUtilities }) => {
+  gatsbyUtilities.actions.createPage({
+    path: gblPage.uri,
+    component: path.resolve('./src/templates/gbl-page.jsx'),
+    context: {
+      id: gblPage.id,
+    },
   });
 };
 
