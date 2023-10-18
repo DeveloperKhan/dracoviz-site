@@ -63,7 +63,7 @@ function SeasonPage({ data: { page } }) {
       },
     };
     setSrcs(newSrcs);
-    setTimeout(() => hydrateImages(), 50);
+    // setTimeout(() => hydrateImages(), 50);
     setContent(parse(page.content, options));
   }, []);
 
