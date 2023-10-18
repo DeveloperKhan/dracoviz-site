@@ -801,3 +801,12 @@ a:focus {
     list-style-position: inside;
   }
 }
+
+.gallery-item {
+  transition: all 150ms ease;
+}
+
+.gallery-item:hover {
+  transform: scale(2);
+  z-index: 1;
+}

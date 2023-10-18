@@ -69,8 +69,7 @@
         "react-tooltip": "^5.11.1",
         "sass": "^1.62.1",
         "typeface-merriweather": "1.1.13",
-        "typeface-montserrat": "1.1.13",
-        "yet-another-react-lightbox": "^3.14.0"
+        "typeface-montserrat": "1.1.13"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.58.0",

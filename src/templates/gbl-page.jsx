@@ -4,9 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import parse, { attributesToProps, domToReact } from 'html-react-parser';
-import { isBrowser, isMobile } from 'react-device-detect';
-import Lightbox from 'yet-another-react-lightbox';
-import 'yet-another-react-lightbox/styles.css';
+import { isMobile } from 'react-device-detect';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import hydrateImages from '../../util/hydrateImages';
@@ -15,11 +13,8 @@ const description = 'Discover Winning Pokemon GO Battle League Teams! Explore to
 
 function SeasonPage({ data: { page } }) {
   const [content, setContent] = useState();
-  const [srcs, setSrcs] = useState(null);
-  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const newSrcs = [];
     const options = {
       // eslint-disable-next-line react/no-unstable-nested-components
       replace: ({ attribs, children }) => {
@@ -38,13 +33,10 @@ function SeasonPage({ data: { page } }) {
                   return null;
                 }
                 const { props } = item;
-                const imageSrc = props?.children?.props?.src;
-                newSrcs.push({ src: imageSrc });
                 return (
                   <div
-                    onClick={() => setOpen(true)}
-                    className={props.className}
-                    style={{ width: (isArchive && !isMobile) ? 280 : 480, cursor: 'pointer' }}
+                    className={(isArchive && !isMobile) ? `${props.className} gallery-item` : props.className}
+                    style={{ width: (isArchive && !isMobile) ? 280 : 480 }}
                   >
                     {props.children}
                   </div>
@@ -62,8 +54,7 @@ function SeasonPage({ data: { page } }) {
         return undefined;
       },
     };
-    setSrcs(newSrcs);
-    // setTimeout(() => hydrateImages(), 50);
+    setTimeout(() => hydrateImages(), 50);
     setContent(parse(page.content, options));
   }, []);
 
@@ -78,15 +69,6 @@ function SeasonPage({ data: { page } }) {
       <article className="article-body gbl-root">
         {content}
       </article>
-      {
-        (isBrowser && srcs != null) && (
-          <Lightbox
-            open={open}
-            close={() => setOpen(false)}
-            slides={srcs}
-          />
-        )
-      }
     </Layout>
   );
 }
