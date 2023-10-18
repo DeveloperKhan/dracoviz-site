@@ -4,12 +4,12 @@ import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import parse, { attributesToProps, domToReact } from 'html-react-parser';
-
+import { isBrowser } from 'react-device-detect';
 import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import hydrateImages from '../../util/hydrateImages';
-import 'yet-another-react-lightbox/styles.css';
 
 const description = 'Top GBL Graphics';
 
@@ -78,11 +78,15 @@ function SeasonPage({ data: { page } }) {
       <article className="article-body gbl-root">
         {content}
       </article>
-      <Lightbox
-        open={open}
-        close={() => setOpen(false)}
-        slides={srcs}
-      />
+      {
+        isBrowser && (
+          <Lightbox
+            open={open}
+            close={() => setOpen(false)}
+            slides={srcs}
+          />
+        )
+      }
     </Layout>
   );
 }

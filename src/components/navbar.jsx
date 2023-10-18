@@ -35,7 +35,7 @@ export default function NavBar() {
                     href="/top-gbl-teams/"
                     className="nav-button"
                   >
-                    Best GO Battle League Teams
+                    Top GO Battle League Teams
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     href="/blog/1"
