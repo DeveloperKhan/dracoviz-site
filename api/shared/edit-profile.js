@@ -3,7 +3,7 @@ import allowCors from '../../db/allowCors';
 
 async function handler(req, res) {
   const {
-    name, description, friendCode, discord, telegram,
+    name, description, friendCode, discord, telegram, avatar,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -31,7 +31,7 @@ async function handler(req, res) {
     }
 
     const trimmedFriendCode = friendCode?.replaceAll(' ', '');
-    const isFriendCodeEmpty = trimmedFriendCode == null || trimmedFriendCode == '';
+    const isFriendCodeEmpty = trimmedFriendCode == null || trimmedFriendCode === '';
     if (!isFriendCodeEmpty && !(/\d{12}/g).test(trimmedFriendCode)) {
       res.status(401).json({ error: 'api_invalid_friend_code' });
       return;
@@ -51,6 +51,7 @@ async function handler(req, res) {
       friendCode: trimmedFriendCode ?? player.friendCode,
       discord: discord ?? player.discord,
       telegram: telegram ?? player.telegram,
+      avatar: avatar ?? player.avatar,
     }, {
       runValidators: true,
     });

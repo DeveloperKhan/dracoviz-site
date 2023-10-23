@@ -69,6 +69,8 @@ async function handler(req, res) {
       name: player.name,
       description: player.description,
       avatar: avatars[player.avatar]?.src,
+      avatarKey: player.avatar,
+      avatars,
       friendCode: player.friendCode,
       discord: player.discord,
       telegram: player.telegram,
