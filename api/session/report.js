@@ -117,6 +117,7 @@ async function handler(req, res) {
         && arraysAreEqual(theOpponent.score, theScore);
       if (reportCondition1 || reportCondition2) {
         currentMatch.score[targetGroupIndex] = theScore;
+        currentMatch.disputed[targetGroupIndex] = false;
       } else if (theOpponent.touched && !arraysAreEqual(theOpponent.score, theScore)) {
         currentMatch.disputed[targetGroupIndex] = true;
       }
