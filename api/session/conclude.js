@@ -72,7 +72,8 @@ async function handler(req, res) {
       return;
     }
 
-    if (session.bracketType === bracketTypes.swiss
+    if (session.bracketType != null
+      && session.bracketType !== bracketTypes.none
       && session.totalRounds === session.currentRoundNumber) {
       const currentRoundIndex = session.bracket.findIndex(
         (r) => r.round === session.currentRoundNumber,

@@ -35,6 +35,9 @@ function getBracket(bracket, players, currentRoundNumber) {
     return undefined;
   }
   const maskedBracket = bracket.map((b) => {
+    if (b.round > currentRoundNumber) {
+      return null;
+    }
     const matches = b.matches.map((match) => {
       // TODO Factions
       const participants = match.participants.map((pairings) => (
@@ -57,7 +60,7 @@ function getBracket(bracket, players, currentRoundNumber) {
       matches,
     };
   });
-  return maskedBracket;
+  return maskedBracket.filter((m) => m != null);
 }
 
 async function getFactions(session, playerId, factionId) {

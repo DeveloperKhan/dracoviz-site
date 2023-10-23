@@ -140,7 +140,7 @@ async function handler(req, res) {
       return;
     }
 
-    if (session.bracketType === bracketTypes.swiss) {
+    if (session.bracketType != null && session.bracketType !== bracketTypes.none) { // Calc stats
       const values = [];
       session.players.forEach((p, i) => {
         const {
@@ -167,23 +167,21 @@ async function handler(req, res) {
         session.players[i].gameWins = values[i].gameWins;
         session.players[i].gameLosses = values[i].gameLosses;
       });
+    }
+
+    if (session.bracketType === bracketTypes.swiss) { // Swiss calc
       const swissPlayers = getSwissPlayers(session.players);
       const swissBracket = Swiss(swissPlayers, session.currentRoundNumber, true);
       round = transformBracketFormat(swissBracket, session.byeAward ?? 1);
-    } else if (session.bracketType === bracketTypes.roundRobin) {
-      // todo
-      res.status(401).json({ error: 'Round Robin Is Temporarily Disabled' });
-      return;
-    }
-
-    if (round == null) {
-      res.status(401).json({ error: 'api_bracket_not_enough_players' });
-      return;
+      if (round == null) {
+        res.status(401).json({ error: 'api_bracket_not_enough_players' });
+        return;
+      }
+      session.bracket.push(round);
     }
 
     session.roundStartTime = Date.now();
     session.currentRoundNumber += 1;
-    session.bracket.push(round);
     session.registrationClosed = true;
     await session.save();
     res.status(200).send({});

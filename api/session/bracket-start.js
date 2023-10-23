@@ -4,6 +4,7 @@ import getPlayerModel from '../../db/player';
 import allowCors from '../../db/allowCors';
 import bracketTypes from '../../db/bracketTypes';
 import sessionStates from '../../db/sessionStates';
+import RoundRobin from '../../util/bracket/RoundRobin';
 
 function transformBracketFormat(inputArray, byeAward) {
   const bracket = [];
@@ -120,9 +121,10 @@ async function handler(req, res) {
       const swissBracket = Swiss(players, 0);
       bracket = transformBracketFormat(swissBracket, session.byeAward ?? 1);
     } else if (session.bracketType === bracketTypes.roundRobin) {
-      // todo
-      res.status(401).json({ error: 'Round Robin Is Temporarily Disabled' });
-      return;
+      const players = session.players.map((p) => p.playerId);
+      const roundRobinBracket = RoundRobin(players, 0, true);
+      bracket = transformBracketFormat(roundRobinBracket, session.byeAward ?? 1);
+      totalRounds = bracket.length;
     }
 
     session.roundStartTime = Date.now();
