@@ -4,7 +4,6 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable no-prototype-builtins */
 import blossom from 'edmonds-blossom-fixed';
-import shuffle from './Shuffle';
 
 export default function Swiss(players, round, rated = false, colors = false) {
   const matches = [];
@@ -20,7 +19,6 @@ export default function Swiss(players, round, rated = false, colors = false) {
   if (colors) {
     playerArray.filter((p) => !p.hasOwnProperty('colors')).forEach((p) => p.colors = []);
   }
-  playerArray = shuffle(playerArray);
   playerArray.forEach((p, i) => p.index = i);
   const scoreGroups = [...new Set(playerArray.map((p) => p.score))].sort((a, b) => a - b);
   const scoreSums = [...new Set(scoreGroups.map((s, i, a) => {

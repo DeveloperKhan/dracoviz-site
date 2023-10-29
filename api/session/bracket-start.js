@@ -5,6 +5,7 @@ import allowCors from '../../db/allowCors';
 import bracketTypes from '../../db/bracketTypes';
 import sessionStates from '../../db/sessionStates';
 import RoundRobin from '../../util/bracket/RoundRobin';
+import shuffle from '../../util/bracket/Shuffle';
 
 function transformBracketFormat(inputArray, byeAward) {
   const bracket = [];
@@ -116,12 +117,12 @@ async function handler(req, res) {
     }
 
     if (session.bracketType === bracketTypes.swiss) {
-      const players = getSwissPlayers(session.players);
+      const players = shuffle(getSwissPlayers(session.players));
       totalRounds = calculateSwissRounds(players.length);
       const swissBracket = Swiss(players, 0);
       bracket = transformBracketFormat(swissBracket, session.byeAward ?? 1);
     } else if (session.bracketType === bracketTypes.roundRobin) {
-      const players = session.players.map((p) => p.playerId);
+      const players = shuffle(session.players.map((p) => p.playerId));
       const roundRobinBracket = RoundRobin(players, 0, true);
       bracket = transformBracketFormat(roundRobinBracket, session.byeAward ?? 1);
       totalRounds = bracket.length;
