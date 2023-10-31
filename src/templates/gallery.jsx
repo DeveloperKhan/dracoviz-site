@@ -9,8 +9,6 @@ import Layout from '../components/layout';
 import Seo from '../components/seo';
 import hydrateImages from '../../util/hydrateImages';
 
-const description = 'Discover Winning Pokemon GO Battle League Teams! Explore top-tier lineups, counters, and expert tips for dominating the PvP arena. Maximize your Battle League ranking with the best teams at your fingertips. Get ready to conquer the competition and become a Pokemon GO Battle League champion!';
-
 function SeasonPage({ data: { page } }) {
   const [content, setContent] = useState();
 
@@ -59,8 +57,8 @@ function SeasonPage({ data: { page } }) {
   }, []);
 
   return (
-    <Layout data-is-root-path>
-      <Seo title={page.title} description={description} />
+    <Layout>
+      <Seo title={page.title} description={page.seo.metaDesc} />
       <header id="season-head" style={{ marginBottom: -80, textAlign: 'center' }}>
         <h1 className="headline" itemProp="headline">
           {page.title}
@@ -83,6 +81,9 @@ export const pageQuery = graphql`
       id
       content
       title
+      seo {
+        metaDesc
+      }
       date(formatString: "MMMM DD, YYYY")
     }
   }

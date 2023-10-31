@@ -158,7 +158,7 @@ const createSeasonPages = ({ seasonPages, gatsbyUtilities }) => {
 const createGBLPage = ({ gblPage, gatsbyUtilities }) => {
   gatsbyUtilities.actions.createPage({
     path: gblPage.uri,
-    component: path.resolve('./src/templates/gbl-page.jsx'),
+    component: path.resolve('./src/templates/gallery.jsx'),
     context: {
       id: gblPage.id,
     },
@@ -168,7 +168,7 @@ const createGBLPage = ({ gblPage, gatsbyUtilities }) => {
 const createEventsPage = ({ eventsPage, gatsbyUtilities }) => {
   gatsbyUtilities.actions.createPage({
     path: eventsPage.uri,
-    component: path.resolve('./src/templates/gbl-page.jsx'),
+    component: path.resolve('./src/templates/gallery.jsx'),
     context: {
       id: eventsPage.id,
     },
