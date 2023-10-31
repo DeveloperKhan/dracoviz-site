@@ -38,6 +38,12 @@ export default function NavBar() {
                     Top GO Battle League Teams
                   </NavDropdown.Item>
                   <NavDropdown.Item
+                    href="/events-brackets/"
+                    className="nav-button"
+                  >
+                    Event Bracket Graphics
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
                     href="/blog/1"
                     className="nav-button"
                   >

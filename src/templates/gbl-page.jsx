@@ -63,7 +63,7 @@ function SeasonPage({ data: { page } }) {
       <Seo title={page.title} description={description} />
       <header id="season-head" style={{ marginBottom: -80, textAlign: 'center' }}>
         <h1 className="headline" itemProp="headline">
-          Top GO Battle League Teams
+          {page.title}
         </h1>
       </header>
       <article className="article-body gbl-root">

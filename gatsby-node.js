@@ -24,6 +24,7 @@ exports.createPages = async (gatsbyUtilities) => {
   // Grab season page for our homepage
   const seasonPages = getSeasonPages(pages);
   const gblPage = getGBLPage(pages);
+  const eventsPage = getEventsPage(pages);
 
   if (seasonPages == null || seasonPages.length <= 0) {
     return;
@@ -34,6 +35,7 @@ exports.createPages = async (gatsbyUtilities) => {
   await createIndividualBlogPostPages({ posts, gatsbyUtilities });
   createSeasonPages({ seasonPages, gatsbyUtilities });
   createGBLPage({ gblPage, gatsbyUtilities });
+  createEventsPage({ eventsPage, gatsbyUtilities });
 
   // And a paginated archive
   // await createBlogPostArchive({ posts, gatsbyUtilities });
@@ -46,6 +48,11 @@ const getSeasonPages = (pages) => {
 
 const getGBLPage = (pages) => {
   const pageEdges = pages.filter(({ page }) => page.uri.includes('/top-gbl-teams'));
+  return pageEdges?.[0].page;
+};
+
+const getEventsPage = (pages) => {
+  const pageEdges = pages.filter(({ page }) => page.uri.includes('/events-brackets'));
   return pageEdges?.[0].page;
 };
 
@@ -154,6 +161,16 @@ const createGBLPage = ({ gblPage, gatsbyUtilities }) => {
     component: path.resolve('./src/templates/gbl-page.jsx'),
     context: {
       id: gblPage.id,
+    },
+  });
+};
+
+const createEventsPage = ({ eventsPage, gatsbyUtilities }) => {
+  gatsbyUtilities.actions.createPage({
+    path: eventsPage.uri,
+    component: path.resolve('./src/templates/gbl-page.jsx'),
+    context: {
+      id: eventsPage.id,
     },
   });
 };
