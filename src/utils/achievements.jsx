@@ -223,7 +223,7 @@ function is90WinPercent(profile) {
 }
 
 function is100WinPercent(profile) {
-  return !!profile.tournaments?.some((tournament) => (tournament.final_rank == 1 && tournament.game_losses <= 0));
+  return !!profile.tournaments?.some((tournament) => (tournament.final_rank == 1 && tournament.game_losses == 0 && tournament.game_wins > 0));
 }
 
 function isTop8x3(profile) {
