@@ -2279,5 +2279,55 @@
                 ]
             }
         ]
+    },
+    "BTW (Neutral Cup)": {
+        "name": "BTW (Neutral Cup)",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/8aceceb5-261f-4873-e38b-ab4a6c4e5300/public",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "flags": {
+            "speciesClauseByDex": "true"
+        },
+        "include": [
+            {
+                "filterType": "type",
+                "values": [
+                    "electric",
+                    "fairy",
+                    "ice",
+                    "normal",
+                    "psychic"
+                ]
+            }
+        ],
+        "exclude": [
+            {
+                "filterType": "tag",
+                "values": [
+                    "mega"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "munchlax",
+                    "abomasnow",
+                    "arctibax",
+                    "zangoose",
+                    "baxcalibur",
+                    "frigibax"
+                ]
+            },
+            {
+                "filterType": "type",
+                "values": [
+                    "ground",
+                    "rock",
+                    "steel"
+                ]
+            }
+        ]
     }
 }
