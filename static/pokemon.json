@@ -35053,7 +35053,8 @@
             "EARTHQUAKE",
             "MUD_BOMB",
             "SLUDGE_BOMB",
-            "STONE_EDGE"
+            "STONE_EDGE",
+            "AQUA_TAIL"
         ],
         "dex": 195,
         "family": {
