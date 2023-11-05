@@ -42418,7 +42418,43 @@
         "speciesId": "sneasel_hisuian",
         "speciesName": "Sneasel (Hisuian)",
         "tags": [
-            "hisuian"
+            "hisuian",
+            "shadoweligible"
+        ],
+        "types": [
+            "fighting",
+            "poison"
+        ]
+    },
+    "sneasel_hisuian_shadow": {
+        "baseStats": {
+            "atk": 189,
+            "def": 146,
+            "hp": 146
+        },
+        "chargedMoves": [
+            "AERIAL_ACE",
+            "CLOSE_COMBAT",
+            "X_SCISSOR"
+        ],
+        "dex": 215,
+        "family": {
+            "evolutions": [
+                "sneasler"
+            ],
+            "id": "FAMILY_SNEASEL"
+        },
+        "fastMoves": [
+            "POISON_JAB",
+            "ROCK_SMASH"
+        ],
+        "gender": "male",
+        "sid": 6881,
+        "speciesId": "sneasel_hisuian",
+        "speciesName": "Sneasel (Hisuian) (Shadow)",
+        "tags": [
+            "hisuian",
+            "shadow"
         ],
         "types": [
             "fighting",
@@ -42486,6 +42522,43 @@
         "sid": 28896,
         "speciesId": "sneasler",
         "speciesName": "Sneasler",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "fighting",
+            "poison"
+        ]
+    },
+    "sneasler_shadow": {
+        "baseStats": {
+            "atk": 259,
+            "def": 158,
+            "hp": 190
+        },
+        "chargedMoves": [
+            "AERIAL_ACE",
+            "CLOSE_COMBAT",
+            "X_SCISSOR"
+        ],
+        "dex": 903,
+        "family": {
+            "id": "FAMILY_SNEASEL",
+            "parent": "sneasel_hisuian"
+        },
+        "fastMoves": [
+            "POISON_JAB",
+            "ROCK_SMASH",
+            "SHADOW_CLAW"
+        ],
+        "gender": "male",
+        "searchPriority": 3,
+        "sid": 28896,
+        "speciesId": "sneasler",
+        "speciesName": "Sneasler (Shadow)",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "fighting",
             "poison"
