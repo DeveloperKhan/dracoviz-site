@@ -7550,7 +7550,7 @@
             "EARTHQUAKE",
             "SLUDGE_BOMB",
             "STONE_EDGE",
-            "SURF",
+            "WATER_PULSE",
             "MEGAHORN"
         ],
         "dex": 980,
@@ -7560,7 +7560,7 @@
         },
         "fastMoves": [
             "MUD_SHOT",
-            "POISON_JAB"
+            "POISON_STING"
         ],
         "gender": "male",
         "sid": 31360,
