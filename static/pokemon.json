@@ -1438,9 +1438,6 @@
         "sid": 29760,
         "speciesId": "arboliva",
         "speciesName": "Arboliva",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "grass",
             "normal"
@@ -2156,9 +2153,6 @@
         "sid": 31904,
         "speciesId": "arctibax",
         "speciesName": "Arctibax",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "dragon",
             "ice"
@@ -3076,6 +3070,7 @@
             "WATER_GUN"
         ],
         "gender": "male",
+        "level25CP": 439,
         "sid": 10848,
         "speciesId": "barboach",
         "speciesName": "Barboach",
@@ -3101,7 +3096,7 @@
         "dex": 339,
         "family": {
             "evolutions": [
-                "whiscash"
+                "whiscash_shadow"
             ],
             "id": "FAMILY_BARBOACH"
         },
@@ -3111,7 +3106,7 @@
         ],
         "gender": "male",
         "sid": 10848,
-        "speciesId": "barboach",
+        "speciesId": "barboach_shadow",
         "speciesName": "Barboach (Shadow)",
         "tags": [
             "shadow"
@@ -3203,6 +3198,7 @@
             "SMACK_DOWN"
         ],
         "gender": "male",
+        "level25CP": 882,
         "searchPriority": 25,
         "sid": 13152,
         "speciesId": "bastiodon",
@@ -3229,7 +3225,7 @@
         "dex": 411,
         "family": {
             "id": "FAMILY_SHIELDON",
-            "parent": "shieldon"
+            "parent": "shieldon_shadow"
         },
         "fastMoves": [
             "IRON_TAIL",
@@ -3238,7 +3234,7 @@
         "gender": "male",
         "searchPriority": 25,
         "sid": 13152,
-        "speciesId": "bastiodon",
+        "speciesId": "bastiodon_shadow",
         "speciesName": "Bastiodon (Shadow)",
         "tags": [
             "shadow"
@@ -3273,9 +3269,6 @@
         "sid": 31936,
         "speciesId": "baxcalibur",
         "speciesName": "Baxcalibur",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "dragon",
             "ice"
@@ -4556,9 +4549,6 @@
         "sid": 30784,
         "speciesId": "bombirdier",
         "speciesName": "Bombirdier",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "dark",
             "flying"
@@ -4962,7 +4952,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 31552,
         "speciesId": "brutebonnet",
         "speciesName": "Brutebonnet",
         "tags": [
@@ -6232,6 +6222,7 @@
             "INCINERATE"
         ],
         "gender": "male",
+        "level25CP": 2030,
         "sid": 19488,
         "speciesId": "chandelure",
         "speciesName": "Chandelure",
@@ -6262,7 +6253,7 @@
         ],
         "family": {
             "id": "FAMILY_LITWICK",
-            "parent": "lampent"
+            "parent": "lampent_shadow"
         },
         "fastMoves": [
             "FIRE_SPIN",
@@ -6271,7 +6262,7 @@
         ],
         "gender": "male",
         "sid": 19488,
-        "speciesId": "chandelure",
+        "speciesId": "chandelure_shadow",
         "speciesName": "Chandelure (Shadow)",
         "tags": [
             "shadow"
@@ -6389,7 +6380,7 @@
         "nicknames": [
             "zard"
         ],
-        "searchPriority": 10,
+        "searchPriority": 12,
         "sid": 192,
         "speciesId": "charizard",
         "speciesName": "Charizard",
@@ -6538,7 +6529,7 @@
         "nicknames": [
             "zard"
         ],
-        "searchPriority": 10,
+        "searchPriority": 12,
         "sid": 192,
         "speciesId": "charizard_shadow",
         "speciesName": "Charizard (Shadow)",
@@ -6563,6 +6554,9 @@
             "X_SCISSOR"
         ],
         "dex": 737,
+        "eliteMoves": [
+            "VOLT_SWITCH"
+        ],
         "family": {
             "evolutions": [
                 "vikavolt"
@@ -6576,6 +6570,7 @@
             "VOLT_SWITCH"
         ],
         "gender": "male",
+        "searchPriority": 11,
         "sid": 23584,
         "speciesId": "charjabug",
         "speciesName": "Charjabug",
@@ -6975,7 +6970,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 32064,
         "speciesId": "chienpao",
         "speciesName": "Chienpao",
         "tags": [
@@ -7200,7 +7195,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 32128,
         "speciesId": "chiyu",
         "speciesName": "Chiyu",
         "tags": [
@@ -7548,15 +7543,18 @@
         "chargedMoves": [
             "ACID_SPRAY",
             "EARTHQUAKE",
+            "MEGAHORN",
             "SLUDGE_BOMB",
             "STONE_EDGE",
-            "WATER_PULSE",
-            "MEGAHORN"
+            "WATER_PULSE"
         ],
         "dex": 980,
+        "eliteMoves": [
+            "MEGAHORN"
+        ],
         "family": {
-            "id": "FAMILY_WOOPER",
-            "parent": "wooper"
+            "id": "FAMILY_WOOPER_PALDEAN",
+            "parent": "wooper_paldean"
         },
         "fastMoves": [
             "MUD_SHOT",
@@ -7566,9 +7564,6 @@
         "sid": 31360,
         "speciesId": "clodsire",
         "speciesName": "Clodsire",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "ground",
             "poison"
@@ -7899,12 +7894,15 @@
             "hp": 233
         },
         "chargedMoves": [
+            "BRUTAL_SWING",
             "DYNAMIC_PUNCH",
             "FOCUS_BLAST",
-            "STONE_EDGE",
-            "BRUTAL_SWING"
+            "STONE_EDGE"
         ],
         "dex": 534,
+        "eliteMoves": [
+            "BRUTAL_SWING"
+        ],
         "family": {
             "id": "FAMILY_TIMBURR",
             "parent": "gurdurr"
@@ -8365,6 +8363,7 @@
             "ZEN_HEADBUTT"
         ],
         "gender": "male",
+        "level25CP": 1059,
         "sid": 13056,
         "speciesId": "cranidos",
         "speciesName": "Cranidos",
@@ -8390,7 +8389,7 @@
         "dex": 408,
         "family": {
             "evolutions": [
-                "rampardos"
+                "rampardos_shadow"
             ],
             "id": "FAMILY_CRANIDOS"
         },
@@ -8400,7 +8399,7 @@
         ],
         "gender": "male",
         "sid": 13056,
-        "speciesId": "cranidos",
+        "speciesId": "cranidos_shadow",
         "speciesName": "Cranidos (Shadow)",
         "tags": [
             "shadow"
@@ -10209,9 +10208,6 @@
         "sid": 29728,
         "speciesId": "dolliv",
         "speciesName": "Dolliv",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "grass",
             "normal"
@@ -11106,6 +11102,7 @@
             "SCRATCH"
         ],
         "gender": "male",
+        "level25CP": 788,
         "sid": 16928,
         "speciesId": "drilbur",
         "speciesName": "Drilbur",
@@ -11131,7 +11128,7 @@
         "dex": 529,
         "family": {
             "evolutions": [
-                "excadrill"
+                "excadrill_shadow"
             ],
             "id": "FAMILY_DRILBUR"
         },
@@ -11141,7 +11138,7 @@
         ],
         "gender": "male",
         "sid": 16928,
-        "speciesId": "drilbur",
+        "speciesId": "drilbur_shadow",
         "speciesName": "Drilbur (Shadow)",
         "tags": [
             "shadow"
@@ -11433,7 +11430,7 @@
             "ROLLOUT"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 31425,
         "speciesId": "dudunsparce_three",
         "speciesName": "Dudunsparce_three",
         "tags": [
@@ -11466,7 +11463,7 @@
             "ROLLOUT"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 31424,
         "speciesId": "dudunsparce_two",
         "speciesName": "Dudunsparce_two",
         "tags": [
@@ -13088,6 +13085,7 @@
             "MUD_SLAP"
         ],
         "gender": "male",
+        "level25CP": 2010,
         "searchPriority": 5,
         "sid": 16960,
         "speciesId": "excadrill",
@@ -13116,7 +13114,7 @@
         "dex": 530,
         "family": {
             "id": "FAMILY_DRILBUR",
-            "parent": "drilbur"
+            "parent": "drilbur_shadow"
         },
         "fastMoves": [
             "METAL_CLAW",
@@ -13126,7 +13124,7 @@
         "gender": "male",
         "searchPriority": 5,
         "sid": 16960,
-        "speciesId": "excadrill",
+        "speciesId": "excadrill_shadow",
         "speciesName": "Excadrill (Shadow)",
         "tags": [
             "shadow"
@@ -14329,7 +14327,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 31584,
         "speciesId": "fluttermane",
         "speciesName": "Fluttermane",
         "tags": [
@@ -14648,9 +14646,6 @@
         "sid": 31872,
         "speciesId": "frigibax",
         "speciesName": "Frigibax",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "dragon",
             "ice"
@@ -15421,6 +15416,7 @@
             "SUCKER_PUNCH"
         ],
         "gender": "male",
+        "level25CP": 685,
         "sid": 2944,
         "speciesId": "gastly",
         "speciesName": "Gastly",
@@ -15451,7 +15447,7 @@
         ],
         "family": {
             "evolutions": [
-                "haunter"
+                "haunter_shadow"
             ],
             "id": "FAMILY_GASTLY"
         },
@@ -15462,7 +15458,7 @@
         ],
         "gender": "male",
         "sid": 2944,
-        "speciesId": "gastly",
+        "speciesId": "gastly_shadow",
         "speciesName": "Gastly (Shadow)",
         "tags": [
             "shadow"
@@ -15764,58 +15760,13 @@
             "SUCKER_PUNCH"
         ],
         "gender": "male",
+        "level25CP": 1769,
         "searchPriority": 14,
         "sid": 3008,
         "speciesId": "gengar",
         "speciesName": "Gengar",
         "tags": [
             "shadoweligible"
-        ],
-        "types": [
-            "ghost",
-            "poison"
-        ]
-    },
-    "gengar_shadow": {
-        "baseStats": {
-            "atk": 261,
-            "def": 149,
-            "hp": 155
-        },
-        "chargedMoves": [
-            "DARK_PULSE",
-            "FOCUS_BLAST",
-            "PSYCHIC",
-            "SHADOW_BALL",
-            "SHADOW_PUNCH",
-            "SLUDGE_BOMB",
-            "SLUDGE_WAVE"
-        ],
-        "dex": 94,
-        "eliteMoves": [
-            "DARK_PULSE",
-            "LICK",
-            "PSYCHIC",
-            "SHADOW_PUNCH",
-            "SLUDGE_WAVE"
-        ],
-        "family": {
-            "id": "FAMILY_GASTLY",
-            "parent": "haunter"
-        },
-        "fastMoves": [
-            "HEX",
-            "LICK",
-            "SHADOW_CLAW",
-            "SUCKER_PUNCH"
-        ],
-        "gender": "male",
-        "searchPriority": 14,
-        "sid": 3008,
-        "speciesId": "gengar",
-        "speciesName": "Gengar (Shadow)",
-        "tags": [
-            "shadow"
         ],
         "types": [
             "ghost",
@@ -15861,6 +15812,52 @@
         "speciesName": "Gengar (Mega)",
         "tags": [
             "mega"
+        ],
+        "types": [
+            "ghost",
+            "poison"
+        ]
+    },
+    "gengar_shadow": {
+        "baseStats": {
+            "atk": 261,
+            "def": 149,
+            "hp": 155
+        },
+        "chargedMoves": [
+            "DARK_PULSE",
+            "FOCUS_BLAST",
+            "PSYCHIC",
+            "SHADOW_BALL",
+            "SHADOW_PUNCH",
+            "SLUDGE_BOMB",
+            "SLUDGE_WAVE"
+        ],
+        "dex": 94,
+        "eliteMoves": [
+            "DARK_PULSE",
+            "LICK",
+            "PSYCHIC",
+            "SHADOW_PUNCH",
+            "SLUDGE_WAVE"
+        ],
+        "family": {
+            "id": "FAMILY_GASTLY",
+            "parent": "haunter_shadow"
+        },
+        "fastMoves": [
+            "HEX",
+            "LICK",
+            "SHADOW_CLAW",
+            "SUCKER_PUNCH"
+        ],
+        "gender": "male",
+        "searchPriority": 14,
+        "sid": 3008,
+        "speciesId": "gengar_shadow",
+        "speciesName": "Gengar (Shadow)",
+        "tags": [
+            "shadow"
         ],
         "types": [
             "ghost",
@@ -16794,7 +16791,6 @@
         "chargedMoves": [
             "BRICK_BREAK",
             "LEAF_BLADE",
-            "ROCK_SLIDE",
             "SEED_BOMB"
         ],
         "dex": 673,
@@ -16811,9 +16807,6 @@
         "sid": 21536,
         "speciesId": "gogoat",
         "speciesName": "Gogoat",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "grass",
             "none"
@@ -17983,7 +17976,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 31488,
         "speciesId": "greattusk",
         "speciesName": "Greattusk",
         "tags": [
@@ -18020,9 +18013,6 @@
         "sid": 31072,
         "speciesId": "greavard",
         "speciesName": "Greavard",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "ghost",
             "none"
@@ -19253,6 +19243,7 @@
             "SHADOW_CLAW"
         ],
         "gender": "male",
+        "level25CP": 1164,
         "searchPriority": 3,
         "sid": 2976,
         "speciesId": "haunter",
@@ -19284,10 +19275,10 @@
         ],
         "family": {
             "evolutions": [
-                "gengar"
+                "gengar_shadow"
             ],
             "id": "FAMILY_GASTLY",
-            "parent": "gastly"
+            "parent": "gastly_shadow"
         },
         "fastMoves": [
             "ASTONISH",
@@ -19297,7 +19288,7 @@
         "gender": "male",
         "searchPriority": 3,
         "sid": 2976,
-        "speciesId": "haunter",
+        "speciesId": "haunter_shadow",
         "speciesName": "Haunter (Shadow)",
         "tags": [
             "shadow"
@@ -20599,12 +20590,10 @@
             "LICK"
         ],
         "gender": "male",
+        "searchPriority": 2,
         "sid": 31104,
         "speciesId": "houndstone",
         "speciesName": "Houndstone",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "ghost",
             "none"
@@ -21077,7 +21066,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 31712,
         "speciesId": "ironbundle",
         "speciesName": "Ironbundle",
         "tags": [
@@ -21102,7 +21091,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 31744,
         "speciesId": "ironhands",
         "speciesName": "Ironhands",
         "tags": [
@@ -21127,7 +21116,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 31776,
         "speciesId": "ironjugulis",
         "speciesName": "Ironjugulis",
         "tags": [
@@ -21152,7 +21141,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 31808,
         "speciesId": "ironmoth",
         "speciesName": "Ironmoth",
         "tags": [
@@ -21177,7 +21166,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 31840,
         "speciesId": "ironthorns",
         "speciesName": "Ironthorns",
         "tags": [
@@ -21202,7 +21191,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 31680,
         "speciesId": "irontreads",
         "speciesName": "Irontreads",
         "tags": [
@@ -21227,7 +21216,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 32192,
         "speciesId": "ironvaliant",
         "speciesName": "Ironvaliant",
         "tags": [
@@ -22705,7 +22694,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 32224,
         "speciesId": "koraidon_apex",
         "speciesName": "Koraidon_apex",
         "tags": [
@@ -23158,6 +23147,7 @@
             "EMBER"
         ],
         "gender": "male",
+        "level25CP": 1006,
         "sid": 19456,
         "speciesId": "lampent",
         "speciesName": "Lampent",
@@ -23183,10 +23173,10 @@
         "dex": 608,
         "family": {
             "evolutions": [
-                "chandelure"
+                "chandelure_shadow"
             ],
             "id": "FAMILY_LITWICK",
-            "parent": "litwick"
+            "parent": "litwick_shadow"
         },
         "fastMoves": [
             "ASTONISH",
@@ -23194,7 +23184,7 @@
         ],
         "gender": "male",
         "sid": 19456,
-        "speciesId": "lampent",
+        "speciesId": "lampent_shadow",
         "speciesName": "Lampent (Shadow)",
         "tags": [
             "shadow"
@@ -24353,6 +24343,7 @@
             "EMBER"
         ],
         "gender": "male",
+        "level25CP": 558,
         "sid": 19424,
         "speciesId": "litwick",
         "speciesName": "Litwick",
@@ -24379,7 +24370,7 @@
         "dex": 607,
         "family": {
             "evolutions": [
-                "lampent"
+                "lampent_shadow"
             ],
             "id": "FAMILY_LITWICK"
         },
@@ -24389,7 +24380,7 @@
         ],
         "gender": "male",
         "sid": 19424,
-        "speciesId": "litwick",
+        "speciesId": "litwick_shadow",
         "speciesName": "Litwick (Shadow)",
         "tags": [
             "shadow"
@@ -24408,8 +24399,8 @@
         "chargedMoves": [
             "BUG_BUZZ",
             "DARK_PULSE",
-            "X_SCISSOR",
-            "TRAILBLAZE"
+            "TRAILBLAZE",
+            "X_SCISSOR"
         ],
         "dex": 920,
         "family": {
@@ -24424,9 +24415,6 @@
         "sid": 29440,
         "speciesId": "lokix",
         "speciesName": "Lokix",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "bug",
             "dark"
@@ -24505,8 +24493,7 @@
         "chargedMoves": [
             "FIRE_PUNCH",
             "FOCUS_BLAST",
-            "HYPER_BEAM",
-            "TRIPLE_AXEL"
+            "HYPER_BEAM"
         ],
         "dex": 428,
         "family": {
@@ -26938,7 +26925,7 @@
             "TAKE_DOWN"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 29601,
         "speciesId": "maushold_family_of_four",
         "speciesName": "Maushold_family_of_four",
         "tags": [
@@ -26971,7 +26958,7 @@
             "TAKE_DOWN"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 29600,
         "speciesId": "maushold_family_of_three",
         "speciesName": "Maushold_family_of_three",
         "tags": [
@@ -28404,7 +28391,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 32256,
         "speciesId": "miraidon_ultimate",
         "speciesName": "Miraidon_ultimate",
         "tags": [
@@ -30785,9 +30772,6 @@
         "sid": 29408,
         "speciesId": "nymble",
         "speciesName": "Nymble",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "bug",
             "none"
@@ -31604,7 +31588,7 @@
             "WATERFALL"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 30848,
         "speciesId": "palafin_zero",
         "speciesName": "Palafin_zero",
         "tags": [
@@ -32056,9 +32040,6 @@
         "sid": 29472,
         "speciesId": "pawmi",
         "speciesName": "Pawmi",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "electric",
             "none"
@@ -32091,9 +32072,6 @@
         "sid": 29504,
         "speciesId": "pawmo",
         "speciesName": "Pawmo",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "electric",
             "fighting"
@@ -32125,9 +32103,6 @@
         "sid": 29536,
         "speciesId": "pawmot",
         "speciesName": "Pawmot",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "electric",
             "fighting"
@@ -33024,7 +32999,7 @@
             "THUNDER_SHOCK"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 812,
         "speciesId": "pikachu_shaymin",
         "speciesName": "Pikachu (Shaymin Scarf)",
         "types": [
@@ -33509,6 +33484,7 @@
         "nicknames": [
             "toed"
         ],
+        "searchPriority": 4,
         "sid": 5952,
         "speciesId": "politoed_shadow",
         "speciesName": "Politoed (Shadow)",
@@ -35014,13 +34990,16 @@
         },
         "chargedMoves": [
             "ACID_SPRAY",
+            "AQUA_TAIL",
             "EARTHQUAKE",
             "MUD_BOMB",
             "SLUDGE_BOMB",
-            "STONE_EDGE",
-            "AQUA_TAIL"
+            "STONE_EDGE"
         ],
         "dex": 195,
+        "eliteMoves": [
+            "AQUA_TAIL"
+        ],
         "family": {
             "id": "FAMILY_WOOPER",
             "parent": "wooper"
@@ -35050,13 +35029,16 @@
         },
         "chargedMoves": [
             "ACID_SPRAY",
+            "AQUA_TAIL",
             "EARTHQUAKE",
             "MUD_BOMB",
             "SLUDGE_BOMB",
-            "STONE_EDGE",
-            "AQUA_TAIL"
+            "STONE_EDGE"
         ],
         "dex": 195,
+        "eliteMoves": [
+            "AQUA_TAIL"
+        ],
         "family": {
             "id": "FAMILY_WOOPER",
             "parent": "wooper_shadow"
@@ -35639,6 +35621,7 @@
             "ZEN_HEADBUTT"
         ],
         "gender": "male",
+        "level25CP": 2033,
         "sid": 13088,
         "speciesId": "rampardos",
         "speciesName": "Rampardos",
@@ -35665,7 +35648,7 @@
         "dex": 409,
         "family": {
             "id": "FAMILY_CRANIDOS",
-            "parent": "cranidos"
+            "parent": "cranidos_shadow"
         },
         "fastMoves": [
             "SMACK_DOWN",
@@ -35673,7 +35656,7 @@
         ],
         "gender": "male",
         "sid": 13088,
-        "speciesId": "rampardos",
+        "speciesId": "rampardos_shadow",
         "speciesName": "Rampardos (Shadow)",
         "tags": [
             "include1500",
@@ -36266,11 +36249,57 @@
             "ZEN_HEADBUTT"
         ],
         "gender": "N",
+        "level25CP": 2758,
         "sid": 15552,
         "speciesId": "regigigas",
         "speciesName": "Regigigas",
         "tags": [
-            "legendary"
+            "legendary",
+            "shadoweligible"
+        ],
+        "types": [
+            "none",
+            "normal"
+        ]
+    },
+    "regigigas_shadow": {
+        "baseStats": {
+            "atk": 287,
+            "def": 210,
+            "hp": 221
+        },
+        "chargedMoves": [
+            "FOCUS_BLAST",
+            "GIGA_IMPACT",
+            "THUNDER"
+        ],
+        "dex": 486,
+        "fastMoves": [
+            "HIDDEN_POWER_BUG",
+            "HIDDEN_POWER_DARK",
+            "HIDDEN_POWER_DRAGON",
+            "HIDDEN_POWER_ELECTRIC",
+            "HIDDEN_POWER_FIGHTING",
+            "HIDDEN_POWER_FIRE",
+            "HIDDEN_POWER_FLYING",
+            "HIDDEN_POWER_GHOST",
+            "HIDDEN_POWER_GRASS",
+            "HIDDEN_POWER_GROUND",
+            "HIDDEN_POWER_ICE",
+            "HIDDEN_POWER_POISON",
+            "HIDDEN_POWER_PSYCHIC",
+            "HIDDEN_POWER_ROCK",
+            "HIDDEN_POWER_STEEL",
+            "HIDDEN_POWER_WATER",
+            "ZEN_HEADBUTT"
+        ],
+        "gender": "N",
+        "sid": 15552,
+        "speciesId": "regigigas_shadow",
+        "speciesName": "Regigigas (Shadow)",
+        "tags": [
+            "legendary",
+            "shadow"
         ],
         "types": [
             "none",
@@ -36681,19 +36710,18 @@
         ],
         "family": {
             "evolutions": [
-                "rhyperior"
+                "rhyperior_shadow"
             ],
             "id": "FAMILY_RHYHORN",
-            "parent": "rhyhorn"
+            "parent": "rhyhorn_shadow"
         },
         "fastMoves": [
             "MUD_SLAP",
             "ROCK_SMASH"
         ],
         "gender": "male",
-        "level25CP": 1976,
         "sid": 3584,
-        "speciesId": "rhydon",
+        "speciesId": "rhydon_shadow",
         "speciesName": "Rhydon (Shadow)",
         "tags": [
             "shadow"
@@ -36752,7 +36780,7 @@
         "dex": 111,
         "family": {
             "evolutions": [
-                "rhydon"
+                "rhydon_shadow"
             ],
             "id": "FAMILY_RHYHORN"
         },
@@ -36761,9 +36789,8 @@
             "ROCK_SMASH"
         ],
         "gender": "male",
-        "level25CP": 970,
         "sid": 3552,
-        "speciesId": "rhyhorn",
+        "speciesId": "rhyhorn_shadow",
         "speciesName": "Rhyhorn (Shadow)",
         "tags": [
             "shadow"
@@ -36835,17 +36862,16 @@
         ],
         "family": {
             "id": "FAMILY_RHYHORN",
-            "parent": "rhydon"
+            "parent": "rhydon_shadow"
         },
         "fastMoves": [
             "MUD_SLAP",
             "SMACK_DOWN"
         ],
         "gender": "male",
-        "level25CP": 2347,
         "searchPriority": 5,
         "sid": 14848,
-        "speciesId": "rhyperior",
+        "speciesId": "rhyperior_shadow",
         "speciesName": "Rhyperior (Shadow)",
         "tags": [
             "shadow"
@@ -36961,7 +36987,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 32160,
         "speciesId": "roaringmoon",
         "speciesName": "Roaringmoon",
         "tags": [
@@ -38163,7 +38189,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 31648,
         "speciesId": "sandyshocks",
         "speciesName": "Sandyshocks",
         "tags": [
@@ -38683,7 +38709,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 31520,
         "speciesId": "screamtail",
         "speciesName": "Screamtail",
         "tags": [
@@ -39324,7 +39350,6 @@
         "speciesId": "sharpedo_shadow",
         "speciesName": "Sharpedo (Shadow)",
         "tags": [
-            "include1500",
             "shadow",
             "shadoweligible"
         ],
@@ -39750,6 +39775,7 @@
             "TACKLE"
         ],
         "gender": "male",
+        "level25CP": 478,
         "sid": 13120,
         "speciesId": "shieldon",
         "speciesName": "Shieldon",
@@ -39775,7 +39801,7 @@
         "dex": 410,
         "family": {
             "evolutions": [
-                "bastiodon"
+                "bastiodon_shadow"
             ],
             "id": "FAMILY_SHIELDON"
         },
@@ -39785,7 +39811,7 @@
         ],
         "gender": "male",
         "sid": 13120,
-        "speciesId": "shieldon",
+        "speciesId": "shieldon_shadow",
         "speciesName": "Shieldon (Shadow)",
         "tags": [
             "shadow"
@@ -41172,9 +41198,6 @@
         "sid": 21504,
         "speciesId": "skiddo",
         "speciesName": "Skiddo",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "grass",
             "none"
@@ -41593,7 +41616,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 31616,
         "speciesId": "slitherwing",
         "speciesName": "Slitherwing",
         "tags": [
@@ -42312,9 +42335,6 @@
         "sid": 29696,
         "speciesId": "smoliv",
         "speciesName": "Smoliv",
-        "tags": [
-            "unreleased"
-        ],
         "types": [
             "grass",
             "normal"
@@ -42414,6 +42434,7 @@
             "ROCK_SMASH"
         ],
         "gender": "male",
+        "level25CP": 1231,
         "sid": 6881,
         "speciesId": "sneasel_hisuian",
         "speciesName": "Sneasel (Hisuian)",
@@ -42440,7 +42461,7 @@
         "dex": 215,
         "family": {
             "evolutions": [
-                "sneasler"
+                "sneasler_shadow"
             ],
             "id": "FAMILY_SNEASEL"
         },
@@ -42450,7 +42471,7 @@
         ],
         "gender": "male",
         "sid": 6881,
-        "speciesId": "sneasel_hisuian",
+        "speciesId": "sneasel_hisuian_shadow",
         "speciesName": "Sneasel (Hisuian) (Shadow)",
         "tags": [
             "hisuian",
@@ -42518,6 +42539,7 @@
             "SHADOW_CLAW"
         ],
         "gender": "male",
+        "level25CP": 2002,
         "searchPriority": 3,
         "sid": 28896,
         "speciesId": "sneasler",
@@ -42544,7 +42566,7 @@
         "dex": 903,
         "family": {
             "id": "FAMILY_SNEASEL",
-            "parent": "sneasel_hisuian"
+            "parent": "sneasel_hisuian_shadow"
         },
         "fastMoves": [
             "POISON_JAB",
@@ -42554,7 +42576,7 @@
         "gender": "male",
         "searchPriority": 3,
         "sid": 28896,
-        "speciesId": "sneasler",
+        "speciesId": "sneasler_shadow",
         "speciesName": "Sneasler (Shadow)",
         "tags": [
             "shadow"
@@ -43513,7 +43535,7 @@
             "PECK"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 29792,
         "speciesId": "squawkabilly_green",
         "speciesName": "Squawkabilly_green",
         "tags": [
@@ -45669,7 +45691,7 @@
             "WATER_GUN"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 31296,
         "speciesId": "tatsugiri_curly",
         "speciesName": "Tatsugiri_curly",
         "tags": [
@@ -46196,7 +46218,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 32096,
         "speciesId": "tinglu",
         "speciesName": "Tinglu",
         "tags": [
@@ -49079,6 +49101,9 @@
             "X_SCISSOR"
         ],
         "dex": 738,
+        "eliteMoves": [
+            "VOLT_SWITCH"
+        ],
         "family": {
             "id": "FAMILY_GRUBBIN",
             "parent": "charjabug"
@@ -50394,6 +50419,7 @@
             "WATER_GUN"
         ],
         "gender": "male",
+        "level25CP": 1244,
         "searchPriority": 8,
         "sid": 10880,
         "speciesId": "whiscash",
@@ -50420,7 +50446,7 @@
         "dex": 340,
         "family": {
             "id": "FAMILY_BARBOACH",
-            "parent": "barboach"
+            "parent": "barboach_shadow"
         },
         "fastMoves": [
             "MUD_SHOT",
@@ -50429,7 +50455,7 @@
         "gender": "male",
         "searchPriority": 8,
         "sid": 10880,
-        "speciesId": "whiscash",
+        "speciesId": "whiscash_shadow",
         "speciesName": "Whiscash (Shadow)",
         "tags": [
             "shadow"
@@ -50798,7 +50824,7 @@
             "SPLASH"
         ],
         "gender": "male",
-        "sid": null,
+        "sid": 32032,
         "speciesId": "wochien",
         "speciesName": "Wochien",
         "tags": [
@@ -50904,6 +50930,41 @@
         "types": [
             "ground",
             "water"
+        ]
+    },
+    "wooper_paldean": {
+        "baseStats": {
+            "atk": 75,
+            "def": 66,
+            "hp": 146
+        },
+        "chargedMoves": [
+            "BODY_SLAM",
+            "DIG",
+            "SLUDGE_WAVE"
+        ],
+        "dex": 194,
+        "family": {
+            "evolutions": [
+                "clodsire"
+            ],
+            "id": "FAMILY_WOOPER_PALDEAN"
+        },
+        "fastMoves": [
+            "MUD_SHOT",
+            "POISON_JAB"
+        ],
+        "gender": "male",
+        "level25CP": 328,
+        "sid": 6209,
+        "speciesId": "wooper_paldean",
+        "speciesName": "Wooper (Paldean)",
+        "tags": [
+            "paldean"
+        ],
+        "types": [
+            "ground",
+            "poison"
         ]
     },
     "wooper_shadow": {
@@ -52229,7 +52290,7 @@
         ],
         "gender": "N",
         "levelFloor": 15,
-        "sid": null,
+        "sid": 22977,
         "speciesId": "zygarde_10",
         "speciesName": "Zygarde (10% Forme)",
         "tags": [
@@ -52272,4 +52333,4 @@
             "ground"
         ]
     }
-  }
+}
