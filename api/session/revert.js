@@ -44,12 +44,18 @@ async function handler(req, res) {
       return;
     }
 
-    const currentRoundIndex = session.bracket.findIndex(
-      (r) => r.round === session.currentRoundNumber,
+    const { players, currentRoundNumber, bracket } = session;
+
+    if (currentRoundNumber <= 1) {
+      res.status(401).json({ error: 'api_bracket_not_started' });
+      return;
+    }
+
+    const currentRoundIndex = bracket.findIndex(
+      (r) => r.round === currentRoundNumber,
     );
-    const currentRound = session.bracket[currentRoundIndex];
+    const currentRound = bracket[currentRoundIndex];
     const { matches } = currentRound;
-    const { players } = session;
 
     if (currentRound == null) {
       res.status(401).json({ error: 'api_bracket_not_started' });
