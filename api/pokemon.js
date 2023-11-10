@@ -67,6 +67,9 @@ async function handler(req, res) {
     const hp = [];
     const chargedMoves = [];
     const fastMoves = [];
+    const nickname = [];
+    const purified = [];
+    const bestBuddy = [];
 
     const thePlayer = players[playerIndex];
 
@@ -76,6 +79,9 @@ async function handler(req, res) {
       hp.push(p.hp ?? '');
       chargedMoves.push(p.chargedMoves ?? []);
       fastMoves.push(p.fastMove);
+      nickname.push(p.nickname);
+      purified.push(p.purified);
+      bestBuddy.push(p.bestBuddy);
     });
 
     res.status(200).json({
@@ -91,6 +97,9 @@ async function handler(req, res) {
       hp,
       chargedMoves,
       fastMoves,
+      nickname,
+      purified,
+      bestBuddy,
       pokemonData: pokemonJSON,
     });
   } catch (ex) {
