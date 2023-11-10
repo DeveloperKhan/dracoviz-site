@@ -77,6 +77,7 @@ async function handler(req, res) {
     const thePlayer = players[playerIndex];
     const chargedMovesToTest = movesetsRequired ? (chargedMoves ?? []) : null;
     const fastMovesToTest = movesetsRequired ? (fastMoves ?? []) : null;
+    const purifiedToTest = purifiedRequired ? (purified ?? []) : null;
     const cpToTest = cpRequired ? (cp ?? []) : null;
     const metaIndex = thePlayer.tournamentPosition ?? 0;
     const metaToTest = metas[metaIndex];
@@ -86,6 +87,7 @@ async function handler(req, res) {
       cpToTest,
       fastMovesToTest,
       chargedMovesToTest,
+      purifiedToTest,
       metaToTest,
       6,
     );

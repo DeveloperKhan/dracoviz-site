@@ -1,7 +1,7 @@
 import pokemonJSON from '../static/pokemon.json';
 import rulesJSON from '../static/rules.json';
 
-const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize) => {
+const validateTeam = (pokemon, cp, fastMoves, chargedMoves, purified, format, teamSize) => {
   const rules = rulesJSON[format];
   const pokemon_list = [];
 
@@ -75,6 +75,7 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize) =>
     || (cp != null && cp?.length !== teamSize)
     || (fastMoves != null && fastMoves?.length !== teamSize)
     || (chargedMoves != null && chargedMoves?.length !== teamSize)
+    || (purified != null && purified?.length !== teamSize)
     || pokemon_list?.length !== teamSize
   ) {
     return 'api_team_validation_generic';
@@ -150,6 +151,22 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize) =>
           || !eligibleMoves.includes(chargedMoves[index][1])
       ) {
         moveset_error = 'api_team_validation_moveset';
+        return false;
+      }
+      return true;
+    });
+    if (moveset_error != null) {
+      return moveset_error;
+    }
+  }
+
+  // purified check
+  if (purified != null) {
+    let moveset_error;
+    pokemon.every((p) => {
+      const thePokemon = pokemonJSON[p];
+      if (!thePokemon.tags.includes('shadoweligible')) {
+        moveset_error = 'api_team_validation_purified';
         return false;
       }
       return true;
