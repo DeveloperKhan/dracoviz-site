@@ -82,6 +82,12 @@ async function handler(req, res) {
     const metaIndex = thePlayer.tournamentPosition ?? 0;
     const metaToTest = metas[metaIndex];
 
+    const numberOfBestBuddies = (bestBuddy ?? []).filter((x) => x === true).length;
+
+    if (numberOfBestBuddies > (metaToTest.maxBestBuddy ?? 1)) {
+      res.status(401).json({ error: 'api_max_best_buddies' });
+    }
+
     const error = validateTeam(
       pokemon,
       cpToTest,
