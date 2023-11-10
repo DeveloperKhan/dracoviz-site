@@ -17,6 +17,7 @@ async function handler(req, res) {
     metas, cpVisibility, movesetVisibility, hpVisibility, draftMode,
     hideTeamsFromHost, byeAward, timeControl,
     bracketType, gameAmount, playAllMatches, requireBothPlayersToReport,
+    purifiedVisibility, nicknameVisibility, bestBuddyVisibility,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -94,10 +95,15 @@ async function handler(req, res) {
       matchTeamSize: maxMatchTeamSize,
       movesetsRequired: movesetVisibility != null && movesetVisibility !== 'none',
       movesetsVisible: movesetVisibility === 'global',
+      purifiedRequired: purifiedVisibility != null && purifiedVisibility !== 'none',
+      purifiedVisible: purifiedVisibility === 'global',
       cpRequired: cpVisibility != null && cpVisibility !== 'none',
       cpVisible: cpVisibility === 'global',
+      bestBuddyRequired: bestBuddyVisibility != null && bestBuddyVisibility !== 'none',
+      bestBuddyVisible: bestBuddyVisibility === 'global',
       hpRequired: hpVisibility != null && hpVisibility !== 'none',
       hpVisible: hpVisibility === 'global',
+      nicknameRequired: nicknameVisibility != null && nicknameVisibility !== 'none',
       isTeamDraft: draftMode === 'team',
       isGlobalDraft: draftMode === 'global',
       metas: theMetas,

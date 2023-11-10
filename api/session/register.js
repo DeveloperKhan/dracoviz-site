@@ -7,7 +7,7 @@ import validateTeam from '../../util/validation';
 
 async function handler(req, res) {
   const {
-    cp, pokemon, chargedMoves, fastMoves, tournamentId, hp,
+    cp, pokemon, chargedMoves, fastMoves, tournamentId, hp, purified, nickname, bestBuddy,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -46,7 +46,15 @@ async function handler(req, res) {
     }
 
     const {
-      players, status, cpRequired, hpRequired, movesetsRequired, metas,
+      players,
+      status,
+      cpRequired,
+      hpRequired,
+      movesetsRequired,
+      metas,
+      purifiedRequired,
+      bestBuddyRequired,
+      nicknameRequired,
     } = session;
 
     if (status === sessionStates.pokemonVisible) {
@@ -94,6 +102,9 @@ async function handler(req, res) {
       hp: hpRequired ? hp[index] : null,
       chargedMoves: movesetsRequired ? chargedMoves[index] : null,
       fastMove: movesetsRequired ? fastMoves[index] : null,
+      purified: purifiedRequired ? purified[index] : false,
+      best_buddy: bestBuddyRequired ? bestBuddy[index] : false,
+      nickname: nicknameRequired ? nickname[index] : null,
     }));
 
     session.players[playerIndex].pokemon = team;

@@ -30,7 +30,15 @@ async function handler(req, res) {
     }
 
     const {
-      players, state, maxTeamSize, movesetsRequired, cpRequired, hpRequired,
+      players,
+      state,
+      maxTeamSize,
+      movesetsRequired,
+      cpRequired,
+      hpRequired,
+      purifiedRequired,
+      bestBuddyRequired,
+      nicknameRequired,
     } = session;
 
     const playerIndex = players.findIndex((p) => p.playerId === x_session_id);
@@ -75,6 +83,9 @@ async function handler(req, res) {
       movesetsRequired,
       cpRequired,
       hpRequired,
+      purifiedRequired,
+      bestBuddyRequired,
+      nicknameRequired,
       pokemon,
       cp,
       hp,
