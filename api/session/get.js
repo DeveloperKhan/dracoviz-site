@@ -106,6 +106,8 @@ async function getPlayers(
   cpVisible,
   hideTeamsFromHost,
   hpVisible,
+  purifiedVisible,
+  bestBuddyVisible,
 ) {
   const Player = await getPlayerModel();
   const shouldLookupAllPlayers = isHost
@@ -150,6 +152,9 @@ async function getPlayers(
           chargedMoves: (isHost || movesetsVisible) ? p.chargedMoves : null,
           fastMove: (isHost || movesetsVisible) ? p.fastMove : null,
           hp: (isHost || hpVisible) ? p.hp : null,
+          nickname: (isHost) ? p.nickname : null,
+          purified: (isHost || purifiedVisible) ? p.purified : null,
+          bestBuddy: (isHost || bestBuddyVisible) ? p.best_buddy : null,
         })),
       };
     }),
@@ -195,6 +200,8 @@ async function handler(req, res) {
       metas,
       cpVisible,
       movesetsVisible,
+      purifiedVisible,
+      bestBuddyVisible,
       registrationClosed,
       concluded,
       hideTeamsFromHost,
@@ -228,6 +235,8 @@ async function handler(req, res) {
       cpVisible,
       hideTeamsFromHost,
       hpVisible,
+      purifiedVisible,
+      bestBuddyVisible,
     );
     const bracket = getBracket(
       session.bracket,
