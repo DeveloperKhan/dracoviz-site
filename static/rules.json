@@ -2329,5 +2329,577 @@
                 ]
             }
         ]
+    },
+    "Merciless Cup": {
+        "name": "Merciless Cup",
+        "metaLogo": "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/Viperwave.png/public",
+        "classes": [{
+            "kanto": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "teamPattern": [{
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["1-151", "906-1000"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["paldean"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["lickitung","charizard"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["alolan", "galarian", "hisuian", "legendary", "mythical"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["1-151", "906-1000"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["lickitung","charizard"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["alolan", "galarian", "hisuian", "paldean"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["1-151"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["lickitung","charizard"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["1-151"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["lickitung","charizard"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["1-151"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["lickitung","charizard"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["1-151"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["lickitung","charizard"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    }
+                ]
+            },
+            "johto": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "teamPattern": [{
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["152-251", "906-1000"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["paldean"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["gligar","steelix"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["alolan", "galarian", "hisuian", "legendary", "mythical"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["152-251", "906-1000"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["gligar","steelix"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["alolan", "galarian", "hisuian", "paldean"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["152-251"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["gligar","steelix"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["152-251"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["gligar","steelix"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["152-251"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["gligar","steelix"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["152-251"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["gligar","steelix"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    }
+                ]
+            },
+            "hoenn": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "teamPattern": [{
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["252-386", "906-1000"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["paldean"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["medicham","registeel"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["alolan", "galarian", "hisuian", "legendary", "mythical"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["252-386"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["medicham","registeel"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["alolan", "galarian", "hisuian", "paldean"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["252-386"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["medicham","registeel"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["252-386"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["medicham","registeel"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["252-386"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["medicham","registeel"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["252-386"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["medicham","registeel"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    }
+                ]
+            },
+            "sinnoh_hisui": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "teamPattern": [{
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["387-492", "899-905", "906-1000"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["paldean", "hisuian"]
+                        }],
+                        "exclude": [{
+                            "filterType": "tag",
+                            "values": ["alolan", "galarian", "legendary", "mythical"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["387-492", "899-905"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["hisuian"]
+                        }],
+                        "exclude": [{
+                            "filterType": "tag",
+                            "values": ["alolan", "galarian", "paldean"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["387-492", "899-905"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["hisuian"]
+                        }],
+                        "exclude": [{
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["387-492", "899-905"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["hisuian"]
+                        }],
+                        "exclude": [{
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["387-492", "899-905"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["hisuian"]
+                        }],
+                        "exclude": [{
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["387-492", "899-905"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["hisuian"]
+                        }],
+                        "exclude": [{
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian"]
+                        }]
+                    }
+                ]
+            },
+            "unova_kalos": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "teamPattern": [{
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["494-649", "650-721", "906-1000"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["paldean"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["scrafty","carbink"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["alolan", "galarian", "hisuian", "legendary", "mythical"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["494-649", "650-721"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["scrafty","carbink"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["alolan", "galarian", "hisuian", "paldean"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["494-649", "650-721"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["scrafty","carbink"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["494-649", "650-721"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["scrafty","carbink"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["494-649", "650-721"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["scrafty","carbink"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["494-649", "650-721"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["scrafty","carbink"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    }
+                ]
+            },
+            "galar_alola": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "teamPattern": [{
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["722-809", "810-898", "906-1000"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["paldean"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["stunfisk_galarian","tapu_fini"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["alolan", "galarian", "hisuian", "legendary", "mythical"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["722-809", "810-898"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["stunfisk_galarian","tapu_fini"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["alolan", "galarian", "hisuian", "paldean"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["722-809", "810-898"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["stunfisk_galarian","tapu_fini"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["722-809", "810-898"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["stunfisk_galarian","tapu_fini"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["722-809", "810-898"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["stunfisk_galarian","tapu_fini"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    },
+                    {
+                        "include": [{
+                            "filterType": "dex",
+                            "values": ["722-809", "810-898"]
+                        }],
+                        "exclude": [{
+                            "filterType": "id",
+                            "values": ["stunfisk_galarian","tapu_fini"]
+                        },
+                        {
+                            "filterType": "tag",
+                            "values": ["legendary", "mythical", "alolan", "galarian", "hisuian"]
+                        }]
+                    }
+                ]
+            }
+        }]
     }
 }

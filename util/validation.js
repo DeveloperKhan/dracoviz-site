@@ -1,8 +1,17 @@
 import pokemonJSON from '../static/pokemon.json';
 import rulesJSON from '../static/rules.json';
 
-const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize) => {
-  const rules = rulesJSON[format];
+const pokemon1 = ['arctibax', 'greninja', 'jellicent', 'chesnaught', 'excadrill', 'clodsire'];
+const cp1 = null;
+const fastMoves1 = null;
+const chargedMoves1 = null;
+
+const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize, metaClass) => {
+  let rules = rulesJSON[format];
+  if (metaClass != null) {
+    rules = rules.classes[0][metaClass];
+  }
+
   const pokemon_list = [];
 
   pokemon.forEach((p) => {
@@ -137,6 +146,7 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize) =>
   if (fastMoves != null || chargedMoves != null) {
     let moveset_error;
     pokemon.every((p, index) => {
+      console.log(pokemonJSON[p]);
       if (!pokemonJSON[p].fastMoves.includes(fastMoves[index])) {
         moveset_error = 'api_team_validation_moveset';
         return false;
@@ -248,6 +258,8 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize) =>
         });
 
         if (!included) {
+          console.log('include');
+          console.log(p);
           slot_error = 'api_team_validation_slot';
           return false;
         }
@@ -281,6 +293,8 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize) =>
         });
 
         if (excluded) {
+          console.log('exclude');
+          console.log(p);
           slot_error = 'api_team_validation_slot';
           return false;
         }
@@ -330,5 +344,7 @@ const doesSelectorDescribePokémon = (tag, poke) => {
   }
   return false;
 };
+
+console.log(validateTeam(pokemon1, cp1, fastMoves1, chargedMoves1, 'Merciless Cup', 6, 'unova_kalos'));
 
 export default validateTeam;
