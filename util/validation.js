@@ -1,8 +1,21 @@
 import pokemonJSON from '../static/pokemon.json';
 import rulesJSON from '../static/rules.json';
 
-const validateTeam = (pokemon, cp, fastMoves, chargedMoves, purified, format, teamSize) => {
-  const rules = rulesJSON[format];
+const validateTeam = (
+  pokemon,
+  cp,
+  fastMoves,
+  chargedMoves,
+  purified,
+  format,
+  teamSize,
+  metaClass,
+) => {
+  let rules = rulesJSON[format];
+  if (metaClass != null) {
+    rules = rules.classes[0][metaClass];
+  }
+
   const pokemon_list = [];
 
   pokemon.forEach((p) => {
@@ -138,6 +151,7 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, purified, format, te
   if (fastMoves != null || chargedMoves != null) {
     let moveset_error;
     pokemon.every((p, index) => {
+      console.log(pokemonJSON[p]);
       if (!pokemonJSON[p].fastMoves.includes(fastMoves[index])) {
         moveset_error = 'api_team_validation_moveset';
         return false;
@@ -265,6 +279,8 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, purified, format, te
         });
 
         if (!included) {
+          console.log('include');
+          console.log(p);
           slot_error = 'api_team_validation_slot';
           return false;
         }
@@ -298,6 +314,8 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, purified, format, te
         });
 
         if (excluded) {
+          console.log('exclude');
+          console.log(p);
           slot_error = 'api_team_validation_slot';
           return false;
         }
