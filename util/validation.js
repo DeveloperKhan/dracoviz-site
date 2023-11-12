@@ -1,10 +1,10 @@
 import pokemonJSON from '../static/pokemon.json';
 import rulesJSON from '../static/rules.json';
 
-const pokemon1 = ['arctibax', 'greninja', 'jellicent', 'chesnaught', 'excadrill', 'clodsire'];
-const cp1 = null;
-const fastMoves1 = null;
-const chargedMoves1 = null;
+// const pokemon1 = ['greedent', 'venusaur', 'tentacruel', 'froslass', 'diggersby', 'medicham'];
+// const cp1 = null;
+// const fastMoves1 = null;
+// const chargedMoves1 = null;
 
 const validateTeam = (pokemon, cp, fastMoves, chargedMoves, format, teamSize, metaClass) => {
   let rules = rulesJSON[format];
@@ -345,6 +345,7 @@ const doesSelectorDescribePokémon = (tag, poke) => {
   return false;
 };
 
-console.log(validateTeam(pokemon1, cp1, fastMoves1, chargedMoves1, 'Merciless Cup', 6, 'unova_kalos'));
+// to test add ' "type": "module" ' to package.json
+// console.log(validateTeam(pokemon1, cp1, fastMoves1, chargedMoves1, 'Maota Cup', 6, null));
 
 export default validateTeam;
