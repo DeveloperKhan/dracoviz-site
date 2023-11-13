@@ -79,9 +79,9 @@ async function handler(req, res) {
       hp.push(p.hp ?? '');
       chargedMoves.push(p.chargedMoves ?? []);
       fastMoves.push(p.fastMove);
-      nickname.push(p.nickname);
-      purified.push(p.purified);
-      bestBuddy.push(p.bestBuddy);
+      nickname.push(p.nickname ?? '');
+      purified.push(p.purified ?? false);
+      bestBuddy.push(p.bestBuddy ?? false);
     });
 
     res.status(200).json({
