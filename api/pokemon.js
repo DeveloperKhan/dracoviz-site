@@ -3,6 +3,7 @@ import allowCors from '../db/allowCors';
 import getPlayerModel from '../db/player';
 import getSessionModel from '../db/session';
 import sessionStates from '../db/sessionStates';
+import rules from '../static/rules.json';
 
 async function handler(req, res) {
   const { tournamentId } = req.query;
@@ -39,6 +40,7 @@ async function handler(req, res) {
       purifiedRequired,
       bestBuddyRequired,
       nicknameRequired,
+      metas,
     } = session;
 
     const playerIndex = players.findIndex((p) => p.playerId === x_session_id);
@@ -73,6 +75,10 @@ async function handler(req, res) {
 
     const thePlayer = players[playerIndex];
 
+    const theMetaIndex = metas[Math.max(thePlayer.tournamentPosition ?? 0, 0)];
+    const theMeta = rules[theMetaIndex];
+    const metaClasses = Object.keys(theMeta?.classes?.[0] ?? {});
+
     thePlayer.pokemon.forEach((p) => {
       pokemon.push(p.speciesName ?? '');
       cp.push(p.cp ?? '');
@@ -101,6 +107,8 @@ async function handler(req, res) {
       purified,
       bestBuddy,
       pokemonData: pokemonJSON,
+      metaClass: thePlayer.metaClass,
+      metaClasses,
     });
   } catch (ex) {
     console.error(ex);

@@ -7,7 +7,16 @@ import validateTeam from '../../util/validation';
 
 async function handler(req, res) {
   const {
-    cp, pokemon, chargedMoves, fastMoves, tournamentId, hp, purified, nickname, bestBuddy,
+    cp,
+    pokemon,
+    chargedMoves,
+    fastMoves,
+    tournamentId,
+    hp,
+    purified,
+    nickname,
+    bestBuddy,
+    metaClass,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -79,7 +88,7 @@ async function handler(req, res) {
     const fastMovesToTest = movesetsRequired ? (fastMoves ?? []) : null;
     const purifiedToTest = purifiedRequired ? (purified ?? []) : null;
     const cpToTest = cpRequired ? (cp ?? []) : null;
-    const metaIndex = thePlayer.tournamentPosition ?? 0;
+    const metaIndex = Math.max(thePlayer.tournamentPosition ?? 0, 0);
     const metaToTest = metas[metaIndex];
 
     const numberOfBestBuddies = (bestBuddy ?? []).filter((x) => x === true).length;
@@ -96,6 +105,7 @@ async function handler(req, res) {
       purifiedToTest,
       metaToTest,
       6,
+      metaClass ?? null,
     );
 
     if (error) {
@@ -116,6 +126,7 @@ async function handler(req, res) {
     }));
 
     session.players[playerIndex].pokemon = team;
+    session.players[playerIndex].metaClass = metaClass;
     await session.save();
 
     res.status(200).send({});

@@ -51,6 +51,7 @@ const getSessionModel = async () => {
       receivedBye: { type: Boolean, default: false },
       pairedUpDown: { type: Boolean, default: false },
       rating: { type: Number },
+      metaClass: { type: String },
       pokemon: [{
         sid: { type: Number },
         speciesName: { type: String },

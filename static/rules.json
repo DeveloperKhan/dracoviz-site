@@ -2406,10 +2406,10 @@
         ]
     },
     "Merciless Cup": {
-        "name": "Merciless Cup",
+        "name": "Syndicate (The Chronicles)",
         "metaLogo": "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/merciless.png/public",
         "classes": [{
-            "kanto": {
+            "Kanto": {
                 "maxCP": 1500,
                 "maxLevel": 50,
                 "maxBestBuddy": 1,
@@ -2504,7 +2504,7 @@
                     }
                 ]
             },
-            "johto": {
+            "Johto": {
                 "maxCP": 1500,
                 "maxLevel": 50,
                 "maxBestBuddy": 1,
@@ -2599,7 +2599,7 @@
                     }
                 ]
             },
-            "hoenn": {
+            "Hoenn": {
                 "maxCP": 1500,
                 "maxLevel": 50,
                 "maxBestBuddy": 1,
@@ -2694,7 +2694,7 @@
                     }
                 ]
             },
-            "sinnoh_hisui": {
+            "Sinnoh & Hisui": {
                 "maxCP": 1500,
                 "maxLevel": 50,
                 "maxBestBuddy": 1,
@@ -2785,7 +2785,7 @@
                     }
                 ]
             },
-            "unova_kalos": {
+            "Unova & Kalos": {
                 "maxCP": 1500,
                 "maxLevel": 50,
                 "maxBestBuddy": 1,
@@ -2880,7 +2880,7 @@
                     }
                 ]
             },
-            "galar_alola": {
+            "Galar & Alola": {
                 "maxCP": 1500,
                 "maxLevel": 50,
                 "maxBestBuddy": 1,
