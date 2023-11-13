@@ -163,9 +163,9 @@ const validateTeam = (pokemon, cp, fastMoves, chargedMoves, purified, format, te
   // purified check
   if (purified != null) {
     let moveset_error;
-    pokemon.every((p) => {
+    pokemon.every((p, index) => {
       const thePokemon = pokemonJSON[p];
-      if (!thePokemon.tags.includes('shadoweligible')) {
+      if (!thePokemon.tags?.includes('shadoweligible') && purified[index] === true) {
         moveset_error = 'api_team_validation_purified';
         return false;
       }
