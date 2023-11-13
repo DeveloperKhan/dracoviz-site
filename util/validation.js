@@ -151,7 +151,6 @@ const validateTeam = (
   if (fastMoves != null || chargedMoves != null) {
     let moveset_error;
     pokemon.every((p, index) => {
-      console.log(pokemonJSON[p]);
       if (!pokemonJSON[p].fastMoves.includes(fastMoves[index])) {
         moveset_error = 'api_team_validation_moveset';
         return false;
@@ -279,8 +278,6 @@ const validateTeam = (
         });
 
         if (!included) {
-          console.log('include');
-          console.log(p);
           slot_error = 'api_team_validation_slot';
           return false;
         }
@@ -314,8 +311,6 @@ const validateTeam = (
         });
 
         if (excluded) {
-          console.log('exclude');
-          console.log(p);
           slot_error = 'api_team_validation_slot';
           return false;
         }
