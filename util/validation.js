@@ -1,8 +1,21 @@
 import pokemonJSON from '../static/pokemon.json';
 import rulesJSON from '../static/rules.json';
 
-const validateTeam = (pokemon, cp, fastMoves, chargedMoves, purified, format, teamSize) => {
-  const rules = rulesJSON[format];
+const validateTeam = (
+  pokemon,
+  cp,
+  fastMoves,
+  chargedMoves,
+  purified,
+  format,
+  teamSize,
+  metaClass,
+) => {
+  let rules = rulesJSON[format];
+  if (metaClass != null) {
+    rules = rules.classes[0][metaClass];
+  }
+
   const pokemon_list = [];
 
   pokemon.forEach((p) => {
