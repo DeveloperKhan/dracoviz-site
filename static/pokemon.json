@@ -4090,7 +4090,6 @@
         "speciesId": "blacephalon",
         "speciesName": "Blacephalon",
         "tags": [
-            "legendary",
             "ultrabeast",
             "unreleased"
         ],
@@ -5342,7 +5341,6 @@
         "speciesId": "buzzwole",
         "speciesName": "Buzzwole",
         "tags": [
-            "legendary",
             "ultrabeast"
         ],
         "types": [
@@ -6055,7 +6053,6 @@
         "speciesId": "celesteela",
         "speciesName": "Celesteela",
         "tags": [
-            "legendary",
             "ultrabeast"
         ],
         "types": [
@@ -18834,7 +18831,6 @@
         "speciesId": "guzzlord",
         "speciesName": "Guzzlord",
         "tags": [
-            "legendary",
             "ultrabeast"
         ],
         "types": [
@@ -21981,7 +21977,6 @@
         "speciesName": "Kartana",
         "tags": [
             "include1500",
-            "legendary",
             "ultrabeast"
         ],
         "types": [
@@ -29511,7 +29506,6 @@
         "speciesId": "naganadel",
         "speciesName": "Naganadel",
         "tags": [
-            "legendary",
             "ultrabeast",
             "unreleased"
         ],
@@ -29607,7 +29601,6 @@
         "speciesId": "necrozma",
         "speciesName": "Necrozma",
         "tags": [
-            "legendary",
             "ultrabeast",
             "unreleased"
         ],
@@ -29634,7 +29627,6 @@
         "speciesId": "necrozma_dawn_wings",
         "speciesName": "Necrozma (Dawn Wings)",
         "tags": [
-            "legendary",
             "ultrabeast",
             "unreleased"
         ],
@@ -29661,7 +29653,6 @@
         "speciesId": "necrozma_dusk_mane",
         "speciesName": "Necrozma (Dusk Mane)",
         "tags": [
-            "legendary",
             "ultrabeast",
             "unreleased"
         ],
@@ -29688,7 +29679,6 @@
         "speciesId": "necrozma_ultra",
         "speciesName": "Necrozma (Ultra)",
         "tags": [
-            "legendary",
             "ultrabeast",
             "unreleased"
         ],
@@ -30195,7 +30185,6 @@
         "speciesId": "nihilego",
         "speciesName": "Nihilego",
         "tags": [
-            "legendary",
             "ultrabeast"
         ],
         "types": [
@@ -32479,7 +32468,6 @@
         "speciesId": "pheromosa",
         "speciesName": "Pheromosa",
         "tags": [
-            "legendary",
             "ultrabeast"
         ],
         "types": [
@@ -33400,7 +33388,6 @@
         "speciesId": "poipole",
         "speciesName": "Poipole",
         "tags": [
-            "legendary",
             "ultrabeast",
             "unreleased"
         ],
@@ -43691,7 +43678,6 @@
         "speciesId": "stakataka",
         "speciesName": "Stakataka",
         "tags": [
-            "legendary",
             "ultrabeast",
             "unreleased"
         ],
@@ -51305,7 +51291,6 @@
         "speciesId": "xurkitree",
         "speciesName": "Xurkitree",
         "tags": [
-            "legendary",
             "ultrabeast"
         ],
         "types": [
