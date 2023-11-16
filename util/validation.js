@@ -24,6 +24,7 @@ const validateTeam = (
 
   // include
   let generic_error;
+  let invalid_pokemon;
   if (rules.include != null) {
     pokemon.forEach((p) => {
       let includeList = [];
@@ -42,6 +43,7 @@ const validateTeam = (
         });
 
         if (!included) {
+          invalid_pokemon = p;
           generic_error = 'api_team_validation_generic';
           return false;
         }
@@ -49,7 +51,7 @@ const validateTeam = (
       return true;
     });
     if (generic_error != null) {
-      return generic_error;
+      return { error: generic_error, details: invalid_pokemon };
     }
   }
 
@@ -72,6 +74,7 @@ const validateTeam = (
         });
 
         if (excluded) {
+          invalid_pokemon = p;
           generic_error = 'api_team_validation_generic';
           return false;
         }
@@ -79,7 +82,7 @@ const validateTeam = (
       return true;
     });
     if (generic_error != null) {
-      return generic_error;
+      return { error: generic_error, details: invalid_pokemon };
     }
   }
 
@@ -91,7 +94,7 @@ const validateTeam = (
     || (purified != null && purified?.length !== teamSize)
     || pokemon_list?.length !== teamSize
   ) {
-    return 'api_team_validation_generic';
+    return { error: 'api_team_validation_generic' };
   }
 
   // cp check
@@ -105,7 +108,7 @@ const validateTeam = (
       return true;
     });
     if (cp_error != null) {
-      return cp_error;
+      return { error: cp_error };
     }
   }
 
@@ -126,11 +129,11 @@ const validateTeam = (
     sum_points += default_price * (teamSize - num_priced_pokemon);
     if (rules.pointLimitOptions?.maxPoints != null
       && sum_points > rules.pointLimitOptions?.maxPoints) {
-      return 'api_team_validation_points_max';
+      return { error: 'api_team_validation_points_max', details: sum_points };
     }
     if (rules.pointLimitOptions?.minPoints != null
       && sum_points < rules.pointLimitOptions?.minPoints) {
-      return 'api_team_validation_points_min';
+      return { error: 'api_team_validation_points_min', details: sum_points };
     }
   }
 
@@ -152,10 +155,12 @@ const validateTeam = (
     let moveset_error;
     pokemon.every((p, index) => {
       if (!pokemonJSON[p].fastMoves.includes(fastMoves[index])) {
+        invalid_pokemon = p;
         moveset_error = 'api_team_validation_moveset';
         return false;
       }
       if (chargedMoves[index][0] === chargedMoves[index][1]) {
+        invalid_pokemon = p;
         moveset_error = 'api_team_validation_moveset';
         return false;
       }
@@ -163,29 +168,31 @@ const validateTeam = (
       if (!eligibleMoves.includes(chargedMoves[index][0])
           || !eligibleMoves.includes(chargedMoves[index][1])
       ) {
+        invalid_pokemon = p;
         moveset_error = 'api_team_validation_moveset';
         return false;
       }
       return true;
     });
     if (moveset_error != null) {
-      return moveset_error;
+      return { error: moveset_error, details: invalid_pokemon};
     }
   }
 
   // purified check
   if (purified != null) {
-    let moveset_error;
+    let purified_error;
     pokemon.every((p, index) => {
       const thePokemon = pokemonJSON[p];
       if (!thePokemon.tags?.includes('shadoweligible') && purified[index] === true) {
-        moveset_error = 'api_team_validation_purified';
+        invalid_pokemon = p;
+        purified_error = 'api_team_validation_purified';
         return false;
       }
       return true;
     });
-    if (moveset_error != null) {
-      return moveset_error;
+    if (purified_error != null) {
+      return { error: purified_error, details: invalid_pokemon };
     }
   }
 
@@ -198,7 +205,7 @@ const validateTeam = (
       }
     });
     if (megaCount > rules.maxMega) {
-      return 'api_team_validation_mega';
+      return { error: 'api_team_validation_mega', details: megaCount };
     }
   }
 
@@ -215,6 +222,7 @@ const validateTeam = (
       pokemon_list.every((p2, index2) => {
         if (index2 > index1) {
           if (p1.dex === p2.dex && p1.types.sort().join(',') === p2.types.sort().join(',')) {
+            invalid_pokemon = p2;
             duplicate_error = 'api_team_validation_duplicate';
             return false;
           }
@@ -228,7 +236,7 @@ const validateTeam = (
       return true;
     });
     if (duplicate_error != null) {
-      return duplicate_error;
+      return { error: duplicate_error, details: invalid_pokemon };
     }
   }
 
@@ -238,6 +246,7 @@ const validateTeam = (
       pokemon_list.every((p2, index2) => {
         if (index2 > index1) {
           if (p1.dex === p2.dex) {
+            invalid_pokemon = p2;
             duplicate_error = 'api_team_validation_duplicate';
             return false;
           }
@@ -251,7 +260,7 @@ const validateTeam = (
       return true;
     });
     if (duplicate_error != null) {
-      return duplicate_error;
+      return { error: duplicate_error, details: invalid_pokemon };
     }
   }
 
@@ -278,6 +287,7 @@ const validateTeam = (
         });
 
         if (!included) {
+          invalid_pokemon = p;
           slot_error = 'api_team_validation_slot';
           return false;
         }
@@ -285,7 +295,7 @@ const validateTeam = (
       return true;
     });
     if (slot_error != null) {
-      return slot_error;
+      return { error: slot_error, details: invalid_pokemon };
     }
   }
 
@@ -311,6 +321,7 @@ const validateTeam = (
         });
 
         if (excluded) {
+          invalid_pokemon = p;
           slot_error = 'api_team_validation_slot';
           return false;
         }
@@ -318,7 +329,7 @@ const validateTeam = (
       return true;
     });
     if (slot_error != null) {
-      return slot_error;
+      return { error: slot_error, details: invalid_pokemon };
     }
   }
 
@@ -327,13 +338,14 @@ const validateTeam = (
     let shadow_error;
     pokemon.every((p) => {
       if (pokemonJSON[p].tags?.includes('shadow')) {
+        invalid_pokemon = p;
         shadow_error = 'api_team_validation_shadow';
         return false;
       }
       return true;
     });
     if (shadow_error != null) {
-      return shadow_error;
+      return { error: shadow_error, details: invalid_pokemon };
     }
   }
 
