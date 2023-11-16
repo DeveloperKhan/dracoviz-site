@@ -97,7 +97,7 @@ async function handler(req, res) {
       res.status(401).json({ error: 'api_max_best_buddies' });
     }
 
-    const error = validateTeam(
+    const { error, details } = validateTeam(
       pokemon,
       cpToTest,
       fastMovesToTest,
@@ -109,7 +109,7 @@ async function handler(req, res) {
     );
 
     if (error) {
-      res.status(401).json({ error });
+      res.status(401).json({ error, details });
       return;
     }
 
