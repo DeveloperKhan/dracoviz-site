@@ -175,7 +175,7 @@ const validateTeam = (
       return true;
     });
     if (moveset_error != null) {
-      return { error: moveset_error, details: invalid_pokemon};
+      return { error: moveset_error, details: invalid_pokemon };
     }
   }
 
