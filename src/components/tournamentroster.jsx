@@ -20,9 +20,11 @@ import Modal from 'react-modal';
 import classNames from 'classnames';
 import { Tooltip } from 'react-tooltip';
 import { Link } from 'gatsby';
+import emojione from 'emojione';
 import { getRosterHTML, getRosterSearchHTML } from '../utils/roster-utils';
 import { linkifyEvent } from '../utils/url-utils';
 import useWindowSize from '../utils/use-window-size';
+// import 'emojione/assets/sprites/emojione.sprites.css'; // Import the Emojione CSS
 
 const noDataIndication = 'There is no data for this event. Please check back another time! :)';
 const noSearchIndication = 'No search data found :)';
@@ -324,6 +326,37 @@ function TournamentRoster({
           playerDict[player.name] = player;
           const rosterHtml = getRosterHTML(player);
           const eventLabel = ` - (${parseTm(player.tournament)})`;
+          
+          let countryFlagEmoji = "";
+
+          try {
+            let country = player.country.toLowerCase();
+            if (country == 'uk') {
+              country = 'gb';
+            }
+            const flag = emojione.toImage(":" + country + ":");
+            const div = document.createElement('div');
+            div.innerHTML = flag;
+  
+            // Extract the src attribute from the img element
+            const imgElement = div.querySelector('img');
+            const altAttribute = imgElement.getAttribute('alt');
+            const titleAttribute = imgElement.getAttribute('title');
+            const srcAttribute = imgElement.getAttribute('src');
+  
+            countryFlagEmoji = (
+              <img
+                className="emojione"
+                alt={altAttribute}
+                title={titleAttribute}
+                src={srcAttribute}
+                style={{ width: '32px', height: '32px' }}
+              />
+            );
+          } catch (e) {
+            console.log(player.country)
+          }
+
           newProducts.push({
             placement: (
               <div className="player-item-placement" value={player.final_rank}>
@@ -348,10 +381,10 @@ function TournamentRoster({
                   <div>
                     <a href={`/profile/${player.name}`} style={{ textDecoration: 'none' }}>
                       {player.name}
+                      {"  "}{countryFlagEmoji} 
                       <svg style={{ marginLeft: 10, marginBottom: 2 }} width="7" height="10" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd" clipRule="evenodd" d="M9.06001 6.93997C9.34091 7.22122 9.49869 7.60247 9.49869 7.99997C9.49869 8.39747 9.34091 8.77872 9.06001 9.05997L3.40401 14.718C3.12262 14.9992 2.74102 15.1572 2.34316 15.1571C1.9453 15.157 1.56377 14.9989 1.28251 14.7175C1.00125 14.4361 0.84329 14.0545 0.843384 13.6566C0.843478 13.2588 1.00162 12.8772 1.28301 12.596L5.87901 7.99997L1.28301 3.40397C1.00964 3.1212 0.858265 2.74237 0.861496 2.34907C0.864727 1.95577 1.0223 1.57947 1.30028 1.30123C1.57827 1.02298 1.95441 0.865054 2.34771 0.861452C2.741 0.85785 3.11998 1.00887 3.40301 1.28197L9.06101 6.93897L9.06001 6.93997Z" fill="black" />
                       </svg>
-
                     </a>
                   </div>
                 )
