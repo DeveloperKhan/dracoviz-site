@@ -21,7 +21,7 @@ import classNames from 'classnames';
 import { Tooltip } from 'react-tooltip';
 import { Link } from 'gatsby';
 import emojione from 'emojione';
-import { getRosterHTML, getRosterSearchHTML } from '../utils/roster-utils';
+import { getRosterHTML, getRosterSearchHTML, getRosterSearchMovesHTML } from '../utils/roster-utils';
 import { linkifyEvent } from '../utils/url-utils';
 import useWindowSize from '../utils/use-window-size';
 // import 'emojione/assets/sprites/emojione.sprites.css'; // Import the Emojione CSS
@@ -160,6 +160,9 @@ function TournamentRoster({
 
     const filteredData = products.filter((product) => {
       if (product?.searchName?.toLowerCase().includes(searchInput.toLowerCase())) {
+        return true;
+      }
+      if (searchInput.startsWith("@") && product?.searchMoves?.toLowerCase().includes(searchInput.toLowerCase().substring(1))) {
         return true;
       }
       const productSearch = (product && product.search) ? product.search.toLowerCase() : '';
@@ -333,6 +336,8 @@ function TournamentRoster({
             let country = player.country.toLowerCase();
             if (country == 'uk') {
               country = 'gb';
+            } else if (country == 'cl') {
+              country = 'flag_cl';
             }
             const flag = emojione.toImage(":" + country + ":");
             const div = document.createElement('div');
@@ -393,6 +398,7 @@ function TournamentRoster({
               </div>
             ),
             searchName: player.name,
+            searchMoves: getRosterSearchMovesHTML(player),
             search: getRosterSearchHTML(player),
             mw: player.match_wins,
             gw: player.game_wins,

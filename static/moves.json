@@ -1,0 +1,866 @@
+{
+    "Acid": {
+        "type": "poison"
+    },
+    "Acid Spray": {
+        "type": "poison"
+    },
+    "Acrobatics": {
+        "type": "flying"
+    },
+    "Aerial Ace": {
+        "type": "flying"
+    },
+    "Aeroblast": {
+        "type": "flying"
+    },
+    "Air Cutter": {
+        "type": "flying"
+    },
+    "Air Slash": {
+        "type": "flying"
+    },
+    "Ancient Power": {
+        "type": "rock"
+    },
+    "Aqua Jet": {
+        "type": "water"
+    },
+    "Aqua Tail": {
+        "type": "water"
+    },
+    "Astonish": {
+        "type": "ghost"
+    },
+    "Aura Sphere": {
+        "type": "fighting"
+    },
+    "Aurora Beam": {
+        "type": "ice"
+    },
+    "Avalanche": {
+        "type": "ice"
+    },
+    "Bite": {
+        "type": "dark"
+    },
+    "Blast Burn": {
+        "type": "fire"
+    },
+    "Blizzard": {
+        "type": "ice"
+    },
+    "Body Slam": {
+        "type": "normal"
+    },
+    "Boomburst": {
+        "type": "normal"
+    },
+    "Bone Club": {
+        "type": "ground"
+    },
+    "Brave Bird": {
+        "type": "flying"
+    },
+    "Breaking Swipe": {
+        "type": "dragon"
+    },
+    "Brick Break": {
+        "type": "fighting"
+    },
+    "Brutal Swing": {
+        "type": "dark"
+    },
+    "Brine": {
+        "type": "water"
+    },
+    "Bubble": {
+        "type": "water"
+    },
+    "Bubble Beam": {
+        "type": "water"
+    },
+    "Bug Bite": {
+        "type": "bug"
+    },
+    "Bug Buzz": {
+        "type": "bug"
+    },
+    "Bulldoze": {
+        "type": "ground"
+    },
+    "Bullet Punch": {
+        "type": "steel"
+    },
+    "Bullet Seed": {
+        "type": "grass"
+    },
+    "Charge Beam": {
+        "type": "electric"
+    },
+    "Charm": {
+        "type": "fairy"
+    },
+    "Close Combat": {
+        "type": "fighting"
+    },
+    "Confusion": {
+        "type": "psychic"
+    },
+    "Counter": {
+        "type": "fighting"
+    },
+    "Crabhammer": {
+        "type": "water"
+    },
+    "Cross Chop": {
+        "type": "fighting"
+    },
+    "Cross Poison": {
+        "type": "poison"
+    },
+    "Crunch": {
+        "type": "dark"
+    },
+    "Cut": {
+        "type": "normal"
+    },
+    "Dark Pulse": {
+        "type": "dark"
+    },
+    "Dazzling Gleam": {
+        "type": "fairy"
+    },
+    "Dig": {
+        "type": "ground"
+    },
+    "Disarming Voice": {
+        "type": "fairy"
+    },
+    "Discharge": {
+        "type": "electric"
+    },
+    "Doom Desire": {
+        "type": "steel"
+    },
+    "Double Iron Bash": {
+        "type": "steel"
+    },
+    "Double Kick": {
+        "type": "fighting"
+    },
+    "Draco Meteor": {
+        "type": "dragon"
+    },
+    "Dragon Ascent": {
+        "type": "flying"
+    },
+    "Dragon Breath": {
+        "type": "dragon"
+    },
+    "Dragon Claw": {
+        "type": "dragon"
+    },
+    "Dragon Pulse": {
+        "type": "dragon"
+    },
+    "Dragon Tail": {
+        "type": "dragon"
+    },
+    "Drain Punch": {
+        "type": "fighting"
+    },
+    "Draining Kiss": {
+        "type": "fairy"
+    },
+    "Drill Peck": {
+        "type": "flying"
+    },
+    "Drill Run": {
+        "type": "ground"
+    },
+    "Dynamic Punch": {
+        "type": "fighting"
+    },
+    "Earthquake": {
+        "type": "ground"
+    },
+    "Earth Power": {
+        "type": "ground"
+    },
+    "Ember": {
+        "type": "fire"
+    },
+    "Energy Ball": {
+        "type": "grass"
+    },
+    "Extrasensory": {
+        "type": "psychic"
+    },
+    "Feint Attack": {
+        "type": "dark"
+    },
+    "Fell Stinger": {
+        "type": "bug"
+    },
+    "Fire Blast": {
+        "type": "fire"
+    },
+    "Fire Fang": {
+        "type": "fire"
+    },
+    "Fire Punch": {
+        "type": "fire"
+    },
+    "Blaze Kick": {
+        "type": "fire"
+    },
+    "Fairy Wind": {
+        "type": "fairy"
+    },
+    "Feather Dance": {
+        "type": "flying"
+    },
+    "Fire Spin": {
+        "type": "fire"
+    },
+    "Flame Burst": {
+        "type": "fire"
+    },
+    "Flame Charge": {
+        "type": "fire"
+    },
+    "Flame Wheel": {
+        "type": "fire"
+    },
+    "Flamethrower": {
+        "type": "fire"
+    },
+    "Flash Cannon": {
+        "type": "steel"
+    },
+    "Fly": {
+        "type": "flying"
+    },
+    "Flying Press": {
+        "type": "fighting"
+    },
+    "Focus Blast": {
+        "type": "fighting"
+    },
+    "Foul Play": {
+        "type": "dark"
+    },
+    "Frenzy Plant": {
+        "type": "grass"
+    },
+    "Frost Breath": {
+        "type": "ice"
+    },
+    "Frustration": {
+        "type": "normal"
+    },
+    "Fury Cutter": {
+        "type": "bug"
+    },
+    "Fusion Bolt": {
+        "type": "electric"
+    },
+    "Fusion Flare": {
+        "type": "fire"
+    },
+    "Future Sight": {
+        "type": "psychic"
+    },
+    "Geomancy": {
+        "type": "fairy"
+    },
+    "Giga Drain": {
+        "type": "grass"
+    },
+    "Giga Impact": {
+        "type": "normal"
+    },
+    "Glaciate": {
+        "type": "ice"
+    },
+    "Grass Knot": {
+        "type": "grass"
+    },
+    "Gunk Shot": {
+        "type": "poison"
+    },
+    "Gust": {
+        "type": "flying"
+    },
+    "Gyro Ball": {
+        "type": "steel"
+    },
+    "Heart Stamp": {
+        "type": "psychic"
+    },
+    "Heat Wave": {
+        "type": "fire"
+    },
+    "Heavy Slam": {
+        "type": "steel"
+    },
+    "Hex": {
+        "type": "ghost"
+    },
+    "Hidden Power (Bug)": {
+        "type": "bug"
+    },
+    "Hidden Power (Dark)": {
+        "type": "dark"
+    },
+    "Hidden Power (Dragon)": {
+        "type": "dragon"
+    },
+    "Hidden Power (Electric)": {
+        "type": "electric"
+    },
+    "Hidden Power (Fighting)": {
+        "type": "fighting"
+    },
+    "Hidden Power (Fire)": {
+        "type": "fire"
+    },
+    "Hidden Power (Flying)": {
+        "type": "flying"
+    },
+    "Hidden Power (Ghost)": {
+        "type": "ghost"
+    },
+    "Hidden Power (Grass)": {
+        "type": "grass"
+    },
+    "Hidden Power (Ground)": {
+        "type": "ground"
+    },
+    "Hidden Power (Ice)": {
+        "type": "ice"
+    },
+    "Hidden Power (Poison)": {
+        "type": "poison"
+    },
+    "Hidden Power (Psychic)": {
+        "type": "psychic"
+    },
+    "Hidden Power (Rock)": {
+        "type": "rock"
+    },
+    "Hidden Power (Steel)": {
+        "type": "steel"
+    },
+    "Hidden Power (Water)": {
+        "type": "water"
+    },
+    "High Horsepower": {
+        "type": "ground"
+    },
+    "Horn Attack": {
+        "type": "normal"
+    },
+    "Hurricane": {
+        "type": "flying"
+    },
+    "Hydro Cannon": {
+        "type": "water"
+    },
+    "Hydro Pump": {
+        "type": "water"
+    },
+    "Hydro Pump Blastoise": {
+        "type": "water"
+    },
+    "Hyper Beam": {
+        "type": "normal"
+    },
+    "Hyper Fang": {
+        "type": "normal"
+    },
+    "Ice Beam": {
+        "type": "ice"
+    },
+    "Ice Fang": {
+        "type": "ice"
+    },
+    "Ice Punch": {
+        "type": "ice"
+    },
+    "Ice Shard": {
+        "type": "ice"
+    },
+    "Icicle Spear": {
+        "type": "ice"
+    },
+    "Icy Wind": {
+        "type": "ice"
+    },
+    "Incinerate": {
+        "type": "fire"
+    },
+    "Infestation": {
+        "type": "bug"
+    },
+    "Iron Head": {
+        "type": "steel"
+    },
+    "Iron Tail": {
+        "type": "steel"
+    },
+    "Karate Chop": {
+        "type": "fighting"
+    },
+    "Last Resort": {
+        "type": "normal"
+    },
+    "Leaf Blade": {
+        "type": "grass"
+    },
+    "Leaf Tornado": {
+        "type": "grass"
+    },
+    "Leaf Storm": {
+        "type": "grass"
+    },
+    "Leafage": {
+        "type": "grass"
+    },
+    "Lick": {
+        "type": "ghost"
+    },
+    "Liquidation": {
+        "type": "water"
+    },
+    "Lock-On": {
+        "type": "normal"
+    },
+    "Low Kick": {
+        "type": "fighting"
+    },
+    "Low Sweep": {
+        "type": "fighting"
+    },
+    "Lunge": {
+        "type": "bug"
+    },
+    "Luster Purge": {
+        "type": "psychic"
+    },
+    "Magical Leaf": {
+        "type": "grass"
+    },
+    "Magma Storm": {
+        "type": "fire"
+    },
+    "Magnet Bomb": {
+        "type": "steel"
+    },
+    "Mega Drain": {
+        "type": "grass"
+    },
+    "Megahorn": {
+        "type": "bug"
+    },
+    "Metal Claw": {
+        "type": "steel"
+    },
+    "Meteor Beam": {
+        "type": "rock"
+    },
+    "Meteor Mash": {
+        "type": "steel"
+    },
+    "Mirror Coat": {
+        "type": "psychic"
+    },
+    "Mirror Shot": {
+        "type": "steel"
+    },
+    "Mist Ball": {
+        "type": "psychic"
+    },
+    "Moonblast": {
+        "type": "fairy"
+    },
+    "Mud Bomb": {
+        "type": "ground"
+    },
+    "Muddy Water": {
+        "type": "water"
+    },
+    "Mud Shot": {
+        "type": "ground"
+    },
+    "Mud Slap": {
+        "type": "ground"
+    },
+    "Mystical Fire": {
+        "type": "fire"
+    },
+    "Night Shade": {
+        "type": "ghost"
+    },
+    "Night Slash": {
+        "type": "dark"
+    },
+    "Oblivion Wing": {
+        "type": "flying"
+    },
+    "Obstruct": {
+        "type": "dark"
+    },
+    "Octazooka": {
+        "type": "water"
+    },
+    "Ominous Wind": {
+        "type": "ghost"
+    },
+    "Origin Pulse": {
+        "type": "water"
+    },
+    "Outrage": {
+        "type": "dragon"
+    },
+    "Overheat": {
+        "type": "fire"
+    },
+    "Parabolic Charge": {
+        "type": "electric"
+    },
+    "Payback": {
+        "type": "dark"
+    },
+    "Peck": {
+        "type": "flying"
+    },
+    "Petal Blizzard": {
+        "type": "grass"
+    },
+    "Play Rough": {
+        "type": "fairy"
+    },
+    "Poison Fang": {
+        "type": "poison"
+    },
+    "Poison Jab": {
+        "type": "poison"
+    },
+    "Poison Sting": {
+        "type": "poison"
+    },
+    "Poltergeist": {
+        "type": "ghost"
+    },
+    "Pound": {
+        "type": "normal"
+    },
+    "Powder Snow": {
+        "type": "ice"
+    },
+    "Power Gem": {
+        "type": "rock"
+    },
+    "Power-Up Punch": {
+        "type": "fighting"
+    },
+    "Power Whip": {
+        "type": "grass"
+    },
+    "Precipice Blades": {
+        "type": "ground"
+    },
+    "Present": {
+        "type": "normal"
+    },
+    "Psybeam": {
+        "type": "psychic"
+    },
+    "Psychic": {
+        "type": "psychic"
+    },
+    "Psychic Fangs": {
+        "type": "psychic"
+    },
+    "Psycho Boost": {
+        "type": "psychic"
+    },
+    "Psycho Cut": {
+        "type": "psychic"
+    },
+    "Psyshock": {
+        "type": "psychic"
+    },
+    "Psystrike": {
+        "type": "psychic"
+    },
+    "Quick Attack": {
+        "type": "normal"
+    },
+    "Razor Leaf": {
+        "type": "grass"
+    },
+    "Razor Shell": {
+        "type": "water"
+    },
+    "Rest": {
+        "type": "normal"
+    },
+    "Return": {
+        "type": "normal"
+    },
+    "Rock Blast": {
+        "type": "rock"
+    },
+    "Rock Slide": {
+        "type": "rock"
+    },
+    "Rock Smash": {
+        "type": "fighting"
+    },
+    "Rock Throw": {
+        "type": "rock"
+    },
+    "Rock Tomb": {
+        "type": "rock"
+    },
+    "Rock Wrecker": {
+        "type": "rock"
+    },
+    "Rollout": {
+        "type": "rock"
+    },
+    "Sacred Fire": {
+        "type": "fire"
+    },
+    "Sacred Sword": {
+        "type": "fighting"
+    },
+    "Sand Tomb": {
+        "type": "ground"
+    },
+    "Scald": {
+        "type": "water"
+    },
+    "Scorching Sands": {
+        "type": "ground"
+    },
+    "Scratch": {
+        "type": "normal"
+    },
+    "Seed Bomb": {
+        "type": "grass"
+    },
+    "Seed Flare": {
+        "type": "grass"
+    },
+    "Shadow Ball": {
+        "type": "ghost"
+    },
+    "Shadow Bone": {
+        "type": "ghost"
+    },
+    "Shadow Claw": {
+        "type": "ghost"
+    },
+    "Shadow Force": {
+        "type": "ghost"
+    },
+    "Shadow Punch": {
+        "type": "ghost"
+    },
+    "Shadow Sneak": {
+        "type": "ghost"
+    },
+    "Signal Beam": {
+        "type": "bug"
+    },
+    "Silver Wind": {
+        "type": "bug"
+    },
+    "Skull Bash": {
+        "type": "normal"
+    },
+    "Sky Attack": {
+        "type": "flying"
+    },
+    "Sludge": {
+        "type": "poison"
+    },
+    "Sludge Bomb": {
+        "type": "poison"
+    },
+    "Sludge Wave": {
+        "type": "poison"
+    },
+    "Smack Down": {
+        "type": "rock"
+    },
+    "Snarl": {
+        "type": "dark"
+    },
+    "Solar Beam": {
+        "type": "grass"
+    },
+    "Spark": {
+        "type": "electric"
+    },
+    "Splash": {
+        "type": "water"
+    },
+    "Steel Wing": {
+        "type": "steel"
+    },
+    "Stomp": {
+        "type": "normal"
+    },
+    "Stone Edge": {
+        "type": "rock"
+    },
+    "Struggle": {
+        "type": "normal"
+    },
+    "Struggle Bug": {
+        "type": "bug"
+    },
+    "Submission": {
+        "type": "fighting"
+    },
+    "Sucker Punch": {
+        "type": "dark"
+    },
+    "Superpower": {
+        "type": "fighting"
+    },
+    "Surf": {
+        "type": "water"
+    },
+    "Swift": {
+        "type": "normal"
+    },
+    "Synchronoise": {
+        "type": "psychic"
+    },
+    "Tackle": {
+        "type": "normal"
+    },
+    "Take Down": {
+        "type": "normal"
+    },
+    "Techno Blast (Normal)": {
+        "type": "normal"
+    },
+    "Techno Blast (Burn)": {
+        "type": "fire"
+    },
+    "Techno Blast (Chill)": {
+        "type": "ice"
+    },
+    "Techno Blast (Douse)": {
+        "type": "water"
+    },
+    "Techno Blast (Shock)": {
+        "type": "electric"
+    },
+    "Thunder": {
+        "type": "electric"
+    },
+    "Thunder Fang": {
+        "type": "electric"
+    },
+    "Thunder Punch": {
+        "type": "electric"
+    },
+    "Thunder Shock": {
+        "type": "electric"
+    },
+    "Thunderbolt": {
+        "type": "electric"
+    },
+    "Trailblaze": {
+        "type": "grass"
+    },
+    "Transform": {
+        "type": "normal"
+    },
+    "Tri Attack": {
+        "type": "normal"
+    },
+    "Triple Axel": {
+        "type": "ice"
+    },
+    "Twister": {
+        "type": "dragon"
+    },
+    "V-Create": {
+        "type": "fire"
+    },
+    "Vice Grip": {
+        "type": "normal"
+    },
+    "Vine Whip": {
+        "type": "grass"
+    },
+    "Volt Switch": {
+        "type": "electric"
+    },
+    "Water Gun": {
+        "type": "water"
+    },
+    "Water Gun Fast Blastoise": {
+        "type": "water"
+    },
+    "Water Pulse": {
+        "type": "water"
+    },
+    "Waterfall": {
+        "type": "water"
+    },
+    "Water Shuriken": {
+        "type": "water"
+    },
+    "Weather Ball [Fire]": {
+        "type": "fire"
+    },
+    "Weather Ball [Ice]": {
+        "type": "ice"
+    },
+    "Weather Ball [Rock]": {
+        "type": "rock"
+    },
+    "Weather Ball [Normal]": {
+        "type": "normal"
+    },
+    "Weather Ball [Water]": {
+        "type": "water"
+    },
+    "Wild Charge": {
+        "type": "electric"
+    },
+    "Wing Attack": {
+        "type": "flying"
+    },
+    "Wrap": {
+        "type": "normal"
+    },
+    "Wrap Green": {
+        "type": "normal"
+    },
+    "Wrap Pink": {
+        "type": "normal"
+    },
+    "X-Scissor": {
+        "type": "bug"
+    },
+    "Yawn": {
+        "type": "normal"
+    },
+    "Zap Cannon": {
+        "type": "electric"
+    },
+    "Zen Headbutt": {
+        "type": "psychic"
+    }
+}

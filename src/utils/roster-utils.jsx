@@ -3,6 +3,7 @@ import BestBuddy from '../../content/assets/buddy_icon.png';
 import Purified from '../../content/assets/purified_icon.png';
 import Shadow from '../../content/assets/shadow_icon.png';
 import pokemonJson from '../../static/pokemon.json';
+import movesJson from '../../static/moves.json';
 
 function compare(a, b) {
   if (a.name < b.name) {
@@ -34,7 +35,9 @@ function transformPokemonName(pokemonName, form) {
     transformedName = 'tapu_fini';
   } else if (transformedName === 'oricorio') {
     transformedName = 'oricorio_pom_pom';
-  }
+  } else if (transformedName === 'gourgeist') {
+    transformedName = 'gourgeist_super';
+  } 
 
   if (form !== '') {
     if (pokemonName === 'Pikachu') {
@@ -83,6 +86,19 @@ export function getPokemonURLName(pokemon) {
   return transformPokemonName(pokemon.name, pokemon.form);
 }
 
+export function getRosterSearchMovesHTML(player) {
+  let rosterString = '';
+
+  if (player.roster == null) {
+    return rosterString;
+  }
+
+  player.roster.forEach((pokemon) => {
+    rosterString = `${rosterString + pokemon.fast + " " + pokemon.charge1 + " " + pokemon.charge2 + " "} `;
+  });
+  return rosterString;
+}
+
 export function getRosterSearchHTML(player) {
   let rosterString = '';
 
@@ -94,6 +110,15 @@ export function getRosterSearchHTML(player) {
     rosterString = `${rosterString + transformPokemonName(pokemon.name, pokemon.form)} `;
   });
   return rosterString;
+}
+
+function getMovesURL(move) {
+  if (move == null || movesJson[move] == null) {
+    // print if move icon is missing
+    // console.log(move)
+    return "";
+  }
+  return "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Types/POKEMON_TYPE_" + movesJson[move].type.toUpperCase() + ".png";
 }
 
 export function getRosterHTML(tournament) {
@@ -111,9 +136,14 @@ export function getRosterHTML(tournament) {
         : ''
     ).join('');
     
-    const title = `${isNameSwap}${capitalize(pokemonName.replace(new RegExp(`_${forms.join('|')}`, 'g'), '').replaceAll('_', ' '))} ${pokemon.cp}${
-      pokemon.shadow ? ' Shadow' : ''
-    }${pokemon.purified ? ' Purified' : ''}${pokemon.best_buddy ? ' Best Buddy' : ''}`;
+    let title = `${isNameSwap}${capitalize(pokemonName.replace(new RegExp(`_${forms.join('|')}`, 'g'), '').replaceAll('_', ' '))} 
+    ${"<br />" + pokemon.cp + ' CP'}
+    ${pokemon.shadow ? '<br />Shadow' : ''}
+    ${pokemon.purified ? '<br />Purified' : ''}
+    ${pokemon.best_buddy ? '<br />Best Buddy' : ''}
+    ${pokemon.fast ? '<br /><br /><img height="20px" width="20px" src="' + getMovesURL(pokemon.fast) + '"> ' + pokemon.fast : ''}
+    ${pokemon.charge1 ? '<br /><img height="20px" width="20px" src="' + getMovesURL(pokemon.charge1) + '"> ' + pokemon.charge1 : ''}
+    ${pokemon.charge2 ? '<br /><img height="20px" width="20px" src="' + getMovesURL(pokemon.charge2) + '"> ' + pokemon.charge2 : ''}`;
 
     const buddyStyle = {
       position: 'absolute',
@@ -185,7 +215,9 @@ export function getRosterHTML(tournament) {
         height="69px"
         className="pokemon-image-wrapper"
         data-tooltip-id="pokemon-item"
-        data-tooltip-content={title}
+        data-tooltip-html={title}
+        data-html="true"
+        style={{ whiteSpace: 'pre-line' }}
       >
         <img
           width="60px"
