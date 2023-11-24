@@ -118,7 +118,7 @@ function getMovesURL(move) {
     // console.log(move)
     return "";
   }
-  return "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Types/POKEMON_TYPE_" + movesJson[move].type.toUpperCase() + ".png";
+  return "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/POKEMON_TYPE_" + movesJson[move].type.toUpperCase() + ".png/public";
 }
 
 export function getRosterHTML(tournament) {
