@@ -9,7 +9,8 @@
             "BLIZZARD",
             "ENERGY_BALL",
             "OUTRAGE",
-            "WEATHER_BALL_ICE"
+            "WEATHER_BALL_ICE",
+            "ICY_WIND"
         ],
         "dex": 460,
         "family": {
@@ -45,7 +46,8 @@
             "BLIZZARD",
             "ENERGY_BALL",
             "OUTRAGE",
-            "WEATHER_BALL_ICE"
+            "WEATHER_BALL_ICE",
+            "ICY_WIND"
         ],
         "dex": 460,
         "family": {
@@ -1422,7 +1424,8 @@
         "chargedMoves": [
             "EARTH_POWER",
             "ENERGY_BALL",
-            "SEED_BOMB"
+            "SEED_BOMB",
+            "TRAILBLAZE"
         ],
         "dex": 930,
         "family": {
@@ -2135,7 +2138,8 @@
         "chargedMoves": [
             "AVALANCHE",
             "DRAGON_CLAW",
-            "OUTRAGE"
+            "OUTRAGE",
+            "ICY_WIND"
         ],
         "dex": 997,
         "family": {
@@ -2224,7 +2228,8 @@
             "CROSS_POISON",
             "LUNGE",
             "MEGAHORN",
-            "SHADOW_SNEAK"
+            "SHADOW_SNEAK",
+            "TRAILBLAZE"
         ],
         "dex": 168,
         "family": {
@@ -2489,7 +2494,8 @@
             "BLIZZARD",
             "HURRICANE",
             "ICE_BEAM",
-            "ICY_WIND"
+            "ICY_WIND",
+            "TRIPLE_AXEL"
         ],
         "dex": 144,
         "eliteMoves": [
@@ -2554,7 +2560,8 @@
             "BLIZZARD",
             "HURRICANE",
             "ICE_BEAM",
-            "ICY_WIND"
+            "ICY_WIND",
+            "TRIPLE_AXEL"
         ],
         "dex": 144,
         "eliteMoves": [
@@ -2647,7 +2654,8 @@
             "BODY_SLAM",
             "CRUNCH",
             "EARTHQUAKE",
-            "MIRROR_COAT"
+            "MIRROR_COAT",
+            "ICY_WIND"
         ],
         "dex": 713,
         "family": {
@@ -2676,7 +2684,8 @@
         "chargedMoves": [
             "BLIZZARD",
             "CRUNCH",
-            "ROCK_SLIDE"
+            "ROCK_SLIDE",
+            "ICY_WIND"
         ],
         "dex": 713,
         "family": {
@@ -3056,7 +3065,8 @@
         "chargedMoves": [
             "AQUA_TAIL",
             "ICE_BEAM",
-            "MUD_BOMB"
+            "MUD_BOMB",
+            "SCALD"
         ],
         "dex": 339,
         "family": {
@@ -3091,7 +3101,8 @@
         "chargedMoves": [
             "AQUA_TAIL",
             "ICE_BEAM",
-            "MUD_BOMB"
+            "MUD_BOMB",
+            "SCALD"
         ],
         "dex": 339,
         "family": {
@@ -4754,7 +4765,8 @@
             "BRAVE_BIRD",
             "CLOSE_COMBAT",
             "HEAT_WAVE",
-            "ROCK_SLIDE"
+            "ROCK_SLIDE",
+            "FLY"
         ],
         "dex": 628,
         "family": {
@@ -4784,7 +4796,8 @@
             "BRAVE_BIRD",
             "DAZZLING_GLEAM",
             "OMINOUS_WIND",
-            "PSYCHIC"
+            "PSYCHIC",
+            "FLY"
         ],
         "dex": 628,
         "family": {
@@ -5358,7 +5371,8 @@
             "BRICK_BREAK",
             "GRASS_KNOT",
             "PAYBACK",
-            "SEED_BOMB"
+            "SEED_BOMB",
+            "TRAILBLAZE"
         ],
         "dex": 331,
         "family": {
@@ -5394,7 +5408,8 @@
             "BRICK_BREAK",
             "GRASS_KNOT",
             "PAYBACK",
-            "SEED_BOMB"
+            "SEED_BOMB",
+            "TRAILBLAZE"
         ],
         "dex": 331,
         "family": {
@@ -5429,7 +5444,8 @@
             "DARK_PULSE",
             "DYNAMIC_PUNCH",
             "GRASS_KNOT",
-            "PAYBACK"
+            "PAYBACK",
+            "TRAILBLAZE"
         ],
         "dex": 332,
         "family": {
@@ -5463,7 +5479,8 @@
             "DARK_PULSE",
             "DYNAMIC_PUNCH",
             "GRASS_KNOT",
-            "PAYBACK"
+            "PAYBACK",
+            "TRAILBLAZE"
         ],
         "dex": 332,
         "family": {
@@ -7960,7 +7977,8 @@
             "AQUA_JET",
             "BUBBLE_BEAM",
             "RAZOR_SHELL",
-            "VICE_GRIP"
+            "VICE_GRIP",
+            "SCALD"
         ],
         "dex": 341,
         "family": {
@@ -8417,7 +8435,8 @@
             "CRABHAMMER",
             "NIGHT_SLASH",
             "RAZOR_SHELL",
-            "VICE_GRIP"
+            "VICE_GRIP",
+            "SCALD"
         ],
         "dex": 342,
         "family": {
@@ -8717,7 +8736,8 @@
             "AURORA_BEAM",
             "NIGHT_SLASH",
             "SOLAR_BEAM",
-            "WATER_PULSE"
+            "WATER_PULSE",
+            "TRIPLE_AXEL"
         ],
         "dex": 615,
         "fastMoves": [
@@ -9364,7 +9384,8 @@
         },
         "chargedMoves": [
             "DISCHARGE",
-            "PLAY_ROUGH"
+            "PLAY_ROUGH",
+            "PARABOLIC_CHARGE"
         ],
         "dex": 702,
         "fastMoves": [
@@ -9482,7 +9503,9 @@
         "chargedMoves": [
             "AERIAL_ACE",
             "ICE_PUNCH",
-            "ICY_WIND"
+            "ICY_WIND",
+            "TRIPLE_AXEL",
+            "FLY"
         ],
         "dex": 225,
         "fastMoves": [
@@ -9514,7 +9537,9 @@
         "chargedMoves": [
             "AERIAL_ACE",
             "ICE_PUNCH",
-            "ICY_WIND"
+            "ICY_WIND",
+            "TRIPLE_AXEL",
+            "FLY"
         ],
         "dex": 225,
         "fastMoves": [
@@ -10186,7 +10211,8 @@
         "chargedMoves": [
             "EARTH_POWER",
             "ENERGY_BALL",
-            "SEED_BOMB"
+            "SEED_BOMB",
+            "TRAILBLAZE"
         ],
         "dex": 929,
         "family": {
@@ -14094,7 +14120,8 @@
         "chargedMoves": [
             "AERIAL_ACE",
             "FLAME_CHARGE",
-            "HEAT_WAVE"
+            "HEAT_WAVE",
+            "FLY"
         ],
         "dex": 662,
         "family": {
@@ -14127,7 +14154,8 @@
         "chargedMoves": [
             "AERIAL_ACE",
             "HEAT_WAVE",
-            "SWIFT"
+            "SWIFT",
+            "FLY"
         ],
         "dex": 661,
         "family": {
@@ -14626,7 +14654,8 @@
         "chargedMoves": [
             "AVALANCHE",
             "DRAGON_CLAW",
-            "OUTRAGE"
+            "OUTRAGE",
+            "ICY_WIND"
         ],
         "dex": 996,
         "family": {
@@ -14757,7 +14786,8 @@
         "chargedMoves": [
             "AVALANCHE",
             "CRUNCH",
-            "SHADOW_BALL"
+            "SHADOW_BALL",
+            "TRIPLE_AXEL"
         ],
         "dex": 478,
         "family": {
@@ -18023,7 +18053,8 @@
         },
         "chargedMoves": [
             "BODY_SLAM",
-            "CRUNCH"
+            "CRUNCH",
+            "TRAILBLAZE"
         ],
         "dex": 820,
         "family": {
@@ -24424,7 +24455,8 @@
         "chargedMoves": [
             "BUBBLE_BEAM",
             "GRASS_KNOT",
-            "ICE_BEAM"
+            "ICE_BEAM",
+            "SCALD"
         ],
         "dex": 271,
         "family": {
@@ -24520,7 +24552,8 @@
         },
         "chargedMoves": [
             "BUBBLE_BEAM",
-            "ENERGY_BALL"
+            "ENERGY_BALL",
+            "SCALD"
         ],
         "dex": 270,
         "family": {
@@ -24657,7 +24690,8 @@
             "HYDRO_PUMP",
             "ICE_BEAM",
             "LEAF_STORM",
-            "SOLAR_BEAM"
+            "SOLAR_BEAM",
+            "SCALD"
         ],
         "dex": 272,
         "family": {
@@ -27468,7 +27502,8 @@
         "chargedMoves": [
             "DARK_PULSE",
             "FOUL_PLAY",
-            "NIGHT_SLASH"
+            "NIGHT_SLASH",
+            "TRAILBLAZE"
         ],
         "dex": 52,
         "family": {
@@ -30744,7 +30779,8 @@
         },
         "chargedMoves": [
             "BUG_BUZZ",
-            "X_SCISSOR"
+            "X_SCISSOR",
+            "TRAILBLAZE"
         ],
         "dex": 919,
         "family": {
@@ -31214,7 +31250,8 @@
         "chargedMoves": [
             "FOUL_PLAY",
             "FUTURE_SIGHT",
-            "PSYCHIC"
+            "PSYCHIC",
+            "TRAILBLAZE"
         ],
         "dex": 765,
         "fastMoves": [
@@ -32239,7 +32276,8 @@
             "DARK_PULSE",
             "FOUL_PLAY",
             "PAYBACK",
-            "PLAY_ROUGH"
+            "PLAY_ROUGH",
+            "TRAILBLAZE"
         ],
         "dex": 53,
         "family": {
@@ -33408,7 +33446,8 @@
             "HYDRO_PUMP",
             "ICE_BEAM",
             "SURF",
-            "WEATHER_BALL_WATER"
+            "WEATHER_BALL_WATER",
+            "SCALD"
         ],
         "dex": 186,
         "eliteMoves": [
@@ -33452,7 +33491,8 @@
             "HYDRO_PUMP",
             "ICE_BEAM",
             "SURF",
-            "WEATHER_BALL_WATER"
+            "WEATHER_BALL_WATER",
+            "SCALD"
         ],
         "dex": 186,
         "eliteMoves": [
@@ -33645,7 +33685,8 @@
             "ICE_PUNCH",
             "POWER_UP_PUNCH",
             "SCALD",
-            "SUBMISSION"
+            "SUBMISSION",
+            "ICY_WIND"
         ],
         "dex": 62,
         "eliteMoves": [
@@ -33691,7 +33732,8 @@
             "ICE_PUNCH",
             "POWER_UP_PUNCH",
             "SCALD",
-            "SUBMISSION"
+            "SUBMISSION",
+            "ICY_WIND"
         ],
         "dex": 62,
         "eliteMoves": [
@@ -35258,7 +35300,8 @@
             "AQUA_TAIL",
             "FELL_STINGER",
             "ICE_BEAM",
-            "SLUDGE_WAVE"
+            "SLUDGE_WAVE",
+            "SCALD"
         ],
         "dex": 211,
         "fastMoves": [
@@ -35391,7 +35434,8 @@
             "SKULL_BASH",
             "THUNDER",
             "THUNDER_PUNCH",
-            "WILD_CHARGE"
+            "WILD_CHARGE",
+            "TRAILBLAZE"
         ],
         "dex": 26,
         "eliteMoves": [
@@ -35429,7 +35473,8 @@
             "GRASS_KNOT",
             "PSYCHIC",
             "THUNDER_PUNCH",
-            "WILD_CHARGE"
+            "WILD_CHARGE",
+            "TRAILBLAZE"
         ],
         "dex": 26,
         "family": {
@@ -37388,7 +37433,8 @@
         "chargedMoves": [
             "AERIAL_ACE",
             "BRAVE_BIRD",
-            "ROCK_TOMB"
+            "ROCK_TOMB",
+            "FLY"
         ],
         "dex": 627,
         "family": {
@@ -41624,7 +41670,8 @@
             "ICE_BEAM",
             "PSYCHIC",
             "SURF",
-            "WATER_PULSE"
+            "WATER_PULSE",
+            "SCALD"
         ],
         "dex": 80,
         "eliteMoves": [
@@ -41662,7 +41709,8 @@
             "FOCUS_BLAST",
             "PSYCHIC",
             "SLUDGE_BOMB",
-            "SURF"
+            "SURF",
+            "SCALD"
         ],
         "dex": 80,
         "eliteMoves": [
@@ -41698,7 +41746,8 @@
             "ICE_BEAM",
             "PSYCHIC",
             "SURF",
-            "WATER_PULSE"
+            "WATER_PULSE",
+            "SCALD"
         ],
         "dex": 80,
         "eliteMoves": [
@@ -41735,7 +41784,8 @@
             "ICE_BEAM",
             "PSYCHIC",
             "SURF",
-            "WATER_PULSE"
+            "WATER_PULSE",
+            "SCALD"
         ],
         "dex": 80,
         "eliteMoves": [
@@ -41772,7 +41822,8 @@
             "BLIZZARD",
             "FIRE_BLAST",
             "PSYCHIC",
-            "SURF"
+            "SURF",
+            "SCALD"
         ],
         "dex": 199,
         "eliteMoves": [
@@ -41809,7 +41860,8 @@
             "FUTURE_SIGHT",
             "SHADOW_BALL",
             "SLUDGE_WAVE",
-            "SURF"
+            "SURF",
+            "SCALD"
         ],
         "dex": 199,
         "eliteMoves": [
@@ -41847,7 +41899,8 @@
             "BLIZZARD",
             "FIRE_BLAST",
             "PSYCHIC",
-            "SURF"
+            "SURF",
+            "SCALD"
         ],
         "dex": 199,
         "eliteMoves": [
@@ -42305,7 +42358,8 @@
         "chargedMoves": [
             "EARTH_POWER",
             "ENERGY_BALL",
-            "SEED_BOMB"
+            "SEED_BOMB",
+            "TRAILBLAZE"
         ],
         "dex": 928,
         "family": {
@@ -43752,7 +43806,8 @@
         "chargedMoves": [
             "BRAVE_BIRD",
             "CLOSE_COMBAT",
-            "HEAT_WAVE"
+            "HEAT_WAVE",
+            "FLY"
         ],
         "dex": 398,
         "eliteMoves": [
@@ -43789,7 +43844,8 @@
         "chargedMoves": [
             "BRAVE_BIRD",
             "CLOSE_COMBAT",
-            "HEAT_WAVE"
+            "HEAT_WAVE",
+            "FLY"
         ],
         "dex": 398,
         "eliteMoves": [
@@ -43825,7 +43881,8 @@
         "chargedMoves": [
             "AERIAL_ACE",
             "BRAVE_BIRD",
-            "HEAT_WAVE"
+            "HEAT_WAVE",
+            "FLY"
         ],
         "dex": 397,
         "family": {
@@ -43861,7 +43918,8 @@
         "chargedMoves": [
             "AERIAL_ACE",
             "BRAVE_BIRD",
-            "HEAT_WAVE"
+            "HEAT_WAVE",
+            "FLY"
         ],
         "dex": 397,
         "family": {
@@ -43895,7 +43953,8 @@
         },
         "chargedMoves": [
             "AERIAL_ACE",
-            "BRAVE_BIRD"
+            "BRAVE_BIRD",
+            "FLY"
         ],
         "dex": 396,
         "family": {
@@ -43929,7 +43988,8 @@
         },
         "chargedMoves": [
             "AERIAL_ACE",
-            "BRAVE_BIRD"
+            "BRAVE_BIRD",
+            "FLY"
         ],
         "dex": 396,
         "family": {
@@ -44489,7 +44549,8 @@
             "BUBBLE_BEAM",
             "HYDRO_PUMP",
             "ICE_BEAM",
-            "WATER_PULSE"
+            "WATER_PULSE",
+            "SCALD"
         ],
         "dex": 245,
         "eliteMoves": [
@@ -44555,7 +44616,8 @@
             "BUBBLE_BEAM",
             "HYDRO_PUMP",
             "ICE_BEAM",
-            "WATER_PULSE"
+            "WATER_PULSE",
+            "SCALD"
         ],
         "dex": 245,
         "eliteMoves": [
@@ -45241,7 +45303,8 @@
             "BRAVE_BIRD",
             "FIRE_BLAST",
             "FLAME_CHARGE",
-            "HURRICANE"
+            "HURRICANE",
+            "FLY"
         ],
         "dex": 663,
         "eliteMoves": [
@@ -47034,7 +47097,8 @@
         "chargedMoves": [
             "DYNAMIC_PUNCH",
             "MUD_BOMB",
-            "SLUDGE_BOMB"
+            "SLUDGE_BOMB",
+            "SHADOW_BALL"
         ],
         "dex": 454,
         "family": {
@@ -49051,7 +49115,8 @@
         "chargedMoves": [
             "BODY_SLAM",
             "BRICK_BREAK",
-            "BULLDOZE"
+            "BULLDOZE",
+            "ROCK_SLIDE"
         ],
         "dex": 288,
         "family": {
@@ -49084,7 +49149,8 @@
         "chargedMoves": [
             "CRUNCH",
             "DISCHARGE",
-            "X_SCISSOR"
+            "X_SCISSOR",
+            "FLY"
         ],
         "dex": 738,
         "eliteMoves": [
@@ -49623,7 +49689,8 @@
         "chargedMoves": [
             "BODY_SLAM",
             "HEAVY_SLAM",
-            "WATER_PULSE"
+            "WATER_PULSE",
+            "SCALD"
         ],
         "dex": 320,
         "family": {
@@ -49658,7 +49725,8 @@
         "chargedMoves": [
             "BODY_SLAM",
             "HEAVY_SLAM",
-            "WATER_PULSE"
+            "WATER_PULSE",
+            "SCALD"
         ],
         "dex": 320,
         "family": {
@@ -49692,7 +49760,8 @@
         "chargedMoves": [
             "BLIZZARD",
             "HYPER_BEAM",
-            "SURF"
+            "SURF",
+            "SCALD"
         ],
         "dex": 321,
         "family": {
@@ -49725,7 +49794,8 @@
         "chargedMoves": [
             "BLIZZARD",
             "HYPER_BEAM",
-            "SURF"
+            "SURF",
+            "SCALD"
         ],
         "dex": 321,
         "family": {
@@ -50393,7 +50463,8 @@
         "chargedMoves": [
             "BLIZZARD",
             "MUD_BOMB",
-            "WATER_PULSE"
+            "WATER_PULSE",
+            "SCALD"
         ],
         "dex": 340,
         "family": {
@@ -50427,7 +50498,8 @@
         "chargedMoves": [
             "BLIZZARD",
             "MUD_BOMB",
-            "WATER_PULSE"
+            "WATER_PULSE",
+            "SCALD"
         ],
         "dex": 340,
         "family": {
@@ -50531,7 +50603,8 @@
             "DISARMING_VOICE",
             "HYPER_BEAM",
             "ICE_BEAM",
-            "PLAY_ROUGH"
+            "PLAY_ROUGH",
+            "ICY_WIND"
         ],
         "dex": 40,
         "family": {
