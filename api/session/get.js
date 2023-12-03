@@ -4,8 +4,8 @@ import sessionStates from '../../db/sessionStates';
 import rules from '../../static/rules.json';
 import allowCors from '../../db/allowCors';
 import avatars from '../../static/avatars.json';
-import pokemonJSON from '../../static/pokemon.json';
 import getFactionModel from '../../db/faction';
+import getPokemonData from '../../db/getPokemonData';
 
 function addMinutesToDate(date, minutesToAdd) {
   if (date == null) {
@@ -108,6 +108,7 @@ async function getPlayers(
   hpVisible,
   purifiedVisible,
   bestBuddyVisible,
+  locale,
 ) {
   const Player = await getPlayerModel();
   const shouldLookupAllPlayers = isHost
@@ -143,11 +144,12 @@ async function getPlayers(
       if (!shouldLookupPlayer || (!shouldShowAllTeams && !isTeammate)) {
         return returnObj;
       }
+      const pokemonData = getPokemonData(locale);
       return {
         ...returnObj,
         pokemon: player.pokemon?.map((p) => ({
           sid: p.sid,
-          speciesName: pokemonJSON[p.speciesName].speciesName,
+          speciesName: pokemonData[p.speciesName].speciesName,
           cp: (isHost || cpVisible) ? p.cp : null,
           chargedMoves: (isHost || movesetsVisible) ? p.chargedMoves : null,
           fastMove: (isHost || movesetsVisible) ? p.fastMove : null,
@@ -168,7 +170,7 @@ function getMetas(metas) {
 
 async function handler(req, res) {
   const { id } = req.query;
-  const { x_authorization, x_session_id } = req.headers;
+  const { x_authorization, x_session_id, x_locale } = req.headers;
   if (x_authorization == null) {
     res.status(401).json({
       status: 401,
@@ -237,6 +239,7 @@ async function handler(req, res) {
       hpVisible,
       purifiedVisible,
       bestBuddyVisible,
+      x_locale,
     );
     const bracket = getBracket(
       session.bracket,

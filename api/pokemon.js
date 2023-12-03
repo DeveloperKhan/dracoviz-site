@@ -1,13 +1,13 @@
-import pokemonJSON from '../static/pokemon.json';
 import allowCors from '../db/allowCors';
 import getPlayerModel from '../db/player';
 import getSessionModel from '../db/session';
 import sessionStates from '../db/sessionStates';
+import getPokemonData from '../db/getPokemonData';
 import rules from '../static/rules.json';
 
 async function handler(req, res) {
   const { tournamentId } = req.query;
-  const { x_authorization, x_session_id } = req.headers;
+  const { x_authorization, x_session_id, x_locale } = req.headers;
   if (x_authorization == null) {
     res.status(401).json({
       status: 401,
@@ -49,6 +49,8 @@ async function handler(req, res) {
       res.status(401).json({ error: 'api_player_not_found' });
       return;
     }
+
+    const pokemonData = getPokemonData(x_locale);
 
     const theSessionPlayerIndex = session.players.findIndex((p) => p.playerId === x_session_id);
     const theSessionPlayer = session.players[theSessionPlayerIndex];
@@ -106,7 +108,7 @@ async function handler(req, res) {
       nickname,
       purified,
       bestBuddy,
-      pokemonData: pokemonJSON,
+      pokemonData,
       metaClass: thePlayer.metaClass,
       metaClasses,
     });
