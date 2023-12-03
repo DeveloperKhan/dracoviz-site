@@ -2,7 +2,7 @@ import getSessionModel from '../../db/session';
 import getPlayerModel from '../../db/player';
 import allowCors from '../../db/allowCors';
 import sessionStates from '../../db/sessionStates';
-import pokemonJSON from '../../static/pokemon.json';
+import getPokemonData from '../../db/getPokemonData';
 
 function findLatestRoundWithParticipant(participantId, roundsArray, currentRoundNumber) {
   let latestRound = null;
@@ -38,7 +38,7 @@ function findLatestRoundWithParticipant(participantId, roundsArray, currentRound
 
 async function handler(req, res) {
   const { tournamentId } = req.query;
-  const { x_authorization, x_session_id } = req.headers;
+  const { x_authorization, x_session_id, x_locale } = req.headers;
   if (x_authorization == null) {
     res.status(401).json({
       status: 401,
@@ -111,6 +111,7 @@ async function handler(req, res) {
     );
     const hasOpponent = opponentId != null;
     const playerObj = players.find((p) => p.playerId === x_session_id);
+    const pokemonData = getPokemonData(x_locale);
     let opponent = {};
     if (hasOpponent) {
       const opponentObj = await Player.findOne({ session: opponentId });
@@ -124,7 +125,7 @@ async function handler(req, res) {
           telegram: opponentObj.telegram,
           pokemon: shouldShowTeams ? opponentSessionObj.pokemon?.map((p) => ({
             sid: p.sid,
-            speciesName: pokemonJSON[p.speciesName].speciesName,
+            speciesName: pokemonData[p.speciesName].speciesName,
             cp: cpVisible ? p.cp : null,
             chargedMoves: movesetsVisible ? p.chargedMoves : null,
             fastMove: movesetsVisible ? p.fastMove : null,
@@ -144,7 +145,7 @@ async function handler(req, res) {
         name: player.name,
         pokemon: playerObj.pokemon?.map((p) => ({
           sid: p.sid,
-          speciesName: pokemonJSON[p.speciesName].speciesName,
+          speciesName: pokemonData[p.speciesName].speciesName,
           cp: p.cp,
           chargedMoves: p.chargedMoves,
           fastMove: p.fastMove,
