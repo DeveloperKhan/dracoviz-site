@@ -79,7 +79,7 @@ export default function ProfileExport() {
             placeholder="Enter comma seperated list of names"
             value={names}
             onChange={onChange}
-            style={{ width: '100%', marginBottom: 20 }}
+            style={{ width: '100%', minHeight: 200, marginBottom: 20 }}
           />
         </label>
         <br />
@@ -100,7 +100,7 @@ export default function ProfileExport() {
             id="profileList"
             value={profiles}
             readOnly
-            style={{ width: '100%', marginBottom: 20 }}
+            style={{ width: '100%', minHeight: 200, marginBottom: 20 }}
           />
         </label>
         <br />
@@ -121,7 +121,7 @@ export default function ProfileExport() {
             id="missing"
             value={missing}
             readOnly
-            style={{ width: '100%', marginBottom: 20 }}
+            style={{ width: '100%', minHeight: 200, marginBottom: 20 }}
           />
         </label>
       </div>
