@@ -60,8 +60,11 @@ export default function ProfileExport() {
     setNames(value);
   };
   const exportCsv = () => {
-    const encodedUri = encodeURI(profiles);
-    window.open(encodedUri);
+    const link = document.createElement('a');
+    link.href = encodeURI(profiles);
+    link.download = 'data.csv';
+
+    link.click();
   };
   return (
     <Layout>
