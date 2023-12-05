@@ -1,6 +1,8 @@
 import { createClient } from '@vercel/kv';
 import profileNames from '../static/profiles';
 
+const batchSize = 25;
+
 function compareArrays(array1, array2) {
   // Find missing values from array 1
   const missingValues = array1.filter((value) => !array2.includes(value));
@@ -50,7 +52,14 @@ async function handler(req, res) {
     const profilesKeys = profileNames.split(',').map((x) => x.trim().toLowerCase());
     const { missingValues, sharedValues } = compareArrays(inputKeys, profilesKeys);
     const keys = sharedValues.map((x) => `profiles:${x}`);
-    const profileData = await kvClient.mget(...keys);
+    const data = await Promise.all(
+      Array.from({ length: Math.ceil(keys.length / batchSize) }, (_, index) => {
+        const batchKeys = keys.slice(index * batchSize, (index + 1) * batchSize);
+        return kvClient.mget(...batchKeys);
+      }),
+    );
+    // Flatten the array of arrays into a single array
+    const profileData = data.flat();
     res.status(200).json({
       profileData,
       missingValues,
