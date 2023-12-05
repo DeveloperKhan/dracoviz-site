@@ -3147,6 +3147,57 @@
             }
         ]
     },
+    "Wasteland Cup": {
+        "name": "Wasteland Cup",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/8aceceb5-261f-4873-e38b-ab4a6c4e5300/public",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "flags": {
+            "speciesClauseByDex": "true"
+        },
+        "include": [
+            {
+                "filterType": "type",
+                "values": [
+                    "flying",
+                    "ghost",
+                    "poison",
+                    "water"
+                ]
+            }
+        ],
+        "exclude": [
+            {
+                "filterType": "type",
+                "values": [
+                    "dark",
+                    "dragon",
+                    "electric",
+                    "ice",
+                    "steel"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "pidgeot",
+                    "pelipper",
+                    "bruxish",
+                    "mantine"
+                ]
+            },
+            {
+                "filterType": "tag",
+                "values": [
+                    "legendary",
+                    "mythical",
+                    "mega"
+                ]
+            }
+        ]
+    },
     "Fateful Cup": {
         "name": "Syndicate (Fateful Cup)",
         "maxCP": 1500,
