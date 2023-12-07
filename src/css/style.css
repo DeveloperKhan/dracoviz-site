@@ -313,6 +313,7 @@ a:focus {
   padding: var(--spacing-2) var(--spacing-3);
   font-family: var(--fontFamily-sans);
   font-weight: var(--fontWeight-bold);
+  border: none;
 }
 
 .tournaments-button:hover {

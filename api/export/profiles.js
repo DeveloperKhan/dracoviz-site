@@ -1,5 +1,5 @@
 import { createClient } from '@vercel/kv';
-import profileNames from '../static/profiles';
+import profileNames from '../../static/profiles';
 
 const batchSize = 25;
 
