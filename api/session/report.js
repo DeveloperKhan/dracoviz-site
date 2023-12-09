@@ -1,6 +1,7 @@
 import getSessionModel from '../../db/session';
 import getPlayerModel from '../../db/player';
 import allowCors from '../../db/allowCors';
+import calculateBracketStats from '../../util/calculateBracketStats';
 
 function arraysAreEqual(arr1, arr2) {
   if (arr1.length !== arr2.length) {
@@ -32,7 +33,7 @@ function findIndexes(matches, playerIdToSearch) {
 
 async function handler(req, res) {
   const {
-    tournamentId, player1, player2, matchIndex, scoreIndex,
+    tournamentId, player1, player2, matchIndex, scoreIndex, targetRoundIndex,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -78,8 +79,11 @@ async function handler(req, res) {
       return;
     }
 
-    const currentRoundIndex = bracket.findIndex((r) => r.round === currentRoundNumber);
+    const currentRoundIndex = targetRoundIndex != null
+      ? targetRoundIndex
+      : bracket.findIndex((r) => r.round === currentRoundNumber);
     const currentRound = bracket[currentRoundIndex];
+    const isHost = session.host.includes(x_session_id);
 
     if (currentRound == null) {
       res.status(401).json({ error: 'api_bracket_not_started' });
@@ -91,7 +95,7 @@ async function handler(req, res) {
       return;
     }
 
-    if (!session.host.includes(x_session_id)) {
+    if (!isHost) {
       // Is player
       const { targetMatchIndex, targetGroupIndex, targetParticipantIndex } = findIndexes(
         currentRound.matches,
@@ -102,7 +106,7 @@ async function handler(req, res) {
         res.status(401).json({ error: 'api_bracket_could_not_find_match' });
         return;
       }
-      if (currentMatch.touched[targetGroupIndex]) {
+      if (currentMatch.touched[targetGroupIndex] || targetRoundIndex != null) {
         res.status(401).json({ error: 'api_unauthorized' });
         return;
       }
@@ -134,6 +138,9 @@ async function handler(req, res) {
       currentMatch.touched[scoreIndex] = true;
       session.bracket[currentRoundIndex].matches[matchIndex] = currentMatch;
     }
+
+    const newPlayers = calculateBracketStats(session.bracket, session.players);
+    session.players = newPlayers;
 
     await session.save();
     res.status(200).send({});
