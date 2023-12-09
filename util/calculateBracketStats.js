@@ -30,8 +30,10 @@ export default function calculateBracketStats(bracket, players) {
             const player = playerMap[participant.playerId];
             const opponent = participants[1 - j] ? participants[1 - j]?.playerId : null;
 
-            // Update opponents array
-            player.opponents.push(opponent?.playerId);
+            if (opponent != null) {
+              // Update opponents array
+              player.opponents.push(opponent);
+            }
             // Update wins and losses
             const playerScore = match.score[i][j];
             const opponentScore = match.score[i][1 - j];
