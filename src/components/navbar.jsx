@@ -31,6 +31,12 @@ export default function NavBar() {
                   </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Our Content" className="nav-button">
+                  {/* <NavDropdown.Item
+                    href="/tier-list/"
+                    className="nav-button"
+                  >
+                    Play! Pokémon Tier List
+                  </NavDropdown.Item> */}
                   <NavDropdown.Item
                     href="/top-gbl-teams/"
                     className="nav-button"

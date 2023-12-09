@@ -540,13 +540,10 @@ a:focus {
   color: var(--color-text);
 }
 
-.article-body {
-  margin: 0 var(--spacing-5);
-}
-
 .is-layout-constrained {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
+  padding: 0 1rem;
 }
 
 .main-heading {
