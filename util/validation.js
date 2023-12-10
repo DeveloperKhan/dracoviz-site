@@ -350,7 +350,7 @@ const validateTeam = (
     }
   }
 
-  return null;
+  return { error: null, details: null };
 };
 
 const doesSelectorDescribePokémon = (tag, poke, exceptions) => {

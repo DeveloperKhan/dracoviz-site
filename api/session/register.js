@@ -108,7 +108,7 @@ async function handler(req, res) {
       metaClass ?? null,
     );
 
-    if (error) {
+    if (error != null) {
       res.status(401).json({ error, details });
       return;
     }
