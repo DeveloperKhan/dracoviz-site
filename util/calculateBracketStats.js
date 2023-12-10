@@ -49,13 +49,11 @@ export default function calculateBracketStats(fullBracket, players, currentRound
 
             if (playerScore > opponentScore) {
               player.wins += 1;
-              player.gameWins += playerScore;
-              player.gameLosses += opponentScore;
             } else if (playerScore < opponentScore) {
               player.losses += 1;
-              player.gameWins += opponentScore;
-              player.gameLosses += playerScore;
             }
+            player.gameWins += playerScore;
+            player.gameLosses += opponentScore;
           }
         });
       });
