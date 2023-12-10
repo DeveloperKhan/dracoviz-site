@@ -1,4 +1,6 @@
-export default function calculateBracketStats(bracket, players) {
+export default function calculateBracketStats(fullBracket, players, currentRoundNumber) {
+  const currentRoundIndex = Math.max(currentRoundNumber, 1);
+  const bracket = fullBracket.slice(0, currentRoundIndex);
   // Create a mapping object to store player information
   const playerMap = {};
 

@@ -115,7 +115,11 @@ async function handler(req, res) {
     }
 
     if (session.bracketType != null && session.bracketType !== bracketTypes.none) { // Calc stats
-      const newPlayers = calculateBracketStats(session.bracket, session.players);
+      const newPlayers = calculateBracketStats(
+        session.bracket,
+        session.players,
+        session.currentRoundNumber,
+      );
       session.players = newPlayers;
     }
 
