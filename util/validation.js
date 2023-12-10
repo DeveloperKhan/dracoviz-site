@@ -346,6 +346,6 @@ const doesSelectorDescribePokémon = (tag, poke) => {
 };
 
 // to test add ' "type": "module" ' to package.json
-// console.log(validateTeam(pokemon1, cp1, fastMoves1, chargedMoves1, 'Maota Cup', 6, null));
+// console.log(validateTeam(pokemon1, cp1, fastMoves1, chargedMoves1, null, 'Maota Cup', 6, null));
 
 export default validateTeam;
