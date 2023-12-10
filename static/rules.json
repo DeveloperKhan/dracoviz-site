@@ -3566,5 +3566,127 @@
                 }]
             }
         ]
+    },
+    "Nuu Cup": {
+        "name": "Nuu Cup",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/Nuu.png/public",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "flags": {
+            "speciesClauseByDex": "true"
+        },
+        "exclude": [
+            {
+                "filterType": "tag",
+                "values": [
+                    "mega"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "froslass",
+                    "chansey"
+                ]
+            },
+            {
+                "filterType": "type",
+                "values": [
+                    "dragon",
+                    "flying",
+                    "water"
+                ]
+            },
+            {
+                "filterType": "except",
+                "values": [
+                    "dragonite",
+                    "dragonite_shadow",
+                    "clefable",
+                    "skuntank",
+                    "skuntank_shadow",
+                    "golisopod",
+                    "araquanid",
+                    "azumarill"
+                ]
+            }
+        ],
+        "include": [
+            {
+                "filterType": "type",
+                "values": [
+                    "rock",
+                    "ground",
+                    "normal",
+                    "ice",
+                    "psychic"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "dragonite",
+                    "dragonite_shadow",
+                    "clefable",
+                    "skuntank",
+                    "skuntank_shadow",
+                    "golisopod",
+                    "araquanid",
+                    "azumarill"
+                ]
+            }
+        ]
+    },
+    "Solitude Cup": {
+        "name": "Syndicate (Solitude Cup)",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/Solitude2.png/public",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "flags": {
+            "speciesClauseByDex": "true"
+        },
+        "exclude": [
+            {
+                "filterType": "tag",
+                "values": [
+                    "mega"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "gliscor",
+                    "palpitoad",
+                    "golurk",
+                    "stunfisk_galarian",
+                    "seismitoad",
+                    "swampert",
+                    "charizard",
+                    "quagsire",
+                    "whiscash",
+                    "marshtomp",
+                    "runerigus",
+                    "gligar",
+                    "diggersby",
+                    "gastrodon",
+                    "empoleon"
+                ]
+            }
+        ],
+        "include": [
+            {
+                "filterType": "type",
+                "values": [
+                    "fire",
+                    "ground",
+                    "ice",
+                    "steel"
+                ]
+            }
+        ]
     }
 }
