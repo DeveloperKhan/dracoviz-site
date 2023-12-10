@@ -6,9 +6,9 @@ import isValidUrl from '../../util/isValidUrl';
 import sessionStates from '../../db/sessionStates';
 import bracketTypes from '../../db/bracketTypes';
 
-function getRandomPin() {
-  return Math.random().toString(36).slice(-4);
-}
+// function getRandomPin() {
+//   return Math.random().toString(36).slice(-4);
+// }
 
 async function handler(req, res) {
   const {
@@ -80,7 +80,7 @@ async function handler(req, res) {
       res.status(401).json({ error: 'api_player_not_found' });
       return;
     }
-    const registrationNumber = isPrivate ? getRandomPin() : '';
+    const registrationNumber = '';
     const Session = await getSessionModel();
     const session = new Session({
       name,

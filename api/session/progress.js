@@ -3,33 +3,7 @@ import getSessionModel from '../../db/session';
 import getPlayerModel from '../../db/player';
 import allowCors from '../../db/allowCors';
 import bracketTypes from '../../db/bracketTypes';
-
-function getResults(matches, playerIdToSearch) {
-  let wins = 0;
-  let losses = 0;
-  let gameWins = 0;
-  let gameLosses = 0;
-  let opponent = null;
-
-  matches.forEach((match) => {
-    match.participants.forEach((participantsArray, i) => {
-      participantsArray.forEach((participant, j) => {
-        if (participant.playerId === playerIdToSearch) {
-          const opponentIndex = 1 - j;
-          opponent = participantsArray[opponentIndex]?.playerId ?? null;
-          gameWins = match.score[i][j];
-          gameLosses = match.score[i][1 - j];
-          wins = gameWins > gameLosses ? 1 : 0;
-          losses = gameLosses > gameWins ? 1 : 0;
-        }
-      });
-    });
-  });
-
-  return {
-    wins, losses, gameWins, gameLosses, opponent,
-  };
-}
+import calculateBracketStats from '../../util/calculateBracketStats';
 
 function transformBracketFormat(inputArray, byeAward) {
   let bracket = null;
@@ -141,32 +115,8 @@ async function handler(req, res) {
     }
 
     if (session.bracketType != null && session.bracketType !== bracketTypes.none) { // Calc stats
-      const values = [];
-      session.players.forEach((p, i) => {
-        const {
-          wins, losses, gameWins, gameLosses, opponent,
-        } = getResults(currentRound.matches, p.playerId);
-        values.push({
-          wins: (session.players[i].wins ?? 0) + wins,
-          losses: (session.players[i].losses ?? 0) + losses,
-          gameWins: (session.players[i].gameWins ?? 0) + gameWins,
-          gameLosses: (session.players[i].gameLosses ?? 0) + gameLosses,
-        });
-        if (opponent == null) {
-          session.players[i].receivedBye = true;
-          return;
-        }
-        if (opponent.wins != null && opponent.wins !== session.players[i].wins) {
-          session.players[i].pairedUpDown = true;
-        }
-        session.players[i].opponents.push(opponent);
-      });
-      session.players.forEach((p, i) => {
-        session.players[i].wins = values[i].wins;
-        session.players[i].losses = values[i].losses;
-        session.players[i].gameWins = values[i].gameWins;
-        session.players[i].gameLosses = values[i].gameLosses;
-      });
+      const newPlayers = calculateBracketStats(session.bracket, session.players);
+      session.players = newPlayers;
     }
 
     if (session.bracketType === bracketTypes.swiss) { // Swiss calc

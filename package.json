@@ -36,6 +36,7 @@
         "classnames": "^2.3.2",
         "dotenv": "^16.0.3",
         "edmonds-blossom-fixed": "^1.0.1",
+        "emojione": "^4.5.0",
         "gatsby": "~5.3.2",
         "gatsby-plugin-image": "^3.3.2",
         "gatsby-plugin-manifest": "^5.3.1",

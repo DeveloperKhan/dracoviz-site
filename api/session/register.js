@@ -56,7 +56,7 @@ async function handler(req, res) {
 
     const {
       players,
-      status,
+      state,
       cpRequired,
       hpRequired,
       movesetsRequired,
@@ -66,7 +66,7 @@ async function handler(req, res) {
       nicknameRequired,
     } = session;
 
-    if (status === sessionStates.pokemonVisible) {
+    if (state === sessionStates.pokemonVisible) {
       res.status(401).json({ error: 'api_session_already_started_error' });
       return;
     }

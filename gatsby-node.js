@@ -25,6 +25,7 @@ exports.createPages = async (gatsbyUtilities) => {
   const seasonPages = getSeasonPages(pages);
   const gblPage = getGBLPage(pages);
   const eventsPage = getEventsPage(pages);
+  const tierListPage = getTierListPage(pages);
 
   if (seasonPages == null || seasonPages.length <= 0) {
     return;
@@ -36,9 +37,7 @@ exports.createPages = async (gatsbyUtilities) => {
   createSeasonPages({ seasonPages, gatsbyUtilities });
   createGBLPage({ gblPage, gatsbyUtilities });
   createEventsPage({ eventsPage, gatsbyUtilities });
-
-  // And a paginated archive
-  // await createBlogPostArchive({ posts, gatsbyUtilities });
+  createTierListPage({ tierListPage, gatsbyUtilities });
 };
 
 const getSeasonPages = (pages) => {
@@ -53,6 +52,11 @@ const getGBLPage = (pages) => {
 
 const getEventsPage = (pages) => {
   const pageEdges = pages.filter(({ page }) => page.uri.includes('/events-brackets'));
+  return pageEdges?.[0].page;
+};
+
+const getTierListPage = (pages) => {
+  const pageEdges = pages.filter(({ page }) => page.uri.includes('/tier-list'));
   return pageEdges?.[0].page;
 };
 
@@ -171,6 +175,17 @@ const createEventsPage = ({ eventsPage, gatsbyUtilities }) => {
     component: path.resolve('./src/templates/gallery.jsx'),
     context: {
       id: eventsPage.id,
+    },
+  });
+};
+
+const createTierListPage = ({ tierListPage, gatsbyUtilities }) => {
+  gatsbyUtilities.actions.createPage({
+    path: tierListPage.uri,
+    component: path.resolve('./src/templates/tier-list.jsx'),
+    context: {
+      id: tierListPage.id,
+      slug: 'tier-list',
     },
   });
 };
