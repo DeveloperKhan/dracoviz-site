@@ -35,7 +35,7 @@ const validateTeam = (
         let included = false;
 
         includeList.every((tag) => {
-          included = doesSelectorDescribePokémon(tag, pokemonJSON[p]);
+          included = doesSelectorDescribePokémon(tag, pokemonJSON[p], null);
           if (included) {
             return false;
           }
@@ -64,9 +64,10 @@ const validateTeam = (
       }
       if (excludeList.length) {
         let excluded = false;
-
+        const tagList = excludeList.map((test) => test.filterType);
+        const exceptions = excludeList[tagList.indexOf('except')]?.values;
         excludeList.every((tag) => {
-          excluded = doesSelectorDescribePokémon(tag, pokemonJSON[p]);
+          excluded = doesSelectorDescribePokémon(tag, pokemonJSON[p], exceptions);
           if (excluded) {
             return false;
           }
@@ -352,7 +353,7 @@ const validateTeam = (
   return null;
 };
 
-const doesSelectorDescribePokémon = (tag, poke) => {
+const doesSelectorDescribePokémon = (tag, poke, exceptions) => {
   if (!poke) {
     return false;
   }
@@ -361,7 +362,12 @@ const doesSelectorDescribePokémon = (tag, poke) => {
   } if (tag.filterType === 'id') {
     return tag.values.includes(poke.speciesId);
   } if (tag.filterType === 'type') {
-    return tag.values.some((value) => poke.types.includes(value));
+    // eslint-disable-next-line max-len
+    if (exceptions != null) {
+      const isException = !(exceptions.includes(poke.speciesId));
+      return (isException && (tag.values.some((value) => poke.types.includes(value))));
+    }
+    return (tag.values.some((value) => poke.types.includes(value)));
   } if (tag.filterType === 'dex') {
     return tag.values.some((value) => {
       const [start, end] = value.split('-');
