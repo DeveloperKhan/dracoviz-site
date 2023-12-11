@@ -350,7 +350,7 @@ const validateTeam = (
     }
   }
 
-  return null;
+  return { error: null, details: null };
 };
 
 const doesSelectorDescribePokémon = (tag, poke, exceptions) => {
@@ -373,6 +373,10 @@ const doesSelectorDescribePokémon = (tag, poke, exceptions) => {
       const [start, end] = value.split('-');
       const startInt = parseInt(start, 10);
       const endInt = parseInt(end, 10);
+      if (exceptions != null) {
+        const isException = !(exceptions.includes(poke.speciesId));
+        return (isException && (startInt <= poke.dex && poke.dex <= endInt));
+      }
       return startInt <= poke.dex && poke.dex <= endInt;
     });
   }
