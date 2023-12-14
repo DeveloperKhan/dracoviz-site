@@ -61,7 +61,20 @@ export default function calculateBracketStats(fullBracket, players, currentRound
   });
 
   // Convert the playerMap values to an array
-  const newPlayers = Object.values(playerMap);
+  const playerMapArray = Object.values(playerMap);
+
+  const newPlayers = players;
+
+  newPlayers.forEach((p, i) => {
+    const thePlayer = playerMapArray.find((x) => x.playerId === p.playerId);
+    newPlayers[i].wins = thePlayer?.wins ?? newPlayers[i].wins;
+    newPlayers[i].losses = thePlayer?.losses ?? newPlayers[i].losses;
+    newPlayers[i].gameWins = thePlayer?.gameWins ?? newPlayers[i].gameWins;
+    newPlayers[i].gameLosses = thePlayer?.gameLosses ?? newPlayers[i].gameLosses;
+    newPlayers[i].opponents = thePlayer?.opponents ?? newPlayers[i].opponents;
+    newPlayers[i].receivedBye = thePlayer?.receivedBye ?? newPlayers[i].receivedBye;
+    newPlayers[i].pairedUpDown = thePlayer?.pairedUpDown ?? newPlayers[i].pairedUpDown;
+  });
 
   return newPlayers;
 }
