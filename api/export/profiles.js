@@ -1,7 +1,7 @@
 import { createClient } from '@vercel/kv';
 import profileNames from '../../static/profiles';
 
-const batchSize = 25;
+const batchSize = 13;
 
 function compareArrays(array1, array2) {
   // Find missing values from array 1
