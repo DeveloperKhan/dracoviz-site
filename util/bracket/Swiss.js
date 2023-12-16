@@ -67,8 +67,6 @@ export default function Swiss(players, round, rated = false, colors = false) {
       }
       const baseWt = 14 * Math.log10(scoreSums.findIndex((s) => s === curr.score + opp.score) + 1);
       let wt = baseWt;
-      console.log('max score', Math.max(curr.score, opp.score), 'min score', Math.min(curr.score, opp.score));
-      console.log('Base wt', wt);
       const scoreGroupDiff = Math.abs(
         scoreGroups.findIndex(
           (s) => s === curr.score,
@@ -79,14 +77,24 @@ export default function Swiss(players, round, rated = false, colors = false) {
       wt += scoreGroupDiff < 2
         ? 3 / Math.log10(scoreGroupDiff + 2)
         : 1 / Math.log10(scoreGroupDiff + 2);
-      if (scoreGroupDiff <= 1) {
-        const scoreMaxMod = (highest === Math.max(curr.score, opp.score)) ? 99 : 0;
-        wt += scoreMaxMod;
+      if (highest === Math.max(curr.score, opp.score)) {
+        if (scoreGroupDiff === 1) {
+          wt += 33;
+        }
+        if (scoreGroupDiff === 0) {
+          wt += 99;
+        }
       }
-      if (lowest === Math.min(curr.score, opp.score)) {
+      // Special clause for byes
+      const isOdd = playerArray.length % 2 === 1;
+      if (isOdd
+          && lowest === Math.min(curr.score, opp.score)
+          && scoreGroupDiff < 1
+          && curr.receivedBye === false
+          && opp.receivedBye === false
+      ) {
         wt -= 99;
       }
-      console.log('Score group diff wt', wt);
       if (scoreGroupDiff === 1 && curr.hasOwnProperty('pairedUpDown') && curr.pairedUpDown === false && opp.hasOwnProperty('pairedUpDown') && opp.pairedUpDown === false) {
         wt += 1.2;
       }
