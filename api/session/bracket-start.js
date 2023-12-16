@@ -55,7 +55,7 @@ function calculateSwissRounds(players) {
 }
 
 function getSwissPlayers(players) {
-  return players.map((player) => ({
+  return players.filter((p) => p.removed !== true).map((player) => ({
     id: player.playerId,
     score: 0,
   }));
