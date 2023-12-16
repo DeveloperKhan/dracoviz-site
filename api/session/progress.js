@@ -40,7 +40,7 @@ function transformBracketFormat(inputArray, byeAward) {
 }
 
 function getSwissPlayers(players) {
-  return players.map((player) => ({
+  return players.filter((p) => p.removed !== true).map((player) => ({
     id: player.playerId,
     score: player.wins,
     receivedBye: player.receivedBye,

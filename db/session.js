@@ -50,6 +50,7 @@ const getSessionModel = async () => {
       opponents: [String],
       receivedBye: { type: Boolean, default: false },
       pairedUpDown: { type: Boolean, default: false },
+      removed: { type: Boolean, default: false },
       rating: { type: Number },
       metaClass: { type: String },
       pokemon: [{
