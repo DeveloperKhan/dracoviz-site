@@ -3688,5 +3688,232 @@
                 ]
             }
         ]
+    },
+    "Enchanted Domain": {
+        "name": "Enchanted Domain",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/great_league.png/public",
+        "maxCP": 2500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "flags": {
+            "speciesClauseByDex": "true"
+        },
+        "exclude": [
+            {
+                "filterType": "tag",
+                "values": [
+                    "mega"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "pidgeot",
+                    "pidgeot_shadow",
+                    "steelix",
+                    "steelix_shadow",
+                    "skarmory",
+                    "skarmory_shadow",
+                    "registeel",
+                    "registeel_shadow",
+                    "giratina_altered",
+                    "cobalion",
+                    "zygarde_complete",
+                    "stunfisk_galarian",
+                    "greedent",
+                    "greedent_shadow"
+                ]
+            }
+        ],
+        "include": [
+            {
+                "filterType": "type",
+                "values": [
+                    "dark",
+                    "dragon",
+                    "fairy",
+                    "ghost",
+                    "normal",
+                    "psychic",
+                    "steel"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "muk",
+                    "muk_shadow",
+                    "zapdos",
+                    "zapdos_shadow",
+                    "articuno",
+                    "articuno_shadow",
+                    "ampharos",
+                    "ampharos_shadow",
+                    "regice",
+                    "regice_shadow",
+                    "golisopod",
+                    "sneasler",
+                    "sneasler_shadow"
+                ]
+            }
+        ]
+    },
+    "Serene Domain": {
+        "name": "Serene Domain",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/great_league.png/public",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "flags": {
+            "speciesClauseByDex": "true"
+        },
+        "exclude": [
+            {
+                "filterType": "tag",
+                "values": [
+                    "mega"
+                ]
+            },
+            {
+                "filterType": "type",
+                "values": [
+                    "grass"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "araquanid",
+                    "chansey",
+                    "cresselia",
+                    "dubwool",
+                    "gardevoir",
+                    "gardevoir_shadow",
+                    "greedent",
+                    "heliolisk",
+                    "lickitung",
+                    "mantine",
+                    "medicham",
+                    "miltank",
+                    "obstagoon",
+                    "pidgeot",
+                    "pidgeot_shadow",
+                    "poliwrath",
+                    "poliwrath_shadow",
+                    "primarina",
+                    "toxapex",
+                    "vigoroth",
+                    "wigglytuff",
+                    "wobbuffet",
+                    "wobbuffet_shadow",
+                    "lanturn",
+                    "rotom_wash",
+                    "chinchou"
+                ]
+            }
+        ],
+        "include": [
+            {
+                "filterType": "type",
+                "values": [
+                    "normal",
+                    "psychic",
+                    "water"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "conkeldurr",
+                    "conkeldurr_shadow",
+                    "haunter",
+                    "haunter_shadow",
+                    "gengar",
+                    "gengar_shadow",
+                    "hitmontop",
+                    "hitmontop_shadow"
+                ]
+            }
+        ]
+    },
+    "Primordial Domain": {
+        "name": "Primordial Domain",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/great_league.png/public",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "flags": {
+            "speciesClauseByDex": "true"
+        },
+        "exclude": [
+            {
+                "filterType": "tag",
+                "values": [
+                    "mega",
+                    "shadow"
+                ]
+            },
+            {
+                "filterType": "type",
+                "values": [
+                    "fighting",
+                    "steel"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "abomasnow",
+                    "beartic",
+                    "carbink",
+                    "crustle",
+                    "dewgong",
+                    "diancie",
+                    "dragalge",
+                    "guzzlord",
+                    "haxorus",
+                    "lanturn",
+                    "lycanroc_midnight",
+                    "meowscarada",
+                    "ninetales_alolan",
+                    "obstagoon",
+                    "pachirisu",
+                    "raichu",
+                    "regirock",
+                    "stunfisk",
+                    "umbreon",
+                    "walrein"
+                ]
+            }
+        ],
+        "include": [
+            {
+                "filterType": "type",
+                "values": [
+                    "dark",
+                    "dragon",
+                    "electric",
+                    "ice",
+                    "rock"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "arbok",
+                    "castform",
+                    "golisopod",
+                    "lickilicky",
+                    "milotic",
+                    "munchlax",
+                    "sceptile",
+                    "snorlax",
+                    "togetic"
+                ]
+            }
+        ]
     }
 }
