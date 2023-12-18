@@ -4032,7 +4032,7 @@
                 "include": [{
                     "filterType": "id",
                     "values": [
-                        "gastrodon", "whiscash", "diggersby",
+                        "gastrodon_east_sea", "gastrodon_west_sea", "whiscash", "diggersby",
                         "runerigus", "golisopod", "araquanid",
                         "tentacruel", "ariados", "charjabug",
                         "vikavolt", "galvantula",
@@ -4059,7 +4059,7 @@
                 "include": [{
                     "filterType": "id",
                     "values": [
-                        "gastrodon", "whiscash", "diggersby",
+                        "gastrodon_east_sea", "gastrodon_west_sea", "whiscash", "diggersby",
                         "runerigus", "golisopod", "araquanid",
                         "tentacruel", "ariados", "charjabug",
                         "vikavolt", "galvantula",
