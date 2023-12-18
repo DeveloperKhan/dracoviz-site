@@ -4007,5 +4007,150 @@
                 }
             ]
         }
+    },
+    "Knockout Cup": {
+        "name": "Knockout Cup",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "metaLogo": "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/6c084f57-e535-43aa-d081-d2477cf88700/public",
+        "exclude": [
+            {
+                "filterType": "tag",
+                "values": [
+                    "shadow"
+                ]
+            }],
+        "teamPattern": [{
+                "include": [{
+                    "filterType": "id",
+                    "values": ["machamp", "sirfetchd", "hitmontop", "primeape", "poliwrath"]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "id",
+                    "values": [
+                        "gastrodon", "whiscash", "diggersby",
+                        "runerigus", "golisopod", "araquanid",
+                        "tentacruel", "ariados", "charjabug",
+                        "vikavolt", "galvantula",
+                        "donphan", "escavalier",
+                        "politoed", "dewgong", "walrein",
+                        "sealeo", "lapras", "samurott", "blastoise",
+                        "milotic", "greninja", "castform_rainy",
+                        "wailmer", "seaking", "suicune", "qwilfish",
+                        "gengar", "haunter", "beedrill", "swalot",
+                        "weezing_galarian", "grimer_alolan", "muk_alolan",
+                        "grimer", "muk", "drapion", "skuntank",
+                        "qwilfish_hisuian", "overqwil", "seviper",
+                        "scolipede", "marshtomp", "seismitoad",
+                        "stunfisk", "sandslash", "golurk",
+                        "palossand", "piloswine", "marowak",
+                        "hippowdon", "rhyperior", "rhydon",
+                        "ampharos", "heliolisk", "dedenne",
+                        "raichu_alolan", "raichu", "graveler_alolan",
+                        "golem_alolan", "minun", "luxray"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "id",
+                    "values": [
+                        "gastrodon", "whiscash", "diggersby",
+                        "runerigus", "golisopod", "araquanid",
+                        "tentacruel", "ariados", "charjabug",
+                        "vikavolt", "galvantula",
+                        "donphan", "escavalier",
+                        "politoed", "dewgong", "walrein",
+                        "sealeo", "lapras", "samurott", "blastoise",
+                        "milotic", "greninja", "castform_rainy",
+                        "wailmer", "seaking", "suicune", "qwilfish",
+                        "gengar", "haunter", "beedrill", "swalot",
+                        "weezing_galarian", "grimer_alolan", "muk_alolan",
+                        "grimer", "muk", "drapion", "skuntank",
+                        "qwilfish_hisuian", "overqwil", "seviper",
+                        "scolipede", "marshtomp", "seismitoad",
+                        "stunfisk", "sandslash", "golurk",
+                        "palossand", "piloswine", "marowak",
+                        "hippowdon", "rhyperior", "rhydon",
+                        "ampharos", "heliolisk", "dedenne",
+                        "raichu_alolan", "raichu", "graveler_alolan",
+                        "golem_alolan", "minun", "luxray"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "id",
+                    "values": [
+                        "donphan", "escavalier",
+                        "politoed", "dewgong", "walrein",
+                        "sealeo", "lapras", "samurott", "blastoise",
+                        "milotic", "greninja", "castform_rainy",
+                        "wailmer", "seaking", "suicune", "qwilfish",
+                        "gengar", "haunter", "beedrill", "swalot",
+                        "weezing_galarian", "grimer_alolan", "muk_alolan",
+                        "grimer", "muk", "drapion", "skuntank",
+                        "qwilfish_hisuian", "overqwil", "seviper",
+                        "scolipede", "marshtomp", "seismitoad",
+                        "stunfisk", "sandslash", "golurk",
+                        "palossand", "piloswine", "marowak",
+                        "hippowdon", "rhyperior", "rhydon",
+                        "ampharos", "heliolisk", "dedenne",
+                        "raichu_alolan", "raichu", "graveler_alolan",
+                        "golem_alolan", "minun", "luxray"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "id",
+                    "values": [
+                        "donphan", "escavalier",
+                        "politoed", "dewgong", "walrein",
+                        "sealeo", "lapras", "samurott", "blastoise",
+                        "milotic", "greninja", "castform_rainy",
+                        "wailmer", "seaking", "suicune", "qwilfish",
+                        "gengar", "haunter", "beedrill", "swalot",
+                        "weezing_galarian", "grimer_alolan", "muk_alolan",
+                        "grimer", "muk", "drapion", "skuntank",
+                        "qwilfish_hisuian", "overqwil", "seviper",
+                        "scolipede", "marshtomp", "seismitoad",
+                        "stunfisk", "sandslash", "golurk",
+                        "palossand", "piloswine", "marowak",
+                        "hippowdon", "rhyperior", "rhydon",
+                        "ampharos", "heliolisk", "dedenne",
+                        "raichu_alolan", "raichu", "graveler_alolan",
+                        "golem_alolan", "minun", "luxray"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "id",
+                    "values": [
+                        "donphan", "escavalier",
+                        "politoed", "dewgong", "walrein",
+                        "sealeo", "lapras", "samurott", "blastoise",
+                        "milotic", "greninja", "castform_rainy",
+                        "wailmer", "seaking", "suicune", "qwilfish",
+                        "gengar", "haunter", "beedrill", "swalot",
+                        "weezing_galarian", "grimer_alolan", "muk_alolan",
+                        "grimer", "muk", "drapion", "skuntank",
+                        "qwilfish_hisuian", "overqwil", "seviper",
+                        "scolipede", "marshtomp", "seismitoad",
+                        "stunfisk", "sandslash", "golurk",
+                        "palossand", "piloswine", "marowak",
+                        "hippowdon", "rhyperior", "rhydon",
+                        "ampharos", "heliolisk", "dedenne",
+                        "raichu_alolan", "raichu", "graveler_alolan",
+                        "golem_alolan", "minun", "luxray"
+                    ]
+                }]
+            }
+        ]
     }
 }
