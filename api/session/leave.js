@@ -104,7 +104,7 @@ async function handler(req, res) {
     }
 
     const shouldRemoveCompletely = (
-      session.bracketType !== bracketTypes.none && session.currentRoundNumber > 0)
+      session.bracketType !== bracketTypes.none && session.currentRoundNumber <= 0)
       || (session.bracketTypes === bracketTypes.none && session.state === sessionStates.notStarted);
     const {
       players,
