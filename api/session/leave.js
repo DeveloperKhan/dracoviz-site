@@ -3,6 +3,8 @@ import getSessionModel from '../../db/session';
 import allowCors from '../../db/allowCors';
 import deletePlayerFromSession from '../../util/deletePlayer';
 import getFactionModel from '../../db/faction';
+import bracketTypes from '../../db/bracketTypes';
+import sessionStates from '../../db/sessionStates';
 
 async function handler(req, res) {
   const {
@@ -101,7 +103,14 @@ async function handler(req, res) {
       }
     }
 
-    const { players, sessions, bracket } = deletePlayerFromSession(playerToRemove, session);
+    const shouldRemoveCompletely = (
+      session.bracketType !== bracketTypes.none && session.currentRoundNumber > 0)
+      || (session.bracketTypes === bracketTypes.none && session.state === sessionStates.notStarted);
+    const {
+      players,
+      sessions,
+      bracket,
+    } = deletePlayerFromSession(playerToRemove, session, shouldRemoveCompletely);
 
     session.bracket = bracket;
     session.players = players;
