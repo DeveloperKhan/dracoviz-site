@@ -3984,5 +3984,125 @@
                 }]
             }
         ]
+    },
+    "Vanu Cup": {
+        "name": "Vanu Cup",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "metaLogo": "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/Vanu.png/public",
+        "flags": {
+            "speciesClauseByForm": "true"
+        },
+        "teamPattern": [{
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "grass",
+                        "ground",
+                        "normal",
+                        "rock",
+                        "water"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "grass"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying",
+                        "ground",
+                        "normal",
+                        "rock",
+                        "water"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "ground"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying",
+                        "grass",
+                        "normal",
+                        "rock",
+                        "water"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "normal"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying",
+                        "grass",
+                        "ground",
+                        "rock",
+                        "water"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "rock"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying",
+                        "grass",
+                        "ground",
+                        "normal",
+                        "water"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "water"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying",
+                        "grass",
+                        "ground",
+                        "normal",
+                        "rock"
+                    ]
+                }]
+            }
+        ]
     }
 }
