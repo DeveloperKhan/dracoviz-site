@@ -139,7 +139,11 @@ async function handler(req, res) {
       session.bracket[currentRoundIndex].matches[matchIndex] = currentMatch;
     }
 
-    const newPlayers = calculateBracketStats(session.bracket, session.players);
+    const newPlayers = calculateBracketStats(
+      session.bracket,
+      session.players,
+      currentRoundNumber,
+    );
     session.players = newPlayers;
 
     await session.save();

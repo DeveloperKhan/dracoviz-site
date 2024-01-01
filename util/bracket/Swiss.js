@@ -5,6 +5,29 @@
 /* eslint-disable no-prototype-builtins */
 import blossom from 'edmonds-blossom-fixed';
 
+function getHighestAndLowestScores(input) {
+  // Ensure that the array is not empty
+  if (input.length === 0) {
+    return { highest: null, lowest: null }; // or handle the empty array case as needed
+  }
+
+  // Use reduce to find the objects with the highest and lowest scores
+  const result = input.reduce((acc, current) => {
+    if (current.score > acc.highest.score) {
+      acc.highest = current;
+    }
+
+    if (current.score < acc.lowest.score) {
+      acc.lowest = current;
+    }
+
+    return acc;
+  }, { highest: input[0], lowest: input[0] });
+
+  // Return an object containing both the highest and lowest scores
+  return { highest: result.highest.score, lowest: result.lowest.score };
+}
+
 export default function Swiss(players, round, rated = false, colors = false) {
   const matches = [];
   let playerArray = [];
@@ -28,6 +51,7 @@ export default function Swiss(players, round, rated = false, colors = false) {
     }
     return sums;
   }).flat())].sort((a, b) => a - b);
+  const { highest, lowest } = getHighestAndLowestScores(playerArray);
   const pairs = [];
   for (let i = 0; i < playerArray.length; i++) {
     const curr = playerArray[i];
@@ -41,7 +65,8 @@ export default function Swiss(players, round, rated = false, colors = false) {
       if (curr.hasOwnProperty('avoid') && curr.avoid.includes(opp.id)) {
         continue;
       }
-      let wt = 14 * Math.log10(scoreSums.findIndex((s) => s === curr.score + opp.score) + 1);
+      const baseWt = 14 * Math.log10(scoreSums.findIndex((s) => s === curr.score + opp.score) + 1);
+      let wt = baseWt;
       const scoreGroupDiff = Math.abs(
         scoreGroups.findIndex(
           (s) => s === curr.score,
@@ -52,6 +77,24 @@ export default function Swiss(players, round, rated = false, colors = false) {
       wt += scoreGroupDiff < 2
         ? 3 / Math.log10(scoreGroupDiff + 2)
         : 1 / Math.log10(scoreGroupDiff + 2);
+      if (highest === Math.max(curr.score, opp.score)) {
+        if (scoreGroupDiff === 1) {
+          wt += 33;
+        }
+        if (scoreGroupDiff === 0) {
+          wt += 99;
+        }
+      }
+      // Special clause for byes
+      const isOdd = playerArray.length % 2 === 1;
+      if (isOdd
+          && lowest === Math.min(curr.score, opp.score)
+          && scoreGroupDiff < 1
+          && curr.receivedBye === false
+          && opp.receivedBye === false
+      ) {
+        wt -= 99;
+      }
       if (scoreGroupDiff === 1 && curr.hasOwnProperty('pairedUpDown') && curr.pairedUpDown === false && opp.hasOwnProperty('pairedUpDown') && opp.pairedUpDown === false) {
         wt += 1.2;
       }

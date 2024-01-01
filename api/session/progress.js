@@ -40,7 +40,7 @@ function transformBracketFormat(inputArray, byeAward) {
 }
 
 function getSwissPlayers(players) {
-  return players.map((player) => ({
+  return players.filter((p) => p.removed !== true).map((player) => ({
     id: player.playerId,
     score: player.wins,
     receivedBye: player.receivedBye,
@@ -115,7 +115,11 @@ async function handler(req, res) {
     }
 
     if (session.bracketType != null && session.bracketType !== bracketTypes.none) { // Calc stats
-      const newPlayers = calculateBracketStats(session.bracket, session.players);
+      const newPlayers = calculateBracketStats(
+        session.bracket,
+        session.players,
+        session.currentRoundNumber,
+      );
       session.players = newPlayers;
     }
 

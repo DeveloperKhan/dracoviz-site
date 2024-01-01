@@ -16,14 +16,11 @@ function addMinutesToDate(date, minutesToAdd) {
   return newDate;
 }
 
-function findName(id, players, removed) {
-  if (removed) {
-    return id;
-  }
+function findName(id, players) {
   if (id == null) {
     return 'Bye';
   }
-  return players.find((p) => p.session === id)?.name ?? '';
+  return players.find((p) => p.session === id)?.name ?? 'Unknown Player';
 }
 
 function getBracket(bracket, players, currentRoundNumber) {
@@ -44,7 +41,7 @@ function getBracket(bracket, players, currentRoundNumber) {
         pairings.map((participant) => ({
           score: participant.score,
           removed: participant.removed,
-          name: findName(participant.playerId, players, participant.removed),
+          name: findName(participant.playerId, players),
         }))
       ));
       return {
@@ -138,6 +135,7 @@ async function getPlayers(
         friendCode: playerObj.friendCode,
         discord: playerObj.discord,
         telegram: playerObj.telegram,
+        removed: player.removed,
         tournamentPosition: shouldLookupPlayer ? player.tournamentPosition : -1,
         valid: isHost && player.pokemon != null && player.pokemon.length >= 6,
       };

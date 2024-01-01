@@ -28,13 +28,12 @@ function findIndexes(matches, playerIdToSearch) {
   return { targetMatchIndex, targetGroupIndex, targetParticipantIndex };
 }
 
-function deletePlayerFromSession(player, session) {
+function deletePlayerFromSession(player, session, shouldRemoveCompletely) {
   const {
     key, bracket, bracketType, currentRoundNumber, byeAward,
   } = session;
   const newBracket = bracket;
   const playerId = player.session;
-  const playerName = player.name;
   if (
     (bracketType === bracketTypes.swiss
       || bracketType === bracketTypes.roundRobin)
@@ -59,13 +58,18 @@ function deletePlayerFromSession(player, session) {
       }
       newBracket[currentRoundIndex].matches[targetMatchIndex]
         .participants[targetGroupIndex][targetParticipantIndex].removed = true;
-      newBracket[currentRoundIndex].matches[targetMatchIndex]
-        .participants[targetGroupIndex][targetParticipantIndex].playerId = playerName;
     });
+  }
+  let newPlayers = session.players;
+  if (shouldRemoveCompletely) {
+    newPlayers = session.players.filter((p) => p.playerId !== playerId);
+  } else {
+    const removedPlayerIndex = newPlayers.findIndex((p) => p.playerId === playerId);
+    newPlayers[removedPlayerIndex].removed = true;
   }
   return {
     sessions: player.sessions.filter((s) => s !== key),
-    players: session.players.filter((p) => p.playerId !== playerId),
+    players: newPlayers,
     bracket: newBracket,
   };
 }

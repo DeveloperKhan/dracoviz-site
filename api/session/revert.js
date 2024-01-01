@@ -62,10 +62,13 @@ async function handler(req, res) {
       return;
     }
     session.currentRoundNumber = currentRoundNumber - 1;
-    const newBracket = bracket.slice(0, -1);
-    session.bracket = newBracket;
-    const newPlayers = calculateBracketStats(newBracket, players);
+    const newPlayers = calculateBracketStats(
+      session.bracket,
+      players,
+      currentRoundNumber,
+    );
     session.players = newPlayers;
+    session.bracket = bracket.slice(0, -1);
     await session.save();
     res.status(200).send({});
   } catch (ex) {

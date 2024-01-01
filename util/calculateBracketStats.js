@@ -1,4 +1,6 @@
-export default function calculateBracketStats(bracket, players) {
+export default function calculateBracketStats(fullBracket, players, currentRoundNumber) {
+  const currentRoundIndex = Math.max(currentRoundNumber, 1);
+  const bracket = fullBracket.slice(0, currentRoundIndex);
   // Create a mapping object to store player information
   const playerMap = {};
 
@@ -47,21 +49,29 @@ export default function calculateBracketStats(bracket, players) {
 
             if (playerScore > opponentScore) {
               player.wins += 1;
-              player.gameWins += playerScore;
-              player.gameLosses += opponentScore;
             } else if (playerScore < opponentScore) {
               player.losses += 1;
-              player.gameWins += opponentScore;
-              player.gameLosses += playerScore;
             }
+            player.gameWins += playerScore;
+            player.gameLosses += opponentScore;
           }
         });
       });
     });
   });
 
-  // Convert the playerMap values to an array
-  const newPlayers = Object.values(playerMap);
+  const newPlayers = players.filter((p) => playerMap[p.playerId] != null);
+
+  newPlayers.forEach((p, i) => {
+    const thePlayer = playerMap[p.playerId];
+    newPlayers[i].wins = thePlayer?.wins ?? newPlayers[i].wins;
+    newPlayers[i].losses = thePlayer?.losses ?? newPlayers[i].losses;
+    newPlayers[i].gameWins = thePlayer?.gameWins ?? newPlayers[i].gameWins;
+    newPlayers[i].gameLosses = thePlayer?.gameLosses ?? newPlayers[i].gameLosses;
+    newPlayers[i].opponents = thePlayer?.opponents ?? newPlayers[i].opponents;
+    newPlayers[i].receivedBye = thePlayer?.receivedBye ?? newPlayers[i].receivedBye;
+    newPlayers[i].pairedUpDown = thePlayer?.pairedUpDown ?? newPlayers[i].pairedUpDown;
+  });
 
   return newPlayers;
 }
