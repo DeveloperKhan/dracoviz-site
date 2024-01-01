@@ -3689,6 +3689,422 @@
             }
         ]
     },
+    "Naruto Cup": {
+        "name": "Naruto Cup",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "metaLogo": "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/Naruto.png/public",
+        "flags": {
+            "speciesClauseByForm": "true"
+        },
+        "teamPattern": [{
+                "include": [{
+                    "filterType": "id",
+                    "values": [
+                        "ninetales_alolan",
+                        "ninetales_alolan_shadow",
+                        "ninetales",
+                        "ninetales_shadow"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "fighting",
+                        "psychic",
+                        "dark",
+                        "normal",
+                        "fire",
+                        "fairy"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying"
+                    ]
+                },
+                {
+                    "filterType": "id",
+                    "values": [
+                        "carbink",
+                        "chansey",
+                        "wobbuffet",
+                        "wobbuffet_shadow"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "fighting",
+                        "psychic",
+                        "dark",
+                        "normal",
+                        "fire",
+                        "fairy"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying"
+                    ]
+                },
+                {
+                    "filterType": "id",
+                    "values": [
+                        "carbink",
+                        "chansey",
+                        "wobbuffet",
+                        "wobbuffet_shadow"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "fighting",
+                        "psychic",
+                        "dark",
+                        "normal",
+                        "fire",
+                        "fairy"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying"
+                    ]
+                },
+                {
+                    "filterType": "id",
+                    "values": [
+                        "carbink",
+                        "chansey",
+                        "wobbuffet",
+                        "wobbuffet_shadow"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "fighting",
+                        "psychic",
+                        "dark",
+                        "normal",
+                        "fire",
+                        "fairy"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying"
+                    ]
+                },
+                {
+                    "filterType": "id",
+                    "values": [
+                        "carbink",
+                        "chansey",
+                        "wobbuffet",
+                        "wobbuffet_shadow"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "fighting",
+                        "psychic",
+                        "dark",
+                        "normal",
+                        "fire",
+                        "fairy"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying"
+                    ]
+                },
+                {
+                    "filterType": "id",
+                    "values": [
+                        "carbink",
+                        "chansey",
+                        "wobbuffet",
+                        "wobbuffet_shadow"
+                    ]
+                }]
+            }
+        ]
+    },
+    "Turok Cup": {
+        "name": "Turok Cup",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "metaLogo": "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/Turok.png/public",
+        "flags": {
+            "speciesClauseByForm": "true"
+        },
+        "teamPattern": [{
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "fighting"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "normal",
+                        "water",
+                        "grass",
+                        "electric",
+                        "ice",
+                        "fighting",
+                        "poison",
+                        "ground",
+                        "flying",
+                        "psychic",
+                        "ghost",
+                        "dark",
+                        "fairy"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "bug",
+                        "fire",
+                        "dragon",
+                        "rock",
+                        "steel"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": [
+                        "stunfisk_galarian",
+                        "carbink"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "bug",
+                        "fire",
+                        "dragon",
+                        "rock",
+                        "steel"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": [
+                        "stunfisk_galarian",
+                        "carbink"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "bug",
+                        "fire",
+                        "dragon",
+                        "rock",
+                        "steel"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": [
+                        "stunfisk_galarian",
+                        "carbink"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "bug",
+                        "fire",
+                        "dragon",
+                        "rock",
+                        "steel"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": [
+                        "stunfisk_galarian",
+                        "carbink"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "bug",
+                        "fire",
+                        "dragon",
+                        "rock",
+                        "steel"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": [
+                        "stunfisk_galarian",
+                        "carbink"
+                    ]
+                }]
+            }
+        ]
+    },
+    "Vanu Cup": {
+        "name": "Vanu Cup",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "metaLogo": "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/Vanu.png/public",
+        "flags": {
+            "speciesClauseByForm": "true"
+        },
+        "teamPattern": [{
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "grass",
+                        "ground",
+                        "normal",
+                        "rock",
+                        "water"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "grass"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying",
+                        "ground",
+                        "normal",
+                        "rock",
+                        "water"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "ground"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying",
+                        "grass",
+                        "normal",
+                        "rock",
+                        "water"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "normal"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying",
+                        "grass",
+                        "ground",
+                        "rock",
+                        "water"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "rock"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying",
+                        "grass",
+                        "ground",
+                        "normal",
+                        "water"
+                    ]
+                }]
+            },
+            {
+                "include": [{
+                    "filterType": "type",
+                    "values": [
+                        "water"
+                    ]
+                }],
+                "exclude": [{
+                    "filterType": "type",
+                    "values": [
+                        "flying",
+                        "grass",
+                        "ground",
+                        "normal",
+                        "rock"
+                    ]
+                }]
+            }
+        ]
+    },
     "Enchanted Domain": {
         "name": "Enchanted Domain",
         "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/fbeea93f-2a6e-4cfd-c6a4-9f02a29de500/public",
