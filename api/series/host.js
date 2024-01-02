@@ -40,6 +40,7 @@ async function handler(req, res) {
     const {
       hosts,
       admins,
+      key,
     } = series;
     const isHost = hosts.includes(x_session_id);
     const isAdmin = admins.includes(x_session_id);
@@ -60,6 +61,8 @@ async function handler(req, res) {
     const historyItem = createHistoryItem(historyTypes.addHost, x_session_id, session);
     series.history.push(historyItem);
     await series.save();
+    candidate.series.push(key);
+    await candidate.save();
     res.status(200).send({
       slug,
     });

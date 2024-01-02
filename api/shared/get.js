@@ -3,6 +3,7 @@ import getSessionModel from '../../db/session';
 import allowCors from '../../db/allowCors';
 import avatars from '../../static/avatars.json';
 import rules from '../../static/rules.json';
+import getSeriesModel from '../../db/series';
 
 async function handler(req, res) {
   // const { id } = req.query;
@@ -65,6 +66,22 @@ async function handler(req, res) {
       }
     }));
 
+    const collections = [];
+    const Series = await getSeriesModel();
+    await Promise.all(player.series?.map(async (playerSeries) => {
+      const series = await Series.findOne({ key: playerSeries });
+      let role = 'Host';
+      if (series.admins.includes(x_session_id)) {
+        role = 'Admin';
+      }
+      const {
+        slug, name, description,
+      } = series;
+      collections.push({
+        slug, name, description, role,
+      });
+    }));
+
     const response = {
       name: player.name,
       description: player.description,
@@ -75,6 +92,7 @@ async function handler(req, res) {
       discord: player.discord,
       telegram: player.telegram,
       sessions,
+      collections,
     };
     res.status(200).json(response);
   } catch (ex) {
