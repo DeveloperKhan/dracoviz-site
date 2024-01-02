@@ -3,16 +3,10 @@ import allowCors from '../../db/allowCors';
 import createHistoryItem from '../../util/createHistoryItem';
 import historyTypes from '../../db/historyTypes';
 import getSeriesModel from '../../db/series';
-import getSessionModel from '../../db/session';
-
-function haveIntersectingValues(array1, array2) {
-  // Use the some function to check if any element in array1 is included in array2
-  return array1.some((value) => array2.includes(value));
-}
 
 async function handler(req, res) {
   const {
-    tournament, slug,
+    playerName, slug,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -46,30 +40,24 @@ async function handler(req, res) {
     const {
       hosts,
       admins,
-      sessions,
     } = series;
     const isHost = hosts.includes(x_session_id);
     const isAdmin = admins.includes(x_session_id);
     if (!isHost && !isAdmin) {
       res.status(401).json({ error: 'api_unauthorized' });
     }
-    if (sessions.includes(tournament)) {
-      res.status(401).json({ error: 'api_session_already_added' });
+    const candidate = await Player.findOne({ name: playerName });
+    if (candidate == null || candidate.length <= 0) {
+      res.status(401).json({ error: 'api_player_not_found' });
       return;
     }
-    const Session = await getSessionModel();
-    const session = await Session.findOne({ key: tournament });
-    if (session == null) {
-      res.status(401).json({ error: 'api_session_not_found' });
+    if (hosts.includes(candidate)) {
+      res.status(401).json({ error: 'api_user_already_added' });
       return;
     }
-    const hasMatchingHost = haveIntersectingValues(session.host, hosts);
-    const hasMatchingAdmin = haveIntersectingValues(session.host, admins);
-    if (!hasMatchingHost && !hasMatchingAdmin) {
-      res.status(401).json({ error: 'api_series_host_mismatch' });
-    }
-    series.sessions.push(tournament);
-    const historyItem = createHistoryItem(historyTypes.addSession, x_session_id, tournament);
+    const { session } = candidate;
+    series.hosts.push(session);
+    const historyItem = createHistoryItem(historyTypes.addHost, x_session_id, session);
     series.history.push(historyItem);
     await series.save();
     res.status(200).send({

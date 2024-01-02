@@ -1,7 +1,9 @@
 const historyTypes = {
   create: 'CREATED',
   edit: 'EDITED',
-  add: 'ADDED',
+  addHost: 'ADDED_HOST',
+  addAdmin: 'ADDED_ADMIN',
+  addSession: 'ADDED_SESSION',
   remove: 'REMOVED',
   calculate: 'CALCULATED',
 };
