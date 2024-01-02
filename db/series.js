@@ -11,15 +11,16 @@ const getSeriesModel = async () => {
       unique: true,
     },
     name: { type: String, required: true },
+    slug: { type: String, unique: true },
     admins: [String],
     hosts: [String],
-    tournaments: [String],
+    sessions: [String],
     description: { type: String },
     history: [{
       type: { type: String },
       author: { type: String },
       target: { type: String },
-      date: { type: Date },
+      createdAt: { type: Date },
     }],
   });
   return mongoose.models.series || mongoose.model('series', SeriesSchema);

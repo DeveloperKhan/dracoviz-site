@@ -12,6 +12,7 @@ const getPlayerModel = async () => {
     discord: { type: String },
     telegram: { type: String },
     sessions: [{ type: String }],
+    series: [{ type: String }],
     google: { type: String },
   });
   return mongoose.models.player || mongoose.model('player', PlayerSchema);
