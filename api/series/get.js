@@ -31,7 +31,13 @@ async function handler(req, res) {
     }
     const Series = await getSeriesModel();
     const series = await Series.findOne({ slug });
+    if (series == null) {
+      res.status(401).json({ error: 'api_cannot_find_series' });
+      return;
+    }
     const sessions = [];
+    const hostNames = [];
+    const adminNames = [];
     const Session = await getSessionModel();
     await Promise.all(series.sessions.map(async (playerSession) => {
       const session = await Session.findOne({ key: playerSession });
@@ -70,6 +76,14 @@ async function handler(req, res) {
       name,
       description,
     } = series;
+    await Promise.all(hosts.map(async (theHost) => {
+      const p = await Player.findOne({ session: theHost });
+      hostNames.push(p.name);
+    }));
+    await Promise.all(admins.map(async (theAdmin) => {
+      const p = await Player.findOne({ session: theAdmin });
+      adminNames.push(p.name);
+    }));
     const isHost = hosts.includes(x_session_id);
     const isAdmin = admins.includes(x_session_id);
     res.status(200).send({
@@ -79,6 +93,8 @@ async function handler(req, res) {
       name,
       description,
       sessions,
+      adminNames,
+      hostNames,
     });
   } catch (ex) {
     console.error(ex);
