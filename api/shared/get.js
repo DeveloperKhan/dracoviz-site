@@ -70,16 +70,18 @@ async function handler(req, res) {
     const Series = await getSeriesModel();
     await Promise.all(player.series?.map(async (playerSeries) => {
       const series = await Series.findOne({ key: playerSeries });
-      let role = 'Host';
-      if (series.admins.includes(x_session_id)) {
-        role = 'Admin';
+      if (series != null) {
+        let role = 'Host';
+        if (series.admins.includes(x_session_id)) {
+          role = 'Admin';
+        }
+        const {
+          slug, name, description,
+        } = series;
+        collections.push({
+          slug, name, description, role,
+        });
       }
-      const {
-        slug, name, description,
-      } = series;
-      collections.push({
-        slug, name, description, role,
-      });
     }));
 
     const response = {
