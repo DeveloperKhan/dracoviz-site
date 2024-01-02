@@ -52,12 +52,15 @@ async function handler(req, res) {
       return;
     }
     const { session } = candidate;
-    if (hosts.includes(session)) {
+    if (admins.includes(session)) {
       res.status(401).json({ error: 'api_user_already_added' });
       return;
     }
-    series.hosts.push(session);
-    const historyItem = createHistoryItem(historyTypes.addHost, x_session_id, session);
+    series.admins.push(session);
+    if (hosts.includes(session)) {
+      series.hosts.filter((item) => item !== session);
+    }
+    const historyItem = createHistoryItem(historyTypes.addAdmin, x_session_id, session);
     series.history.push(historyItem);
     await series.save();
     res.status(200).send({
