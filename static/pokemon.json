@@ -83,7 +83,8 @@
             "BLIZZARD",
             "ENERGY_BALL",
             "OUTRAGE",
-            "WEATHER_BALL_ICE"
+            "WEATHER_BALL_ICE",
+            "ICY_WIND"
         ],
         "dex": 460,
         "family": {
