@@ -62,7 +62,7 @@ export function getCurrentMonth(currentDate) {
   const month = currentDate.getMonth() + 1;
   // returns the year (four digits)
   const year = currentDate.getFullYear();
-  if (year >= 2023 && month >= 8) {
+  if (year >= 2023) {
     return month;
   }
   return 8;
