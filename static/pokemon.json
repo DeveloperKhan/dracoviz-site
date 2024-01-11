@@ -9355,7 +9355,9 @@
         "chargedMoves": [
             "BRAVE_BIRD",
             "ENERGY_BALL",
-            "SHADOW_SNEAK"
+            "SHADOW_SNEAK",
+            "FRENZY_PLANT",
+            "SPIRIT_SHACKLE"
         ],
         "dex": 724,
         "family": {
