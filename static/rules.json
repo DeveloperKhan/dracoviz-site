@@ -3581,8 +3581,7 @@
             {
                 "filterType": "tag",
                 "values": [
-                    "mega",
-                    "shadow"
+                    "mega"
                 ]
             },
             {
@@ -4012,6 +4011,13 @@
                         "rock",
                         "water"
                     ]
+                },
+                {
+                    "filterType": "tag",
+                    "values": [
+                        "shadow",
+                        "mega"
+                    ]
                 }]
             },
             {
@@ -4029,6 +4035,13 @@
                         "normal",
                         "rock",
                         "water"
+                    ]
+                },
+                {
+                    "filterType": "tag",
+                    "values": [
+                        "shadow",
+                        "mega"
                     ]
                 }]
             },
@@ -4048,6 +4061,13 @@
                         "rock",
                         "water"
                     ]
+                },
+                {
+                    "filterType": "tag",
+                    "values": [
+                        "shadow",
+                        "mega"
+                    ]
                 }]
             },
             {
@@ -4066,6 +4086,13 @@
                         "rock",
                         "water"
                     ]
+                },
+                {
+                    "filterType": "tag",
+                    "values": [
+                        "shadow",
+                        "mega"
+                    ]
                 }]
             },
             {
@@ -4084,6 +4111,13 @@
                         "normal",
                         "water"
                     ]
+                },
+                {
+                    "filterType": "tag",
+                    "values": [
+                        "shadow",
+                        "mega"
+                    ]
                 }]
             },
             {
@@ -4101,6 +4135,13 @@
                         "ground",
                         "normal",
                         "rock"
+                    ]
+                },
+                {
+                    "filterType": "tag",
+                    "values": [
+                        "shadow",
+                        "mega"
                     ]
                 }]
             }
