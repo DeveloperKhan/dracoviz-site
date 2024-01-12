@@ -3581,7 +3581,8 @@
             {
                 "filterType": "tag",
                 "values": [
-                    "mega"
+                    "mega",
+                    "shadow"
                 ]
             },
             {
