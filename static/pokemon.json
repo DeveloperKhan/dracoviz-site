@@ -1160,7 +1160,8 @@
             "CLOSE_COMBAT",
             "ICE_PUNCH",
             "LOW_SWEEP",
-            "NIGHT_SLASH"
+            "NIGHT_SLASH",
+            "SHADOW_BALL"
         ],
         "dex": 979,
         "family": {
