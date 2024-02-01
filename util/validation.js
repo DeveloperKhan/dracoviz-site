@@ -78,7 +78,7 @@ const validateTeam = (
     fastMoves.forEach((move) => {
       if (rules.bannedMoves.fastMoves.includes(move)) {
         invalidFM = move;
-        FM_error = 'api_team_validation_FM';
+        FM_error = 'api_team_validation_fast_move';
       }
     });
     if (FM_error != null) {
@@ -107,7 +107,7 @@ const validateTeam = (
 
         if (excluded) {
           invalid_pokemon = p;
-          generic_error = 'api_team_validation_CM';
+          generic_error = 'api_team_validation_charge_move';
           return false;
         }
       }
