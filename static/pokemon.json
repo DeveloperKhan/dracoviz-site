@@ -7098,7 +7098,44 @@
         "speciesId": "chimchar",
         "speciesName": "Chimchar",
         "tags": [
-            "starter"
+            "starter",
+            "shadoweligible"
+        ],
+        "types": [
+            "fire",
+            "none"
+        ]
+    },
+    "chimchar_shadow": {
+        "baseStats": {
+            "atk": 113,
+            "def": 86,
+            "hp": 127
+        },
+        "chargedMoves": [
+            "FLAMETHROWER",
+            "FLAME_CHARGE",
+            "FLAME_WHEEL"
+        ],
+        "dex": 390,
+        "family": {
+            "evolutions": [
+                "monferno"
+            ],
+            "id": "FAMILY_CHIMCHAR"
+        },
+        "fastMoves": [
+            "EMBER",
+            "SCRATCH"
+        ],
+        "gender": "male",
+        "level25CP": 526,
+        "sid": 12480,
+        "speciesId": "chimchar",
+        "speciesName": "Chimchar",
+        "tags": [
+            "starter",
+            "shadow"
         ],
         "types": [
             "fire",
@@ -7997,6 +8034,45 @@
         "sid": 10912,
         "speciesId": "corphish",
         "speciesName": "Corphish",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "none",
+            "water"
+        ]
+    },
+    "corphish_shadow": {
+        "baseStats": {
+            "atk": 141,
+            "def": 99,
+            "hp": 125
+        },
+        "chargedMoves": [
+            "AQUA_JET",
+            "BUBBLE_BEAM",
+            "RAZOR_SHELL",
+            "VICE_GRIP",
+            "SCALD"
+        ],
+        "dex": 341,
+        "family": {
+            "evolutions": [
+                "crawdaunt"
+            ],
+            "id": "FAMILY_CORPHISH"
+        },
+        "fastMoves": [
+            "BUBBLE",
+            "ROCK_SMASH"
+        ],
+        "gender": "male",
+        "sid": 10912,
+        "speciesId": "corphish",
+        "speciesName": "Corphish",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "none",
             "water"
@@ -8453,6 +8529,44 @@
         "sid": 10944,
         "speciesId": "crawdaunt",
         "speciesName": "Crawdaunt",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "dark",
+            "water"
+        ]
+    },
+    "crawdaunt_shadow": {
+        "baseStats": {
+            "atk": 224,
+            "def": 142,
+            "hp": 160
+        },
+        "chargedMoves": [
+            "BUBBLE_BEAM",
+            "CRABHAMMER",
+            "NIGHT_SLASH",
+            "RAZOR_SHELL",
+            "VICE_GRIP",
+            "SCALD"
+        ],
+        "dex": 342,
+        "family": {
+            "id": "FAMILY_CORPHISH",
+            "parent": "corphish"
+        },
+        "fastMoves": [
+            "SNARL",
+            "WATERFALL"
+        ],
+        "gender": "male",
+        "sid": 10944,
+        "speciesId": "crawdaunt",
+        "speciesName": "Crawdaunt",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "dark",
             "water"
@@ -8518,6 +8632,44 @@
         "sid": 14496,
         "speciesId": "croagunk",
         "speciesName": "Croagunk",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "fighting",
+            "poison"
+        ]
+    },
+    "croagunk_shadow": {
+        "baseStats": {
+            "atk": 116,
+            "def": 76,
+            "hp": 134
+        },
+        "chargedMoves": [
+            "BRICK_BREAK",
+            "LOW_SWEEP",
+            "SLUDGE_BOMB"
+        ],
+        "dex": 453,
+        "family": {
+            "evolutions": [
+                "toxicroak"
+            ],
+            "id": "FAMILY_CROAGUNK"
+        },
+        "fastMoves": [
+            "MUD_SHOT",
+            "POISON_JAB",
+            "POISON_STING"
+        ],
+        "gender": "male",
+        "sid": 14496,
+        "speciesId": "croagunk",
+        "speciesName": "Croagunk",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "fighting",
             "poison"
@@ -8723,6 +8875,41 @@
         "sid": 17856,
         "speciesId": "crustle",
         "speciesName": "Crustle",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "bug",
+            "rock"
+        ]
+    },
+    "crustle_shadow": {
+        "baseStats": {
+            "atk": 188,
+            "def": 200,
+            "hp": 172
+        },
+        "chargedMoves": [
+            "ROCK_BLAST",
+            "ROCK_SLIDE",
+            "X_SCISSOR"
+        ],
+        "dex": 558,
+        "family": {
+            "id": "FAMILY_DWEBBLE",
+            "parent": "dwebble"
+        },
+        "fastMoves": [
+            "FURY_CUTTER",
+            "SMACK_DOWN"
+        ],
+        "gender": "male",
+        "sid": 17856,
+        "speciesId": "crustle",
+        "speciesName": "Crustle",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "bug",
             "rock"
@@ -12039,6 +12226,43 @@
         "sid": 17824,
         "speciesId": "dwebble",
         "speciesName": "Dwebble",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "bug",
+            "rock"
+        ]
+    },
+    "dwebble_shadow": {
+        "baseStats": {
+            "atk": 118,
+            "def": 128,
+            "hp": 137
+        },
+        "chargedMoves": [
+            "ROCK_BLAST",
+            "ROCK_TOMB",
+            "X_SCISSOR"
+        ],
+        "dex": 557,
+        "family": {
+            "evolutions": [
+                "crustle"
+            ],
+            "id": "FAMILY_DWEBBLE"
+        },
+        "fastMoves": [
+            "CUT",
+            "SMACK_DOWN"
+        ],
+        "gender": "male",
+        "sid": 17824,
+        "speciesId": "dwebble",
+        "speciesName": "Dwebble",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "bug",
             "rock"
@@ -12828,7 +13052,47 @@
         "speciesId": "empoleon",
         "speciesName": "Empoleon",
         "tags": [
-            "starter"
+            "starter",
+            "shadoweligible"
+        ],
+        "types": [
+            "steel",
+            "water"
+        ]
+    },
+    "empoleon_shadow": {
+        "baseStats": {
+            "atk": 210,
+            "def": 186,
+            "hp": 197
+        },
+        "chargedMoves": [
+            "BLIZZARD",
+            "DRILL_PECK",
+            "FLASH_CANNON",
+            "HYDRO_CANNON",
+            "HYDRO_PUMP"
+        ],
+        "dex": 395,
+        "eliteMoves": [
+            "HYDRO_CANNON"
+        ],
+        "family": {
+            "id": "FAMILY_PIPLUP",
+            "parent": "prinplup"
+        },
+        "fastMoves": [
+            "METAL_CLAW",
+            "WATERFALL"
+        ],
+        "gender": "male",
+        "searchPriority": 4,
+        "sid": 12640,
+        "speciesId": "empoleon",
+        "speciesName": "Empoleon",
+        "tags": [
+            "starter",
+            "shadow"
         ],
         "types": [
             "steel",
@@ -13777,6 +14041,43 @@
         "sid": 19104,
         "speciesId": "ferroseed",
         "speciesName": "Ferroseed",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "grass",
+            "steel"
+        ]
+    },
+    "ferroseed_shadow": {
+        "baseStats": {
+            "atk": 82,
+            "def": 155,
+            "hp": 127
+        },
+        "chargedMoves": [
+            "FLASH_CANNON",
+            "GYRO_BALL",
+            "IRON_HEAD"
+        ],
+        "dex": 597,
+        "family": {
+            "evolutions": [
+                "ferrothorn"
+            ],
+            "id": "FAMILY_FERROSEED"
+        },
+        "fastMoves": [
+            "METAL_CLAW",
+            "TACKLE"
+        ],
+        "gender": "male",
+        "sid": 19104,
+        "speciesId": "ferroseed",
+        "speciesName": "Ferroseed",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "grass",
             "steel"
@@ -13809,6 +14110,44 @@
         "sid": 19136,
         "speciesId": "ferrothorn",
         "speciesName": "Ferrothorn",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "grass",
+            "steel"
+        ]
+    },
+    "ferrothorn_shadow": {
+        "baseStats": {
+            "atk": 158,
+            "def": 223,
+            "hp": 179
+        },
+        "chargedMoves": [
+            "ACID_SPRAY",
+            "FLASH_CANNON",
+            "MIRROR_SHOT",
+            "POWER_WHIP",
+            "THUNDER"
+        ],
+        "dex": 598,
+        "family": {
+            "id": "FAMILY_FERROSEED",
+            "parent": "ferroseed"
+        },
+        "fastMoves": [
+            "BULLET_SEED",
+            "METAL_CLAW"
+        ],
+        "gender": "male",
+        "searchPriority": 13,
+        "sid": 19136,
+        "speciesId": "ferrothorn",
+        "speciesName": "Ferrothorn",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "grass",
             "steel"
@@ -14810,6 +15149,46 @@
         "sid": 15296,
         "speciesId": "froslass",
         "speciesName": "Froslass",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "ghost",
+            "ice"
+        ]
+    },
+    "froslass_shadow": {
+        "baseStats": {
+            "atk": 171,
+            "def": 150,
+            "hp": 172
+        },
+        "chargedMoves": [
+            "AVALANCHE",
+            "CRUNCH",
+            "SHADOW_BALL",
+            "TRIPLE_AXEL"
+        ],
+        "dex": 478,
+        "family": {
+            "id": "FAMILY_SNORUNT",
+            "parent": "snorunt"
+        },
+        "fastMoves": [
+            "HEX",
+            "POWDER_SNOW"
+        ],
+        "gender": "F",
+        "nicknames": [
+            "lass"
+        ],
+        "searchPriority": 7,
+        "sid": 15296,
+        "speciesId": "froslass",
+        "speciesName": "Froslass",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "ghost",
             "ice"
@@ -16408,6 +16787,42 @@
         "sid": 11584,
         "speciesId": "glalie",
         "speciesName": "Glalie",
+        "tags": [
+            "shadow"
+        ],
+
+        "types": [
+            "ice",
+            "none"
+        ]
+    },
+    "glalie_shadow": {
+        "baseStats": {
+            "atk": 162,
+            "def": 162,
+            "hp": 190
+        },
+        "chargedMoves": [
+            "AVALANCHE",
+            "GYRO_BALL",
+            "SHADOW_BALL"
+        ],
+        "dex": 362,
+        "family": {
+            "id": "FAMILY_SNORUNT",
+            "parent": "snorunt"
+        },
+        "fastMoves": [
+            "FROST_BREATH",
+            "ICE_SHARD"
+        ],
+        "gender": "male",
+        "sid": 11584,
+        "speciesId": "glalie",
+        "speciesName": "Glalie",
+        "tags": [
+            "shadoweligible"
+        ],
         "types": [
             "ice",
             "none"
@@ -21013,8 +21428,48 @@
         "sid": 12544,
         "speciesId": "infernape",
         "speciesName": "Infernape",
+        
         "tags": [
-            "starter"
+            "starter",
+            "shadoweligible"
+        ],
+        "types": [
+            "fighting",
+            "fire"
+        ]
+    },
+    "infernape_shadow": {
+        "baseStats": {
+            "atk": 222,
+            "def": 151,
+            "hp": 183
+        },
+        "chargedMoves": [
+            "BLAST_BURN",
+            "CLOSE_COMBAT",
+            "FLAMETHROWER",
+            "SOLAR_BEAM"
+        ],
+        "dex": 392,
+        "eliteMoves": [
+            "BLAST_BURN"
+        ],
+        "family": {
+            "id": "FAMILY_CHIMCHAR",
+            "parent": "monferno"
+        },
+        "fastMoves": [
+            "FIRE_SPIN",
+            "ROCK_SMASH"
+        ],
+        "gender": "male",
+        "level25CP": 1646,
+        "sid": 12544,
+        "speciesId": "infernape",
+        "speciesName": "Infernape",
+        "tags": [
+            "starter",
+            "shadow"
         ],
         "types": [
             "fighting",
@@ -22947,7 +23402,42 @@
         "speciesId": "kyogre",
         "speciesName": "Kyogre",
         "tags": [
-            "legendary"
+            "legendary",
+            "shadoweligible"
+        ],
+        "types": [
+            "none",
+            "water"
+        ]
+    },
+    "kyogre_shadow": {
+        "baseStats": {
+            "atk": 270,
+            "def": 228,
+            "hp": 205
+        },
+        "chargedMoves": [
+            "BLIZZARD",
+            "HYDRO_PUMP",
+            "ORIGIN_PULSE",
+            "SURF",
+            "THUNDER"
+        ],
+        "dex": 382,
+        "eliteMoves": [
+            "ORIGIN_PULSE"
+        ],
+        "fastMoves": [
+            "WATERFALL"
+        ],
+        "gender": "N",
+        "searchPriority": 10,
+        "sid": 12224,
+        "speciesId": "kyogre",
+        "speciesName": "Kyogre",
+        "tags": [
+            "legendary",
+            "shadow"
         ],
         "types": [
             "none",
@@ -28699,7 +29189,45 @@
         "speciesId": "monferno",
         "speciesName": "Monferno",
         "tags": [
-            "starter"
+            "starter",
+            "shadoweligible"
+        ],
+        "types": [
+            "fighting",
+            "fire"
+        ]
+    },
+    "monferno_shadow": {
+        "baseStats": {
+            "atk": 158,
+            "def": 105,
+            "hp": 162
+        },
+        "chargedMoves": [
+            "FLAMETHROWER",
+            "FLAME_WHEEL",
+            "LOW_SWEEP"
+        ],
+        "dex": 391,
+        "family": {
+            "evolutions": [
+                "infernape"
+            ],
+            "id": "FAMILY_CHIMCHAR",
+            "parent": "chimchar"
+        },
+        "fastMoves": [
+            "EMBER",
+            "ROCK_SMASH"
+        ],
+        "gender": "male",
+        "level25CP": 919,
+        "sid": 12512,
+        "speciesId": "monferno",
+        "speciesName": "Monferno",
+        "tags": [
+            "starter",
+            "shadow"
         ],
         "types": [
             "fighting",
@@ -33373,7 +33901,43 @@
         "speciesId": "piplup",
         "speciesName": "Piplup",
         "tags": [
-            "starter"
+            "starter",
+            "shadoweligible"
+        ],
+        "types": [
+            "none",
+            "water"
+        ]
+    },
+    "piplup_shadow": {
+        "baseStats": {
+            "atk": 112,
+            "def": 102,
+            "hp": 142
+        },
+        "chargedMoves": [
+            "BUBBLE_BEAM",
+            "DRILL_PECK",
+            "ICY_WIND"
+        ],
+        "dex": 393,
+        "family": {
+            "evolutions": [
+                "prinplup"
+            ],
+            "id": "FAMILY_PIPLUP"
+        },
+        "fastMoves": [
+            "BUBBLE",
+            "POUND"
+        ],
+        "gender": "male",
+        "sid": 12576,
+        "speciesId": "piplup",
+        "speciesName": "Piplup",
+        "tags": [
+            "starter",
+            "shadow"
         ],
         "types": [
             "none",
@@ -34476,7 +35040,44 @@
         "speciesId": "prinplup",
         "speciesName": "Prinplup",
         "tags": [
-            "starter"
+            "starter",
+            "shadoweligible"
+        ],
+        "types": [
+            "none",
+            "water"
+        ]
+    },
+    "prinplup_shadow": {
+        "baseStats": {
+            "atk": 150,
+            "def": 139,
+            "hp": 162
+        },
+        "chargedMoves": [
+            "BUBBLE_BEAM",
+            "HYDRO_PUMP",
+            "ICY_WIND"
+        ],
+        "dex": 394,
+        "family": {
+            "evolutions": [
+                "empoleon"
+            ],
+            "id": "FAMILY_PIPLUP",
+            "parent": "piplup"
+        },
+        "fastMoves": [
+            "BUBBLE",
+            "METAL_CLAW"
+        ],
+        "gender": "male",
+        "sid": 12608,
+        "speciesId": "prinplup",
+        "speciesName": "Prinplup",
+        "tags": [
+            "starter",
+            "shadow"
         ],
         "types": [
             "none",
@@ -42814,6 +43415,44 @@
         "sid": 11552,
         "speciesId": "snorunt",
         "speciesName": "Snorunt",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "ice",
+            "none"
+        ]
+    },
+    "snorunt_shadow": {
+        "baseStats": {
+            "atk": 95,
+            "def": 95,
+            "hp": 137
+        },
+        "chargedMoves": [
+            "AVALANCHE",
+            "ICY_WIND",
+            "SHADOW_BALL"
+        ],
+        "dex": 361,
+        "family": {
+            "evolutions": [
+                "froslass",
+                "glalie"
+            ],
+            "id": "FAMILY_SNORUNT"
+        },
+        "fastMoves": [
+            "HEX",
+            "POWDER_SNOW"
+        ],
+        "gender": "male",
+        "sid": 11552,
+        "speciesId": "snorunt",
+        "speciesName": "Snorunt",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "ice",
             "none"
@@ -47122,6 +47761,47 @@
         "sid": 14528,
         "speciesId": "toxicroak",
         "speciesName": "Toxicroak",
+        "tags": [
+            "shadoweligible"
+        ],
+        "types": [
+            "fighting",
+            "poison"
+        ]
+    },
+    "toxicroak_shadow": {
+        "baseStats": {
+            "atk": 211,
+            "def": 133,
+            "hp": 195
+        },
+        "chargedMoves": [
+            "DYNAMIC_PUNCH",
+            "MUD_BOMB",
+            "SLUDGE_BOMB",
+            "SHADOW_BALL"
+        ],
+        "dex": 454,
+        "family": {
+            "id": "FAMILY_CROAGUNK",
+            "parent": "croagunk"
+        },
+        "fastMoves": [
+            "COUNTER",
+            "MUD_SHOT",
+            "POISON_JAB"
+        ],
+        "gender": "male",
+        "nicknames": [
+            "croak"
+        ],
+        "searchPriority": 9,
+        "sid": 14528,
+        "speciesId": "toxicroak",
+        "speciesName": "Toxicroak",
+        "tags": [
+            "shadow"
+        ],
         "types": [
             "fighting",
             "poison"
