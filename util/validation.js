@@ -55,6 +55,37 @@ const validateTeam = (
     }
   }
 
+  let CM_error;
+  let invalidCM;
+  if (rules.bannedMoves?.chargedMoves != null) {
+    chargedMoves.forEach(([move1, move2]) => {
+      if (rules.bannedMoves.chargedMoves.includes(move1)) {
+        invalidCM = move1;
+        CM_error = 'api_team_validation_generic';
+      } else if (move2 != null && rules.bannedMoves.chargedMoves.includes(move2)) {
+        invalidCM = move2;
+        CM_error = 'api_team_validation_generic';
+      }
+    });
+    if (CM_error != null) {
+      return { error: CM_error, details: invalidCM };
+    }
+  }
+
+  let FM_error;
+  let invalidFM;
+  if (rules.bannedMoves?.fastMoves != null) {
+    fastMoves.forEach((move) => {
+      if (rules.bannedMoves.fastMoves.includes(move)) {
+        invalidFM = move;
+        FM_error = 'api_team_validation_fast_move';
+      }
+    });
+    if (FM_error != null) {
+      return { error: FM_error, details: invalidFM };
+    }
+  }
+
   // exclude
   if (rules.exclude != null) {
     pokemon.forEach((p) => {
@@ -76,7 +107,7 @@ const validateTeam = (
 
         if (excluded) {
           invalid_pokemon = p;
-          generic_error = 'api_team_validation_generic';
+          generic_error = 'api_team_validation_charge_move';
           return false;
         }
       }

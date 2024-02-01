@@ -4,6 +4,7 @@
     "description": "Website for dracoviz.com",
     "version": "1.0.0",
     "author": "Adib Khan",
+    "type": "module",
     "bugs": {
         "url": "https://github.com/DeveloperKhan/dracoviz-site/issues"
     },

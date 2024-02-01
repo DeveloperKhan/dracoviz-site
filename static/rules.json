@@ -4610,5 +4610,70 @@
                 }]
             }
         ]
+    },
+    "Sovereign Cup": {
+        "name": "Sovereign Cup",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/sovereign.png/public",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "flags": {
+            "speciesClauseByDex": "true"
+        },
+        "bannedMoves": {
+            "fastMoves": ["COUNTER", "CHARM"],
+            "chargedMoves": ["DYNAMIC_PUNCH", "DOUBLE_KICK"]
+        },
+        "include": [
+            {
+                "filterType": "type",
+                "values": [
+                    "electric",
+                    "fairy",
+                    "ice",
+                    "normal",
+                    "psychic"
+                ]
+            }
+        ],
+        "exclude": [
+            {
+                "filterType": "tag",
+                "values": [
+                    "mega"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "munchlax",
+                    "abomasnow",
+                    "arctibax",
+                    "zangoose",
+                    "baxcalibur",
+                    "frigibax",
+                    "greedent",
+                    "azumarill",
+                    "charjabug",
+                    "litleo",
+                    "abomasnow_shadow",
+                    "miltank",
+                    "cresselia",
+                    "lickitung",
+                    "lanturn",
+                    "bellibolt"
+                ]
+            },
+            {
+                "filterType": "type",
+                "values": [
+                    "ground",
+                    "rock",
+                    "steel",
+                    "ghost"
+                ]
+            }
+        ]
     }
 }
