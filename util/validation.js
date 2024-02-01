@@ -58,13 +58,13 @@ const validateTeam = (
   let CM_error;
   let invalidCM;
   if (rules.bannedMoves?.chargedMoves != null) {
-    chargedMoves.forEach(([move1, move2]) => {
+    chargedMoves?.forEach(([move1, move2]) => {
       if (rules.bannedMoves.chargedMoves.includes(move1)) {
         invalidCM = move1;
-        CM_error = 'api_team_validation_generic';
+        CM_error = 'api_team_validation_charge_move';
       } else if (move2 != null && rules.bannedMoves.chargedMoves.includes(move2)) {
         invalidCM = move2;
-        CM_error = 'api_team_validation_generic';
+        CM_error = 'api_team_validation_charge_move';
       }
     });
     if (CM_error != null) {
@@ -75,7 +75,7 @@ const validateTeam = (
   let FM_error;
   let invalidFM;
   if (rules.bannedMoves?.fastMoves != null) {
-    fastMoves.forEach((move) => {
+    fastMoves?.forEach((move) => {
       if (rules.bannedMoves.fastMoves.includes(move)) {
         invalidFM = move;
         FM_error = 'api_team_validation_fast_move';
@@ -107,7 +107,7 @@ const validateTeam = (
 
         if (excluded) {
           invalid_pokemon = p;
-          generic_error = 'api_team_validation_charge_move';
+          generic_error = 'api_team_validation_generic';
           return false;
         }
       }
