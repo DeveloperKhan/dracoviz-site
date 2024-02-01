@@ -1,6 +1,11 @@
 import pokemonJSON from '../static/pokemon.json';
 import rulesJSON from '../static/rules.json';
 
+const pokemon1 = ['raichu', 'pachirisu', 'ampharos', 'galvantula', 'raikou', 'medicham'];
+const cp1 = [1500, 1500, 1500, 1500, 1500, 1500];
+const fastMoves1 = ['VOLT_SWITCH', 'VOLT_SWITCH', 'VOLT_SWITCH', 'VOLT_SWITCH', 'VOLT_SWITCH', 'COUNTER'];
+const chargedMoves1 = [['THUNDER_PUNCH', 'THUNDER'], ['THUNDER_PUNCH', 'THUNDER'], ['THUNDER_PUNCH', 'THUNDER'], ['BUG_BUZZ', 'DISCHARGE'], ['THUNDERBOLT', 'THUNDER'], ['DYNAMIC_PUNCH', 'None']];
+
 const validateTeam = (
   pokemon,
   cp,
@@ -55,6 +60,37 @@ const validateTeam = (
     }
   }
 
+  let CM_error;
+  let invalidCM;
+  if (rules.bannedMoves?.chargedMoves != null) {
+    chargedMoves.forEach(([move1, move2]) => {
+      if (rules.bannedMoves.chargedMoves.includes(move1)) {
+        invalidCM = move1;
+        CM_error = 'api_team_validation_generic';
+      } else if (move2 != null && rules.bannedMoves.chargedMoves.includes(move2)) {
+        invalidCM = move2;
+        CM_error = 'api_team_validation_generic';
+      }
+    });
+    if (CM_error != null) {
+      return { error: CM_error, details: invalidCM };
+    }
+  }
+
+  let FM_error;
+  let invalidFM;
+  if (rules.bannedMoves?.fastMoves != null) {
+    fastMoves.forEach((move) => {
+      if (rules.bannedMoves.fastMoves.includes(move)) {
+        invalidFM = move;
+        FM_error = 'api_team_validation_FM';
+      }
+    });
+    if (FM_error != null) {
+      return { error: FM_error, details: invalidFM };
+    }
+  }
+
   // exclude
   if (rules.exclude != null) {
     pokemon.forEach((p) => {
@@ -76,7 +112,7 @@ const validateTeam = (
 
         if (excluded) {
           invalid_pokemon = p;
-          generic_error = 'api_team_validation_generic';
+          generic_error = 'api_team_validation_CM';
           return false;
         }
       }
@@ -382,5 +418,8 @@ const doesSelectorDescribePokémon = (tag, poke, exceptions) => {
   }
   return false;
 };
+
+// to test add ' "type": "module" ' to package.json
+console.log(validateTeam(pokemon1, cp1, fastMoves1, chargedMoves1, null, 'BTW (Neutral Cup)', 6, null));
 
 export default validateTeam;
