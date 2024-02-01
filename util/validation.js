@@ -1,11 +1,6 @@
 import pokemonJSON from '../static/pokemon.json';
 import rulesJSON from '../static/rules.json';
 
-const pokemon1 = ['raichu', 'pachirisu', 'ampharos', 'galvantula', 'raikou', 'medicham'];
-const cp1 = [1500, 1500, 1500, 1500, 1500, 1500];
-const fastMoves1 = ['VOLT_SWITCH', 'VOLT_SWITCH', 'VOLT_SWITCH', 'VOLT_SWITCH', 'VOLT_SWITCH', 'COUNTER'];
-const chargedMoves1 = [['THUNDER_PUNCH', 'THUNDER'], ['THUNDER_PUNCH', 'THUNDER'], ['THUNDER_PUNCH', 'THUNDER'], ['BUG_BUZZ', 'DISCHARGE'], ['THUNDERBOLT', 'THUNDER'], ['DYNAMIC_PUNCH', 'None']];
-
 const validateTeam = (
   pokemon,
   cp,
@@ -418,8 +413,5 @@ const doesSelectorDescribePokémon = (tag, poke, exceptions) => {
   }
   return false;
 };
-
-// to test add ' "type": "module" ' to package.json
-console.log(validateTeam(pokemon1, cp1, fastMoves1, chargedMoves1, null, 'BTW (Neutral Cup)', 6, null));
 
 export default validateTeam;
