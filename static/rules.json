@@ -4993,5 +4993,72 @@
                 ]
             }
         ]
+    },
+    "Dominion Cup": {
+        "name": "Dominion Cup",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/dominion.png/public",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "flags": {
+            "speciesClauseByDex": "true"
+        },
+        "include": [
+            {
+                "filterType": "type",
+                "name": "Type",
+                "values": [
+                    "dark",
+                    "fire",
+                    "ground",
+                    "poison"
+                ]
+            }
+        ],
+        "exclude": [
+            {
+                "filterType": "type",
+                "name": "Type",
+                "values": [
+                    "flying",
+                    "grass"
+                ]
+            },
+            {
+                "filterType": "id",
+                "name": "Species",
+                "values": [
+                    "vibrava",
+                    "dugtrio",
+                    "dugtrio_shadow",
+                    "swampert",
+                    "swampert_shadow",
+                    "quagsire",
+                    "quagsire_shadow",
+                    "sneasler",
+                    "sneasler_shadow",
+                    "zygarde",
+                    "whiscash",
+                    "whiscash_shadow",
+                    "diggersby",
+                    "gastrodon",
+                    "scrafty",
+                    "obstagoon",
+                    "marowak",
+                    "marowak_shadow",
+                    "marshtomp",
+                    "marshtomp_shadow",
+                    "greninja"
+                ]
+            },
+            {
+                "filterType": "tag",
+                "name": "Tag",
+                "values": [
+                    "mega"
+                ]
+            }
+        ]
     }
 }
