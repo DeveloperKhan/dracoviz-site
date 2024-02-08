@@ -4828,7 +4828,16 @@
                     "swampert",
                     "swampert_shadow",
                     "jellicent",
-                    "stunfisk"
+                    "stunfisk",
+                    "stunfisk_galarian",
+                    "steelix",
+                    "steelix_shadow"
+                ]
+            },
+            {
+                "filterType": "tag",
+                "values": [
+                    "mega"
                 ]
             },
             {
