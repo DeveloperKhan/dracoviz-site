@@ -53072,5 +53072,68 @@
             "dragon",
             "ground"
         ]
-    }
+    },
+    "dialga_origin": {
+        "dex": 483,
+        "speciesName": "Dialga (Origin)",
+        "speciesId": "dialga_origin",
+        "baseStats": {
+          "atk": 270,
+          "def": 225,
+          "hp": 205
+        },
+        "types": [
+          "steel",
+          "dragon"
+        ],
+        "fastMoves": [
+          "DRAGON_BREATH",
+          "METAL_CLAW"
+        ],
+        "chargedMoves": [
+          "DRACO_METEOR",
+          "IRON_HEAD",
+          "THUNDER",
+          "ROAR_OF_TIME"
+        ],
+        "eliteMoves": [
+          "ROAR_OF_TIME"
+        ],
+        "tags": [
+          "legendary"
+        ],
+        "sid": 15457
+      },
+      "palkia_origin": {
+        "dex": 484,
+        "speciesName": "Palkia (Origin)",
+        "speciesId": "palkia_origin",
+        "baseStats": {
+          "atk": 286,
+          "def": 223,
+          "hp": 189
+        },
+        "types": [
+          "water",
+          "dragon"
+        ],
+        "fastMoves": [
+          "DRAGON_BREATH",
+          "DRAGON_TAIL"
+        ],
+        "chargedMoves": [
+          "DRACO_METEOR",
+          "FIRE_BLAST",
+          "HYDRO_PUMP",
+          "AQUA_TAIL",
+          "SPACIAL_REND"
+        ],
+        "eliteMoves": [
+          "SPACIAL_REND"
+        ],
+        "tags": [
+          "legendary"
+        ],
+        "sid": 15489
+      }
 }
