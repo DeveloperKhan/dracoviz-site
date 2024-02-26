@@ -7131,8 +7131,8 @@
         "gender": "male",
         "level25CP": 526,
         "sid": 12480,
-        "speciesId": "chimchar",
-        "speciesName": "Chimchar",
+        "speciesId": "chimchar_shadow",
+        "speciesName": "Chimchar (Shadow)",
         "tags": [
             "starter",
             "shadow"
@@ -8068,8 +8068,8 @@
         ],
         "gender": "male",
         "sid": 10912,
-        "speciesId": "corphish",
-        "speciesName": "Corphish",
+        "speciesId": "corphish_shadow",
+        "speciesName": "Corphish (Shadow)",
         "tags": [
             "shadow"
         ],
@@ -8562,8 +8562,8 @@
         ],
         "gender": "male",
         "sid": 10944,
-        "speciesId": "crawdaunt",
-        "speciesName": "Crawdaunt",
+        "speciesId": "crawdaunt_shadow",
+        "speciesName": "Crawdaunt (Shadow)",
         "tags": [
             "shadow"
         ],
@@ -8665,8 +8665,8 @@
         ],
         "gender": "male",
         "sid": 14496,
-        "speciesId": "croagunk",
-        "speciesName": "Croagunk",
+        "speciesId": "croagunk_shadow",
+        "speciesName": "Croagunk (Shadow)",
         "tags": [
             "shadow"
         ],
@@ -8905,8 +8905,8 @@
         ],
         "gender": "male",
         "sid": 17856,
-        "speciesId": "crustle",
-        "speciesName": "Crustle",
+        "speciesId": "crustle_shadow",
+        "speciesName": "Crustle (Shadow)",
         "tags": [
             "shadow"
         ],
@@ -10943,9 +10943,7 @@
         "sid": 24960,
         "speciesId": "drampa",
         "speciesName": "Drampa",
-        "tags": [
-            "unreleased"
-        ],
+        "tags": [],
         "types": [
             "dragon",
             "normal"
@@ -12258,8 +12256,8 @@
         ],
         "gender": "male",
         "sid": 17824,
-        "speciesId": "dwebble",
-        "speciesName": "Dwebble",
+        "speciesId": "dwebble_shadow",
+        "speciesName": "Dwebble (Shadow)",
         "tags": [
             "shadow"
         ],
@@ -13088,8 +13086,8 @@
         "gender": "male",
         "searchPriority": 4,
         "sid": 12640,
-        "speciesId": "empoleon",
-        "speciesName": "Empoleon",
+        "speciesId": "empoleon_shadow",
+        "speciesName": "Empoleon (Shadow)",
         "tags": [
             "starter",
             "shadow"
@@ -14073,8 +14071,8 @@
         ],
         "gender": "male",
         "sid": 19104,
-        "speciesId": "ferroseed",
-        "speciesName": "Ferroseed",
+        "speciesId": "ferroseed_shadow",
+        "speciesName": "Ferroseed (Shadow)",
         "tags": [
             "shadow"
         ],
@@ -14143,8 +14141,8 @@
         "gender": "male",
         "searchPriority": 13,
         "sid": 19136,
-        "speciesId": "ferrothorn",
-        "speciesName": "Ferrothorn",
+        "speciesId": "ferrothorn_shadow",
+        "speciesName": "Ferrothorn (Shadow)",
         "tags": [
             "shadow"
         ],
@@ -15184,8 +15182,8 @@
         ],
         "searchPriority": 7,
         "sid": 15296,
-        "speciesId": "froslass",
-        "speciesName": "Froslass",
+        "speciesId": "froslass_shadow",
+        "speciesName": "Froslass (Shadow)",
         "tags": [
             "shadow"
         ],
@@ -16818,8 +16816,8 @@
         ],
         "gender": "male",
         "sid": 11584,
-        "speciesId": "glalie",
-        "speciesName": "Glalie",
+        "speciesId": "glalie_shadow",
+        "speciesName": "Glalie (Shadow)",
         "tags": [
             "shadoweligible"
         ],
@@ -21465,8 +21463,8 @@
         "gender": "male",
         "level25CP": 1646,
         "sid": 12544,
-        "speciesId": "infernape",
-        "speciesName": "Infernape",
+        "speciesId": "infernape_shadow",
+        "speciesName": "Infernape (Shadow)",
         "tags": [
             "starter",
             "shadow"
@@ -23433,8 +23431,8 @@
         "gender": "N",
         "searchPriority": 10,
         "sid": 12224,
-        "speciesId": "kyogre",
-        "speciesName": "Kyogre",
+        "speciesId": "kyogre_shadow",
+        "speciesName": "Kyogre (Shadow)",
         "tags": [
             "legendary",
             "shadow"
@@ -29223,8 +29221,8 @@
         "gender": "male",
         "level25CP": 919,
         "sid": 12512,
-        "speciesId": "monferno",
-        "speciesName": "Monferno",
+        "speciesId": "monferno_shadow",
+        "speciesName": "Monferno (Shadow)",
         "tags": [
             "starter",
             "shadow"
@@ -33933,8 +33931,8 @@
         ],
         "gender": "male",
         "sid": 12576,
-        "speciesId": "piplup",
-        "speciesName": "Piplup",
+        "speciesId": "piplup_shadow",
+        "speciesName": "Piplup (Shadow)",
         "tags": [
             "starter",
             "shadow"
@@ -35073,8 +35071,8 @@
         ],
         "gender": "male",
         "sid": 12608,
-        "speciesId": "prinplup",
-        "speciesName": "Prinplup",
+        "speciesId": "prinplup_shadow",
+        "speciesName": "Prinplup (Shadow)",
         "tags": [
             "starter",
             "shadow"
@@ -38665,7 +38663,8 @@
             "BULLDOZE",
             "DRILL_RUN",
             "GYRO_BALL",
-            "ICE_PUNCH"
+            "ICE_PUNCH",
+            "AERIAL_ACE"
         ],
         "dex": 28,
         "eliteMoves": [
@@ -43448,8 +43447,8 @@
         ],
         "gender": "male",
         "sid": 11552,
-        "speciesId": "snorunt",
-        "speciesName": "Snorunt",
+        "speciesId": "snorunt_shadow",
+        "speciesName": "Snorunt (Shadow)",
         "tags": [
             "shadow"
         ],
@@ -47797,8 +47796,8 @@
         ],
         "searchPriority": 9,
         "sid": 14528,
-        "speciesId": "toxicroak",
-        "speciesName": "Toxicroak",
+        "speciesId": "toxicroak_shadow",
+        "speciesName": "Toxicroak (Shadow)",
         "tags": [
             "shadow"
         ],
@@ -53074,5 +53073,140 @@
             "dragon",
             "ground"
         ]
-    }
+    },
+    "dialga_origin": {
+        "dex": 483,
+        "speciesName": "Dialga (Origin)",
+        "speciesId": "dialga_origin",
+        "baseStats": {
+          "atk": 270,
+          "def": 225,
+          "hp": 205
+        },
+        "types": [
+          "steel",
+          "dragon"
+        ],
+        "fastMoves": [
+          "DRAGON_BREATH",
+          "METAL_CLAW"
+        ],
+        "chargedMoves": [
+          "DRACO_METEOR",
+          "IRON_HEAD",
+          "THUNDER",
+          "ROAR_OF_TIME"
+        ],
+        "eliteMoves": [
+          "ROAR_OF_TIME"
+        ],
+        "tags": [
+          "legendary"
+        ],
+        "sid": 15457
+      },
+      "palkia_origin": {
+        "dex": 484,
+        "speciesName": "Palkia (Origin)",
+        "speciesId": "palkia_origin",
+        "baseStats": {
+          "atk": 286,
+          "def": 223,
+          "hp": 189
+        },
+        "types": [
+          "water",
+          "dragon"
+        ],
+        "fastMoves": [
+          "DRAGON_BREATH",
+          "DRAGON_TAIL"
+        ],
+        "chargedMoves": [
+          "DRACO_METEOR",
+          "FIRE_BLAST",
+          "HYDRO_PUMP",
+          "AQUA_TAIL",
+          "SPACIAL_REND"
+        ],
+        "eliteMoves": [
+          "SPACIAL_REND"
+        ],
+        "tags": [
+          "legendary"
+        ],
+        "sid": 15489
+      },
+      "tentacool_shadow": {
+        "dex": 72,
+        "speciesName": "Tentacool (Shadow)",
+        "speciesId": "tentacool_shadow",
+        "baseStats": {
+          "atk": 97,
+          "def": 149,
+          "hp": 120
+        },
+        "types": [
+          "water",
+          "poison"
+        ],
+        "fastMoves": [
+          "BUBBLE",
+          "POISON_STING"
+        ],
+        "chargedMoves": [
+          "BUBBLE_BEAM",
+          "WATER_PULSE",
+          "WRAP"
+        ],
+        "family": {
+          "id": "FAMILY_TENTACOOL",
+          "evolutions": [
+            "tentacruel_shadow"
+          ]
+        },
+        "tags": [
+          "shadow"
+        ],
+        "sid": 2304,
+        "gender": "male"
+      },
+      "tentacruel_shadow": {
+        "dex": 73,
+        "speciesName": "Tentacruel (Shadow)",
+        "speciesId": "tentacruel_shadow",
+        "baseStats": {
+          "atk": 166,
+          "def": 209,
+          "hp": 190
+        },
+        "types": [
+          "water",
+          "poison"
+        ],
+        "fastMoves": [
+          "ACID",
+          "POISON_JAB"
+        ],
+        "chargedMoves": [
+          "BLIZZARD",
+          "HYDRO_PUMP",
+          "SLUDGE_WAVE",
+          "ACID_SPRAY",
+          "SCALD"
+        ],
+        "searchPriority": 2,
+        "family": {
+          "id": "FAMILY_TENTACOOL",
+          "parent": "tentacool_shadow"
+        },
+        "nicknames": [
+          "cruel"
+        ],
+        "tags": [
+          "shadow"
+        ],
+        "sid": 2336,
+        "gender": "male"
+      }
 }
