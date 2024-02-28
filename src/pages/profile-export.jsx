@@ -2,16 +2,37 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Layout from '../components/layout';
 
-function getProfiles(names) {
+async function getProfiles(namesString) {
   const host = `${window.location.protocol}//${window.location.host}`;
-  const url = `${host}/api/export/profiles?names=${names}`;
+  const names = namesString.split(',');
+  const batchSize = 20;
+  const batches = [];
+  for (let i = 0; i < names.length; i += batchSize) {
+    batches.push(names.slice(i, i + batchSize));
+  }
 
-  return axios
-    .get(url, {
+  const requests = batches.map((batch) => {
+    const url = `${host}/api/export/profiles?names=${batch.join(',')}`;
+    return axios.get(url, {
       headers: {
         x_authorization: `Basic ${process.env.GATSBY_SECRET_KEY}`,
       },
     });
+  });
+
+  const responses = await Promise.all(requests);
+
+  // Combine responses
+  let missingValues = [];
+  let profileData = [];
+  let status = 200;
+  responses.forEach((response) => {
+    status = Math.max(response.status, status);
+    missingValues = missingValues.concat(response.data.missingValues);
+    profileData = profileData.concat(response.data.profileData);
+  });
+
+  return { data: { missingValues, profileData }, status };
 }
 
 function getTournaments(names, date) {
