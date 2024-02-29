@@ -1327,7 +1327,8 @@
         "chargedMoves": [
             "BUBBLE_BEAM",
             "BUG_BUZZ",
-            "MIRROR_COAT"
+            "MIRROR_COAT",
+            "WATER_PULSE"
         ],
         "dex": 752,
         "family": {
@@ -1461,7 +1462,8 @@
             "FLAMETHROWER",
             "PSYCHIC_FANGS",
             "SCORCHING_SANDS",
-            "WILD_CHARGE"
+            "WILD_CHARGE",
+            "BRICK_BREAK"
         ],
         "dex": 59,
         "eliteMoves": [
@@ -4909,7 +4911,8 @@
         },
         "fastMoves": [
             "CONFUSION",
-            "FEINT_ATTACK"
+            "FEINT_ATTACK",
+            "METAL_SOUND"
         ],
         "gender": "N",
         "searchPriority": 2,
@@ -5386,7 +5389,8 @@
         },
         "fastMoves": [
             "POISON_STING",
-            "SUCKER_PUNCH"
+            "SUCKER_PUNCH",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "level25CP": 700,
@@ -5423,7 +5427,8 @@
         },
         "fastMoves": [
             "POISON_STING",
-            "SUCKER_PUNCH"
+            "SUCKER_PUNCH",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 10592,
@@ -5457,7 +5462,8 @@
         },
         "fastMoves": [
             "POISON_JAB",
-            "SUCKER_PUNCH"
+            "SUCKER_PUNCH",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "level25CP": 1386,
@@ -5492,7 +5498,8 @@
         },
         "fastMoves": [
             "POISON_JAB",
-            "SUCKER_PUNCH"
+            "SUCKER_PUNCH",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 10624,
@@ -8278,7 +8285,8 @@
             "CRABHAMMER",
             "ICE_PUNCH",
             "PAYBACK",
-            "POWER_UP_PUNCH"
+            "POWER_UP_PUNCH",
+            "BRICK_BREAK"
         ],
         "dex": 740,
         "family": {
@@ -8307,7 +8315,8 @@
         "chargedMoves": [
             "CRABHAMMER",
             "PAYBACK",
-            "POWER_UP_PUNCH"
+            "POWER_UP_PUNCH",
+            "BRICK_BREAK"
         ],
         "dex": 739,
         "family": {
@@ -10181,12 +10190,10 @@
         "fastMoves": [
             "MUD_SHOT",
             "MUD_SLAP",
-            "SCRATCH"
-        ],
-        "gender": "male",
-        "legacyMoves": [
+            "SCRATCH",
             "MUD_SHOT"
         ],
+        "gender": "male",
         "level25CP": 351,
         "sid": 1600,
         "speciesId": "diglett",
@@ -10219,7 +10226,8 @@
         },
         "fastMoves": [
             "METAL_CLAW",
-            "MUD_SLAP"
+            "MUD_SLAP",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "level25CP": 354,
@@ -10255,7 +10263,8 @@
         },
         "fastMoves": [
             "METAL_CLAW",
-            "MUD_SLAP"
+            "MUD_SLAP",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 1601,
@@ -10279,7 +10288,8 @@
         "chargedMoves": [
             "DIG",
             "MUD_BOMB",
-            "ROCK_TOMB"
+            "ROCK_TOMB",
+            "MUD_SHOT"
         ],
         "dex": 50,
         "family": {
@@ -11709,9 +11719,6 @@
             "SUCKER_PUNCH"
         ],
         "gender": "male",
-        "legacyMoves": [
-            "MUD_SHOT"
-        ],
         "level25CP": 915,
         "sid": 1632,
         "speciesId": "dugtrio",
@@ -11742,7 +11749,8 @@
         },
         "fastMoves": [
             "METAL_CLAW",
-            "MUD_SLAP"
+            "MUD_SLAP",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "level25CP": 1125,
@@ -11776,7 +11784,8 @@
         },
         "fastMoves": [
             "METAL_CLAW",
-            "MUD_SLAP"
+            "MUD_SLAP",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 1633,
@@ -11809,7 +11818,8 @@
         },
         "fastMoves": [
             "MUD_SLAP",
-            "SUCKER_PUNCH"
+            "SUCKER_PUNCH",
+            "MUD_SHOT"
         ],
         "gender": "male",
         "sid": 1632,
@@ -13043,7 +13053,8 @@
         },
         "fastMoves": [
             "METAL_CLAW",
-            "WATERFALL"
+            "WATERFALL",
+            "STEEL_WING"
         ],
         "gender": "male",
         "searchPriority": 4,
@@ -13082,7 +13093,8 @@
         },
         "fastMoves": [
             "METAL_CLAW",
-            "WATERFALL"
+            "WATERFALL",
+            "STEEL_WING"
         ],
         "gender": "male",
         "searchPriority": 4,
@@ -13958,7 +13970,8 @@
             "BITE",
             "ICE_FANG",
             "WATERFALL",
-            "WATER_GUN"
+            "WATER_GUN",
+            "SHADOW_CLAW"
         ],
         "gender": "male",
         "level25CP": 1764,
@@ -13999,7 +14012,8 @@
             "BITE",
             "ICE_FANG",
             "WATERFALL",
-            "WATER_GUN"
+            "WATER_GUN",
+            "SHADOW_CLAW"
         ],
         "gender": "male",
         "sid": 5120,
@@ -14729,7 +14743,8 @@
         },
         "fastMoves": [
             "DRAGON_TAIL",
-            "MUD_SHOT"
+            "MUD_SHOT",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "level25CP": 1634,
@@ -14768,7 +14783,8 @@
         },
         "fastMoves": [
             "DRAGON_TAIL",
-            "MUD_SHOT"
+            "MUD_SHOT",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 10560,
@@ -15272,7 +15288,8 @@
         "fastMoves": [
             "BITE",
             "SUCKER_PUNCH",
-            "TAKE_DOWN"
+            "TAKE_DOWN",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 21632,
@@ -15406,7 +15423,8 @@
         "fastMoves": [
             "CHARM",
             "CONFUSION",
-            "LOW_KICK"
+            "LOW_KICK",
+            "PSYCHO_CUT"
         ],
         "gender": "M",
         "level25CP": 1919,
@@ -15444,7 +15462,8 @@
         "fastMoves": [
             "CHARM",
             "CONFUSION",
-            "LOW_KICK"
+            "LOW_KICK",
+            "PSYCHO_CUT"
         ],
         "gender": "M",
         "sid": 15200,
@@ -15910,9 +15929,6 @@
             "MUD_SLAP"
         ],
         "gender": "male",
-        "legacyMoves": [
-            "EARTHQUAKE"
-        ],
         "searchPriority": 2,
         "sid": 13537,
         "speciesId": "gastrodon_east_sea",
@@ -15958,9 +15974,6 @@
             "MUD_SLAP"
         ],
         "gender": "male",
-        "legacyMoves": [
-            "EARTHQUAKE"
-        ],
         "searchPriority": 2,
         "sid": 13536,
         "speciesId": "gastrodon_west_sea",
@@ -17465,9 +17478,6 @@
             "ROCK_THROW"
         ],
         "gender": "male",
-        "legacyMoves": [
-            "MUD_SHOT"
-        ],
         "level25CP": 1825,
         "sid": 2432,
         "speciesId": "golem",
@@ -17576,7 +17586,8 @@
         },
         "fastMoves": [
             "MUD_SLAP",
-            "ROCK_THROW"
+            "ROCK_THROW",
+            "MUD_SHOT"
         ],
         "gender": "male",
         "sid": 2432,
@@ -17769,7 +17780,8 @@
             "DRACO_METEOR",
             "MUDDY_WATER",
             "POWER_WHIP",
-            "SLUDGE_WAVE"
+            "SLUDGE_WAVE",
+            "AQUA_TAIL"
         ],
         "dex": 706,
         "family": {
@@ -18272,9 +18284,6 @@
             "ROCK_THROW"
         ],
         "gender": "male",
-        "legacyMoves": [
-            "MUD_SHOT"
-        ],
         "level25CP": 1132,
         "sid": 2400,
         "speciesId": "graveler",
@@ -18308,7 +18317,8 @@
         },
         "fastMoves": [
             "ROCK_THROW",
-            "VOLT_SWITCH"
+            "VOLT_SWITCH",
+            "MUD_SHOT"
         ],
         "gender": "male",
         "level25CP": 1132,
@@ -19983,7 +19993,8 @@
         },
         "fastMoves": [
             "LICK",
-            "TAKE_DOWN"
+            "TAKE_DOWN",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 16224,
@@ -20014,7 +20025,8 @@
         },
         "fastMoves": [
             "BITE",
-            "TACKLE"
+            "TACKLE",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "level25CP": 781,
@@ -20049,7 +20061,8 @@
         },
         "fastMoves": [
             "BITE",
-            "TACKLE"
+            "TACKLE",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 14368,
@@ -20086,7 +20099,8 @@
             "BITE",
             "FIRE_FANG",
             "ICE_FANG",
-            "THUNDER_FANG"
+            "THUNDER_FANG",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "level25CP": 1915,
@@ -20125,7 +20139,8 @@
             "BITE",
             "FIRE_FANG",
             "ICE_FANG",
-            "THUNDER_FANG"
+            "THUNDER_FANG",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "searchPriority": 2,
@@ -21494,7 +21509,8 @@
         },
         "fastMoves": [
             "PECK",
-            "TACKLE"
+            "TACKLE",
+            "PSYWAVE"
         ],
         "gender": "male",
         "sid": 21952,
@@ -22776,9 +22792,6 @@
             "MAGICAL_LEAF"
         ],
         "gender": "male",
-        "legacyMoves": [
-            "DRAINING_KISS"
-        ],
         "level25CP": 533,
         "sid": 8992,
         "speciesId": "kirlia",
@@ -22801,7 +22814,8 @@
             "DISARMING_VOICE",
             "PSYCHIC",
             "SHADOW_SNEAK",
-            "TRIPLE_AXEL"
+            "TRIPLE_AXEL",
+            "DRAINING_KISS"
         ],
         "dex": 281,
         "family": {
@@ -22850,7 +22864,8 @@
         },
         "fastMoves": [
             "CHARGE_BEAM",
-            "THUNDER_SHOCK"
+            "THUNDER_SHOCK",
+            "METAL_SOUND"
         ],
         "gender": "N",
         "sid": 19200,
@@ -22969,7 +22984,8 @@
         },
         "fastMoves": [
             "CHARGE_BEAM",
-            "VOLT_SWITCH"
+            "VOLT_SWITCH",
+            "METAL_SOUND"
         ],
         "gender": "N",
         "sid": 19168,
@@ -22999,7 +23015,8 @@
         },
         "fastMoves": [
             "CHARGE_BEAM",
-            "THUNDER_SHOCK"
+            "THUNDER_SHOCK",
+            "METAL_SOUND"
         ],
         "gender": "N",
         "sid": 19232,
@@ -23118,7 +23135,8 @@
             "BOOMBURST",
             "CLOSE_COMBAT",
             "DRAGON_CLAW",
-            "FLAMETHROWER"
+            "FLAMETHROWER",
+            "BRICK_BREAK"
         ],
         "dex": 784,
         "family": {
@@ -23320,7 +23338,8 @@
         "chargedMoves": [
             "CRUNCH",
             "EARTHQUAKE",
-            "OUTRAGE"
+            "OUTRAGE",
+            "BRICK_BREAK"
         ],
         "dex": 553,
         "family": {
@@ -24584,9 +24603,6 @@
             "INFESTATION"
         ],
         "gender": "male",
-        "legacyMoves": [
-            "BULLET_SEED"
-        ],
         "level25CP": 736,
         "sid": 11040,
         "speciesId": "lileep",
@@ -24619,6 +24635,7 @@
         },
         "fastMoves": [
             "ACID",
+            "BULLET_SEED",
             "INFESTATION"
         ],
         "gender": "male",
@@ -24698,7 +24715,8 @@
         },
         "fastMoves": [
             "TACKLE",
-            "TAKE_DOWN"
+            "TAKE_DOWN",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 16192,
@@ -24727,7 +24745,8 @@
         },
         "fastMoves": [
             "SHADOW_CLAW",
-            "TACKLE"
+            "TACKLE",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 8448,
@@ -25347,7 +25366,8 @@
         "dex": 337,
         "fastMoves": [
             "CONFUSION",
-            "ROCK_THROW"
+            "ROCK_THROW",
+            "PSYWAVE"
         ],
         "gender": "N",
         "sid": 10784,
@@ -26296,7 +26316,8 @@
         "fastMoves": [
             "SPARK",
             "THUNDER_SHOCK",
-            "VOLT_SWITCH"
+            "VOLT_SWITCH",
+            "METAL_SOUND"
         ],
         "gender": "N",
         "level25CP": 780,
@@ -26332,7 +26353,8 @@
         "fastMoves": [
             "SPARK",
             "THUNDER_SHOCK",
-            "VOLT_SWITCH"
+            "VOLT_SWITCH",
+            "METAL_SOUND"
         ],
         "gender": "N",
         "sid": 2592,
@@ -26370,7 +26392,8 @@
             "CHARGE_BEAM",
             "SPARK",
             "THUNDER_SHOCK",
-            "VOLT_SWITCH"
+            "VOLT_SWITCH",
+            "METAL_SOUND"
         ],
         "gender": "N",
         "level25CP": 1513,
@@ -26409,7 +26432,8 @@
             "CHARGE_BEAM",
             "SPARK",
             "THUNDER_SHOCK",
-            "VOLT_SWITCH"
+            "VOLT_SWITCH",
+            "METAL_SOUND"
         ],
         "gender": "N",
         "sid": 2624,
@@ -26443,7 +26467,8 @@
         "fastMoves": [
             "CHARGE_BEAM",
             "SPARK",
-            "VOLT_SWITCH"
+            "VOLT_SWITCH",
+            "METAL_SOUND"
         ],
         "gender": "N",
         "level25CP": 1993,
@@ -26479,7 +26504,8 @@
         "fastMoves": [
             "CHARGE_BEAM",
             "SPARK",
-            "VOLT_SWITCH"
+            "VOLT_SWITCH",
+            "METAL_SOUND"
         ],
         "gender": "N",
         "searchPriority": 4,
@@ -26573,7 +26599,8 @@
             "FOUL_PLAY",
             "HYPER_BEAM",
             "PSYBEAM",
-            "SUPER_POWER"
+            "SUPER_POWER",
+            "PSYWAVE"
         ],
         "dex": 687,
         "family": {
@@ -28945,7 +28972,8 @@
         },
         "fastMoves": [
             "ASTONISH",
-            "HEX"
+            "HEX",
+            "PSYWAVE"
         ],
         "gender": "male",
         "level25CP": 1151,
@@ -28980,7 +29008,8 @@
         },
         "fastMoves": [
             "ASTONISH",
-            "HEX"
+            "HEX",
+            "PSYWAVE"
         ],
         "gender": "male",
         "sid": 6400,
@@ -29013,7 +29042,8 @@
         "fastMoves": [
             "HEX",
             "MAGICAL_LEAF",
-            "SUCKER_PUNCH"
+            "SUCKER_PUNCH",
+            "PSYWAVE"
         ],
         "gender": "male",
         "level25CP": 1602,
@@ -29047,7 +29077,8 @@
         "fastMoves": [
             "HEX",
             "MAGICAL_LEAF",
-            "SUCKER_PUNCH"
+            "SUCKER_PUNCH",
+            "PSYWAVE"
         ],
         "gender": "male",
         "sid": 13728,
@@ -29432,7 +29463,8 @@
         "fastMoves": [
             "CONFUSION",
             "MAGICAL_LEAF",
-            "ZEN_HEADBUTT"
+            "ZEN_HEADBUTT",
+            "PSYWAVE"
         ],
         "gender": "male",
         "nicknames": [
@@ -32204,7 +32236,8 @@
         },
         "fastMoves": [
             "ASTONISH",
-            "MUD_SHOT"
+            "MUD_SHOT",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 24640,
@@ -38476,7 +38509,8 @@
         },
         "fastMoves": [
             "MUD_SHOT",
-            "SCRATCH"
+            "SCRATCH",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "level25CP": 720,
@@ -38595,7 +38629,8 @@
         },
         "fastMoves": [
             "MUD_SHOT",
-            "SCRATCH"
+            "SCRATCH",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "nicknames": [
@@ -38635,7 +38670,8 @@
         },
         "fastMoves": [
             "METAL_CLAW",
-            "MUD_SHOT"
+            "MUD_SHOT",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "level25CP": 1445,
@@ -38764,7 +38800,8 @@
         },
         "fastMoves": [
             "METAL_CLAW",
-            "MUD_SHOT"
+            "MUD_SHOT",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "nicknames": [
@@ -38802,7 +38839,8 @@
         },
         "fastMoves": [
             "ASTONISH",
-            "MUD_SHOT"
+            "MUD_SHOT",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 24608,
@@ -38847,7 +38885,8 @@
         "chargedMoves": [
             "BODY_SLAM",
             "FOCUS_BLAST",
-            "LOW_SWEEP"
+            "LOW_SWEEP",
+            "BRICK_BREAK"
         ],
         "dex": 539,
         "fastMoves": [
@@ -38876,7 +38915,8 @@
         "chargedMoves": [
             "BODY_SLAM",
             "FOCUS_BLAST",
-            "LOW_SWEEP"
+            "LOW_SWEEP",
+            "BRICK_BREAK"
         ],
         "dex": 539,
         "fastMoves": [
@@ -43724,7 +43764,8 @@
         "dex": 338,
         "fastMoves": [
             "CONFUSION",
-            "ROCK_THROW"
+            "ROCK_THROW",
+            "PSYWAVE"
         ],
         "gender": "N",
         "sid": 10816,
@@ -44463,7 +44504,8 @@
         "fastMoves": [
             "GUST",
             "QUICK_ATTACK",
-            "WING_ATTACK"
+            "WING_ATTACK",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "level25CP": 1738,
@@ -44501,7 +44543,8 @@
         "fastMoves": [
             "GUST",
             "QUICK_ATTACK",
-            "WING_ATTACK"
+            "WING_ATTACK",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 12736,
@@ -44537,7 +44580,8 @@
         },
         "fastMoves": [
             "QUICK_ATTACK",
-            "WING_ATTACK"
+            "WING_ATTACK",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "level25CP": 742,
@@ -44574,7 +44618,8 @@
         },
         "fastMoves": [
             "QUICK_ATTACK",
-            "WING_ATTACK"
+            "WING_ATTACK",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 12704,
@@ -44608,7 +44653,8 @@
         },
         "fastMoves": [
             "QUICK_ATTACK",
-            "TACKLE"
+            "TACKLE",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "level25CP": 375,
@@ -44643,7 +44689,8 @@
         },
         "fastMoves": [
             "QUICK_ATTACK",
-            "TACKLE"
+            "TACKLE",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 12672,
@@ -44702,7 +44749,6 @@
         ],
         "gender": "N",
         "legacyMoves": [
-            "PSYBEAM",
             "QUICK_ATTACK"
         ],
         "sid": 3872,
@@ -44934,7 +44980,8 @@
         "fastMoves": [
             "ICE_FANG",
             "LICK",
-            "TAKE_DOWN"
+            "TAKE_DOWN",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 16256,
@@ -47962,7 +48009,8 @@
         },
         "fastMoves": [
             "MUD_SHOT",
-            "STRUGGLE_BUG"
+            "STRUGGLE_BUG",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "level25CP": 722,
@@ -47998,7 +48046,8 @@
         },
         "fastMoves": [
             "MUD_SHOT",
-            "STRUGGLE_BUG"
+            "STRUGGLE_BUG",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 10496,
@@ -49638,7 +49687,8 @@
         },
         "fastMoves": [
             "DRAGON_BREATH",
-            "MUD_SHOT"
+            "MUD_SHOT",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "level25CP": 696,
@@ -49675,7 +49725,8 @@
         },
         "fastMoves": [
             "DRAGON_BREATH",
-            "MUD_SHOT"
+            "MUD_SHOT",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 10528,
@@ -51820,7 +51871,8 @@
         },
         "fastMoves": [
             "BUG_BITE",
-            "CONFUSION"
+            "CONFUSION",
+            "METAL_SOUND"
         ],
         "gender": "F",
         "nicknames": [
@@ -52764,7 +52816,8 @@
         },
         "fastMoves": [
             "ROCK_SMASH",
-            "TACKLE"
+            "TACKLE",
+            "SAND_ATTACK"
         ],
         "gender": "male",
         "sid": 8416,
