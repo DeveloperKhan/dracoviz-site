@@ -53262,5 +53262,106 @@
         ],
         "sid": 2336,
         "gender": "male"
+      },
+      "decidueye_hisuian": {
+        "dex": 724,
+        "speciesName": "Decidueye (Hisuian)",
+        "speciesId": "decidueye_hisuian",
+        "baseStats": {
+          "atk": 213,
+          "def": 174,
+          "hp": 204
+        },
+        "types": [
+          "grass",
+          "fighting"
+        ],
+        "fastMoves": [
+          "MAGICAL_LEAF",
+          "PSYCHO_CUT"
+        ],
+        "chargedMoves": [
+          "AURA_SPHERE",
+          "ENERGY_BALL",
+          "AERIAL_ACE"
+        ],
+        "tags": [
+          "starter"
+        ],
+        "levelFloor": 20,
+        "family": {
+          "id": "FAMILY_ROWLET",
+          "parent": "dartrix"
+        },
+        "sid": 23169
+      },
+      "typhlosion_hisuian": {
+        "dex": 157,
+        "speciesName": "Typhlosion (Hisuian)",
+        "speciesId": "typhlosion_hisuian",
+        "baseStats": {
+          "atk": 238,
+          "def": 172,
+          "hp": 177
+        },
+        "types": [
+          "fire",
+          "ghost"
+        ],
+        "fastMoves": [
+          "EMBER",
+          "HEX"
+        ],
+        "chargedMoves": [
+          "FIRE_PUNCH",
+          "WILD_CHARGE",
+          "SHADOW_BALL",
+          "OVERHEAT"
+        ],
+        "tags": [
+          "starter",
+          "hisuian"
+        ],
+        "levelFloor": 20,
+        "family": {
+          "id": "FAMILY_CYNDAQUIL",
+          "parent": "quilava"
+        },
+        "sid": 5025
+      },
+      "samurott_hisuian": {
+        "dex": 503,
+        "speciesId": "samurott_hisuian",
+        "speciesName": "Samurott (Hisuian)",
+        "baseStats": {
+          "atk": 218,
+          "def": 152,
+          "hp": 207
+        },
+        "types": [
+          "water",
+          "dark"
+        ],
+        "fastMoves": [
+          "FURY_CUTTER",
+          "WATERFALL",
+          "SNARL"
+        ],
+        "chargedMoves": [
+          "RAZOR_SHELL",
+          "ICY_WIND",
+          "X_SCISSOR",
+          "DARK_PULSE"
+        ],
+        "tags": [
+          "starter",
+          "hisuian"
+        ],
+        "levelFloor": 20,
+        "family": {
+          "id": "FAMILY_OSHAWOTT",
+          "parent": "dewott"
+        },
+        "sid": 16097
       }
 }
