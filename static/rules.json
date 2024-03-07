@@ -1034,8 +1034,8 @@
             }
         ]
     },
-    "Master League Factions": {
-        "name": "Master League Factions",
+    "Battle Frontier OML": {
+        "name": "Battle Frontier OML",
         "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/master_league.png/public",
         "maxCP": 10000,
         "maxLevel": 50,
@@ -1050,69 +1050,73 @@
             "prices": [
                 {
                     "pokemonIds": [
+                        "scizor_mega",
+                        "salamence_mega"
+                    ],
+                    "price": 6
+                },
+                {
+                    "pokemonIds": [
                         "mewtwo",
                         "mewtwo_shadow",
                         "dialga",
                         "zacian",
                         "solgaleo",
                         "groudon",
-                        "aggron_mega",
-                        "scizor_mega",
-                        "salamence_mega",
-                        "gengar_mega"
+                        "groudon_shadow",
+                        "ho_oh",
+                        "ho_oh_shadow",
+                        "kyogre",
+                        "kyogre_shadow",
+                        "meloetta_aria",
+                        "steelix_mega",
+                        "xerneas",
+                        "dialga_origin",
+                        "palkia_origin"
                     ],
                     "price": 4
                 },
                 {
                     "pokemonIds": [
-                        "lugia",
-                        "lugia_shadow",
-                        "ho_oh",
-                        "ho_oh_shadow",
-                        "kyogre",
-                        "giratina_origin",
-                        "giratina_altered",
-                        "meloetta_aria",
-                        "zarude",
+                        "aggron_mega",
                         "blastoise_mega",
-                        "steelix_mega"
+                        "giratina_altered",
+                        "giratina_origin",
+                        "landorus_therian",
+                        "slowbro_mega"
                     ],
                     "price": 3
                 },
                 {
                     "pokemonIds": [
-                        "zekrom",
-                        "xerneas",
-                        "yveltal",
-                        "melmetal",
-                        "palkia",
+                        "charizard_mega_x",
                         "dragonite",
                         "dragonite_shadow",
+                        "lugia",
+                        "lugia_shadow",
+                        "melmetal",
+                        "palkia",
                         "reshiram",
-                        "kyurem",
-                        "rayquaza",
-                        "charizard_mega_x"
+                        "yveltal",
+                        "zarude",
+                        "zekrom"
                     ],
                     "price": 2
                 },
                 {
                     "pokemonIds": [
-                        "landorus_therian",
-                        "landorus_incarnate",
-                        "genesect",
-                        "genesect_douse",
+                        "abomasnow_mega",
+                        "blaziken_mega",
+                        "florges",
                         "genesect_burn",
                         "genesect_chill",
                         "genesect_shock",
+                        "genesect_douse",
+                        "genesect",
+                        "heatran",
+                        "kyurem",
                         "mew",
-                        "florges",
-                        "buzzwole",
-                        "venusaur_mega",
-                        "alakazam_mega",
-                        "blaziken_mega",
-                        "sceptile_mega",
-                        "abomasnow_mega",
-                        "altaria_mega"
+                        "rayquaza"
                     ],
                     "price": 1
                 }
@@ -1130,7 +1134,12 @@
                     "kyogre_primal",
                     "groudon_primal",
                     "swampert_mega",
-                    "gardevoir_mega"
+                    "gardevoir_mega",
+                    "gengar_mega",
+                    "rayquaza_mega",
+                    "tyranitar_mega",
+                    "zygarde_complete",
+                    "garchomp_mega"
                 ]
             }
         ]
@@ -4180,7 +4189,9 @@
                     "zygarde_complete",
                     "stunfisk_galarian",
                     "greedent",
-                    "greedent_shadow"
+                    "greedent_shadow",
+                    "empoleon",
+                    "empoleon_shadow"
                 ]
             }
         ],
@@ -4268,7 +4279,13 @@
                     "wobbuffet_shadow",
                     "lanturn",
                     "rotom_wash",
-                    "chinchou"
+                    "chinchou",
+                    "empoleon",
+                    "empoleon_shadow",
+                    "feraligatr",
+                    "feraligatr_shadow",
+                    "gallade",
+                    "gallade_shadow"
                 ]
             }
         ],
@@ -4343,7 +4360,8 @@
                     "regirock",
                     "stunfisk",
                     "umbreon",
-                    "walrein"
+                    "walrein",
+                    "avalugg_hisuian"
                 ]
             }
         ],
@@ -4400,7 +4418,9 @@
                         "registeel",
                         "registeel_shadow",
                         "skarmory",
-                        "skarmory_shadow"
+                        "skarmory_shadow",
+                        "whiscash",
+                        "whiscash_shadow"
                     ],
                     "price": 7
                 },
@@ -4426,8 +4446,13 @@
                         "toxapex",
                         "umbreon",
                         "vigoroth",
-                        "whiscash",
-                        "whiscash_shadow"
+                        "charjabug",
+                        "cresselia",
+                        "empoleon",
+                        "empoleon_shadow",
+                        "feraligatr",
+                        "feraligatr_shadow",
+                        "mantine"
                     ],
                     "price": 5
                 },
@@ -4436,10 +4461,8 @@
                         "altaria",
                         "charizard",
                         "charizard_shadow",
-                        "charjabug",
                         "clefable",
                         "clodsire",
-                        "cresselia",
                         "diggersby",
                         "dragonite",
                         "dragonite_shadow",
@@ -4447,7 +4470,6 @@
                         "froslass",
                         "greedent",
                         "jellicent",
-                        "mantine",
                         "pelipper",
                         "pidgeot",
                         "quagsire",
@@ -4459,7 +4481,11 @@
                         "toxicroak",
                         "venusaur",
                         "venusaur_shadow",
-                        "wigglytuff"
+                        "wigglytuff",
+                        "gallade",
+                        "gallade_shadow",
+                        "machamp",
+                        "machamp_shadow"
                     ],
                     "price": 2
                 }
@@ -5163,6 +5189,36 @@
                     "electrode_hisuian",
                     "rapidash",
                     "cetitan"
+                ]
+            }
+        ]
+    },
+    "Spring Cup": {
+        "name": "Spring Cup",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/spring.png/public",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "flags": {
+            "speciesClauseByDex": "true"
+        },
+        "include": [
+            {
+                "filterType": "type",
+                "values": [
+                    "fairy",
+                    "water",
+                    "grass"
+                ]
+            }
+        ],
+        "exclude": [
+            {
+                "filterType": "id",
+                "values": [
+                    "toxapex",
+                    "mantine"
                 ]
             }
         ]
