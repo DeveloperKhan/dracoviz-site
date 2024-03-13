@@ -41,6 +41,15 @@
             "speciesClauseByForm": "true"
         }
     },
+    "Great League Megas": {
+        "name": "Anything Goes (Great League)",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/great_league.png/public",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 6,
+        "maxMega": 6,
+        "rankingsLink": "https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/rankings/all/overall/rankings-1500.json",
+    },
     "Ultra League": {
         "name": "Ultra League",
         "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/ultra_league.png/public",
