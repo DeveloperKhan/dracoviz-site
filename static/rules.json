@@ -48,7 +48,7 @@
         "maxLevel": 50,
         "maxBestBuddy": 6,
         "maxMega": 6,
-        "rankingsLink": "https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/rankings/all/overall/rankings-1500.json",
+        "rankingsLink": "https://raw.githubusercontent.com/pvpoke/pvpoke/master/src/data/rankings/all/overall/rankings-1500.json"
     },
     "Ultra League": {
         "name": "Ultra League",
