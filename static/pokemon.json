@@ -26599,8 +26599,7 @@
             "FOUL_PLAY",
             "HYPER_BEAM",
             "PSYBEAM",
-            "SUPER_POWER",
-            "PSYWAVE"
+            "SUPER_POWER"
         ],
         "dex": 687,
         "family": {
@@ -26609,7 +26608,8 @@
         },
         "fastMoves": [
             "PECK",
-            "PSYCHO_CUT"
+            "PSYCHO_CUT",
+            "PSYWAVE"
         ],
         "gender": "male",
         "sid": 21984,
