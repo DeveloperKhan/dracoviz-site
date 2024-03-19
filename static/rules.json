@@ -5231,5 +5231,213 @@
                 ]
             }
         ]
+    },
+    "Uso Cup": {
+        "name": "Uso Cup",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/uso.png/public",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "flags": {
+            "speciesClauseByDex": "true"
+        },
+        "teamPattern": [{
+            "include": [{
+                "filterType": "dex",
+                "values": ["134","135","136","196","197","470","471","700"]
+            }]
+        },
+        {
+            "include": [
+                {
+                    "filterType": "type",
+                    "values": [
+                        "dragon",
+                        "bug",
+                        "flying",
+                        "poison",
+                        "groudon",
+                        "fighting",
+                        "steel",
+                        "rock"
+                    ]
+                }
+            ],
+            "exclude": [
+                {
+                    "filterType": "type",
+                    "values": [
+                        "dark",
+                        "psychic",
+                        "ghost",
+                        "fire",
+                        "electric",
+                        "grass",
+                        "ice",
+                        "normal",
+                        "water",
+                        "fairy"
+                    ]
+                },
+                {
+                    "filterType": "dex",
+                    "values": ["207","472","980","227"]
+                }
+            ]
+        },
+        {
+            "include": [
+                {
+                    "filterType": "type",
+                    "values": [
+                        "dragon",
+                        "bug",
+                        "flying",
+                        "poison",
+                        "groudon",
+                        "fighting",
+                        "steel",
+                        "rock"
+                    ]
+                }
+            ],
+            "exclude": [
+                {
+                    "filterType": "type",
+                    "values": [
+                        "dark",
+                        "psychic",
+                        "ghost",
+                        "fire",
+                        "electric",
+                        "grass",
+                        "ice",
+                        "normal",
+                        "water",
+                        "fairy"
+                    ]
+                },
+                {
+                    "filterType": "dex",
+                    "values": ["207","472","980","227"]
+                }
+            ]
+        },
+        {
+            "include": [
+                {
+                    "filterType": "type",
+                    "values": [
+                        "dragon",
+                        "bug",
+                        "flying",
+                        "poison",
+                        "groudon",
+                        "fighting",
+                        "steel",
+                        "rock"
+                    ]
+                }
+            ],
+            "exclude": [
+                {
+                    "filterType": "type",
+                    "values": [
+                        "dark",
+                        "psychic",
+                        "ghost",
+                        "fire",
+                        "electric",
+                        "grass",
+                        "ice",
+                        "normal",
+                        "water",
+                        "fairy"
+                    ]
+                },
+                {
+                    "filterType": "dex",
+                    "values": ["207","472","980","227"]
+                }
+            ]
+        },
+        {
+            "include": [
+                {
+                    "filterType": "type",
+                    "values": [
+                        "dragon",
+                        "bug",
+                        "flying",
+                        "poison",
+                        "groudon",
+                        "fighting",
+                        "steel",
+                        "rock"
+                    ]
+                }
+            ],
+            "exclude": [
+                {
+                    "filterType": "type",
+                    "values": [
+                        "dark",
+                        "psychic",
+                        "ghost",
+                        "fire",
+                        "electric",
+                        "grass",
+                        "ice",
+                        "normal",
+                        "water",
+                        "fairy"
+                    ]
+                },
+                {
+                    "filterType": "dex",
+                    "values": ["207","472","980","227"]
+                }
+            ]
+        },
+        {
+            "include": [
+                {
+                    "filterType": "type",
+                    "values": [
+                        "dragon",
+                        "bug",
+                        "flying",
+                        "poison",
+                        "groudon",
+                        "fighting",
+                        "steel",
+                        "rock"
+                    ]
+                }
+            ],
+            "exclude": [
+                {
+                    "filterType": "type",
+                    "values": [
+                        "dark",
+                        "psychic",
+                        "ghost",
+                        "fire",
+                        "electric",
+                        "grass",
+                        "ice",
+                        "normal",
+                        "water",
+                        "fairy"
+                    ]
+                },
+                {
+                    "filterType": "dex",
+                    "values": ["207","472","980","227"]
+                }
+            ]
+        }
+    ]
     }
 }
