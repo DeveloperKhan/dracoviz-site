@@ -5439,5 +5439,494 @@
             ]
         }
     ]
+    },
+    "Rainstorm Cup": {
+        "name": "Rainstorm Cup",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/rainstorm.png/public",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "flags": {
+            "speciesClauseByDex": "true"
+        },
+        "exclude": [
+            {
+                "filterType": "type",
+                "values": [
+                    "fighting",
+                    "electric",
+                    "fairy"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "skarmory",
+                    "celesteela",
+                    "skarmory_shadow",
+                    "obstagoon",
+                    "whiscash",
+                    "whiscash_shadow",
+                    "toxapex",
+                    "pidgeot",
+                    "mantine"
+                ]
+            }
+        ],
+        "include": [
+            {
+                "filterType": "type",
+                "values": [
+                    "dark",
+                    "water",
+                    "flying"
+                ]
+            }
+        ]
+    },
+    "The Silver Citadel": {
+        "name": "Syndicate (The Silver Citadel)",
+        "metaLogo": "https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/silvercitadel.png/public",
+        "classes": [{
+            "Kanto/Johto": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["1-151", "152-251"]
+                }],
+                "exclude": [{
+                    "filterType": "dex",
+                    "values": ["lickitung", "poliwrath", "poliwrath_shadow", "charizard", "charizard_shadow", "dragonair", "dragonair_shadow", "gligar", "gligar_shadow", "skarmory", "skarmory_shadow", "lanturn", "feraligatr", "feraligatr_shadow", "mantine"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "hisuian", "paldean"]
+                }]
+            },
+            "Kanto/Hoenn": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["1-151", "252-386"]
+                }],
+                "exclude": [{
+                    "filterType": "dex",
+                    "values": ["lickitung", "poliwrath", "poliwrath_shadow", "charizard", "charizard_shadow", "dragonair", "dragonair_shadow", "registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "hisuian", "paldean"]
+                }]
+            },
+            "Kanto/Sinnoh+Hisui": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["1-151", "387-493", "899-905"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["hisuian"]
+                }],
+                "exclude": [{
+                    "filterType": "dex",
+                    "values": ["lickitung", "poliwrath", "poliwrath_shadow", "charizard", "charizard_shadow", "dragonair", "dragonair_shadow", "cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "paldean"]
+                }]
+            },
+            "Kanto/Unova": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["1-151", "494-649"]
+                }],
+                "exclude": [{
+                    "filterType": "dex",
+                    "values": ["lickitung", "poliwrath", "poliwrath_shadow", "charizard", "charizard_shadow", "dragonair", "dragonair_shadow", "mandibuzz", "jellicent"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "hisuian", "paldean"]
+                }]
+            },
+            "Kanto/Kalos+Paldea": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["1-151", "650-720", "906-1000"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["paldean"]
+                }],
+                "exclude": [{
+                    "filterType": "dex",
+                    "values": ["lickitung", "poliwrath", "poliwrath_shadow", "charizard", "charizard_shadow", "dragonair", "dragonair_shadow", "carbink", "arctibax", "goodra", "annihilape"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "hisuian"]
+                }]
+            },
+            "Kanto/Alola+Galar": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["1-151", "722-803", "819-895"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian"]
+                }],
+                "exclude": [{
+                    "filterType": "dex",
+                    "values": ["lickitung", "poliwrath", "poliwrath_shadow", "charizard", "charizard_shadow", "dragonair", "dragonair_shadow", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["hisuian", "paldean"]
+                }]
+            },
+            "Johto/Hoenn": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["152-251", "252-386"]
+                }],
+                "exclude": [{
+                    "filterType": "dex",
+                    "values": ["gligar", "gligar_shadow", "skarmory", "skarmory_shadow", "lanturn", "feraligatr", "feraligatr_shadow", "mantine", "registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "hisuian", "paldean"]
+                }]
+            },
+            "Johto/Sinnoh+Hisui": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["152-251", "387-493", "899-905"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["hisuian"]
+                }],
+                "exclude": [{
+                    "filterType": "dex",
+                    "values": ["gligar", "gligar_shadow", "skarmory", "skarmory_shadow", "lanturn", "feraligatr", "feraligatr_shadow", "mantine", "cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "paldean"]
+                }]
+            },
+            "Johto/Unova": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["152-251", "494-649"]
+                }],
+                "exclude": [{
+                    "filterType": "dex",
+                    "values": ["gligar", "gligar_shadow", "skarmory", "skarmory_shadow", "lanturn", "feraligatr", "feraligatr_shadow", "mantine", "mandibuzz", "jellicent"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "hisuian", "paldean"]
+                }]
+            },
+            "Johto/Kalos+Paldea": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["152-251", "650-720", "906-1000"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["paldean"]
+                }],
+                "exclude": [{
+                    "filterType": "dex",
+                    "values": ["gligar", "gligar_shadow", "skarmory", "skarmory_shadow", "lanturn", "feraligatr", "feraligatr_shadow", "mantine", "carbink", "arctibax", "goodra", "annihilape"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "hisuian"]
+                }]
+            },
+            "Johto/Alola+Galar": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["152-251", "722-803", "819-895"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian"]
+                }],
+                "exclude": [{
+                    "filterType": "dex",
+                    "values": ["gligar", "gligar_shadow", "skarmory", "skarmory_shadow", "lanturn", "feraligatr", "feraligatr_shadow", "mantine", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["hisuian", "paldean"]
+                }]
+            }
+        }]
+    },
+    "Hoenn/Sinnoh+Hisui": {
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "include": [{
+            "filterType": "dex",
+            "values": ["252-386", "387-493", "899-905"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["hisuian"]
+         }],
+        "exclude": [{
+            "filterType": "id",
+            "values": ["registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham", "cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["alolan", "galarian", "paldean"]
+        }]
+    },
+    "Hoenn/Unova": {
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "include": [{
+            "filterType": "dex",
+            "values": ["252-386", "494-649"]
+        }],
+        "exclude": [{
+            "filterType": "id",
+            "values": ["registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham", "mandibuzz", "jellicent"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["alolan", "galarian", "hisuian", "paldean"]
+        }]
+    },
+    "Hoenn/Kalos+Paldea": {
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "include": [{
+            "filterType": "dex",
+            "values": ["252-386", "650-720", "906-1000"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["paldean"]
+        }],
+        "exclude": [{
+            "filterType": "id",
+            "values": ["registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham", "carbink", "arctibax", "goodra", "annihilape"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["alolan", "galarian", "hisuian"]
+        }]
+    },
+    "Hoenn/Alola+Galar": {
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "include": [{
+            "filterType": "dex",
+            "values": ["252-386", "722-803", "819-895"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["alolan", "galarian"]
+        }],
+        "exclude": [{
+            "filterType": "id",
+            "values": ["registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["hisuian", "paldean"]
+        }]
+    },
+    "Sinnoh+Hisui/Unova": {
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "include": [{
+            "filterType": "dex",
+            "values": ["387-493", "899-905", "494-649"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["hisuian"]
+        }],
+        "exclude": [{
+            "filterType": "id",
+            "values": ["cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow", "mandibuzz", "jellicent"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["alolan", "galarian", "paldean"]
+        }]
+    },
+    "Sinnoh+Hisui/Kalos+Paldea": {
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "include": [{
+            "filterType": "dex",
+            "values": ["387-493", "899-905", "650-720", "906-1000"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["hisuian", "paldean"]
+        }],
+        "exclude": [{
+            "filterType": "id",
+            "values": ["cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow", "carbink", "arctibax", "goodra", "annihilape"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["alolan", "galarian"]
+        }]
+    },
+    "Sinnoh+Hisui/Alola+Galar": {
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "include": [{
+            "filterType": "dex",
+            "values": ["387-493", "899-905", "722-803", "819-895"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["alolan", "galarian", "hisuian"]
+        }],
+        "exclude": [{
+            "filterType": "id",
+            "values": ["cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["paldean"]
+        }]
+    },
+    "Unova/Kalos+Paldea": {
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "include": [{
+            "filterType": "dex",
+            "values": ["494-649", "650-720", "906-1000"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["paldean"]
+        }],
+        "exclude": [{
+            "filterType": "id",
+            "values": ["mandibuzz", "jellicent", "carbink", "arctibax", "goodra", "annihilape"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["alolan", "galarian", "hisuian"]
+        }]
+    },
+    "Unova/Alola+Galar": {
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "include": [{
+            "filterType": "dex",
+            "values": ["494-649", "722-803", "819-895"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["alolan", "galarian"]
+        }],
+        "exclude": [{
+            "filterType": "id",
+            "values": ["mandibuzz", "jellicent", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["hisuian", "paldean"]
+        }]
+    },
+    "Kalos+Paldea/Alola+Galar": {
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "include": [{
+            "filterType": "dex",
+            "values": ["650-720", "906-1000", "722-803", "819-895"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["alolan", "galarian", "paldean"]
+        }],
+        "exclude": [{
+            "filterType": "id",
+            "values": ["carbink", "arctibax", "goodra", "annihilape", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
+        },
+        {
+            "filterType": "tag",
+            "values": ["hisuian"]
+        }]
     }
 }
