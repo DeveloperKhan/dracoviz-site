@@ -4,7 +4,7 @@ To get your project started or to just try it out, you can **follow the [Gatsby 
 
 ## 🧐 What's inside? 
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+A look at the top-level files and directories you'll see in a Gatsby project.
 
     .
     ├── node_modules
