@@ -21311,7 +21311,9 @@
             "BLAZE_KICK",
             "DARK_PULSE",
             "FIRE_BLAST",
-            "FLAME_CHARGE"
+            "FLAME_CHARGE",
+            "BLAST_BURN",
+            "DARKEST_LARIAT"
         ],
         "dex": 727,
         "family": {
