@@ -9411,6 +9411,44 @@
         "types": [
             "fire",
             "none"
+        ],
+        "tags": [
+            "shadoweligible"
+        ]
+    },
+    "darmanitan_standard_shadow": {
+        "baseStats": {
+            "atk": 263,
+            "def": 114,
+            "hp": 233
+        },
+        "chargedMoves": [
+            "FOCUS_BLAST",
+            "OVERHEAT",
+            "PSYCHIC",
+            "ROCK_SLIDE"
+        ],
+        "dex": 555,
+        "family": {
+            "id": "FAMILY_DARUMAKA",
+            "parent": "darumaka"
+        },
+        "fastMoves": [
+            "FIRE_FANG",
+            "INCINERATE",
+            "TACKLE"
+        ],
+        "gender": "male",
+        "searchPriority": 2,
+        "sid": 17760,
+        "speciesId": "darmanitan_standard_shadow",
+        "speciesName": "Darmanitan (Standard) (Shadow)",
+        "types": [
+            "fire",
+            "none"
+        ],
+        "tags": [
+            "shadow"
         ]
     },
     "darmanitan_zen": {
@@ -9509,6 +9547,42 @@
         "types": [
             "fire",
             "none"
+        ],
+        "tags": [
+            "shadoweligible"
+        ]
+    },
+    "darumaka_shadow": {
+        "baseStats": {
+            "atk": 153,
+            "def": 86,
+            "hp": 172
+        },
+        "chargedMoves": [
+            "FIRE_PUNCH",
+            "FLAME_CHARGE"
+        ],
+        "dex": 554,
+        "family": {
+            "evolutions": [
+                "darmanitan_standard"
+            ],
+            "id": "FAMILY_DARUMAKA"
+        },
+        "fastMoves": [
+            "FIRE_FANG",
+            "TACKLE"
+        ],
+        "gender": "male",
+        "sid": 17728,
+        "speciesId": "darumaka_shadow",
+        "speciesName": "Darumaka (Shadow)",
+        "types": [
+            "fire",
+            "none"
+        ],
+        "tags": [
+            "shadow"
         ]
     },
     "darumaka_galarian": {
@@ -11905,6 +11979,59 @@
         "types": [
             "none",
             "psychic"
+        ],
+        "tags": [
+            "shadoweligible"
+        ]
+    },
+    "duosion_shadow": {
+        "baseStats": {
+            "atk": 208,
+            "def": 103,
+            "hp": 163
+        },
+        "chargedMoves": [
+            "NIGHT_SHADE",
+            "PSYSHOCK",
+            "THUNDER"
+        ],
+        "dex": 578,
+        "family": {
+            "evolutions": [
+                "reuniclus"
+            ],
+            "id": "FAMILY_SOLOSIS",
+            "parent": "solosis"
+        },
+        "fastMoves": [
+            "HIDDEN_POWER_BUG",
+            "HIDDEN_POWER_DARK",
+            "HIDDEN_POWER_DRAGON",
+            "HIDDEN_POWER_ELECTRIC",
+            "HIDDEN_POWER_FIGHTING",
+            "HIDDEN_POWER_FIRE",
+            "HIDDEN_POWER_FLYING",
+            "HIDDEN_POWER_GHOST",
+            "HIDDEN_POWER_GRASS",
+            "HIDDEN_POWER_GROUND",
+            "HIDDEN_POWER_ICE",
+            "HIDDEN_POWER_POISON",
+            "HIDDEN_POWER_PSYCHIC",
+            "HIDDEN_POWER_ROCK",
+            "HIDDEN_POWER_STEEL",
+            "HIDDEN_POWER_WATER",
+            "ZEN_HEADBUTT"
+        ],
+        "gender": "male",
+        "sid": 18496,
+        "speciesId": "duosion_shadow",
+        "speciesName": "Duosion (Shadow)",
+        "types": [
+            "none",
+            "psychic"
+        ],
+        "tags": [
+            "shadow"
         ]
     },
     "duraludon": {
@@ -17924,6 +18051,43 @@
         "types": [
             "none",
             "psychic"
+        ],
+        "tags": [
+            "shadoweligible"
+        ]
+    },
+    "gothita_shadow": {
+        "baseStats": {
+            "atk": 98,
+            "def": 112,
+            "hp": 128
+        },
+        "chargedMoves": [
+            "PSYBEAM",
+            "PSYCHIC",
+            "PSYSHOCK"
+        ],
+        "dex": 574,
+        "family": {
+            "evolutions": [
+                "gothorita"
+            ],
+            "id": "FAMILY_GOTHITA"
+        },
+        "fastMoves": [
+            "CONFUSION",
+            "POUND"
+        ],
+        "gender": "male",
+        "sid": 18368,
+        "speciesId": "gothita_shadow",
+        "speciesName": "Gothita (Shadow)",
+        "types": [
+            "none",
+            "psychic"
+        ],
+        "tags": [
+            "shadow"
         ]
     },
     "gothitelle": {
@@ -17953,6 +18117,41 @@
         "types": [
             "none",
             "psychic"
+        ],
+        "tags": [
+            "shadoweligible"
+        ]
+    },
+    "gothitelle_shadow": {
+        "baseStats": {
+            "atk": 176,
+            "def": 205,
+            "hp": 172
+        },
+        "chargedMoves": [
+            "FUTURE_SIGHT",
+            "PSYCHIC",
+            "ROCK_SLIDE"
+        ],
+        "dex": 576,
+        "family": {
+            "id": "FAMILY_GOTHITA",
+            "parent": "gothorita"
+        },
+        "fastMoves": [
+            "CHARM",
+            "CONFUSION"
+        ],
+        "gender": "male",
+        "sid": 18432,
+        "speciesId": "gothitelle_shadow",
+        "speciesName": "Gothitelle (Shadow)",
+        "types": [
+            "none",
+            "psychic"
+        ],
+        "tags": [
+            "shadow"
         ]
     },
     "gothorita": {
@@ -17985,6 +18184,44 @@
         "types": [
             "none",
             "psychic"
+        ],
+        "tags": [
+            "shadoweligible"
+        ]
+    },
+    "gothorita_shadow": {
+        "baseStats": {
+            "atk": 137,
+            "def": 153,
+            "hp": 155
+        },
+        "chargedMoves": [
+            "FUTURE_SIGHT",
+            "PSYBEAM",
+            "PSYCHIC"
+        ],
+        "dex": 575,
+        "family": {
+            "evolutions": [
+                "gothitelle"
+            ],
+            "id": "FAMILY_GOTHITA",
+            "parent": "gothita"
+        },
+        "fastMoves": [
+            "CONFUSION",
+            "POUND"
+        ],
+        "gender": "male",
+        "sid": 18400,
+        "speciesId": "gothorita_shadow",
+        "speciesName": "Gothorita (Shadow)",
+        "types": [
+            "none",
+            "psychic"
+        ],
+        "tags": [
+            "shadow"
         ]
     },
     "gourgeist_average": {
@@ -18859,7 +19096,44 @@
         "speciesId": "groudon",
         "speciesName": "Groudon",
         "tags": [
-            "legendary"
+            "legendary",
+            "shadoweligible"
+        ],
+        "types": [
+            "ground",
+            "none"
+        ]
+    },
+    "groudon_shadow": {
+        "baseStats": {
+            "atk": 270,
+            "def": 228,
+            "hp": 205
+        },
+        "chargedMoves": [
+            "EARTHQUAKE",
+            "FIRE_BLAST",
+            "FIRE_PUNCH",
+            "PRECIPICE_BLADES",
+            "SOLAR_BEAM"
+        ],
+        "dex": 383,
+        "eliteMoves": [
+            "FIRE_PUNCH",
+            "PRECIPICE_BLADES"
+        ],
+        "fastMoves": [
+            "DRAGON_TAIL",
+            "MUD_SHOT"
+        ],
+        "gender": "N",
+        "searchPriority": 20,
+        "sid": 12256,
+        "speciesId": "groudon_shadow",
+        "speciesName": "Groudon (Shadow)",
+        "tags": [
+            "legendary",
+            "shadow"
         ],
         "types": [
             "ground",
@@ -33178,6 +33452,51 @@
         "types": [
             "flying",
             "normal"
+        ],
+        "tags": [
+            "shadoweligible"
+        ]
+    },
+    "pidgeot_shadow": {
+        "baseStats": {
+            "atk": 166,
+            "def": 154,
+            "hp": 195
+        },
+        "chargedMoves": [
+            "AERIAL_ACE",
+            "AIR_CUTTER",
+            "BRAVE_BIRD",
+            "FEATHER_DANCE",
+            "HURRICANE"
+        ],
+        "dex": 18,
+        "eliteMoves": [
+            "AIR_CUTTER",
+            "GUST",
+            "WING_ATTACK"
+        ],
+        "family": {
+            "id": "FAMILY_PIDGEY",
+            "parent": "pidgeotto"
+        },
+        "fastMoves": [
+            "AIR_SLASH",
+            "GUST",
+            "STEEL_WING",
+            "WING_ATTACK"
+        ],
+        "gender": "male",
+        "searchPriority": 2,
+        "sid": 576,
+        "speciesId": "pidgeot_shadow",
+        "speciesName": "Pidgeot (Shadow)",
+        "types": [
+            "flying",
+            "normal"
+        ],
+        "tags": [
+            "shadow"
         ]
     },
     "pidgeot_mega": {
@@ -33214,7 +33533,8 @@
         "speciesId": "pidgeot_mega",
         "speciesName": "Pidgeot (Mega)",
         "tags": [
-            "mega"
+            "mega",
+            "shadoweligible"
         ],
         "types": [
             "flying",
@@ -33251,6 +33571,44 @@
         "types": [
             "flying",
             "normal"
+        ],
+        "tags": [
+            "shadoweligible"
+        ]
+    },
+    "pidgeotto_shadow": {
+        "baseStats": {
+            "atk": 117,
+            "def": 105,
+            "hp": 160
+        },
+        "chargedMoves": [
+            "AERIAL_ACE",
+            "AIR_CUTTER",
+            "TWISTER"
+        ],
+        "dex": 17,
+        "family": {
+            "evolutions": [
+                "pidgeot"
+            ],
+            "id": "FAMILY_PIDGEY",
+            "parent": "pidgey"
+        },
+        "fastMoves": [
+            "STEEL_WING",
+            "WING_ATTACK"
+        ],
+        "gender": "male",
+        "sid": 544,
+        "speciesId": "pidgeotto_shadow",
+        "speciesName": "Pidgeotto (Shadow)",
+        "types": [
+            "flying",
+            "normal"
+        ],
+        "tags": [
+            "shadow"
         ]
     },
     "pidgey": {
@@ -33282,6 +33640,43 @@
         "types": [
             "flying",
             "normal"
+        ],
+        "tags": [
+            "shadoweligible"
+        ]
+    },
+    "pidgey_shadow": {
+        "baseStats": {
+            "atk": 85,
+            "def": 73,
+            "hp": 120
+        },
+        "chargedMoves": [
+            "AERIAL_ACE",
+            "AIR_CUTTER",
+            "TWISTER"
+        ],
+        "dex": 16,
+        "family": {
+            "evolutions": [
+                "pidgeotto"
+            ],
+            "id": "FAMILY_PIDGEY"
+        },
+        "fastMoves": [
+            "QUICK_ATTACK",
+            "TACKLE"
+        ],
+        "gender": "male",
+        "sid": 512,
+        "speciesId": "pidgey_shadow",
+        "speciesName": "Pidgey (Shadow)",
+        "types": [
+            "flying",
+            "normal"
+        ],
+        "tags": [
+            "shadow"
         ]
     },
     "pidove": {
@@ -37286,6 +37681,56 @@
         "types": [
             "none",
             "psychic"
+        ],
+        "tags": [
+            "shadoweligible"
+        ]
+    },
+    "reuniclus_shadow": {
+        "baseStats": {
+            "atk": 214,
+            "def": 148,
+            "hp": 242
+        },
+        "chargedMoves": [
+            "FUTURE_SIGHT",
+            "SHADOW_BALL",
+            "THUNDER"
+        ],
+        "dex": 579,
+        "family": {
+            "id": "FAMILY_SOLOSIS",
+            "parent": "duosion"
+        },
+        "fastMoves": [
+            "HIDDEN_POWER_BUG",
+            "HIDDEN_POWER_DARK",
+            "HIDDEN_POWER_DRAGON",
+            "HIDDEN_POWER_ELECTRIC",
+            "HIDDEN_POWER_FIGHTING",
+            "HIDDEN_POWER_FIRE",
+            "HIDDEN_POWER_FLYING",
+            "HIDDEN_POWER_GHOST",
+            "HIDDEN_POWER_GRASS",
+            "HIDDEN_POWER_GROUND",
+            "HIDDEN_POWER_ICE",
+            "HIDDEN_POWER_POISON",
+            "HIDDEN_POWER_PSYCHIC",
+            "HIDDEN_POWER_ROCK",
+            "HIDDEN_POWER_STEEL",
+            "HIDDEN_POWER_WATER",
+            "ZEN_HEADBUTT"
+        ],
+        "gender": "male",
+        "sid": 18528,
+        "speciesId": "reuniclus_shadow",
+        "speciesName": "Reuniclus (Shadow)",
+        "types": [
+            "none",
+            "psychic"
+        ],
+        "tags": [
+            "shadow"
         ]
     },
     "revavroom": {
@@ -43750,6 +44195,58 @@
         "types": [
             "none",
             "psychic"
+        ],
+        "tags": [
+            "shadoweligible"
+        ]
+    },
+    "solosis_shadow": {
+        "baseStats": {
+            "atk": 170,
+            "def": 83,
+            "hp": 128
+        },
+        "chargedMoves": [
+            "NIGHT_SHADE",
+            "PSYSHOCK",
+            "THUNDER"
+        ],
+        "dex": 577,
+        "family": {
+            "evolutions": [
+                "duosion"
+            ],
+            "id": "FAMILY_SOLOSIS"
+        },
+        "fastMoves": [
+            "HIDDEN_POWER_BUG",
+            "HIDDEN_POWER_DARK",
+            "HIDDEN_POWER_DRAGON",
+            "HIDDEN_POWER_ELECTRIC",
+            "HIDDEN_POWER_FIGHTING",
+            "HIDDEN_POWER_FIRE",
+            "HIDDEN_POWER_FLYING",
+            "HIDDEN_POWER_GHOST",
+            "HIDDEN_POWER_GRASS",
+            "HIDDEN_POWER_GROUND",
+            "HIDDEN_POWER_ICE",
+            "HIDDEN_POWER_POISON",
+            "HIDDEN_POWER_PSYCHIC",
+            "HIDDEN_POWER_ROCK",
+            "HIDDEN_POWER_STEEL",
+            "HIDDEN_POWER_WATER",
+            "ZEN_HEADBUTT"
+        ],
+        "gender": "male",
+        "sid": 18464,
+        "speciesId": "solosis_shadow",
+        "speciesName": "Solosis (Shadow)",
+        "types": [
+            "none",
+            "psychic"
+        ],
+        "tags": [
+            "shadow"
         ]
     },
     "solrock": {
