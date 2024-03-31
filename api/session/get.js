@@ -141,7 +141,7 @@ async function getPlayers(
         tournamentPosition: shouldLookupPlayer ? player.tournamentPosition : -1,
         valid: isHost && player.pokemon != null && player.pokemon.length >= 6,
       };
-      const shouldHideTeamsFromGuest = isParticipant && hideFromGuests;
+      const shouldHideTeamsFromGuest = !isParticipant && hideFromGuests;
       if (shouldHideTeamsFromGuest || !shouldLookupPlayer || (!shouldShowAllTeams && !isTeammate)) {
         return returnObj;
       }
