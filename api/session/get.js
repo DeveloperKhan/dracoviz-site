@@ -106,6 +106,8 @@ async function getPlayers(
   purifiedVisible,
   bestBuddyVisible,
   locale,
+  isParticipant,
+  hideFromGuests,
 ) {
   const Player = await getPlayerModel();
   const shouldLookupAllPlayers = isHost
@@ -139,7 +141,8 @@ async function getPlayers(
         tournamentPosition: shouldLookupPlayer ? player.tournamentPosition : -1,
         valid: isHost && player.pokemon != null && player.pokemon.length >= 6,
       };
-      if (!shouldLookupPlayer || (!shouldShowAllTeams && !isTeammate)) {
+      const shouldHideTeamsFromGuest = isParticipant && hideFromGuests;
+      if (shouldHideTeamsFromGuest || !shouldLookupPlayer || (!shouldShowAllTeams && !isTeammate)) {
         return returnObj;
       }
       const pokemonData = getPokemonData(locale);
@@ -214,6 +217,7 @@ async function handler(req, res) {
       hpVisible,
       timeControl,
       roundStartTime,
+      hideFromGuests,
     } = session;
     const isHost = host?.includes(x_session_id);
     const isTeamTournament = maxTeamSize > 1;
@@ -226,6 +230,7 @@ async function handler(req, res) {
       isCaptain,
       teamCode,
     } = await getFactions(session, thePlayer?.playerId, factionId);
+    const isParticipant = isPlayer || isHost;
     const players = await getPlayers(
       session.players,
       isHost,
@@ -238,13 +243,14 @@ async function handler(req, res) {
       purifiedVisible,
       bestBuddyVisible,
       x_locale,
+      isParticipant,
+      hideFromGuests,
     );
     const bracket = getBracket(
       session.bracket,
       players,
       currentRoundNumber,
     );
-    const isParticipant = isPlayer || isHost;
     const roundEndTime = addMinutesToDate(roundStartTime, timeControl);
 
     const maskedSession = {

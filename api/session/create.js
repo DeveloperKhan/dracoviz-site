@@ -17,7 +17,7 @@ async function handler(req, res) {
     metas, cpVisibility, movesetVisibility, hpVisibility, draftMode,
     hideTeamsFromHost, byeAward, timeControl,
     bracketType, gameAmount, playAllMatches, requireBothPlayersToReport,
-    purifiedVisibility, nicknameVisibility, bestBuddyVisibility,
+    purifiedVisibility, nicknameVisibility, bestBuddyVisibility, hideFromGuests,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -119,6 +119,7 @@ async function handler(req, res) {
       requireBothPlayersToReport,
       byeAward,
       timeControl,
+      hideFromGuests,
     });
 
     const { key } = session;

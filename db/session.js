@@ -41,6 +41,7 @@ const getSessionModel = async () => {
     registrationClosed: { type: Boolean },
     concluded: { type: Boolean },
     hideTeamsFromHost: { type: Boolean, default: false },
+    hideFromGuests: { type: Boolean, default: false },
     roundStartTime: { type: Date },
     timeControl: { type: Number, default: 0 },
     players: [{
