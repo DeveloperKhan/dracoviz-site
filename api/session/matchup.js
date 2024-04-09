@@ -90,6 +90,7 @@ async function handler(req, res) {
       cpVisible,
       movesetsVisible,
       currentRoundNumber,
+      hpVisible,
     } = session;
     const {
       latestRound,
@@ -129,7 +130,7 @@ async function handler(req, res) {
             cp: cpVisible ? p.cp : null,
             chargedMoves: movesetsVisible ? p.chargedMoves : null,
             fastMove: movesetsVisible ? p.fastMove : null,
-            hp: p.hp,
+            hp: hpVisible ? p.hp : null,
           })) : [],
         };
       }
