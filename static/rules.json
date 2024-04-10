@@ -4232,7 +4232,9 @@
                     "regice_shadow",
                     "golisopod",
                     "sneasler",
-                    "sneasler_shadow"
+                    "sneasler_shadow",
+                    "blastoise",
+                    "blastoise_shadow"
                 ]
             }
         ]
@@ -5710,223 +5712,1144 @@
                     "filterType": "tag",
                     "values": ["hisuian", "paldean"]
                 }]
+            },
+            "Hoenn/Sinnoh+Hisui": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["252-386", "387-493", "899-905"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["hisuian"]
+                 }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": ["registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham", "cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "paldean"]
+                }]
+            },
+            "Hoenn/Unova": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["252-386", "494-649"]
+                }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": ["registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham", "mandibuzz", "jellicent"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "hisuian", "paldean"]
+                }]
+            },
+            "Hoenn/Kalos+Paldea": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["252-386", "650-720", "906-1000"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["paldean"]
+                }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": ["registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham", "carbink", "arctibax", "goodra", "annihilape"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "hisuian"]
+                }]
+            },
+            "Hoenn/Alola+Galar": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["252-386", "722-803", "819-895"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian"]
+                }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": ["registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["hisuian", "paldean"]
+                }]
+            },
+            "Sinnoh+Hisui/Unova": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["387-493", "899-905", "494-649"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["hisuian"]
+                }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": ["cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow", "mandibuzz", "jellicent"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "paldean"]
+                }]
+            },
+            "Sinnoh+Hisui/Kalos+Paldea": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["387-493", "899-905", "650-720", "906-1000"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["hisuian", "paldean"]
+                }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": ["cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow", "carbink", "arctibax", "goodra", "annihilape"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian"]
+                }]
+            },
+            "Sinnoh+Hisui/Alola+Galar": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["387-493", "899-905", "722-803", "819-895"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "hisuian"]
+                }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": ["cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["paldean"]
+                }]
+            },
+            "Unova/Kalos+Paldea": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["494-649", "650-720", "906-1000"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["paldean"]
+                }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": ["mandibuzz", "jellicent", "carbink", "arctibax", "goodra", "annihilape"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "hisuian"]
+                }]
+            },
+            "Unova/Alola+Galar": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["494-649", "722-803", "819-895"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian"]
+                }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": ["mandibuzz", "jellicent", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["hisuian", "paldean"]
+                }]
+            },
+            "Kalos+Paldea/Alola+Galar": {
+                "maxCP": 1500,
+                "maxLevel": 50,
+                "maxBestBuddy": 1,
+                "maxMega": 0,
+                "include": [{
+                    "filterType": "dex",
+                    "values": ["650-720", "906-1000", "722-803", "819-895"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["alolan", "galarian", "paldean"]
+                }],
+                "exclude": [{
+                    "filterType": "id",
+                    "values": ["carbink", "arctibax", "goodra", "annihilape", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
+                },
+                {
+                    "filterType": "tag",
+                    "values": ["hisuian"]
+                }]
             }
         }]
     },
-    "Hoenn/Sinnoh+Hisui": {
+    "PaoLaf Cup": {
+        "name": "PaoLaf Cup",
         "maxCP": 1500,
         "maxLevel": 50,
         "maxBestBuddy": 1,
         "maxMega": 0,
-        "include": [{
-            "filterType": "dex",
-            "values": ["252-386", "387-493", "899-905"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["hisuian"]
-         }],
-        "exclude": [{
-            "filterType": "id",
-            "values": ["registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham", "cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["alolan", "galarian", "paldean"]
-        }]
+        "metaLogo": "",
+        "teamPattern": [{
+                "include": [{
+                    "filterType": "tag",
+                    "values": [
+                        "shadow"
+                    ]
+                }],
+                "exclude": [
+                    {
+                        "filterType": "tag",
+                        "values": ["mega"]
+                    },
+                    {
+                        "filterType": "type",
+                        "values": ["steel", "fairy", "dark"]
+                    }
+                ]
+            },
+            {
+                "include": [{
+                    "filterType": "tag",
+                    "values": [
+                        "shadow"
+                    ]
+                }],
+                "exclude": [
+                    {
+                        "filterType": "tag",
+                        "values": ["mega"]
+                    },
+                    {
+                        "filterType": "type",
+                        "values": ["steel", "fairy", "dark"]
+                    }
+                ]
+            },
+            {
+                "include": [{
+                    "filterType": "tag",
+                    "values": [
+                        "shadow"
+                    ]
+                }],
+                "exclude": [
+                    {
+                        "filterType": "tag",
+                        "values": ["mega"]
+                    },
+                    {
+                        "filterType": "type",
+                        "values": ["steel", "fairy", "dark"]
+                    }
+                ]
+            },
+            {
+                "include": [{
+                    "filterType": "id",
+                    "values": [
+                        "kangaskhan",
+                        "horsea",
+                        "seadra",
+                        "scyther",
+                        "electabuzz",
+                        "magmar",
+                        "pinsir",
+                        "magikarp",
+                        "gyarados",
+                        "lapras",
+                        "porygon",
+                        "omanyte",
+                        "omastar",
+                        "snorlax",
+                        "dratini",
+                        "dragonair",
+                        "dragonite",
+                        "chikorita",
+                        "bayleef",
+                        "meganium",
+                        "cyndaquil",
+                        "quilava",
+                        "typhlosion",
+                        "totodile",
+                        "croconaw",
+                        "feraligatr",
+                        "ledyba",
+                        "ledian",
+                        "crobat",
+                        "natu",
+                        "xatu",
+                        "mareep",
+                        "flaaffy",
+                        "ampharos",
+                        "bellossom",
+                        "sudowoodo",
+                        "politoed",
+                        "hoppip",
+                        "skiploom",
+                        "jumpluff",
+                        "aipom",
+                        "wooper",
+                        "quagsire",
+                        "murkrow",
+                        "slowking",
+                        "misdreavus",
+                        "wobbuffet",
+                        "girafarig",
+                        "gligar",
+                        "shuckle",
+                        "sneasel_hisuian",
+                        "teddirusa",
+                        "ursaring",
+                        "swinub",
+                        "piloswine",
+                        "delibird",
+                        "houndour",
+                        "houndoom",
+                        "kingdra",
+                        "phanpy",
+                        "donphan",
+                        "porygon2",
+                        "stanler",
+                        "larvitar",
+                        "pupitar",
+                        "tyranitar",
+                        "sceptile",
+                        "blaziken",
+                        "mudkip",
+                        "marshtomp",
+                        "swampert",
+                        "poochyena",
+                        "mightyena",
+                        "seedot",
+                        "nuzleaf",
+                        "shiftry",
+                        "whismur",
+                        "loudred",
+                        "exploud",
+                        "makuhita",
+                        "hariyama",
+                        "electrike",
+                        "manectric",
+                        "carvanha",
+                        "sharpedo",
+                        "wailmer",
+                        "wailord",
+                        "numel",
+                        "camerupt",
+                        "spoink",
+                        "trapinch",
+                        "vibrava",
+                        "flygon",
+                        "cacnea",
+                        "cacturne",
+                        "whiscash",
+                        "lileep",
+                        "cradily",
+                        "anorith",
+                        "armaldo",
+                        "shuppet",
+                        "banette",
+                        "duskull",
+                        "dusclops",
+                        "spheal",
+                        "sealeo",
+                        "walrein",
+                        "bagon",
+                        "shelgon",
+                        "salamance",
+                        "turtwig",
+                        "grotle",
+                        "torterra",
+                        "starly",
+                        "staravia",
+                        "staraptor",
+                        "bidoof",
+                        "bibarel",
+                        "shinx",
+                        "luxio",
+                        "luxray",
+                        "cranidos",
+                        "rampardos",
+                        "ambipom",
+                        "drifloon",
+                        "drifblim",
+                        "mismagius",
+                        "honchkrow",
+                        "garchomp",
+                        "hippopotas",
+                        "hippowdon",
+                        "skorupi",
+                        "drapion",
+                        "snover",
+                        "abomasnow",
+                        "rhyperior",
+                        "tangrowth",
+                        "electivire",
+                        "magmortar",
+                        "gliscor",
+                        "mamoswine",
+                        "porygon_z",
+                        "gallade",
+                        "dusknoir",
+                        "patrat",
+                        "watchog",
+                        "purrloin",
+                        "liepard",
+                        "pidove",
+                        "tranquill",
+                        "unfezant",
+                        "blitzle",
+                        "zebstrika",
+                        "roggenrola",
+                        "boldore",
+                        "gigalith",
+                        "sawk",
+                        "ducklett",
+                        "swanna",
+                        "foongus",
+                        "amoonguss",
+                        "litwick",
+                        "lampent",
+                        "chandelure",
+                        "golett",
+                        "golurk",
+                        "ursaluna",
+                        "sneasler",
+                        "bulbasaur",
+                        "ivysaur",
+                        "venusaur",
+                        "charmander",
+                        "charmeleon",
+                        "charizard",
+                        "squirtle",
+                        "wartortle",
+                        "blastoise",
+                        "weedle",
+                        "kakuna",
+                        "beedrill",
+                        "rattata",
+                        "raticate",
+                        "ekans",
+                        "arbok",
+                        "sandshrew",
+                        "sandlash",
+                        "nidoran",
+                        "nidorina",
+                        "nidoqueen",
+                        "nidorino",
+                        "nidoking",
+                        "vulpix",
+                        "ninetales",
+                        "zubat",
+                        "golbat",
+                        "oddish",
+                        "gloom",
+                        "vileplume",
+                        "venonat",
+                        "venomoth",
+                        "diglett",
+                        "dugtrio",
+                        "meowth",
+                        "persian",
+                        "psyduck",
+                        "golduck",
+                        "growlithe",
+                        "arcanine",
+                        "poliwag",
+                        "poliwhirl",
+                        "poliwrath",
+                        "abra",
+                        "kadabra",
+                        "alakazam",
+                        "machop",
+                        "machoke",
+                        "machamp",
+                        "beelsprout",
+                        "weepinbell",
+                        "victreebel",
+                        "geodude",
+                        "graveler",
+                        "golem",
+                        "slowpoke",
+                        "slowbro",
+                        "grimer",
+                        "grimer_alolan",
+                        "muk",
+                        "muk_alolan",
+                        "shellder",
+                        "cloyster",
+                        "gastly",
+                        "haunter",
+                        "gengar",
+                        "drowzee",
+                        "hypno",
+                        "voltorb",
+                        "electrode",
+                        "exeggcute",
+                        "exxeggutor",
+                        "exeggutor_alolan",
+                        "cubone",
+                        "marowak",
+                        "marowak_alolan",
+                        "hitmonlee",
+                        "hitmonchan",
+                        "koffing",
+                        "weezing",
+                        "rhyhorn",
+                        "rhydon",
+                        "tangela"
+                    ]
+                }],
+                "exclude": [
+                    {
+                        "filterType": "tag",
+                        "values": ["shadow", "mega"]
+                    },
+                    {
+                        "filterType": "type",
+                        "values": ["steel", "fairy", "dark"]
+                    }
+                ]
+            },
+            {
+                "include": [{
+                    "filterType": "id",
+                    "values": [
+                        "kangaskhan",
+                        "horsea",
+                        "seadra",
+                        "scyther",
+                        "electabuzz",
+                        "magmar",
+                        "pinsir",
+                        "magikarp",
+                        "gyarados",
+                        "lapras",
+                        "porygon",
+                        "omanyte",
+                        "omastar",
+                        "snorlax",
+                        "dratini",
+                        "dragonair",
+                        "dragonite",
+                        "chikorita",
+                        "bayleef",
+                        "meganium",
+                        "cyndaquil",
+                        "quilava",
+                        "typhlosion",
+                        "totodile",
+                        "croconaw",
+                        "feraligatr",
+                        "ledyba",
+                        "ledian",
+                        "crobat",
+                        "natu",
+                        "xatu",
+                        "mareep",
+                        "flaaffy",
+                        "ampharos",
+                        "bellossom",
+                        "sudowoodo",
+                        "politoed",
+                        "hoppip",
+                        "skiploom",
+                        "jumpluff",
+                        "aipom",
+                        "wooper",
+                        "quagsire",
+                        "murkrow",
+                        "slowking",
+                        "misdreavus",
+                        "wobbuffet",
+                        "girafarig",
+                        "gligar",
+                        "shuckle",
+                        "sneasel_hisuian",
+                        "teddirusa",
+                        "ursaring",
+                        "swinub",
+                        "piloswine",
+                        "delibird",
+                        "houndour",
+                        "houndoom",
+                        "kingdra",
+                        "phanpy",
+                        "donphan",
+                        "porygon2",
+                        "stanler",
+                        "larvitar",
+                        "pupitar",
+                        "tyranitar",
+                        "sceptile",
+                        "blaziken",
+                        "mudkip",
+                        "marshtomp",
+                        "swampert",
+                        "poochyena",
+                        "mightyena",
+                        "seedot",
+                        "nuzleaf",
+                        "shiftry",
+                        "whismur",
+                        "loudred",
+                        "exploud",
+                        "makuhita",
+                        "hariyama",
+                        "electrike",
+                        "manectric",
+                        "carvanha",
+                        "sharpedo",
+                        "wailmer",
+                        "wailord",
+                        "numel",
+                        "camerupt",
+                        "spoink",
+                        "trapinch",
+                        "vibrava",
+                        "flygon",
+                        "cacnea",
+                        "cacturne",
+                        "whiscash",
+                        "lileep",
+                        "cradily",
+                        "anorith",
+                        "armaldo",
+                        "shuppet",
+                        "banette",
+                        "duskull",
+                        "dusclops",
+                        "spheal",
+                        "sealeo",
+                        "walrein",
+                        "bagon",
+                        "shelgon",
+                        "salamance",
+                        "turtwig",
+                        "grotle",
+                        "torterra",
+                        "starly",
+                        "staravia",
+                        "staraptor",
+                        "bidoof",
+                        "bibarel",
+                        "shinx",
+                        "luxio",
+                        "luxray",
+                        "cranidos",
+                        "rampardos",
+                        "ambipom",
+                        "drifloon",
+                        "drifblim",
+                        "mismagius",
+                        "honchkrow",
+                        "garchomp",
+                        "hippopotas",
+                        "hippowdon",
+                        "skorupi",
+                        "drapion",
+                        "snover",
+                        "abomasnow",
+                        "rhyperior",
+                        "tangrowth",
+                        "electivire",
+                        "magmortar",
+                        "gliscor",
+                        "mamoswine",
+                        "porygon_z",
+                        "gallade",
+                        "dusknoir",
+                        "patrat",
+                        "watchog",
+                        "purrloin",
+                        "liepard",
+                        "pidove",
+                        "tranquill",
+                        "unfezant",
+                        "blitzle",
+                        "zebstrika",
+                        "roggenrola",
+                        "boldore",
+                        "gigalith",
+                        "sawk",
+                        "ducklett",
+                        "swanna",
+                        "foongus",
+                        "amoonguss",
+                        "litwick",
+                        "lampent",
+                        "chandelure",
+                        "golett",
+                        "golurk",
+                        "ursaluna",
+                        "sneasler",
+                        "bulbasaur",
+                        "ivysaur",
+                        "venusaur",
+                        "charmander",
+                        "charmeleon",
+                        "charizard",
+                        "squirtle",
+                        "wartortle",
+                        "blastoise",
+                        "weedle",
+                        "kakuna",
+                        "beedrill",
+                        "rattata",
+                        "raticate",
+                        "ekans",
+                        "arbok",
+                        "sandshrew",
+                        "sandlash",
+                        "nidoran",
+                        "nidorina",
+                        "nidoqueen",
+                        "nidorino",
+                        "nidoking",
+                        "vulpix",
+                        "ninetales",
+                        "zubat",
+                        "golbat",
+                        "oddish",
+                        "gloom",
+                        "vileplume",
+                        "venonat",
+                        "venomoth",
+                        "diglett",
+                        "dugtrio",
+                        "meowth",
+                        "persian",
+                        "psyduck",
+                        "golduck",
+                        "growlithe",
+                        "arcanine",
+                        "poliwag",
+                        "poliwhirl",
+                        "poliwrath",
+                        "abra",
+                        "kadabra",
+                        "alakazam",
+                        "machop",
+                        "machoke",
+                        "machamp",
+                        "beelsprout",
+                        "weepinbell",
+                        "victreebel",
+                        "geodude",
+                        "graveler",
+                        "golem",
+                        "slowpoke",
+                        "slowbro",
+                        "grimer",
+                        "grimer_alolan",
+                        "muk",
+                        "muk_alolan",
+                        "shellder",
+                        "cloyster",
+                        "gastly",
+                        "haunter",
+                        "gengar",
+                        "drowzee",
+                        "hypno",
+                        "voltorb",
+                        "electrode",
+                        "exeggcute",
+                        "exxeggutor",
+                        "exeggutor_alolan",
+                        "cubone",
+                        "marowak",
+                        "marowak_alolan",
+                        "hitmonlee",
+                        "hitmonchan",
+                        "koffing",
+                        "weezing",
+                        "rhyhorn",
+                        "rhydon",
+                        "tangela"
+                    ]
+                }],
+                "exclude": [
+                    {
+                        "filterType": "tag",
+                        "values": ["shadow", "mega"]
+                    },
+                    {
+                        "filterType": "type",
+                        "values": ["steel", "fairy", "dark"]
+                    }
+                ]
+            },
+            {
+                "include": [{
+                    "filterType": "id",
+                    "values": [
+                        "kangaskhan",
+                        "horsea",
+                        "seadra",
+                        "scyther",
+                        "electabuzz",
+                        "magmar",
+                        "pinsir",
+                        "magikarp",
+                        "gyarados",
+                        "lapras",
+                        "porygon",
+                        "omanyte",
+                        "omastar",
+                        "snorlax",
+                        "dratini",
+                        "dragonair",
+                        "dragonite",
+                        "chikorita",
+                        "bayleef",
+                        "meganium",
+                        "cyndaquil",
+                        "quilava",
+                        "typhlosion",
+                        "totodile",
+                        "croconaw",
+                        "feraligatr",
+                        "ledyba",
+                        "ledian",
+                        "crobat",
+                        "natu",
+                        "xatu",
+                        "mareep",
+                        "flaaffy",
+                        "ampharos",
+                        "bellossom",
+                        "sudowoodo",
+                        "politoed",
+                        "hoppip",
+                        "skiploom",
+                        "jumpluff",
+                        "aipom",
+                        "wooper",
+                        "quagsire",
+                        "murkrow",
+                        "slowking",
+                        "misdreavus",
+                        "wobbuffet",
+                        "girafarig",
+                        "gligar",
+                        "shuckle",
+                        "sneasel_hisuian",
+                        "teddirusa",
+                        "ursaring",
+                        "swinub",
+                        "piloswine",
+                        "delibird",
+                        "houndour",
+                        "houndoom",
+                        "kingdra",
+                        "phanpy",
+                        "donphan",
+                        "porygon2",
+                        "stanler",
+                        "larvitar",
+                        "pupitar",
+                        "tyranitar",
+                        "sceptile",
+                        "blaziken",
+                        "mudkip",
+                        "marshtomp",
+                        "swampert",
+                        "poochyena",
+                        "mightyena",
+                        "seedot",
+                        "nuzleaf",
+                        "shiftry",
+                        "whismur",
+                        "loudred",
+                        "exploud",
+                        "makuhita",
+                        "hariyama",
+                        "electrike",
+                        "manectric",
+                        "carvanha",
+                        "sharpedo",
+                        "wailmer",
+                        "wailord",
+                        "numel",
+                        "camerupt",
+                        "spoink",
+                        "trapinch",
+                        "vibrava",
+                        "flygon",
+                        "cacnea",
+                        "cacturne",
+                        "whiscash",
+                        "lileep",
+                        "cradily",
+                        "anorith",
+                        "armaldo",
+                        "shuppet",
+                        "banette",
+                        "duskull",
+                        "dusclops",
+                        "spheal",
+                        "sealeo",
+                        "walrein",
+                        "bagon",
+                        "shelgon",
+                        "salamance",
+                        "turtwig",
+                        "grotle",
+                        "torterra",
+                        "starly",
+                        "staravia",
+                        "staraptor",
+                        "bidoof",
+                        "bibarel",
+                        "shinx",
+                        "luxio",
+                        "luxray",
+                        "cranidos",
+                        "rampardos",
+                        "ambipom",
+                        "drifloon",
+                        "drifblim",
+                        "mismagius",
+                        "honchkrow",
+                        "garchomp",
+                        "hippopotas",
+                        "hippowdon",
+                        "skorupi",
+                        "drapion",
+                        "snover",
+                        "abomasnow",
+                        "rhyperior",
+                        "tangrowth",
+                        "electivire",
+                        "magmortar",
+                        "gliscor",
+                        "mamoswine",
+                        "porygon_z",
+                        "gallade",
+                        "dusknoir",
+                        "patrat",
+                        "watchog",
+                        "purrloin",
+                        "liepard",
+                        "pidove",
+                        "tranquill",
+                        "unfezant",
+                        "blitzle",
+                        "zebstrika",
+                        "roggenrola",
+                        "boldore",
+                        "gigalith",
+                        "sawk",
+                        "ducklett",
+                        "swanna",
+                        "foongus",
+                        "amoonguss",
+                        "litwick",
+                        "lampent",
+                        "chandelure",
+                        "golett",
+                        "golurk",
+                        "ursaluna",
+                        "sneasler",
+                        "bulbasaur",
+                        "ivysaur",
+                        "venusaur",
+                        "charmander",
+                        "charmeleon",
+                        "charizard",
+                        "squirtle",
+                        "wartortle",
+                        "blastoise",
+                        "weedle",
+                        "kakuna",
+                        "beedrill",
+                        "rattata",
+                        "raticate",
+                        "ekans",
+                        "arbok",
+                        "sandshrew",
+                        "sandlash",
+                        "nidoran",
+                        "nidorina",
+                        "nidoqueen",
+                        "nidorino",
+                        "nidoking",
+                        "vulpix",
+                        "ninetales",
+                        "zubat",
+                        "golbat",
+                        "oddish",
+                        "gloom",
+                        "vileplume",
+                        "venonat",
+                        "venomoth",
+                        "diglett",
+                        "dugtrio",
+                        "meowth",
+                        "persian",
+                        "psyduck",
+                        "golduck",
+                        "growlithe",
+                        "arcanine",
+                        "poliwag",
+                        "poliwhirl",
+                        "poliwrath",
+                        "abra",
+                        "kadabra",
+                        "alakazam",
+                        "machop",
+                        "machoke",
+                        "machamp",
+                        "beelsprout",
+                        "weepinbell",
+                        "victreebel",
+                        "geodude",
+                        "graveler",
+                        "golem",
+                        "slowpoke",
+                        "slowbro",
+                        "grimer",
+                        "grimer_alolan",
+                        "muk",
+                        "muk_alolan",
+                        "shellder",
+                        "cloyster",
+                        "gastly",
+                        "haunter",
+                        "gengar",
+                        "drowzee",
+                        "hypno",
+                        "voltorb",
+                        "electrode",
+                        "exeggcute",
+                        "exxeggutor",
+                        "exeggutor_alolan",
+                        "cubone",
+                        "marowak",
+                        "marowak_alolan",
+                        "hitmonlee",
+                        "hitmonchan",
+                        "koffing",
+                        "weezing",
+                        "rhyhorn",
+                        "rhydon",
+                        "tangela"
+                    ]
+                }],
+                "exclude": [
+                    {
+                        "filterType": "tag",
+                        "values": ["shadow", "mega"]
+                    },
+                    {
+                        "filterType": "type",
+                        "values": ["steel", "fairy", "dark"]
+                    }
+                ]
+            }
+        ]
     },
-    "Hoenn/Unova": {
-        "maxCP": 1500,
+    "BTW (Mystical Fields)": {
+        "name": "BTW (Mystical Fields)",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/8aceceb5-261f-4873-e38b-ab4a6c4e5300/public",
+        "maxCP": 500,
         "maxLevel": 50,
         "maxBestBuddy": 1,
         "maxMega": 0,
-        "include": [{
-            "filterType": "dex",
-            "values": ["252-386", "494-649"]
-        }],
-        "exclude": [{
-            "filterType": "id",
-            "values": ["registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham", "mandibuzz", "jellicent"]
+        "flags": {
+            "speciesClauseByDex": "true"
         },
-        {
-            "filterType": "tag",
-            "values": ["alolan", "galarian", "hisuian", "paldean"]
-        }]
-    },
-    "Hoenn/Kalos+Paldea": {
-        "maxCP": 1500,
-        "maxLevel": 50,
-        "maxBestBuddy": 1,
-        "maxMega": 0,
-        "include": [{
-            "filterType": "dex",
-            "values": ["252-386", "650-720", "906-1000"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["paldean"]
-        }],
-        "exclude": [{
-            "filterType": "id",
-            "values": ["registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham", "carbink", "arctibax", "goodra", "annihilape"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["alolan", "galarian", "hisuian"]
-        }]
-    },
-    "Hoenn/Alola+Galar": {
-        "maxCP": 1500,
-        "maxLevel": 50,
-        "maxBestBuddy": 1,
-        "maxMega": 0,
-        "include": [{
-            "filterType": "dex",
-            "values": ["252-386", "722-803", "819-895"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["alolan", "galarian"]
-        }],
-        "exclude": [{
-            "filterType": "id",
-            "values": ["registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["hisuian", "paldean"]
-        }]
-    },
-    "Sinnoh+Hisui/Unova": {
-        "maxCP": 1500,
-        "maxLevel": 50,
-        "maxBestBuddy": 1,
-        "maxMega": 0,
-        "include": [{
-            "filterType": "dex",
-            "values": ["387-493", "899-905", "494-649"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["hisuian"]
-        }],
-        "exclude": [{
-            "filterType": "id",
-            "values": ["cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow", "mandibuzz", "jellicent"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["alolan", "galarian", "paldean"]
-        }]
-    },
-    "Sinnoh+Hisui/Kalos+Paldea": {
-        "maxCP": 1500,
-        "maxLevel": 50,
-        "maxBestBuddy": 1,
-        "maxMega": 0,
-        "include": [{
-            "filterType": "dex",
-            "values": ["387-493", "899-905", "650-720", "906-1000"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["hisuian", "paldean"]
-        }],
-        "exclude": [{
-            "filterType": "id",
-            "values": ["cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow", "carbink", "arctibax", "goodra", "annihilape"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["alolan", "galarian"]
-        }]
-    },
-    "Sinnoh+Hisui/Alola+Galar": {
-        "maxCP": 1500,
-        "maxLevel": 50,
-        "maxBestBuddy": 1,
-        "maxMega": 0,
-        "include": [{
-            "filterType": "dex",
-            "values": ["387-493", "899-905", "722-803", "819-895"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["alolan", "galarian", "hisuian"]
-        }],
-        "exclude": [{
-            "filterType": "id",
-            "values": ["cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["paldean"]
-        }]
-    },
-    "Unova/Kalos+Paldea": {
-        "maxCP": 1500,
-        "maxLevel": 50,
-        "maxBestBuddy": 1,
-        "maxMega": 0,
-        "include": [{
-            "filterType": "dex",
-            "values": ["494-649", "650-720", "906-1000"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["paldean"]
-        }],
-        "exclude": [{
-            "filterType": "id",
-            "values": ["mandibuzz", "jellicent", "carbink", "arctibax", "goodra", "annihilape"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["alolan", "galarian", "hisuian"]
-        }]
-    },
-    "Unova/Alola+Galar": {
-        "maxCP": 1500,
-        "maxLevel": 50,
-        "maxBestBuddy": 1,
-        "maxMega": 0,
-        "include": [{
-            "filterType": "dex",
-            "values": ["494-649", "722-803", "819-895"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["alolan", "galarian"]
-        }],
-        "exclude": [{
-            "filterType": "id",
-            "values": ["mandibuzz", "jellicent", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["hisuian", "paldean"]
-        }]
-    },
-    "Kalos+Paldea/Alola+Galar": {
-        "maxCP": 1500,
-        "maxLevel": 50,
-        "maxBestBuddy": 1,
-        "maxMega": 0,
-        "include": [{
-            "filterType": "dex",
-            "values": ["650-720", "906-1000", "722-803", "819-895"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["alolan", "galarian", "paldean"]
-        }],
-        "exclude": [{
-            "filterType": "id",
-            "values": ["carbink", "arctibax", "goodra", "annihilape", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
-        },
-        {
-            "filterType": "tag",
-            "values": ["hisuian"]
-        }]
+        "exclude": [
+            {
+                "filterType": "type",
+                "values": [
+                    "steel",
+                    "ground",
+                    "fairy",
+                    "rock",
+                    "electric"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "wobbuffet",
+                    "wobbuffet_shadow",
+                    "ducklett",
+                    "ducklett_shadow",
+                    "shuckle",
+                    "shuckle_shadow",
+                    "seel",
+                    "kingdra",
+                    "kingdra_shadow",
+                    "arctibax",
+                    "frigibax"
+                ]
+            },
+            {
+                "filterType": "tag",
+                "values": ["legendary", "mythical", "mega", "ultrabeast"]
+            }
+        ],
+        "include": [
+            {
+                "filterType": "type",
+                "values": [
+                    "bug",
+                    "psychic",
+                    "water",
+                    "ice"
+                ]
+            }
+        ]
     }
 }
