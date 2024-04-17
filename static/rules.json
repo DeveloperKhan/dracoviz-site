@@ -5933,6 +5933,7 @@
     },
     "PaoLaf Cup": {
         "name": "PaoLaf Cup",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/paolaf.png/public",
         "maxCP": 1500,
         "maxLevel": 50,
         "maxBestBuddy": 1,
