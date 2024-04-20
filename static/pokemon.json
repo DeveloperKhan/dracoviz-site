@@ -50289,7 +50289,8 @@
         },
         "fastMoves": [
             "ACID",
-            "RAZOR_LEAF"
+            "RAZOR_LEAF",
+            "MAGICAL_LEAF"
         ],
         "gender": "male",
         "level25CP": 1479,
@@ -50325,7 +50326,8 @@
         },
         "fastMoves": [
             "ACID",
-            "RAZOR_LEAF"
+            "RAZOR_LEAF",
+            "MAGICAL_LEAF"
         ],
         "gender": "male",
         "searchPriority": 3,
