@@ -5938,7 +5938,6 @@
         "maxLevel": 50,
         "maxBestBuddy": 1,
         "maxMega": 0,
-        "metaLogo": "",
         "teamPattern": [{
                 "include": [{
                     "filterType": "tag",
@@ -6247,7 +6246,8 @@
                         "weezing",
                         "rhyhorn",
                         "rhydon",
-                        "tangela"
+                        "tangela",
+                        "froslass"
                     ]
                 }],
                 "exclude": [
@@ -6515,7 +6515,8 @@
                         "weezing",
                         "rhyhorn",
                         "rhydon",
-                        "tangela"
+                        "tangela",
+                        "froslass"
                     ]
                 }],
                 "exclude": [
@@ -6783,7 +6784,8 @@
                         "weezing",
                         "rhyhorn",
                         "rhydon",
-                        "tangela"
+                        "tangela",
+                        "froslass"
                     ]
                 }],
                 "exclude": [
