@@ -65,7 +65,7 @@ export default function Swiss(players, round, rated = false, colors = false) {
       if (curr.hasOwnProperty('avoid') && curr.avoid.includes(opp.id)) {
         continue;
       }
-      const baseWt = 3 * Math.log10(scoreSums.findIndex((s) => s === curr.score + opp.score) + 1);
+      const baseWt = 4 * Math.log10(scoreSums.findIndex((s) => s === curr.score + opp.score) + 1);
       let wt = baseWt;
       const scoreGroupDiff = Math.abs(
         scoreGroups.findIndex(
@@ -74,12 +74,9 @@ export default function Swiss(players, round, rated = false, colors = false) {
           (s) => s === opp.score,
         ),
       );
-      // eslint-disable-next-line no-nested-ternary
-      wt += scoreGroupDiff === 0
-        ? 33
-        : scoreGroupDiff < 2
-          ? 3 / Math.log10(scoreGroupDiff + 2)
-          : 1 / Math.log10(scoreGroupDiff + 2);
+      wt += scoreGroupDiff < 2
+        ? 3 / Math.log10(scoreGroupDiff + 2)
+        : 1 / Math.log10(scoreGroupDiff + 2);
       if (round > 2 && highest === Math.max(curr.score, opp.score)) {
         if (scoreGroupDiff === 1) {
           wt += 33;
@@ -88,18 +85,11 @@ export default function Swiss(players, round, rated = false, colors = false) {
           wt += 99;
         }
       }
-      // Special clause for byes
-      const isOdd = playerArray.length % 2 === 1;
-      if (isOdd
-          && lowest === Math.min(curr.score, opp.score)
-          && scoreGroupDiff < 1
-          && curr.receivedBye === false
-          && opp.receivedBye === false
-      ) {
-        wt -= 99;
+      if (curr.score !== lowest) {
+        wt *= 1.5;
       }
       if (scoreGroupDiff === 1 && curr.hasOwnProperty('pairedUpDown') && curr.pairedUpDown === false && opp.hasOwnProperty('pairedUpDown') && opp.pairedUpDown === false) {
-        wt += 1.2;
+        wt *= 1.5;
       }
       if (rated) {
         wt += (
