@@ -74,7 +74,7 @@ export default function Swiss(players, round, rated = false, colors = false) {
           (s) => s === opp.score,
         ),
       );
-      wt += scoreGroupDiff < 2
+      wt += scoreGroupDiff < 1
         ? 3 / Math.log10(scoreGroupDiff + 2)
         : 1 / Math.log10(scoreGroupDiff + 2);
       if (highest === Math.max(curr.score, opp.score)) {
