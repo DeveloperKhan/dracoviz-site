@@ -65,7 +65,7 @@ export default function Swiss(players, round, rated = false, colors = false) {
       if (curr.hasOwnProperty('avoid') && curr.avoid.includes(opp.id)) {
         continue;
       }
-      const baseWt = 14 * Math.log10(scoreSums.findIndex((s) => s === curr.score + opp.score) + 1);
+      const baseWt = 3 * Math.log10(scoreSums.findIndex((s) => s === curr.score + opp.score) + 1);
       let wt = baseWt;
       const scoreGroupDiff = Math.abs(
         scoreGroups.findIndex(
