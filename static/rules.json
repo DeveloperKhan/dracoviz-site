@@ -6957,7 +6957,10 @@
                     "weavile",
                     "whismur",
                     "wobbuffet",
-                    "xatu"
+                    "xatu",
+                    "pidgeot_shadow",
+                    "unfezant_shadow",
+                    "tranquill_shadow"
                 ]
             }],
             "exclude": [
@@ -7342,7 +7345,10 @@
                     "weavile",
                     "whismur",
                     "wobbuffet",
-                    "xatu"
+                    "xatu",
+                    "pidgeot_shadow",
+                    "unfezant_shadow",
+                    "tranquill_shadow"
                 ]
             }],
             "exclude": [
