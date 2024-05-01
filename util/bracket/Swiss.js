@@ -65,7 +65,7 @@ export default function Swiss(players, round, rated = false, colors = false) {
       if (curr.hasOwnProperty('avoid') && curr.avoid.includes(opp.id)) {
         continue;
       }
-      const baseWt = 4 * Math.log10(scoreSums.findIndex((s) => s === curr.score + opp.score) + 1);
+      const baseWt = 10 * Math.log10(scoreSums.findIndex((s) => s === curr.score + opp.score) + 1);
       let wt = baseWt;
       const scoreGroupDiff = Math.abs(
         scoreGroups.findIndex(
@@ -77,12 +77,12 @@ export default function Swiss(players, round, rated = false, colors = false) {
       wt += scoreGroupDiff < 2
         ? 3 / Math.log10(scoreGroupDiff + 2)
         : 1 / Math.log10(scoreGroupDiff + 2);
-      if (round > 2 && highest === Math.max(curr.score, opp.score)) {
+      if (round > 1 && highest === Math.max(curr.score, opp.score)) {
         if (scoreGroupDiff === 1) {
-          wt += 33;
+          wt += 10;
         }
         if (scoreGroupDiff === 0) {
-          wt += 99;
+          wt += 20;
         }
       }
       if (curr.score !== lowest) {
