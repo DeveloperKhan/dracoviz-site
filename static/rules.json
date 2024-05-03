@@ -6099,7 +6099,8 @@
                     "misdreavus",
                     "mismagius",
                     "shuppet",
-                    "yamask"
+                    "yamask",
+                    "poipole"
                 ]
             }],
             "exclude": [
@@ -6211,7 +6212,8 @@
                     "misdreavus",
                     "mismagius",
                     "shuppet",
-                    "yamask"
+                    "yamask",
+                    "poipole"
                 ]
             }],
             "exclude": [
@@ -6267,7 +6269,6 @@
                     "trevenant",
                     "varoom",
                     "palkia_origin",
-                    "poipole",
                     "samurott_hisuian",
                     "amoonguss",
                     "annihilape",
@@ -6444,7 +6445,6 @@
                     "trevenant",
                     "varoom",
                     "palkia_origin",
-                    "poipole",
                     "samurott_hisuian",
                     "amoonguss",
                     "annihilape",
