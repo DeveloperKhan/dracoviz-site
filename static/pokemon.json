@@ -34406,7 +34406,9 @@
             "hp": 167
         },
         "chargedMoves": [
-            "STRUGGLE"
+            "SLUDGE_BOMB", 
+            "SLUDGE_WAVE", 
+            "FELL_STINGER"
         ],
         "dex": 803,
         "family": {
@@ -34416,7 +34418,8 @@
             "id": "FAMILY_POIPOLE"
         },
         "fastMoves": [
-            "STRUGGLE"
+            "POISON_JAB", 
+            "PECK"
         ],
         "gender": "N",
         "sid": 25696,
@@ -46711,7 +46714,8 @@
             "DAZZLING_GLEAM",
             "GRASS_KNOT",
             "MEGAHORN",
-            "SOLAR_BEAM"
+            "SOLAR_BEAM",
+            "NATURES_MADNESS"
         ],
         "dex": 787,
         "fastMoves": [
@@ -46744,7 +46748,8 @@
             "HYDRO_PUMP",
             "ICE_BEAM",
             "MOONBLAST",
-            "SURF"
+            "SURF",
+            "NATURES_MADNESS"
         ],
         "dex": 788,
         "fastMoves": [
