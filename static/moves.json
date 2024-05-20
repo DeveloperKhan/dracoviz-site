@@ -359,6 +359,9 @@
     "High Horsepower": {
         "type": "ground"
     },
+    "High Jump Kick": {
+        "type": "fighting"
+    },
     "Horn Attack": {
         "type": "normal"
     },

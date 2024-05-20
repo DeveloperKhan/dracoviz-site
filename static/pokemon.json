@@ -48768,7 +48768,8 @@
             "ENERGY_BALL",
             "GRASS_KNOT",
             "STOMP",
-            "TRIPLE_AXEL"
+            "TRIPLE_AXEL",
+            "HIGH_JUMP_KICK"
         ],
         "dex": 763,
         "family": {
