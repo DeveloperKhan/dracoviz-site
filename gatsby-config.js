@@ -31,6 +31,12 @@ module.exports = {
       // the only required plugin option for WordPress is the GraphQL url.
       url: 'https://wp.dracoviz.com/graphql',
     },
+    schema: {
+      timeout: 600000,
+      perPage: 30, // currently set to 30
+      requestConcurrency: 15, // currently set to 15
+      previewRequestConcurrency: 5, // currently set to 5
+    },
   },
 
   /**
