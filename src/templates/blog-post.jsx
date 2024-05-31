@@ -21,6 +21,7 @@ import Pills from '../components/pills';
 import TournamentRoster from '../components/tournamentroster';
 import { delinkifyEvent } from '../utils/url-utils';
 import hydrateImages from '../../util/hydrateImages';
+import QualTable from '../components/qual-table';
 
 function BlogPostTemplate({ data: { previous, next, post } }) {
   const imageData = post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData;
@@ -36,6 +37,12 @@ function BlogPostTemplate({ data: { previous, next, post } }) {
       replace: ({ attribs, children }) => {
         if (!attribs) {
           return undefined;
+        }
+
+        if (attribs.classname === 'qual-table') {
+          return (
+            <QualTable data={attribs['data-attribute']} />
+          );
         }
 
         if (attribs.classname === 'player-list') {
