@@ -6943,5 +6943,97 @@
             ]
         }
     ]
+    },
+    "Tundra Cup": {
+        "name": "Tundra Cup",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/tundra.png/public",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "flags": {
+            "speciesClauseByDex": "true"
+        },
+        "exclude": [
+            {
+                "filterType": "type",
+                "values": [
+                    "fairy",
+                    "fire",
+                    "flying",
+                    "groudon",
+                    "rock",
+                    "steel",
+                    "electric"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "obstagoon",
+                    "vigoroth",
+                    "toxicroak",
+                    "toxicroak_shadow",
+                    "ursaring",
+                    "ursaring_shadow",
+                    "heracross",
+                    "buzzwole",
+                    "scrafty",
+                    "miltank",
+                    "greedent",
+                    "lokix",
+                    "dubwool",
+                    "munchlax",
+                    "castform",
+                    "araquanid",
+                    "toxapex",
+                    "arctibax",
+                    "oinkologne_female",
+                    "oinkologne",
+                    "cetoddle"
+                ]
+            },
+            {
+                "filterType": "except",
+                "values": [
+                    "scyther",
+                    "scyther_shadow",
+                    "vespiquen",
+                    "gyarados",
+                    "gyarados_shadow",
+                    "relicanth",
+                    "ledian",
+                    "ledian_shadow",
+                    "ninjask",
+                    "armaldo",
+                    "armaldo_shadow"
+                ]
+            }
+        ],
+        "include": [
+            {
+                "filterType": "type",
+                "values": [
+                    "normal",
+                    "poison",
+                    "bug",
+                    "dark",
+                    "ice"
+                ]
+            },
+            {
+                "filterType": "id",
+                "values": [
+                    "goodra",
+                    "politoed",
+                    "politoed_shadow",
+                    "tangrowth",
+                    "tangrowth_shadow",
+                    "relicanth",
+                    "gyarados",
+                    "gyarados_shadow"
+                ]
+            }
+        ]
     }
 }
