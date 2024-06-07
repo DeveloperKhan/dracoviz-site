@@ -5501,7 +5501,7 @@
                     "values": ["1-151", "152-251"]
                 }],
                 "exclude": [{
-                    "filterType": "dex",
+                    "filterType": "id",
                     "values": ["lickitung", "poliwrath", "poliwrath_shadow", "charizard", "charizard_shadow", "dragonair", "dragonair_shadow", "gligar", "gligar_shadow", "skarmory", "skarmory_shadow", "lanturn", "feraligatr", "feraligatr_shadow", "mantine"]
                 },
                 {
@@ -5519,7 +5519,7 @@
                     "values": ["1-151", "252-386"]
                 }],
                 "exclude": [{
-                    "filterType": "dex",
+                    "filterType": "id",
                     "values": ["lickitung", "poliwrath", "poliwrath_shadow", "charizard", "charizard_shadow", "dragonair", "dragonair_shadow", "registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham"]
                 },
                 {
@@ -5541,7 +5541,7 @@
                     "values": ["hisuian"]
                 }],
                 "exclude": [{
-                    "filterType": "dex",
+                    "filterType": "id",
                     "values": ["lickitung", "poliwrath", "poliwrath_shadow", "charizard", "charizard_shadow", "dragonair", "dragonair_shadow", "cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow"]
                 },
                 {
@@ -5559,7 +5559,7 @@
                     "values": ["1-151", "494-649"]
                 }],
                 "exclude": [{
-                    "filterType": "dex",
+                    "filterType": "id",
                     "values": ["lickitung", "poliwrath", "poliwrath_shadow", "charizard", "charizard_shadow", "dragonair", "dragonair_shadow", "mandibuzz", "jellicent"]
                 },
                 {
@@ -5581,7 +5581,7 @@
                     "values": ["paldean"]
                 }],
                 "exclude": [{
-                    "filterType": "dex",
+                    "filterType": "id",
                     "values": ["lickitung", "poliwrath", "poliwrath_shadow", "charizard", "charizard_shadow", "dragonair", "dragonair_shadow", "carbink", "arctibax", "goodra", "annihilape"]
                 },
                 {
@@ -5603,7 +5603,7 @@
                     "values": ["alolan", "galarian"]
                 }],
                 "exclude": [{
-                    "filterType": "dex",
+                    "filterType": "id",
                     "values": ["lickitung", "poliwrath", "poliwrath_shadow", "charizard", "charizard_shadow", "dragonair", "dragonair_shadow", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
                 },
                 {
@@ -5621,7 +5621,7 @@
                     "values": ["152-251", "252-386"]
                 }],
                 "exclude": [{
-                    "filterType": "dex",
+                    "filterType": "id",
                     "values": ["gligar", "gligar_shadow", "skarmory", "skarmory_shadow", "lanturn", "feraligatr", "feraligatr_shadow", "mantine", "registeel", "registeel_shadow", "swampert", "swampert_shadow", "whiscash", "whiscash_shadow", "medicham"]
                 },
                 {
@@ -5643,7 +5643,7 @@
                     "values": ["hisuian"]
                 }],
                 "exclude": [{
-                    "filterType": "dex",
+                    "filterType": "id",
                     "values": ["gligar", "gligar_shadow", "skarmory", "skarmory_shadow", "lanturn", "feraligatr", "feraligatr_shadow", "mantine", "cresselia", "bastiodon", "bastiodon_shadow", "giratina_origin", "gallade", "gallade_shadow"]
                 },
                 {
@@ -5661,7 +5661,7 @@
                     "values": ["152-251", "494-649"]
                 }],
                 "exclude": [{
-                    "filterType": "dex",
+                    "filterType": "id",
                     "values": ["gligar", "gligar_shadow", "skarmory", "skarmory_shadow", "lanturn", "feraligatr", "feraligatr_shadow", "mantine", "mandibuzz", "jellicent"]
                 },
                 {
@@ -5683,7 +5683,7 @@
                     "values": ["paldean"]
                 }],
                 "exclude": [{
-                    "filterType": "dex",
+                    "filterType": "id",
                     "values": ["gligar", "gligar_shadow", "skarmory", "skarmory_shadow", "lanturn", "feraligatr", "feraligatr_shadow", "mantine", "carbink", "arctibax", "goodra", "annihilape"]
                 },
                 {
@@ -5705,7 +5705,7 @@
                     "values": ["alolan", "galarian"]
                 }],
                 "exclude": [{
-                    "filterType": "dex",
+                    "filterType": "id",
                     "values": ["gligar", "gligar_shadow", "skarmory", "skarmory_shadow", "lanturn", "feraligatr", "feraligatr_shadow", "mantine", "sirfetch'd", "hakamo_o", "stunfisk_galarian"]
                 },
                 {
