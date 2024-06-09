@@ -17915,7 +17915,8 @@
             "MUDDY_WATER",
             "POWER_WHIP",
             "SLUDGE_WAVE",
-            "AQUA_TAIL"
+            "AQUA_TAIL",
+            "THUNDER_PUNCH"
         ],
         "dex": 706,
         "family": {
