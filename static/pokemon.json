@@ -24058,7 +24058,8 @@
             "BULLDOZE",
             "EARTHQUAKE",
             "STONE_EDGE",
-            "SUPER_POWER"
+            "SUPER_POWER",
+            "SANDSEAR_STORM"
         ],
         "dex": 645,
         "fastMoves": [
@@ -47392,7 +47393,8 @@
             "FOCUS_BLAST",
             "SLUDGE_WAVE",
             "THUNDER",
-            "THUNDERBOLT"
+            "THUNDERBOLT",
+            "WILDBOLT_STORM"
         ],
         "dex": 642,
         "fastMoves": [
@@ -48021,7 +48023,8 @@
             "FOCUS_BLAST",
             "HEAT_WAVE",
             "HURRICANE",
-            "PSYCHIC"
+            "PSYCHIC",
+            "BLEAKWIND_STORM"
         ],
         "dex": 641,
         "fastMoves": [
