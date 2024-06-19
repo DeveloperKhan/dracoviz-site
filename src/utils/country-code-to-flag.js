@@ -28,9 +28,9 @@ function countryCodeToCountry(countryCode) {
 * @returns {string} A flag emoji
 */
 export default function countryCodeToFlagEmoji(countryCode) {
-  if (!countryCode) {
-    throw new Error('countryCode is required');
-  }
-
-  return Array.from(countryCodeToCountry(countryCode)).map(letterToLetterEmoji).join('');
+  return countryCode == null
+    ? '🏳️'
+    : Array.from(countryCodeToCountry(countryCode))
+      .map(letterToLetterEmoji)
+      .join('');
 }
