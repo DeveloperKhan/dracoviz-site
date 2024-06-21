@@ -95,6 +95,11 @@
             "speciesClauseByDex": "true"
         }
     },
+    "No Rules": {
+        "name": "No Rules",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/master_league.png/public",
+        "maxCP": 10000
+    },
     "PC_MASTER_LEAGUE": {
         "name": "PC_MASTER_LEAGUE",
         "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/master_league.png/public",
