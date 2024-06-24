@@ -33,7 +33,7 @@ function findIndexes(matches, playerIdToSearch) {
 
 async function handler(req, res) {
   const {
-    tournamentId, player1, player2, matchIndex, scoreIndex, targetRoundIndex,
+    tournamentId, player1, player2, matchIndex, scoreIndex, targetRoundIndex, ignoreHost,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -95,7 +95,7 @@ async function handler(req, res) {
       return;
     }
 
-    if (!isHost) {
+    if (!isHost || ignoreHost) {
       // Is player
       const { targetMatchIndex, targetGroupIndex, targetParticipantIndex } = findIndexes(
         currentRound.matches,
