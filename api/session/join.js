@@ -57,16 +57,18 @@ async function handler(req, res) {
     const { key } = session;
 
     if (!isTeamTournament) {
-      if (session.host.includes(x_session_id)) {
-        res.status(401).json({ error: 'api_host_join_error', id: key, alreadyEntered: true });
-        return;
-      }
+      // if (session.host.includes(x_session_id)) {
+      //   res.status(401).json({ error: 'api_host_join_error', id: key, alreadyEntered: true });
+      //   return;
+      // }
       if (session.players.every((p) => x_session_id !== p.playerId)) {
         session.players.push({
           playerId: x_session_id,
           pokemon: [],
         });
-        player.sessions.push(tournamentId);
+        if (!player.sessions.includes(tournamentId)) {
+          player.sessions.push(tournamentId);
+        }
         await player.save();
         await session.save();
       } else {

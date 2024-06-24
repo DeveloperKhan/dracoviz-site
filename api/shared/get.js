@@ -35,16 +35,19 @@ async function handler(req, res) {
     const Session = await getSessionModel();
     await Promise.all(player.sessions.map(async (playerSession) => {
       try {
+        const roles = [];
         const session = await Session.findOne({ key: playerSession });
-        let role = 'Player';
         if (session.host.includes(player.session)) {
-          role = 'Host';
-        } else {
-          session.factions.forEach((faction) => {
-            if (faction.captain === player.session) {
-              role = 'Captain';
-            }
-          });
+          roles.push('Host');
+        }
+        session.factions.forEach((faction) => {
+          if (faction.captain === player.session) {
+            roles.push('Captain');
+          }
+        });
+        const playerInstance = session.players.find((x) => x.playerId === player.session);
+        if (playerInstance != null && !playerInstance.removed) {
+          roles.push('Player');
         }
         const {
           key, name, state, metas, currentRoundNumber, concluded,
@@ -57,7 +60,7 @@ async function handler(req, res) {
           concluded,
           playerValues: {
             status: state,
-            role,
+            roles,
             meta: rule.metaLogo,
           },
         });

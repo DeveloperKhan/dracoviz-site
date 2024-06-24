@@ -61,12 +61,6 @@ async function handler(req, res) {
       return;
     }
 
-    const isHostBeingRemoved = session.host.includes(sessionId);
-    if (isHostBeingRemoved) {
-      res.status(401).json({ error: 'api_host_leave_error' });
-      return;
-    }
-
     const thePlayerInSession = session.players.find((x) => x.playerId === sessionId);
     const theFactionId = thePlayerInSession.factionId;
 
@@ -105,7 +99,9 @@ async function handler(req, res) {
 
     const shouldRemoveCompletely = (
       session.bracketType !== bracketTypes.none && session.currentRoundNumber <= 0)
-      || (session.bracketTypes === bracketTypes.none && session.state === sessionStates.notStarted);
+      || (session.bracketType === bracketTypes.none
+        && (session.state === sessionStates.notStarted
+          || session.state === sessionStates.registerTeam));
     const {
       players,
       sessions,
@@ -114,7 +110,10 @@ async function handler(req, res) {
 
     session.bracket = bracket;
     session.players = players;
-    playerToRemove.sessions = sessions;
+    const isHostBeingRemoved = session.host.includes(sessionId);
+    if (!isHostBeingRemoved) {
+      playerToRemove.sessions = sessions;
+    }
 
     await playerToRemove.save();
     await session.save();
