@@ -46234,7 +46234,8 @@
         "chargedMoves": [
             "BUBBLE_BEAM",
             "HURRICANE",
-            "ICE_BEAM"
+            "ICE_BEAM",
+            "FLY"
         ],
         "dex": 581,
         "family": {
