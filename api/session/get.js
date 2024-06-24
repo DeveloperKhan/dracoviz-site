@@ -94,6 +94,17 @@ async function getFactions(session, playerId, factionId) {
   return { factions: factionObjs, isCaptain, teamCode };
 }
 
+async function getHosts(hosts) {
+  const Player = await getPlayerModel();
+  const hostNames = await Promise.all(
+    hosts?.map(async (host) => {
+      const hostObj = await Player.findOne({ session: host });
+      return hostObj?.name ?? '';
+    }),
+  );
+  return hostNames;
+}
+
 async function getPlayers(
   players,
   isHost,
@@ -246,6 +257,7 @@ async function handler(req, res) {
       isParticipant,
       hideFromGuests,
     );
+    const hostNames = await getHosts(host);
     const bracket = getBracket(
       session.bracket,
       players,
@@ -255,6 +267,7 @@ async function handler(req, res) {
 
     const maskedSession = {
       name: session.name,
+      hostNames,
       hideTeamsFromHost,
       description: session.description,
       bracketLink: session.bracketLink,
