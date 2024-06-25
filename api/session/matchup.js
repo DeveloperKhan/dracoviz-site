@@ -91,6 +91,7 @@ async function handler(req, res) {
       movesetsVisible,
       currentRoundNumber,
       hpVisible,
+      bestBuddyVisible,
     } = session;
     const {
       latestRound,
@@ -131,6 +132,7 @@ async function handler(req, res) {
             chargedMoves: movesetsVisible ? p.chargedMoves : null,
             fastMove: movesetsVisible ? p.fastMove : null,
             hp: hpVisible ? p.hp : null,
+            bestBuddy: bestBuddyVisible ? p.best_buddy : null,
           })) : [],
         };
       }
@@ -151,6 +153,7 @@ async function handler(req, res) {
           chargedMoves: p.chargedMoves,
           fastMove: p.fastMove,
           hp: p.hp,
+          bestBuddy: p.best_buddy,
         })),
       },
       opponent,
