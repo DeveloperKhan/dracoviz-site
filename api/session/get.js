@@ -6,6 +6,7 @@ import allowCors from '../../db/allowCors';
 import avatars from '../../static/avatars.json';
 import getFactionModel from '../../db/faction';
 import getPokemonData from '../../db/getPokemonData';
+import bracketTypes from '../../db/bracketTypes';
 
 function addMinutesToDate(date, minutesToAdd) {
   if (date == null) {
@@ -20,10 +21,13 @@ function findName(id, players) {
   if (id == null) {
     return 'Bye';
   }
+  if (id === '--') {
+    return '--';
+  }
   return players.find((p) => p.session === id)?.name ?? 'Unknown Player';
 }
 
-function getBracket(bracket, players, currentRoundNumber) {
+function getBracket(bracket, players, currentRoundNumber, bracketType) {
   if (currentRoundNumber == null
       || currentRoundNumber <= 0
       || bracket == null
@@ -32,7 +36,7 @@ function getBracket(bracket, players, currentRoundNumber) {
     return undefined;
   }
   const maskedBracket = bracket.map((b) => {
-    if (b.round > currentRoundNumber) {
+    if (b.round > currentRoundNumber && bracketType !== bracketTypes.singleElim) {
       return null;
     }
     const matches = b.matches.map((match) => {
@@ -262,6 +266,7 @@ async function handler(req, res) {
       session.bracket,
       players,
       currentRoundNumber,
+      bracketType,
     );
     const roundEndTime = addMinutesToDate(roundStartTime, timeControl);
 

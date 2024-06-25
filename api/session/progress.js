@@ -1,9 +1,47 @@
+/* eslint-disable no-param-reassign */
 import Swiss from '../../util/bracket/Swiss';
 import getSessionModel from '../../db/session';
 import getPlayerModel from '../../db/player';
 import allowCors from '../../db/allowCors';
 import bracketTypes from '../../db/bracketTypes';
 import calculateBracketStats from '../../util/calculateBracketStats';
+
+function promoteElimPlayers(bracket, currentRoundNumber) {
+  const currentRoundIndex = bracket.findIndex(
+    (r) => r.round === currentRoundNumber,
+  );
+  const currentRound = bracket[currentRoundIndex];
+  currentRound.matches.forEach((m) => {
+    const {
+      score, participants, win, loss,
+    } = m;
+    const winnerIndex = score[0].indexOf(Math.max(...score[0]));
+    const winnerId = participants[0][winnerIndex]?.playerId;
+    const loserId = participants[0][1 - winnerIndex]?.playerId;
+    if (win != null && win.round != null) {
+      const { round, match } = win;
+      const newRound = bracket[round];
+      const newMatchIndex = newRound?.matches?.findIndex((x) => x.seed === match);
+      const newMatch = newRound?.matches[newMatchIndex];
+      const missingIdIndex = newMatch?.participants[0]?.findIndex((p) => p.playerId === '--');
+      bracket[round]
+        .matches[newMatchIndex]
+        .participants[0][missingIdIndex]
+        .playerId = winnerId;
+    }
+    if (loss != null && loss.round != null) {
+      const { round, match } = loss;
+      const newRound = bracket[round];
+      const newMatchIndex = newRound?.matches?.findIndex((x) => x.seed === match);
+      const newMatch = newRound?.matches[newMatchIndex];
+      const missingIdIndex = newMatch?.participants[0]?.findIndex((p) => p.playerId === '--');
+      bracket[round]
+        .matches[newMatchIndex]
+        .participants[0][missingIdIndex]
+        .playerId = loserId;
+    }
+  });
+}
 
 function transformBracketFormat(inputArray, byeAward) {
   let bracket = null;
@@ -119,6 +157,7 @@ async function handler(req, res) {
         session.bracket,
         session.players,
         session.currentRoundNumber,
+        session.bracketType,
       );
       session.players = newPlayers;
     }
@@ -132,6 +171,10 @@ async function handler(req, res) {
         return;
       }
       session.bracket.push(round);
+    }
+
+    if (session.bracketType === bracketTypes.singleElim) {
+      promoteElimPlayers(session.bracket, session.currentRoundNumber);
     }
 
     session.roundStartTime = Date.now();

@@ -36,7 +36,8 @@ function deletePlayerFromSession(player, session, shouldRemoveCompletely) {
   const playerId = player.session;
   if (
     (bracketType === bracketTypes.swiss
-      || bracketType === bracketTypes.roundRobin)
+      || bracketType === bracketTypes.roundRobin
+      || bracketType === bracketTypes.singleElim)
     && currentRoundNumber > 0) {
     newBracket.forEach((currentRound, currentRoundIndex) => {
       const {

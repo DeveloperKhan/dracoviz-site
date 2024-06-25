@@ -1,6 +1,14 @@
-export default function calculateBracketStats(fullBracket, players, currentRoundNumber) {
+import bracketTypes from '../db/bracketTypes';
+
+export default function calculateBracketStats(
+  fullBracket,
+  players,
+  currentRoundNumber,
+  bracketType,
+) {
   const currentRoundIndex = Math.max(currentRoundNumber, 1);
-  const bracket = fullBracket.slice(0, currentRoundIndex);
+  const isElim = bracketType === bracketTypes.singleElim;
+  const bracket = isElim ? fullBracket : fullBracket.slice(0, currentRoundIndex);
   // Create a mapping object to store player information
   const playerMap = {};
 
@@ -12,7 +20,7 @@ export default function calculateBracketStats(fullBracket, players, currentRound
       match.participants.forEach((participants, i) => {
         participants.forEach((participant, j) => {
           // Check if the participant has a playerId
-          if (participant?.playerId != null) {
+          if (participant?.playerId != null && participant?.playerId !== '--') {
           // Initialize player information if not present
             if (!playerMap[participant.playerId]) {
               const thePlayer = players.find((x) => x.playerId === participant.playerId);
@@ -32,7 +40,7 @@ export default function calculateBracketStats(fullBracket, players, currentRound
             const player = playerMap[participant.playerId];
             const opponent = participants[1 - j] ? participants[1 - j]?.playerId : null;
 
-            if (opponent != null) {
+            if (opponent != null && opponent !== '--') {
               // Update opponents array
               player.opponents.push(opponent);
             }

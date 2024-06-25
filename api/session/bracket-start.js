@@ -5,11 +5,20 @@ import allowCors from '../../db/allowCors';
 import bracketTypes from '../../db/bracketTypes';
 import sessionStates from '../../db/sessionStates';
 import RoundRobin from '../../util/bracket/RoundRobin';
+import SingleElimination from '../../util/bracket/SingleElim';
 import shuffle from '../../util/bracket/Shuffle';
+
+function getPlayerTitle(playerId, hasAnticipatedOpp) {
+  if (playerId == null) {
+    return hasAnticipatedOpp ? '--' : null;
+  }
+  return playerId;
+}
 
 function transformBracketFormat(inputArray, byeAward) {
   const bracket = [];
   const rounds = new Set();
+  const references = [];
 
   // First, collect all unique rounds
   inputArray.forEach((match) => rounds.add(match.round));
@@ -18,17 +27,26 @@ function transformBracketFormat(inputArray, byeAward) {
   rounds.forEach((roundNumber) => {
     const matchesForRound = inputArray.filter((match) => match.round === roundNumber);
     const formattedMatches = matchesForRound.map((match) => {
-      const score = [match.player2 == null ? byeAward : 0, match.player1 == null ? byeAward : 0];
+      references.push(match.win);
+      references.push(match.loss);
+      const hasAnticipatedOpp = references
+        .find((w) => w?.round === roundNumber && w?.match === match.match) != null;
+      const score = [
+        (match.player2 == null && !hasAnticipatedOpp) ? byeAward : 0,
+        (match.player1 == null && !hasAnticipatedOpp) ? byeAward : 0,
+      ];
       return {
         seed: match.match,
         score: [score],
-        touched: match.player2 == null || match.player2 == null,
+        touched: !hasAnticipatedOpp && (match.player2 == null || match.player2 == null),
         participants: [
           [
-            { playerId: match.player1, score },
-            { playerId: match.player2, score },
+            { playerId: getPlayerTitle(match.player1, hasAnticipatedOpp), score },
+            { playerId: getPlayerTitle(match.player2, hasAnticipatedOpp), score },
           ],
         ],
+        win: match.win,
+        loss: match.loss,
       };
     });
 
@@ -52,6 +70,11 @@ function calculateSwissRounds(players) {
   const rounds = Math.log2(roundedPlayers);
 
   return rounds;
+}
+
+function calculateSingleElimRounds(numOfPlayers) {
+  // Calculate the total number of rounds using logarithms
+  return Math.ceil(Math.log2(numOfPlayers));
 }
 
 function getSwissPlayers(players) {
@@ -126,6 +149,11 @@ async function handler(req, res) {
       const roundRobinBracket = RoundRobin(players, 0, true);
       bracket = transformBracketFormat(roundRobinBracket, session.byeAward ?? 1);
       totalRounds = bracket.length;
+    } else if (session.bracketType === bracketTypes.singleElim) {
+      const players = shuffle(session.players.map((p) => p.playerId));
+      const singleElimBracket = SingleElimination(players, 0, false, true);
+      totalRounds = calculateSingleElimRounds(players.length);
+      bracket = transformBracketFormat(singleElimBracket, session.byeAward ?? 1);
     }
 
     session.roundStartTime = Date.now();

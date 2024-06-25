@@ -66,6 +66,7 @@ async function handler(req, res) {
       session.bracket,
       players,
       currentRoundNumber,
+      session.bracketType,
     );
     session.players = newPlayers;
     session.bracket = bracket.slice(0, -1);

@@ -112,6 +112,14 @@ const getSessionModel = async () => {
             touched: { type: Boolean, default: false },
             removed: { type: Boolean, default: false },
           }]],
+          win: {
+            round: Number,
+            match: Number,
+          },
+          loss: {
+            round: Number,
+            match: Number,
+          },
         },
       ],
     }],
