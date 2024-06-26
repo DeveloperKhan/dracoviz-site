@@ -12,6 +12,7 @@ const getSessionModel = async () => {
     },
     name: { type: String, required: true },
     host: [String],
+    createdAt: { type: Date },
     registrationNumber: String,
     description: { type: String },
     bracketLink: { type: String },

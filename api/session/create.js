@@ -90,6 +90,7 @@ async function handler(req, res) {
       bracketLink,
       serverInviteLink,
       isPrivate,
+      createdAt: Date.now(),
       maxTeams,
       maxTeamSize,
       matchTeamSize: maxMatchTeamSize,
