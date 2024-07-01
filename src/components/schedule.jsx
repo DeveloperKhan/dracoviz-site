@@ -87,7 +87,6 @@ function orderPostsByStartMonth(posts) {
     4: [],
     5: [],
     6: [],
-    7: [],
     8: [],
   };
   posts.forEach((post) => {
