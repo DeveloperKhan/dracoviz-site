@@ -33,7 +33,11 @@ async function handler(req, res) {
 
     const sessions = [];
     const Session = await getSessionModel();
-    await Promise.all(player.sessions.map(async (playerSession) => {
+    const playersSessions = player.sessions;
+    if (playersSessions.length > 40) {
+      playersSessions.splice(0, playersSessions.length - 40);
+    }
+    await Promise.all(playersSessions.map(async (playerSession) => {
       try {
         const roles = [];
         const session = await Session.findOne({ key: playerSession });
