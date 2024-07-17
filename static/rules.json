@@ -7051,7 +7051,7 @@
         "flags": {
             "speciesClauseByDex": "true"
         },
-        "exclude": [
+        "include": [
             {
                 "filterType": "id",
                 "values": [
@@ -7237,7 +7237,7 @@
         "flags": {
             "speciesClauseByDex": "true"
         },
-        "exclude": [
+        "include": [
             {
                 "filterType": "id",
                 "values": [
@@ -7385,7 +7385,7 @@
         "flags": {
             "speciesClauseByDex": "true"
         },
-        "exclude": [
+        "include": [
             {
                 "filterType": "id",
                 "values": [
@@ -7535,7 +7535,7 @@
         "flags": {
             "speciesClauseByDex": "true"
         },
-        "exclude": [
+        "include": [
             {
                 "filterType": "id",
                 "values": [
