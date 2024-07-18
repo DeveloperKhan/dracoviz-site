@@ -30482,11 +30482,16 @@
             "hp": 219
         },
         "chargedMoves": [
-            "STRUGGLE"
+            "DARK_PULSE",
+            "FUTURE_SIGHT",
+            "IRON_HEAD",
+            "OUTRAGE"
         ],
         "dex": 800,
         "fastMoves": [
-            "STRUGGLE"
+            "METAL_CLAW",
+            "PSYCHO_CUT",
+            "SHADOW_CLAW"
         ],
         "gender": "N",
         "sid": 25600,
@@ -30508,11 +30513,17 @@
             "hp": 200
         },
         "chargedMoves": [
-            "STRUGGLE"
+            "DARK_PULSE",
+            "FUTURE_SIGHT",
+            "IRON_HEAD",
+            "OUTRAGE",
+            "MOONGEIST_BEAM"
         ],
         "dex": 800,
         "fastMoves": [
-            "STRUGGLE"
+            "METAL_CLAW",
+            "PSYCHO_CUT",
+            "SHADOW_CLAW"
         ],
         "gender": "N",
         "sid": 25602,
@@ -30534,11 +30545,17 @@
             "hp": 200
         },
         "chargedMoves": [
-            "STRUGGLE"
+            "DARK_PULSE",
+            "FUTURE_SIGHT",
+            "IRON_HEAD",
+            "OUTRAGE",
+            "SUNSTEEL_STRIKE"
         ],
         "dex": 800,
         "fastMoves": [
-            "STRUGGLE"
+            "METAL_CLAW",
+            "PSYCHO_CUT",
+            "SHADOW_CLAW"
         ],
         "gender": "N",
         "sid": 25601,
@@ -53956,5 +53973,113 @@
         "thirdMoveCost": 100000,
         "released": false,
         "sid": 28961
+    },
+    "heracross_mega": {
+        "baseStats": {
+            "atk": 334,
+            "def": 223,
+            "hp": 190
+        },
+        "chargedMoves": [
+            "CLOSE_COMBAT",
+            "EARTHQUAKE",
+            "MEGAHORN",
+            "ROCK_BLAST"
+        ],
+        "dex": 214,
+        "fastMoves": [
+            "COUNTER",
+            "STRUGGLE_BUG"
+        ],
+        "gender": "male",
+        "sid": 6849,
+        "speciesId": "heracross_mega",
+        "speciesName": "Heracross (Mega)",
+        "tags": [
+            "regional",
+            "mega"
+        ],
+        "types": [
+            "bug",
+            "fighting"
+        ]
+    },
+    "garchomp_mega": {
+        "baseStats": {
+            "atk": 339,
+            "def": 222,
+            "hp": 239
+        },
+        "chargedMoves": [
+            "EARTHQUAKE",
+            "EARTH_POWER",
+            "FIRE_BLAST",
+            "OUTRAGE",
+            "SAND_TOMB"
+        ],
+        "dex": 445,
+        "eliteMoves": [
+            "EARTH_POWER"
+        ],
+        "family": {
+            "id": "FAMILY_GIBLE",
+            "parent": "gabite"
+        },
+        "fastMoves": [
+            "DRAGON_TAIL",
+            "MUD_SHOT"
+        ],
+        "gender": "male",
+        "nicknames": [
+            "chomp"
+        ],
+        "searchPriority": 8,
+        "sid": 14241,
+        "speciesId": "garchomp_mega",
+        "speciesName": "Garchomp (Mega)",
+        "tags": [
+            "mega"
+        ],
+        "types": [
+            "dragon",
+            "ground"
+        ]
+    },
+    "lucario_mega": {
+        "baseStats": {
+            "atk": 236,
+            "def": 144,
+            "hp": 172
+        },
+        "chargedMoves": [
+            "AURA_SPHERE",
+            "BLAZE_KICK",
+            "CLOSE_COMBAT",
+            "FLASH_CANNON",
+            "POWER_UP_PUNCH",
+            "SHADOW_BALL",
+            "THUNDER_PUNCH"
+        ],
+        "dex": 448,
+        "family": {
+            "id": "FAMILY_LUCARIO",
+            "parent": "riolu"
+        },
+        "fastMoves": [
+            "BULLET_PUNCH",
+            "COUNTER",
+            "FORCE_PALM"
+        ],
+        "gender": "male",
+        "sid": 14337,
+        "speciesId": "lucario_mega",
+        "speciesName": "Lucario (Mega)",
+        "tags": [
+            "mega"
+        ],
+        "types": [
+            "fighting",
+            "steel"
+        ]
     }
 }
