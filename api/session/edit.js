@@ -7,7 +7,7 @@ async function handler(req, res) {
   const {
     name, description, serverInviteLink,
     bracketLink, registrationClosed, tournamentId,
-    hideTeamsFromHost, timeControl,
+    hideTeamsFromHost, timeControl, requireBothPlayersToReport,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -66,6 +66,8 @@ async function handler(req, res) {
     session.registrationClosed = registrationClosed ?? session.registrationClosed;
     session.hideTeamsFromHost = hideTeamsFromHost ?? session.hideTeamsFromHost;
     session.timeControl = timeControl ?? session.timeControl;
+    session.requireBothPlayersToReport = requireBothPlayersToReport
+      ?? session.requireBothPlayersToReport;
 
     await session.save();
     res.status(200).send({});
