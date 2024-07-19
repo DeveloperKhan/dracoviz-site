@@ -8,6 +8,7 @@ async function handler(req, res) {
     name, description, serverInviteLink,
     bracketLink, registrationClosed, tournamentId,
     hideTeamsFromHost, timeControl, requireBothPlayersToReport,
+    playAllMatches,
   } = req.body;
   const { x_authorization, x_session_id } = req.headers;
   if (x_authorization == null) {
@@ -68,6 +69,8 @@ async function handler(req, res) {
     session.timeControl = timeControl ?? session.timeControl;
     session.requireBothPlayersToReport = requireBothPlayersToReport
       ?? session.requireBothPlayersToReport;
+    session.playAllMatches = playAllMatches
+      ?? session.playAllMatches;
 
     await session.save();
     res.status(200).send({});
