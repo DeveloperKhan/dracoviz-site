@@ -4095,19 +4095,21 @@
             "hp": 142
         },
         "chargedMoves": [
-            "STRUGGLE"
+            "MYSTICAL_FIRE",
+            "OVERHEAT",
+            "SHADOW_BALL"
         ],
         "dex": 806,
         "fastMoves": [
-            "STRUGGLE"
+            "ASTONISH",
+            "INCINERATE"
         ],
         "gender": "N",
         "sid": 25792,
         "speciesId": "blacephalon",
         "speciesName": "Blacephalon",
         "tags": [
-            "ultrabeast",
-            "unreleased"
+            "ultrabeast"
         ],
         "types": [
             "fire",
