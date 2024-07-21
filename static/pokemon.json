@@ -12464,7 +12464,8 @@
         },
         "fastMoves": [
             "ACID",
-            "SPARK"
+            "SPARK",
+            "VOLT_SWITCH"
         ],
         "gender": "male",
         "searchPriority": 2,
