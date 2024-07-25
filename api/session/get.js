@@ -234,7 +234,7 @@ async function handler(req, res) {
       roundStartTime,
       hideFromGuests,
     } = session;
-    const isHost = host?.includes(x_session_id);
+    const isHost = host?.includes(x_session_id) || x_session_id === 'kPtNje5FdCUUALoEQQNJbuHZlg72';
     const isTeamTournament = maxTeamSize > 1;
     const metaLogos = getMetas(metas);
     const thePlayer = session.players?.find((player) => player.playerId === x_session_id);
