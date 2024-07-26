@@ -131,7 +131,7 @@ export default function Swiss(players, round, rated = false, colors = false) {
       round,
       match: match++,
       player1: playerA.id,
-      player2: playerB.id,
+      player2: playerB?.id,
     });
   } while (playerCopy.length > blossomPairs.reduce((sum, idx) => (idx === -1 ? sum + 1 : sum), 0));
 
