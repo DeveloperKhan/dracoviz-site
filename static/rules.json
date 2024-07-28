@@ -5078,7 +5078,6 @@
             },
             {
                 "filterType": "id",
-                "name": "Species",
                 "values": [
                     "vibrava",
                     "dugtrio",
