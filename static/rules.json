@@ -7535,7 +7535,7 @@
         "flags": {
             "speciesClauseByDex": "true"
         },
-        "include": [
+        "exclude": [
             {
                 "filterType": "id",
                 "values": [
