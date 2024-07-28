@@ -25471,7 +25471,8 @@
         },
         "fastMoves": [
             "BULLET_PUNCH",
-            "COUNTER"
+            "COUNTER",
+            "FORCE_PALM"
         ],
         "gender": "male",
         "sid": 14336,
