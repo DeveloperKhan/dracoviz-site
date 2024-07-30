@@ -7702,5 +7702,24 @@
                 ]
             }
         ]
+    },
+    "Ordinary Gauntlet": {
+        "name": "Ordinary Gauntlet",
+        "metaLogo":"https://imagedelivery.net/2qzpDFW7Yl3NqBaOSqtWxQ/cf5809bb-b12f-4376-b7dd-394f0aac7000/public",
+        "maxCP": 1500,
+        "maxLevel": 50,
+        "maxBestBuddy": 1,
+        "maxMega": 0,
+        "flags": {
+            "speciesClauseByDex": "true"
+        },
+        "include": [
+            {
+                "filterType": "id",
+                "values": [
+                    "wyrdeer","accelgor","alomomola","amaura","araquanid","arboliva","arcanine_hisuian","arctibax","ariados","aromatisse","audino","aurorus","avalugg","avalugg_hisuian","axew","barbaracle","basculin","baxcalibur","beartic","beautifly","beheeyem","bellibolt","bergmite","bisharp","boldore","bombirdier","bonsly","bouffalant","braixen","braviary","brionne","bronzong","bruxish","buneary","carnivine","castform","castform_rainy","castform_snowy","castform_sunny","cetitan","chatot","cherrim_overcast","cherrim_sunny","chespin","chimecho","chinchou","cinccino","clamperl","clauncher","clawitzer","claydol","clefairy","cofagrigus","comfey","corsola","crabominable","crabrawler","crocalor","cryogonal","darmanitan_galarian_standard","dartrix","darumaka_galarian","decidueye_hisuian","dedenne","deerling","delcatty","dewott","dolliv","dragalge","drampa","druddigon","dubwool","dunsparce","durant","dustox","eelektrik","electrode_hisuian","elgyem","emolga","escavalier","espurr","falinks","farfetchd_galarian","flabebe","fletchinder","floatzel","floette","floragato","florges","fraxure","frigibax","frillish","frogadier","fuecoco","furfrou","furret","garbodor","gastrodon_west_sea","gastrodon_east_sea","gholdengo","gogoat","goldeen","golisopod","gorebyss","gourgeist_average","gourgeist_large","gourgeist_small","gourgeist_super","greedent","growlithe_hisuian","gumshoos","hakamo_o","hawlucha","heatmor","heliolisk","heracross","herdier","houndstone","huntail","illumise","jellicent","kabuto","karrablast","kecleon","klang","kleavor","klefki","klinklang","komala","kommo_o","krabby","kricketune","krokorok","krookodile","lanturn","larvesta","leavanny","lilligant","linoone","linoone_galarian","litleo","lokix","lombre","lopunny","ludicolo","lumineon","lunatone","lurantis","lycanroc_dusk","lycanroc_midday","lycanroc_midnight","magcargo","malamar","mankey","mantyke","maractus","masquerain","maushold","meowscarada","meowstic_female","meowstic","mienfoo","mienshao","milotic","miltank","minun","mothim","mr_mime","mr_mime_galarian","mr_rime","munchlax","munna","musharna","ninjask","noctowl","octillery","oinkologne","oinkologne_female","oranguru","oricorio_baile","oricorio_pau","oricorio_pom_pom","oricorio_sensu","overqwil","pachirisu","palossand","palpitoad","pancham","pangoro","passimian","pawmo","pawmot","pawniard","pelipper","perrserker","persian_alolan","pignite","plusle","ponyta_galarian","popplio","pumpkaboo_average","pumpkaboo_large","pumpkaboo_small","pumpkaboo_super","pyroar","quaquaval","quaxwell","quilladin","qwilfish","qwilfish_hisuian","raichu_alolan","rapidash_galarian","relicanth","revavroom","ribombee","roggenrola","roselia","rotom","rotom_frost","rotom_heat","rotom_mow","rotom_wash","rowlet","rufflet","runerigus","salazzle","samurott_hisuian","sandygast","sawsbuck","scolipede","scraggy","seismitoad","servine","seviper","shellos_west_sea","shellos_east_sea","shiinotic","sigilyph","simipour","simisage","simisear","skeledirge","skiddo","skrelp","sliggoo","slowpoke_galarian","slurpuff","solrock","spinda","spiritomb","spritzee","stoutland","stufful","stunfisk","stunfisk_galarian","sunflora","swadloon","swalot","swellow","swirlix","swoobat","tauros","togedemaru","torkoal","torracat","toucannon","trevenant","tropius","trumbeak","turtonator","typhlosion_hisuian","tyrantrum","tyrunt","unown","vanillish","vanilluxe","varoom","vespiquen","vivillon","volbeat","vullaby","weezing_galarian","whimsicott","whirlipede","wormadam_plant","wormadam_sandy","wormadam_trash","wugtrio","yanma","yanmega","zangoose","zoroark","zweilous"
+                ]
+            }
+        ]
     }
 }
