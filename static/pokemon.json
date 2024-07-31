@@ -4095,21 +4095,19 @@
             "hp": 142
         },
         "chargedMoves": [
-            "MYSTICAL_FIRE",
-            "OVERHEAT",
-            "SHADOW_BALL"
+            "STRUGGLE"
         ],
         "dex": 806,
         "fastMoves": [
-            "ASTONISH",
-            "INCINERATE"
+            "STRUGGLE"
         ],
         "gender": "N",
         "sid": 25792,
         "speciesId": "blacephalon",
         "speciesName": "Blacephalon",
         "tags": [
-            "ultrabeast"
+            "ultrabeast",
+            "unreleased"
         ],
         "types": [
             "fire",
@@ -12464,8 +12462,7 @@
         },
         "fastMoves": [
             "ACID",
-            "SPARK",
-            "VOLT_SWITCH"
+            "SPARK"
         ],
         "gender": "male",
         "searchPriority": 2,
@@ -25471,8 +25468,7 @@
         },
         "fastMoves": [
             "BULLET_PUNCH",
-            "COUNTER",
-            "FORCE_PALM"
+            "COUNTER"
         ],
         "gender": "male",
         "sid": 14336,
@@ -54085,5 +54081,23 @@
             "fighting",
             "steel"
         ]
+    },
+    "wyrdeer": {
+        "dex": 899,
+        "speciesName": "Wyrdeer",
+        "speciesId": "wyrdeer",
+        "baseStats": {
+            "atk": 206,
+            "def": 145,
+            "hp": 230
+        },
+        "types": ["normal", "psychic"],
+        "fastMoves": ["TACKLE", "ZEN_HEADBUTT", "CONFUSION"],
+        "chargedMoves": ["MEGAHORN", "STOMP", "WILD_CHARGE", "PSYCHIC"],
+        "family": {
+            "id": "FAMILY_STANTLER",
+            "parent": "stantler"
+        },
+        "sid": 28768
     }
 }
