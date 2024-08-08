@@ -8614,7 +8614,42 @@
         "speciesId": "cresselia",
         "speciesName": "Cresselia",
         "tags": [
-            "legendary"
+            "legendary",
+            "shadoweligible"
+        ],
+        "types": [
+            "none",
+            "psychic"
+        ]
+    },
+    "cresselia_shadow": {
+        "baseStats": {
+            "atk": 152,
+            "def": 258,
+            "hp": 260
+        },
+        "chargedMoves": [
+            "AURORA_BEAM",
+            "FUTURE_SIGHT",
+            "GRASS_KNOT",
+            "MOONBLAST"
+        ],
+        "dex": 488,
+        "eliteMoves": [
+            "GRASS_KNOT"
+        ],
+        "fastMoves": [
+            "CONFUSION",
+            "PSYCHO_CUT"
+        ],
+        "gender": "F",
+        "searchPriority": 32,
+        "sid": 15616,
+        "speciesId": "cresselia",
+        "speciesName": "Cresselia",
+        "tags": [
+            "legendary",
+            "shadow"
         ],
         "types": [
             "none",
@@ -25468,7 +25503,8 @@
         },
         "fastMoves": [
             "BULLET_PUNCH",
-            "COUNTER"
+            "COUNTER",
+            "FORCE_PALM"
         ],
         "gender": "male",
         "sid": 14336,
