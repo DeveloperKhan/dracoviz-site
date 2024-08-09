@@ -8645,8 +8645,8 @@
         "gender": "F",
         "searchPriority": 32,
         "sid": 15616,
-        "speciesId": "cresselia",
-        "speciesName": "Cresselia",
+        "speciesId": "cresselia_shadow",
+        "speciesName": "Cresselia (Shadow)",
         "tags": [
             "legendary",
             "shadow"
